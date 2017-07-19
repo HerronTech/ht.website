@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+@-ms-viewport {
+    width: device-width;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.visible-phone {
+    display: none !important;
+}
+
+.visible-tablet {
+    display: none !important;
+}
+
+.hidden-desktop {
+    display: none !important;
+}
+
+.visible-desktop {
+    display: inherit !important;
+}
+
+.visible-print {
+    display: none !important;
+}
+
+@media print {
+    .visible-print {
+        display: inherit !important;
+    }
+
+    .hidden-print {
+        display: none !important;
+    }
+}
+
+@media (min-width: 480px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+/***
+max widths
+*/
+
+@media (max-width: 800px) {
+
+}
+
+@media (max-width: 767px) {
+}
+
+@media (max-width: 480px) {
+
+
+}
