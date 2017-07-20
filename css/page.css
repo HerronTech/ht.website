@@ -1,0 +1,530 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+body, html {
+    font-size: 17px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family:"OpenSans-Light";
+    line-height: 1.9em;
+    color: #5E5E73;
+}
+
+p {
+    line-height: 1.9em;
+}
+
+a img {
+    border: none;
+}
+
+a {
+    color: rgb(65, 100, 126);
+    font-weight: 400;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    color: #DA9437;
+    text-decoration: none;
+}
+
+h2, .h2 {
+    font-size: 30px;
+
+}
+
+.clear{
+    clear: both;
+}
+/**************
+ width control
+**************/
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.quarter-width {
+    width: 25%;
+}
+
+.three-quarter-width {
+    width: 75%;
+}
+
+
+/**********************
+*
+* basic backgroubd colors
+*
+**********************/
+.white, .simple {
+    background-color: white;
+}
+
+.simple {
+    margin-bottom: 40px;
+}
+
+
+.black {
+    background-color: #000000;
+}
+
+.bgNone {
+    background: none;
+}
+
+/**********************
+*
+* social media colors
+*
+**********************/
+.fbColor {
+    background-color: #3B569E
+}
+
+.twitterColor {
+    background-color: #5DA6DB
+}
+
+.instaColor {
+    background-color: #0383B0
+}
+
+
+/**********************
+*
+* HT specific colors
+*
+**********************/
+.gray {
+    background-color: #676775;
+}
+.lavenderGray
+{
+    background-color: #C0BEDD;
+}
+.roti {
+    background-color:#caa34d;
+}
+.Casablanca
+{
+    background-color:#F3C047;
+}
+.hintRed{
+    background-color: #F5F2F2;
+}
+.comet{
+    background-color: #5e5e8a;
+}
+
+.santasGray {
+    background-color: #a5a3ad;
+}
+.wedgewood {
+    background-color: #4f819f;
+}
+.saffron{
+    background-color: #f1bb3b;
+}
+.kimberly{
+    background-color: #6f6f9a;
+}
+/*************************************************************************************
+*
+* Background hover effects
+*
+*************************************************************************************/
+.white-hover:hover {
+    background-color: white;
+}
+
+.gray-hover:hover {
+    background-color: #676775;
+}
+.lavenderGray-hover:hover {
+    background-color:  #C0BEDD
+}
+.roti-hover:hover {
+    background-color:#caa34d;
+}
+.Casablanca-hover:hover
+{
+    background-color:#F3C047;
+}
+
+.hintRed-hover:hover{
+    background-color: #F5F2F2;
+}
+.comet-hover:hover{
+    background-color: #5e5e8a;
+}
+
+.santasGray-hover:hover {
+    background-color: #a5a3ad;
+}
+
+.wedgewood-hover:hover {
+    background-color: #4f819f;
+}
+.saffron-hover:hover{
+     background-color: #f1bb3b;
+ }
+
+.kimberly-hover:hover{
+    background-color: #6f6f9a;
+}
+/*************************************************************************************
+*
+* text coloring
+*
+*************************************************************************************/
+.white-txt {
+    color: white;
+}
+
+.gray-txt {
+    color: #676775;
+}
+
+.twitterColor-txt {
+    color: #5DA6DB
+}
+
+.lavenderGray-txt{
+    color:  #C0BEDD
+}
+
+.roti-txt{
+     color:#caa34d;
+}
+.Casablanca-txt
+{
+    color:#F3C047;
+}
+.hintRed-txt{
+    color: #F5F2F2;
+}
+.comet-txt{
+  color: #5e5e73;
+}
+
+.santasGray-txt {
+  color: #a5a3ad;
+}
+
+.wedgewood-txt {
+   color: #4f819f;
+}
+.saffron-txt {
+    color: #f1bb3b;
+}
+.kimberly-txt{
+   color: #6f6f9a;
+}
+/*************************************************************************************
+*
+* text hover-effects
+*
+*************************************************************************************/
+.white-txt-hover:hover {
+    color: white;
+}
+
+.gray-txt-hover:hover {
+    color: #676775;
+}
+
+.lavenderGray-txt-hover:hover {
+    color:  #C0BEDD
+}
+
+.roti-txt-hover:hover{
+    color:#caa34d;
+}
+.Casablanca-txt-hover:hover
+{
+    color:#F3C047;
+}
+
+
+/*************************************************************************************
+*
+* border coloring
+*
+*************************************************************************************/
+.white-border {
+    border-color: white;
+    border-style: solid;
+}
+
+.gray-border {
+    border-color: #676775;
+    border-style: solid;
+}
+
+
+.lavenderGray-border {
+    border-color: #C0BEDD;
+    border-style: solid;
+}
+/*************************************************************************************
+*
+* border hover coloring
+*
+*************************************************************************************/
+.white-border-hover:hover {
+    border-color: white;
+    border-style: solid;
+}
+
+.gray-border-hover:hover {
+    border-color: #676775;
+    border-style: solid;
+}
+
+/**********************
+*
+* images control
+*
+**********************/
+
+img.wide {
+    max-width: 700px;
+}
+
+img.thumb {
+    max-width: 300px;
+}
+
+
+/* # custome css goes here **/
+
+/**********************
+*
+* carousel control
+*
+**********************/
+#myCarousel{
+    z-index: 0;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    max-height: 650px;
+    min-height: 650px;
+    height: 650px;
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    line-height: 1;
+
+
+    opacity: 0.11;
+    filter: alpha(opacity=11); /* For IE8 and earlier */
+}
+
+/**
+this is the over layer that gives the image the bluesh vibe
+ */
+.carousel-inner{
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    background: rgba(57, 57, 88, 1); /* #393958 */
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+
+
+.carousel-inner .item h3 {
+    font-family: GeorginaDemo;
+    font-size : 65px;
+    color :white;
+}
+.carousel-inner .item p {
+    font-family: OpenSans-Light;
+    font-size : 25px;
+    color :white;
+}
+
+
+.carousel-caption
+{
+    bottom : 210px;
+}
+/**********************
+*
+* Navigation
+*
+**********************/
+top-menu{
+    width:100%;
+}
+.navbar {
+    margin-bottom: 20px;
+    min-height: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.navbar.navbar-default{
+    z-index: 9;
+    box-shadow:none;
+    background: none;
+    border: none;
+}
+.navbar-right
+{
+    margin-right: 150px;
+}
+.navbar-default .navbar-nav > li > a
+{
+    color: #C0BEDD;
+    padding-top:50px;
+    font-family: OpenSans;
+    font-size:18px;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a:hover
+{
+    color: #caa34d;;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a
+{
+    padding-top:45px;
+    color: #caa34d;;
+    background: none;
+    box-shadow: none;
+    border-top: 5px solid #caa34d;
+}
+
+.navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .active > a:hover{
+background: none;
+}
+
+
+
+/**********************
+*
+* LOGO
+*
+**********************/
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
+    padding-top:50px;
+    margin-left: 30px;
+}
+
+.navbar-brand img {
+    max-width:100% !important;
+    clear:both;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+.navbar-brand:hover img {
+    -webkit-transform:scale(1.3);
+    transform:scale(1.3);
+}
+
+/**********************
+*
+* buttons
+*
+**********************/
+.btn{
+
+    padding-left: 79px;
+    padding-right: 79px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.carousel-inner .btn {
+    margin-top: 22px;
+}
+
+/**********************
+*
+* main index
+*
+**********************/
+.main{
+  /*  position: relative; */
+}
+
+.full-width .row{
+    margin: auto;
+    width:80%;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+.underline
+{
+    width: 90px;
+    height:5px;
+}
+
+.main h1{
+    font-family:  "GeorginaDemo";
+    font-size: 53px;
+    text-transform: uppercase;
+}
+.main h2{
+    font-family:"OpenSans-Light";
+    font-size: 25px;
+}
+.main p.bold{
+
+    font-family:  "OpenSans-Bold";
+    font-size: 18px;
+}
+.main p{
+    font-family:"OpenSans-Light";
+     font-size: 17px;
+ }
+/**********************
+*
+* digital Vortex
+*
+**********************/
+
+.vortex li{
+
+    font-family:  "OpenSans-Light";
+    font-size: 17px;
+}
+h3.vortex{
+
+    padding-bottom:22px;
+}
+/**********************
+*
+* KPI
+*
+**********************/
+.kpi h3{
+  text-transform: uppercase;
+    font-size:18px;
+}
+.box .fa{
+font-size: 36px;
+}
