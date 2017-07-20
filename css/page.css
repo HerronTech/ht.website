@@ -66,7 +66,7 @@ h2, .h2 {
 
 /**********************
 *
-* white: plain section full width with white background
+* basic backgroubd colors
 *
 **********************/
 .white, .simple {
@@ -78,14 +78,7 @@ h2, .h2 {
 }
 
 .gray {
-    background-color: gray;
-}
-.lavenderGray
-{
-    background-color: #C0BEDD;
-}
-.roti {
-    background-color:#caa34d;
+    background-color: #676775;
 }
 
 .black {
@@ -98,77 +91,9 @@ h2, .h2 {
 
 /**********************
 *
-* navy :  section with navy background
+* social media colors
 *
 **********************/
-.navy {
-    background-color: #19303f;
-}
-
-/**********************
-*
-* navy-dark :  section with navy-dark background,
-*
-**********************/
-.navy-dark {
-    background-color: #122733
-}
-
-/**********************
-*
-* yellow :  section with yello background,
-*
-**********************/
-.yellow {
-    background-color: #f49c1c
-}
-
-/**********************
-*
-* yellow-light :  section with Light Yellow background,
-*
-**********************/
-.yellow-light {
-    background-color: #f4b500
-}
-
-/**********************
-*
-* yellow-dark :  section with Dark Yellow background,
-*
-**********************/
-.yellow-dark {
-    background-color: #f48600
-}
-
-/**********************
-*
-* blue :  section with  Blue background,
-*
-**********************/
-.blue {
-    background-color: #397999
-}
-
-/**********************
-*
-* red :  section with  Red background,
-*
-**********************/
-.red {
-    background-color: #aa3f3f
-}
-
-/**********************
-*
-* green :  section with  Green background,
-*
-**********************/
-.green {
-    background-color: #418774
-}
-
-
 .fbColor {
     background-color: #3B569E
 }
@@ -181,6 +106,24 @@ h2, .h2 {
     background-color: #0383B0
 }
 
+
+/**********************
+*
+* HT specific colors
+*
+**********************/
+.lavenderGray
+{
+    background-color: #C0BEDD;
+}
+.roti {
+    background-color:#caa34d;
+}
+.Casablanca
+{
+    background-color:#F3C047;
+}
+
 /*************************************************************************************
 *
 * Background hover effects
@@ -191,12 +134,18 @@ h2, .h2 {
 }
 
 .gray-hover:hover {
-    background-color: gray
+    background-color: #676775;
 }
-.lavenderGray:hover {
+.lavenderGray-hove:hover {
     background-color:  #C0BEDD
 }
-
+.roti-hove:hover {
+    background-color:#caa34d;
+}
+.Casablanca-hove:hover
+{
+    background-color:#F3C047;
+}
 
 /*************************************************************************************
 *
@@ -208,7 +157,7 @@ h2, .h2 {
 }
 
 .gray-txt {
-    color: gray
+    color: #676775;
 }
 
 .twitterColor-txt {
@@ -222,6 +171,10 @@ h2, .h2 {
 .roti-txt{
      color:#caa34d;
 }
+.Casablanca-txt
+{
+    color:#F3C047;
+}
 
 /*************************************************************************************
 *
@@ -233,11 +186,19 @@ h2, .h2 {
 }
 
 .gray-txt-hover:hover {
-    color: gray;
+    color: #676775;
 }
 
 .lavenderGray-txt-hover:hover {
     color:  #C0BEDD
+}
+
+.roti-txt-hover:hover{
+    color:#caa34d;
+}
+.Casablanca-txt-hover:hover
+{
+    color:#F3C047;
 }
 
 
@@ -252,7 +213,7 @@ h2, .h2 {
 }
 
 .gray-border {
-    border-color: gray;
+    border-color: #676775;
     border-style: solid;
 }
 
@@ -272,7 +233,7 @@ h2, .h2 {
 }
 
 .gray-border-hover:hover {
-    border-color: gray;
+    border-color: #676775;
     border-style: solid;
 }
 
@@ -308,6 +269,8 @@ img.thumb {
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block;
     max-height: 650px;
+    min-height: 650px;
+    height: 650px;
     min-width: 100%;
     width: 100%;
     max-width: 100%;
@@ -350,7 +313,7 @@ this is the over layer that gives the image the bluesh vibe
 
 .carousel-caption
 {
-    bottom : 310px;
+    bottom : 210px;
 }
 /**********************
 *
@@ -416,4 +379,20 @@ background: none;
 .navbar-brand:hover img {
     -webkit-transform:scale(1.3);
     transform:scale(1.3);
+}
+
+/**********************
+*
+* buttons
+*
+**********************/
+.btn{
+
+    padding-left: 79px;
+    padding-right: 79px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.carousel-inner .btn {
+    margin-top: 22px;
 }
