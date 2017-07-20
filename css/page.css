@@ -527,3 +527,10 @@ h3.vortex{
 .box .fa{
 font-size: 36px;
 }
+
+
+.kpi .box{
+    text-align : center;
+    border : 1px solid #f7f7f7;
+    padding: 30px 18px;
+}
