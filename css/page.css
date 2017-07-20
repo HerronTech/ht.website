@@ -553,8 +553,7 @@ font-size: 36px;
 * KPI
 *
 **********************/
-.focus hr
+.focus hr.thick
 {
-    width: 100%;
     height:15px;
 }
