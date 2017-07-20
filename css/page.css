@@ -149,6 +149,12 @@ li{
 .anzac{
     background-color: #daab3d;
 }
+.gunPowder{
+    background-color: #43435F;
+}
+.manatee{
+    background-color: #9c9ca0;
+}
 /*************************************************************************************
 *
 * Background hover effects
@@ -244,7 +250,14 @@ li{
 .anzac-txt{
     color: #daab3d;
 }
+.gunPowder-txt{
+    color: #43435F;
+}
+.manatee-txt{
+    color: #9c9ca0;
+}
 /*************************************************************************************
+
 *
 * text hover-effects
 *
@@ -462,6 +475,8 @@ background: none;
 **********************/
 .btn{
 
+    font-family: OpenSans-Bold;
+    font-size:18px;
     padding-left: 79px;
     padding-right: 79px;
     padding-bottom: 20px;
