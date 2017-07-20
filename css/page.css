@@ -42,6 +42,9 @@ h2, .h2 {
 
 }
 
+li{
+    list-style: none;}
+
 .clear{
     clear: both;
 }
@@ -143,6 +146,9 @@ h2, .h2 {
 .kimberly{
     background-color: #6f6f9a;
 }
+.anzac{
+    background-color: #daab3d;
+}
 /*************************************************************************************
 *
 * Background hover effects
@@ -234,6 +240,9 @@ h2, .h2 {
 }
 .kimberly-txt{
    color: #6f6f9a;
+}
+.anzac-txt{
+    color: #daab3d;
 }
 /*************************************************************************************
 *
@@ -510,6 +519,10 @@ background: none;
 
     font-family:  "OpenSans-Light";
     font-size: 17px;
+}
+.vortex li i{
+    font-size: 22px;
+    padding-right: 12px;
 }
 h3.vortex{
 
