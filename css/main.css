@@ -30,23 +30,3 @@
     display: table;
     content: " "
 }
-
-.yellowbar{
-    background-color: #f3c047;
-    height:3px;
-    width: 92px;
-    margin: 0 auto;
-}
-
-.carousel-inner h6{
-    font-size:14px;
-}
-
-.bold{
-    font-family:  "OpenSans-Bold";
-    font-size: 18px;
-}
-
-.pink{
-    color: #f79f9f;
-}

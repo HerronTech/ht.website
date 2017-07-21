@@ -44,10 +44,6 @@ h2, .h2 {
 li{
     list-style: none;}
 
-
-.clear{
-    clear: both;
-}
 /**************
  width control
 **************/
@@ -155,6 +151,9 @@ li{
 .manatee{
     background-color: #9c9ca0;
 }
+.rosebud {
+    background-color: #f79f9f;
+}
 /*************************************************************************************
 *
 * Background hover effects
@@ -255,6 +254,9 @@ li{
 }
 .manatee-txt{
     color: #9c9ca0;
+}
+.rosebud-txt {
+    color: #f79f9f;
 }
 /*************************************************************************************
 
@@ -391,6 +393,11 @@ this is the over layer that gives the image the bluesh vibe
 .carousel-caption
 {
     bottom : 210px;
+}
+
+
+.carousel-inner h6{
+    font-size:14px;
 }
 /**********************
 *
@@ -538,6 +545,15 @@ background: none;
     font-family:"OpenSans-Light";
      font-size: 17px;
  }
+
+
+.yellowbar{
+    background-color: #f3c047;
+    height:3px;
+    width: 92px;
+    margin: 0 auto;
+}
+
 /**********************
 *
 * digital Vortex
@@ -579,7 +595,7 @@ font-size: 36px;
 
 /**********************
 *
-* KPI
+* focus
 *
 **********************/
 .focus hr.thick
