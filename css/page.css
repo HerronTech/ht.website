@@ -731,7 +731,7 @@ footer{
 
 footer .full-width .row{
     margin: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
     height: 90px;
+    font-size:12px;
 }
