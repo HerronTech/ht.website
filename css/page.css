@@ -229,8 +229,16 @@ li{
 .hintRed-txt{
     color: #F5F2F2;
 }
+
+.check {
+    margin-left:0;
+    padding-left:15px;
+}
+
 .comet-txt{
   color: #5e5e73;
+  margin-left:0;
+  padding-left:15px;
 }
 
 .santasGray-txt {
@@ -416,6 +424,7 @@ top-menu{
     right: 0;
     top: 0;
     width: 100%;
+    border-radius: 0;
 }
 
 .navbar.navbar-default{
@@ -431,20 +440,29 @@ top-menu{
 .navbar-default .navbar-nav > li > a
 {
     color: #C0BEDD;
-    padding-top:50px;
+    padding-top:40px;
     font-family: OpenSans;
     font-size:18px;
     text-transform: uppercase;
 
+    transition: color .7s;
     /* add transition */
 }
 
-.navbar-default .navbar-nav > li > a:hover
-{
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    padding-top:35px;
+    color: #caa34d;;
+    background: none;
+    box-shadow: none;
+    border-top: 5px solid #caa34d;
+    transition: color .7s, border-color .7s;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
     color: #caa34d;;
 }
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a
-{
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a{
     padding-top:45px;
     color: #caa34d;;
     background: none;
@@ -453,7 +471,7 @@ top-menu{
 }
 
 .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .active > a:hover{
-background: none;
+    background: none;
 }
 
 
@@ -464,6 +482,7 @@ background: none;
 **********************/
 .navbar-default.scrolling {
     background-color: white;
+    border-bottom:solid 1px #fefefe;
 }
 
 /**********************
@@ -472,7 +491,7 @@ background: none;
 *
 **********************/
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
-    padding-top:50px;
+    padding-top:40px;
     margin-left: 30px;
 }
 
