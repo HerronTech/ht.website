@@ -41,9 +41,9 @@ h2, .h2 {
     font-size: 30px;
 
 }
-
 li{
     list-style: none;}
+
 
 .clear{
     clear: both;
@@ -617,6 +617,27 @@ input.form-control ,textarea.form-control{
     color: #f3c047;
     font-size: 13px;
 }
+
+
+/**********************
+*
+* check lists
+*
+**********************/
+ul.check li {
+    padding-left: 1.3em;
+}
+ul.check li:before {
+    content: "\f00c"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -2.3em; /* same as padding-left set on li */
+    width: 2.3em; /* same as padding-left set on li */
+}
+ul.kimberly-check li:before {
+    color: #7875a5;
+}
+
 
 /**********************
 *
