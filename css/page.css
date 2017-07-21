@@ -45,6 +45,12 @@ li{
     list-style: none;}
 
 /**************
+ cursors
+**************/
+.pointer{
+    cursor:pointer
+}
+/**************
  width control
 **************/
 .full-width {
