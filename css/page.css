@@ -386,7 +386,9 @@ this is the over layer that gives the image the bluesh vibe
 
 .carousel-caption
 {
-    bottom : 210px;
+    top : 170px;
+    left:10%;
+    right:10%;
 }
 
 
