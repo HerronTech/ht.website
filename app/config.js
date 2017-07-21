@@ -1,7 +1,7 @@
 'use strict';
-var sitekey = "6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj";
-var captcha1, captcha2, captcha3;
-var iCaptcha1Value, aValueCaptcha, ccaptcha;
+var sitekey = "6LfA6ykUAAAAAJlJ9MDpdGKL2HuKK9JvC5UUWzq5";
+var captcha1;
+var iCaptcha1Value;
 
 var myCallBack = function () {
 	//Render the recaptcha1 on the element with ID "recaptcha1"
@@ -9,21 +9,6 @@ var myCallBack = function () {
 		'sitekey': sitekey,
 		"callback": function (value) {
 			iCaptcha1Value = value;
-		}
-	});
-	
-	//Render the recaptcha2 on the element with ID "recaptcha2"
-	captcha2 = grecaptcha.render('captcha2', {
-		'sitekey': sitekey,
-		"callback": function (value) {
-			aValueCaptcha = value;
-		}
-	});
-	
-	captcha3 = grecaptcha.render('captcha3', {
-		'sitekey': sitekey,
-		"callback": function (value) {
-			ccaptcha = value;
 		}
 	});
 };
