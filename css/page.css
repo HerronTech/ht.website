@@ -681,6 +681,15 @@ ul.anzac-bullet li:before {
 
 /**********************
 *
+* Modals
+*
+**********************/
+.modal-dialog {
+    margin: 30px auto;
+    width: 90%;
+}
+/**********************
+*
 * footer
 *
 **********************/
