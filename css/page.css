@@ -401,14 +401,17 @@ this is the over layer that gives the image the bluesh vibe
 
 .carousel-caption
 {
-    top : 170px;
-    left:10%;
-    right:10%;
+    top : 110px;
+    left:12%;
+    right:12%;
+
 }
 
 
 .carousel-inner h6{
     font-size:14px;
+    max-width: 65%;
+    margin: 0 auto;
 }
 
 .no-georgina{
