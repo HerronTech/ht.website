@@ -428,7 +428,10 @@ top-menu{
     font-family: OpenSans;
     font-size:18px;
     text-transform: uppercase;
+
+    /* add transition */
 }
+
 .navbar-default .navbar-nav > li > a:hover
 {
     color: #caa34d;;
