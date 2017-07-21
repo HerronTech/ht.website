@@ -609,3 +609,15 @@ input.form-control ,textarea.form-control{
     color: #f3c047;
     font-size: 13px;
 }
+
+/**********************
+*
+* footer
+*
+**********************/
+footer{
+    height: 90px;
+    width: 100%;
+    margin: 0;
+    padding:0;
+}
