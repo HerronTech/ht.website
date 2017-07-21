@@ -101,8 +101,6 @@
             };
 
             $.getScript( "https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function( data, textStatus, jqxhr ) {
-                alert( "Load was performed." );
-                $("input[type=submit]").removeAttr("disabled");// tmp to be removed
                 myCallBack();
             });
 
