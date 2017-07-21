@@ -621,6 +621,11 @@ font-size: 36px;
     font-size:15px;
 }
 
+.kpi .box:hover{
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(243, 243, 243, 0.32);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(243, 243, 243, 0.32);
+    box-shadow: 0px 0px 15px 0px rgba(243, 243, 243, 0.32);
+}
 /**********************
 *
 * focus
