@@ -334,6 +334,10 @@ li{
 *
 **********************/
 
+.my-image{
+    max-width:525px;
+}
+
 img.wide {
     max-width: 700px;
 }
@@ -433,9 +437,8 @@ top-menu{
     background: none;
     border: none;
 }
-.navbar-right
-{
-    margin-right: 150px;
+.navbar-right {
+    margin-right: 125px;
 }
 .navbar-default .navbar-nav > li > a
 {
