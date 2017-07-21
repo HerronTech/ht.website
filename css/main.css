@@ -4,6 +4,12 @@
    our custom styles  -- applies to all pages
    ========================================================================== */
 
+
+
+
+/**************
+ clear divisions
+**************/
 .clearfix {
     display: inline-block;
 }
@@ -29,4 +35,29 @@
 .clearfix:before, .clearfix:after {
     display: table;
     content: " "
+}
+
+/**************
+ cursors
+**************/
+.pointer{
+    cursor:pointer
+}
+/**************
+ width control
+**************/
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.quarter-width {
+    width: 25%;
+}
+
+.three-quarter-width {
+    width: 75%;
 }

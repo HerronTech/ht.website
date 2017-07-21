@@ -44,30 +44,6 @@ h2, .h2 {
 li{
     list-style: none;}
 
-/**************
- cursors
-**************/
-.pointer{
-    cursor:pointer
-}
-/**************
- width control
-**************/
-.full-width {
-    width: 100%;
-}
-
-.half-width {
-    width: 50%;
-}
-
-.quarter-width {
-    width: 25%;
-}
-
-.three-quarter-width {
-    width: 75%;
-}
 
 
 /**********************
@@ -692,7 +668,14 @@ ul.anzac-bullet li:before {
 **********************/
 .modal-dialog {
     margin: 30px auto;
-    width: 90%;
+    width: auto;
+}
+.modal-header , .modal-footer{
+    border: none;
+}
+.modal-header .close{
+opacity: 1;
+text-shadow: none;
 }
 /**********************
 *
