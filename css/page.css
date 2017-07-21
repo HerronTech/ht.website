@@ -230,8 +230,16 @@ li{
 .hintRed-txt{
     color: #F5F2F2;
 }
+
+.check {
+    margin-left:0;
+    padding-left:15px;
+}
+
 .comet-txt{
   color: #5e5e73;
+  margin-left:0;
+  padding-left:15px;
 }
 
 .santasGray-txt {
