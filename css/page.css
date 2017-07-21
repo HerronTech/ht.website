@@ -51,6 +51,12 @@ li{
 * basic backgroubd colors
 *
 **********************/
+
+.transparent{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
 .white, .simple {
     background-color: white;
 }
@@ -606,6 +612,9 @@ font-size: 36px;
     text-align : center;
     border : 1px solid #f7f7f7;
     padding: 30px 18px;
+}
+.kpi .box p{
+    font-size:15px;
 }
 
 /**********************
