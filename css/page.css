@@ -634,10 +634,12 @@ ul.check li:before {
     margin-left: -2.3em; /* same as padding-left set on li */
     width: 2.3em; /* same as padding-left set on li */
 }
-ul.kimberly-check li:before {
+ul.kimberly-bullet li:before {
     color: #7875a5;
 }
-
+ul.anzac-bullet li:before {
+    color: #daab3d;
+}
 
 /**********************
 *
