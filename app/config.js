@@ -4,6 +4,7 @@ var captcha1;
 var iCaptcha1Value;
 
 var myCallBack = function () {
+    $("input[type=submit]").removeAttr("disabled");
 	//Render the recaptcha1 on the element with ID "recaptcha1"
 	captcha1 = grecaptcha.render('captcha1', {
 		'sitekey': sitekey,

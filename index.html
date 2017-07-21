@@ -84,12 +84,10 @@
                 event.preventDefault();
                 $('#main-nav').toggleClass("open");
             });
-
-
             $.getScript( "https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function( data, textStatus, jqxhr ) {
-                myCallBack();
-            });
+                $("input[type=submit]").removeAttr("disabled");
 
+            });
 
         }, 3000);
 
