@@ -115,10 +115,9 @@ li{
 .santasGray {
     background-color: #a5a3ad;
 }
-athensGray {
+.athensGray {
     background-color: #f3f3f7;
 }
-
 .wedgewood {
     background-color: #4f819f;
 }
@@ -173,7 +172,7 @@ athensGray {
 .santasGray-hover:hover {
     background-color: #a5a3ad;
 }
-athensGray-hover:hover {
+.athensGray-hover:hover {
     background-color: #f3f3f7;
 }
 
@@ -234,6 +233,9 @@ athensGray-hover:hover {
   color: #a5a3ad;
 }
 
+.athensGray-txt {
+    color: #f3f3f7;
+}
 .wedgewood-txt {
    color: #4f819f;
 }
@@ -611,11 +613,14 @@ font-size: 36px;
 * focus
 *
 **********************/
-.focus hr.thick
+.focus .thick
 {
     height:15px;
 }
-
+.focus .fa
+{
+    font-size:25px;
+}
 input.form-control ,textarea.form-control{
     border : none;
     background: none;
