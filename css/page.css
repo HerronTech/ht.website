@@ -115,6 +115,10 @@ li{
 .santasGray {
     background-color: #a5a3ad;
 }
+athensGray {
+    background-color: #f3f3f7;
+}
+
 .wedgewood {
     background-color: #4f819f;
 }
@@ -168,6 +172,9 @@ li{
 
 .santasGray-hover:hover {
     background-color: #a5a3ad;
+}
+athensGray-hover:hover {
+    background-color: #f3f3f7;
 }
 
 .wedgewood-hover:hover {
