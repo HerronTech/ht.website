@@ -1,7 +1,7 @@
 jQuery(window).scroll(function() {
     var scroll = jQuery(window).scrollTop();
 
-    if (scroll >= 600 && jQuery(window).width() > 767 ) {
+    if (scroll >= 90 && jQuery(window).width() > 767 ) {
         jQuery(".navbar").addClass("scrolling");
 
     } else {
