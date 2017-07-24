@@ -693,6 +693,9 @@ input.form-control ,textarea.form-control{
   transition: all 0.7s ease;
   margin-top:33px;
   margin-bottom:33px;
+
+  border-radius: 33px;
+  padding: 20px;
 }
 .contact img:hover {
    -webkit-transform:scale(1.3);
