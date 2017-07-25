@@ -37,7 +37,7 @@ app.config([
 				}
 			}
 		});
-		
+
 		$routeProvider.otherwise({
 			redirectTo: '/'
 		});
@@ -54,12 +54,9 @@ app.config([
 
 app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
     $scope.pageTitle = "";
-    $scope.titleLine2 = "";
-	$scope.subTitle = "";
 
 	$scope.$on('refreshPageTitle', function (event, args) {
         $scope.pageTitle = args.title;
-        $scope.titleLine2 = args.subTitle;
 	});
 
 	$scope.today = new Date().getTime();
@@ -70,22 +67,22 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 
 	$scope.$on('$routeChangeSuccess', function (event, current, previous) {
 		$scope.currentLocation = $location.path();
-		// for (var entry = 0; entry < navigation.length; entry++) {
-		// 	var urlOnly = navigation[entry].url.replace('/:anchor?', '').replace("/:section?", '');
-		// 	if (urlOnly === $scope.currentLocation) {
-		// 		if (navigation[entry].title && navigation[entry].title !== '') {
-		// 			jQuery('head title').html(navigation[entry].title);
-		// 		}
-		//
-		// 		if (navigation[entry].keywords && navigation[entry].keywords !== '') {
-		// 			jQuery('head meta[name=keywords]').attr('content', navigation[entry].keywords);
-		// 		}
-		//
-		// 		if (navigation[entry].description && navigation[entry].description !== '') {
-		// 			jQuery('head meta[name=description]').attr('content', navigation[entry].description);
-		// 		}
-		// 	}
-		// }
+		for (var entry = 0; entry < navigation.length; entry++) {
+			var urlOnly = navigation[entry].url.replace('/:anchor?', '').replace("/:section?", '');
+			if (urlOnly === $scope.currentLocation) {
+				if (navigation[entry].title && navigation[entry].title !== '') {
+					jQuery('head title').html(navigation[entry].title);
+				}
+
+				if (navigation[entry].keywords && navigation[entry].keywords !== '') {
+					jQuery('head meta[name=keywords]').attr('content', navigation[entry].keywords);
+				}
+
+				if (navigation[entry].description && navigation[entry].description !== '') {
+					jQuery('head meta[name=description]').attr('content', navigation[entry].description);
+				}
+			}
+		}
 
 		var subPagesDetection = $scope.currentLocation.match(/\//g);
 		if (subPagesDetection.length > 1) {
@@ -108,10 +105,17 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 }]);
 
 app.directive('topMenu', function () {
-	return {
-		restrict: 'E',
-		templateUrl: 'app/templates/topMenu.html'
-	}
+  return {
+    restrict: 'E',
+    templateUrl: 'app/templates/topMenu.html'
+  }
+});
+
+app.directive('innerMenu', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'app/templates/innerMenu.html'
+  }
 });
 
 

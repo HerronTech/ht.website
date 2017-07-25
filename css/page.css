@@ -724,6 +724,43 @@ ul.anzac-bullet li:before {
     color: #daab3d;
 }
 
+
+
+
+/**********************
+*
+* inner pages
+*
+**********************/
+.iTopMenu{
+  height: 450px;
+  width:100%;
+  background: #31344f;
+
+  background: url('../images/vortex-menu.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.overlay {
+  background: rgba(57, 57, 88, 0.6) none repeat scroll 0 0;
+  height: 450px;
+  left: 0;
+  margin: 0;
+  opacity: 1;
+  padding: 60px 0 80px;
+  top: 0;
+  transition: all 1s ease 0s;
+  width: 100%;
+}
+
+.iTopMenu h1{
+  margin-top: 150px;
+  font-size:65px;
+  font-family: GeorginaDemo;
+}
+
 /**********************
 *
 * Modals
