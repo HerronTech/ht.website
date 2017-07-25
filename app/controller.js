@@ -52,7 +52,7 @@ app.config([
 	}
 ]);
 
-app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
+app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', function ($scope, $location, $routeParams, $timeout) {
     $scope.pageTitle = "";
 
 	$scope.$on('refreshPageTitle', function (event, args) {
@@ -67,8 +67,9 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 
 	$scope.$on('$routeChangeSuccess', function (event, current, previous) {
 		$scope.currentLocation = $location.path();
+		
 		for (var entry = 0; entry < navigation.length; entry++) {
-			var urlOnly = navigation[entry].url.replace('/:anchor?', '').replace("/:section?", '');
+			var urlOnly = navigation[entry].url.replace('/:anchor?', '');
 			if (urlOnly === $scope.currentLocation) {
 				if (navigation[entry].title && navigation[entry].title !== '') {
 					jQuery('head title').html(navigation[entry].title);
@@ -83,25 +84,14 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 				}
 			}
 		}
-
-		var subPagesDetection = $scope.currentLocation.match(/\//g);
-		if (subPagesDetection.length > 1) {
-			var p = $location.path().split(/\//);
-			$scope.currentLocation = "/" + p[1];
-		}
-
-		if ($routeParams.anchor) {
-			var sp = '/' + $routeParams.anchor;
-			var p = $location.path().split(sp);
-			$scope.currentLocation = p[0];
-		}
-
+		
+		$timeout(function(){
+			if ($routeParams.anchor) {
+				scrollToID('#' + $routeParams.anchor, 750);
+			}
+		}, 100);
 	});
-
-	$scope.copyrightYear = "2015";
-	var thisYear = new Date().getFullYear();
-	$scope.copyrightYear = 2015 + " - " + thisYear;
-
+	
 }]);
 
 app.directive('topMenu', function () {
