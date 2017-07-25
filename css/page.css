@@ -114,6 +114,8 @@ li{
 .hintRed{
     background-color: #F5F2F2;
 }
+
+
 .comet{
     background-color: #5e5e8a;
 }
@@ -127,14 +129,30 @@ li{
 .wedgewood {
     background-color: #4f819f;
 }
-.saffron{
-    background-color: #f1bb3b;
-}
+
 .kimberly{
     background-color: #6f6f9a;
 }
 .anzac{
     background-color: #daab3d;
+}
+.saffron{
+   background-color: #f1bb3b;
+ }
+
+
+.carrot{
+  background-color: #F29B21;
+}
+.appleBlossom{
+  background-color: #A94040;
+
+}
+.viridian{
+  background-color: #418675;
+}
+.calypso{
+  background-color: #3B7A98;
 }
 .gunPowder{
     background-color: #43435F;
@@ -145,6 +163,8 @@ li{
 .rosebud {
     background-color: #f79f9f;
 }
+
+
 /*************************************************************************************
 *
 * Background hover effects
@@ -167,7 +187,19 @@ li{
 {
     background-color:#F3C047;
 }
+.carrot-hover:hover{
+   background-color: #F29B21;
+ }
+.appleBlossom-hover:hover{
+  background-color: #A94040;
 
+}
+.viridian-hover:hover{
+  background-color: #418675;
+}
+.calypso-hover:hover{
+  background-color: #3B7A98;
+}
 .hintRed-hover:hover{
     background-color: #F5F2F2;
 }
@@ -223,7 +255,19 @@ li{
 .hintRed-txt{
     color: #F5F2F2;
 }
+.carrot-txt{
+ color: #F29B21;
+}
+.appleBlossom-txt{
+  color: #A94040;
 
+}
+.viridian-txt{
+ color: #418675;
+}
+.calypso-txt{
+  color: #3B7A98;
+}
 .check {
     margin-left:0;
     padding-left:15px;
@@ -779,15 +823,18 @@ ul.anzac-bullet li:before {
 }
 .inner p {
   margin-bottom: 22px;
+}
+.inner p , .inner ul{
+
   color: #5e5e73;
   font-size:18px;
   font-family: OpenSans-Light;
 }
-/**********************
-*
-* Modals
-*
-**********************/
+  /**********************
+  *
+  * Modals
+  *
+  **********************/
 .modal-dialog {
     margin: 30px auto;
     width: auto;
