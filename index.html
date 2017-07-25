@@ -16,7 +16,9 @@
 	<!--STYLES-->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/font-soajs.css">
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/page.css">
     <link rel="stylesheet" href="/css/responsive.css">
@@ -57,9 +59,9 @@
 	<footer id="section-footer" >
 		<div ng-include="'app/templates/footer.html'" ></div>
 	</footer>
-	
+
 	<script>
-	
+
 	    $(function(){
 	        setTimeout(function(){
 	            $('#myCarousel').carousel({
@@ -84,15 +86,15 @@
 	            });
 	            $.getScript( "https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function( data, textStatus, jqxhr ) {
 	                $("input[type=submit]").removeAttr("disabled");
-	
+
 	            });
-	
+
 	        }, 3000);
-	
-	
+
+
 	    });
-	
-	
+
+
 	    // scroll function
 	    function scrollToID(id, speed){
 	        var offSet = 50;
@@ -109,7 +111,7 @@
 	            log: function() { }
 	        };
 	    }
-	
+
 	</script>
 
 </body>
