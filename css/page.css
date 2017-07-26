@@ -804,8 +804,12 @@ ul.anzac-bullet li:before {
   font-size:65px;
   font-family: GeorginaDemo;
 }
+
+.inner{
+  padding-bottom:90px;
+  padding-top:90px;
+}
 .inner h1 {
-  margin-top: 92px;
   margin-bottom  : 50px;
   text-align: center;
   text-transform: uppercase;
