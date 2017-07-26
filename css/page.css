@@ -100,6 +100,7 @@ li{
 .gray {
     background-color: #676775;
 }
+
 .lavenderGray
 {
     background-color: #C0BEDD;
@@ -163,8 +164,14 @@ li{
 .rosebud {
     background-color: #f79f9f;
 }
-
-
+.cornflowerBlue
+{
+  background-color:  #6195ED;
+}
+.pickledBluewood
+{
+  background-color:  #293f50;
+}
 /*************************************************************************************
 *
 * Background hover effects
@@ -307,12 +314,30 @@ li{
 .rosebud-txt {
     color: #f79f9f;
 }
-/*************************************************************************************
+.cornflowerBlue-txt
+{
+  color:  #6195ED;
+}
+.pickledBluewood-txt
+ {
+   color:  #293f50;
+ }
+.core{
+  padding-top: 33px;
+}
+.inner .core h2 , .inner  .core p {
+  color: white;
+  margin-top: 2px;
+}
+.inner .core i{
+  font-size: 32px;
+}
+  /*************************************************************************************
 
-*
-* text hover-effects
-*
-*************************************************************************************/
+  *
+  * text hover-effects
+  *
+  *************************************************************************************/
 .white-txt-hover:hover {
     color: white;
 }
@@ -834,6 +859,43 @@ ul.anzac-bullet li:before {
   font-size:18px;
   font-family: OpenSans-Light;
 }
+.inner i{
+  margin-right: 15px;
+}
+
+.inner ul.disc li{
+list-style-type: disc;
+}
+
+
+/**********************
+*
+* tables
+*
+**********************/
+.table{
+  margin-top : 90px;
+}
+td {
+  border : 1px solid  gray;
+
+}
+th.bordered{
+  border : 1px solid  gray;
+
+}
+.table > thead:first-child > tr:first-child > th.bordered
+{
+  border-top: 1px solid darkgray;
+}
+
+.inner .table h2{
+  margin-top: 0;
+}
+
+
+
+
   /**********************
   *
   * Modals
