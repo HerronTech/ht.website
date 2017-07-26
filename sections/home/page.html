@@ -269,8 +269,8 @@
         <div class="clearfix"></div>
       </div>
       <div class="col-md-12">
-	      <p>Our Products are turnkey software as a service solutions designed to enable you to create and launch new products in a matter of Days!</p>
-	      <p>You focus on creating new Business Applications while we take care of the Platform Enterprise “Core” you need.</p>
+	      <p>Our Products are turnkey software as a service solutions designed to enable you to create and launch new products in a matter of Days! You focus on creating new Business Applications while we take care of the Platform Enterprise “Core” you need.</p>
+          <p>We guarantee that what we build will significantly increase stability/quality, standardization and ROI, while reducing time-to-market.</p>
 	      <p class="bold">The philosophy behind our products:</p>
 	      <ul class="check anzac-bullet">
 	        <li><b>Time matters:</b> Create and release a product in minutes</li>
@@ -446,7 +446,7 @@
         <div class="col-md-12">
           <a href="https://www.google.com.lb/maps/place/Barton+Oaks+Plaza+One,+901+S+MoPac+Expy,+Austin,+TX+78746,+USA/@30.2644866,-97.7843084,17z/data=!3m1!4b1!4m5!3m4!1s0x8644b53256c8789b:0x9f73d50973124a6!8m2!3d30.2644982!4d-97.7821677?hl=en"
              target="_new">
-          <img src="../images/map.oaks.png">
+          <img src="../images/map.oaks.png" style="width:100%">
           </a>
         </div>
       </div>
@@ -461,7 +461,7 @@
       <div class="col-md-12">
         <a href="https://www.google.com.lb/maps/place/2300+Boulevard+Alfred+Nobel,+Saint-Laurent,+QC+H4S+2A4,+Canada/@45.480098,-73.7633991,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc93d1138dc5455:0x8f6adccf213b038!8m2!3d45.480098!4d-73.7612104?hl=en"
            target="_new">
-        <img src="../images/map.nobel.png">
+        <img src="../images/map.nobel.png" style="width:100%">
         </a>
       </div>
       </div>
@@ -476,23 +476,19 @@
       <div class="col-md-12">
 
         <a target="_new" href="https://www.google.com.lb/maps/place/33%C2%B051'25.2%22N+35%C2%B034'24.0%22E/@33.8535307,35.5719586,15z/data=!4m6!3m5!1s0x151f3d64dcc95b4d:0x36ecfc5361b0cf24!7e2!8m2!3d33.857001!4d35.5733335?hl=en">
-        <img src="../images/map.leb.png"></a>
+        <img src="../images/map.leb.png" style="width:100%"></a>
       </div>
-      </div>
-
-      <div class="col-md-12" style="height:50px">
-        <br/>
-        <div class="yellowbar"></div>
       </div>
 
       <div class="col-md-2">&nbsp;</div>
-      <div class="col-md-8">
+      <div class="col-md-12">
+        <h2 class="santasGray-txt ">Contact us for more information</h2>
+        <div class="Casablanca underline pull-left "></div>
         <div id="contactform" class="page-section "><!-- Form here -->
           <div ng-show="alerts && alerts.length > 0">
             <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
             <br/>
           </div>
-          <p>Contact us for more information</p>
 
           <form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
             <div class="form-group">
