@@ -67,7 +67,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', f
 
 	$scope.$on('$routeChangeSuccess', function (event, current, previous) {
 		$scope.currentLocation = $location.path();
-		
+
 		for (var entry = 0; entry < navigation.length; entry++) {
 			var urlOnly = navigation[entry].url.replace('/:anchor?', '');
 			if (urlOnly === $scope.currentLocation) {
@@ -84,14 +84,19 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', f
 				}
 			}
 		}
-		
+
 		$timeout(function(){
 			if ($routeParams.anchor) {
 				scrollToID('#' + $routeParams.anchor, 750);
+
+        $.getScript( "https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function( data, textStatus, jqxhr ) {
+          $("input[type=submit]").removeAttr("disabled");
+
+        });
 			}
 		}, 100);
 	});
-	
+
 }]);
 
 app.directive('topMenu', function () {
