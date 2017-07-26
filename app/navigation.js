@@ -3,7 +3,7 @@ var navigation = [
 	{
 		'id': 'home',
 		'label': 'home',
-		'title': 'title',
+		'title': 'Herron Tech',
 		'description': '',
 		'keywords': '',
 		'url': '/',
