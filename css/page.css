@@ -100,6 +100,7 @@ li{
 .gray {
     background-color: #676775;
 }
+
 .lavenderGray
 {
     background-color: #C0BEDD;
@@ -114,6 +115,8 @@ li{
 .hintRed{
     background-color: #F5F2F2;
 }
+
+
 .comet{
     background-color: #5e5e8a;
 }
@@ -127,14 +130,30 @@ li{
 .wedgewood {
     background-color: #4f819f;
 }
-.saffron{
-    background-color: #f1bb3b;
-}
+
 .kimberly{
     background-color: #6f6f9a;
 }
 .anzac{
     background-color: #daab3d;
+}
+.saffron{
+   background-color: #f1bb3b;
+ }
+
+
+.carrot{
+  background-color: #F29B21;
+}
+.appleBlossom{
+  background-color: #A94040;
+
+}
+.viridian{
+  background-color: #418675;
+}
+.calypso{
+  background-color: #3B7A98;
 }
 .gunPowder{
     background-color: #43435F;
@@ -144,6 +163,14 @@ li{
 }
 .rosebud {
     background-color: #f79f9f;
+}
+.cornflowerBlue
+{
+  background-color:  #6195ED;
+}
+.pickledBluewood
+{
+  background-color:  #293f50;
 }
 /*************************************************************************************
 *
@@ -167,7 +194,19 @@ li{
 {
     background-color:#F3C047;
 }
+.carrot-hover:hover{
+   background-color: #F29B21;
+ }
+.appleBlossom-hover:hover{
+  background-color: #A94040;
 
+}
+.viridian-hover:hover{
+  background-color: #418675;
+}
+.calypso-hover:hover{
+  background-color: #3B7A98;
+}
 .hintRed-hover:hover{
     background-color: #F5F2F2;
 }
@@ -223,7 +262,19 @@ li{
 .hintRed-txt{
     color: #F5F2F2;
 }
+.carrot-txt{
+ color: #F29B21;
+}
+.appleBlossom-txt{
+  color: #A94040;
 
+}
+.viridian-txt{
+ color: #418675;
+}
+.calypso-txt{
+  color: #3B7A98;
+}
 .check {
     margin-left:0;
     padding-left:15px;
@@ -263,12 +314,30 @@ li{
 .rosebud-txt {
     color: #f79f9f;
 }
-/*************************************************************************************
+.cornflowerBlue-txt
+{
+  color:  #6195ED;
+}
+.pickledBluewood-txt
+ {
+   color:  #293f50;
+ }
+.core{
+  padding-top: 33px;
+}
+.inner .core h2 , .inner  .core p {
+  color: white;
+  margin-top: 2px;
+}
+.inner .core i{
+  font-size: 32px;
+}
+  /*************************************************************************************
 
-*
-* text hover-effects
-*
-*************************************************************************************/
+  *
+  * text hover-effects
+  *
+  *************************************************************************************/
 .white-txt-hover:hover {
     color: white;
 }
@@ -680,6 +749,25 @@ input.form-control ,textarea.form-control{
 }
 
 
+
+/**********************
+*
+* contact us form
+*
+**********************/
+.contact img {
+  width:300px;
+  clear:both;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  margin-top:33px;
+  margin-bottom:33px;
+}
+.contact img:hover {
+   -webkit-transform:scale(1.1);
+   transform:scale(1.1);
+ }
+
 /**********************
 *
 * check lists
@@ -702,11 +790,138 @@ ul.anzac-bullet li:before {
     color: #daab3d;
 }
 
+
+
+
 /**********************
 *
-* Modals
+* inner pages
 *
 **********************/
+.iTopMenu{
+  height: 450px;
+  width:100%;
+  background: #31344f;
+  background: url('../images/vortex-menu.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+
+}
+
+.iTopMenu.solution{
+  background: url('../images/bg_solution.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.overlay {
+  background: rgba(57, 57, 88, 0.6) none repeat scroll 0 0;
+  height: 450px;
+  left: 0;
+  margin: 0;
+  opacity: 1;
+  padding: 60px 0 80px;
+  top: 0;
+  transition: all 1s ease 0s;
+  width: 100%;
+}
+
+.iTopMenu h1{
+  margin-top: 150px;
+  font-size:65px;
+  font-family: GeorginaDemo;
+}
+
+.inner{
+  padding-bottom:90px;
+  padding-top:90px;
+}
+.inner h1 {
+  margin-bottom  : 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size:52px;
+  font-family: GeorginaDemo;
+  color: #676775;
+}
+
+.inner h2 {
+  margin-top: 50px;
+  font-family: GeorginaDemo;
+  color: #676775;
+  font-size:25px;
+  font-family: OpenSans-Light;
+}
+.inner p {
+  margin-bottom: 22px;
+}
+.inner p , .inner ul{
+
+  color: #5e5e73;
+  font-size:18px;
+  font-family: OpenSans-Light;
+}
+.inner i{
+  margin-right: 15px;
+}
+
+.inner ul.disc li{
+list-style-type: disc;
+}
+
+/**********************
+*
+* tables
+*
+**********************/
+
+.products img {
+
+  float: right;
+  margin-left: 15px;
+  margin-bottom:12px;
+  margin-top: 4px;
+}
+
+.products img + h3 {
+  width: 100%;
+}
+
+/**********************
+*
+* tables
+*
+**********************/
+.table{
+  margin-top : 90px;
+}
+td {
+  border : 1px solid  gray;
+
+}
+th.bordered{
+  border : 1px solid  gray;
+
+}
+.table > thead:first-child > tr:first-child > th.bordered
+{
+  border-top: 1px solid darkgray;
+}
+
+.inner .table h2{
+  margin-top: 0;
+}
+
+
+
+
+  /**********************
+  *
+  * Modals
+  *
+  **********************/
 .modal-dialog {
     margin: 30px auto;
     width: auto;
