@@ -879,12 +879,14 @@ list-style-type: disc;
 
 .products img {
 
-  float: left;
-  margin-right: 15px;
+  float: right;
+  margin-left: 15px;
   margin-bottom:12px;
+  margin-top: 4px;
 }
 
 .products img + h3 {
+  width: 100%;
 }
 
 /**********************
