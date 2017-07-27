@@ -756,19 +756,16 @@ input.form-control ,textarea.form-control{
 *
 **********************/
 .contact img {
-  max-width:100% !important;
+  width:300px;
   clear:both;
   -webkit-transition: all 0.7s ease;
   transition: all 0.7s ease;
   margin-top:33px;
   margin-bottom:33px;
-
-  border-radius: 33px;
-  padding: 20px;
 }
 .contact img:hover {
-   -webkit-transform:scale(1.3);
-   transform:scale(1.3);
+   -webkit-transform:scale(1.1);
+   transform:scale(1.1);
  }
 
 /**********************
