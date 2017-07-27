@@ -879,8 +879,13 @@ list-style-type: disc;
 
 .products img {
 
+  float: left;
+  margin-right: 15px;
+  margin-bottom:12px;
 }
 
+.products img + h3 {
+}
 
 /**********************
 *

@@ -45,10 +45,15 @@
 
 @media (min-width: 768px) {
 
+
 }
 
 @media (min-width: 992px) {
 
+  .products img{
+
+    margin-top: 24px;
+  }
 }
 
 /***
@@ -60,6 +65,11 @@ max widths
   .carousel-inner .item h3
   {
     font-size:45px;
+  }
+
+  .products img
+  {
+    padding-top: 4px;
   }
 }
 
