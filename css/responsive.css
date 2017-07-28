@@ -56,6 +56,33 @@
 max widths
 */
 
+@media (max-width: 1500px) {
+
+  .carousel-inner .item h3
+  {
+    font-size:40px;
+  }
+  .carousel-inner h6{
+    max-width:90%;
+  }
+  .navbar-right{
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .navbar-right{
+    margin-right: 10px;
+  }
+  .carousel-inner .item h3
+  {
+    font-size: 33px;
+  }
+  .carousel-inner h6{
+    max-width:90%;
+  }
+}
 @media (max-width: 800px) {
 
   .carousel-inner .item h3
@@ -63,7 +90,7 @@ max widths
     font-size:45px;
   }
   .navbar-right{
-    margin-right: 30px;
+    margin-right: 12px;
   }
 
   .carousel-caption
