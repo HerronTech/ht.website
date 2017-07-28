@@ -98,11 +98,23 @@ max widths
 
 
 
-  .carousel-inner .item h3
+  .carousel-caption
   {
-    font-size:32px;
+    top : 30px;
+
   }
 
+  .carousel-inner .item h3
+  {
+    font-size:27px;
+  }
+
+
+  .main h1{
+    font-size:32px;
+    padding-top:12px;
+
+  }
 
 }
 
