@@ -62,6 +62,29 @@ max widths
   {
     font-size:45px;
   }
+  .navbar-right{
+    margin-right: 30px;
+  }
+
+  .carousel-caption
+  {
+    top : 45px;
+
+  }
+
+  .carousel-inner .item h3
+  {
+    font-size:33px;
+  }
+  .carousel-inner h6{
+    max-width:90%;
+  }
+
+  .main h1{
+    font-size:36px;
+    padding-top:12px;
+
+  }
 }
 
 @media (max-width: 767px) {
