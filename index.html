@@ -69,9 +69,11 @@
         interval: 2000
       });
       $('.carousel-control.right').trigger('click');
+
       // navigation click actions
       $('.scroll-link').on('click', function (event) {
         event.preventDefault();
+        $(".navbar-collapse").collapse('hide');
         var sectionID = $(this).attr("data-id");
         scrollToID('#' + sectionID, 750);
       });
