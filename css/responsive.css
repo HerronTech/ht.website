@@ -83,6 +83,10 @@ max widths
     max-width:90%;
   }
 }
+
+
+
+
 @media (max-width: 800px) {
 
   .carousel-inner .item h3
@@ -117,14 +121,18 @@ max widths
 @media (max-width: 767px) {
 
   /** Navigation Bar */
+  .navbar-collapse a.navbar-brand
+  {
+    margin-bottom: 30px;
+  }
 
-
+  .logo{
+    width: 120px;
+    margin-right: 23px;
+  }
   .navbar{
     text-align: right;
     float: right;
-  }
-  .navbar-nav{
-
   }
 
    .navbar-collapse {
@@ -170,6 +178,7 @@ max widths
 
 @media (max-width: 480px) {
 
+  logo
 
   .g-recaptcha {
     transform:scale(0.7);
