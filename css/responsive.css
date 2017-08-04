@@ -327,4 +327,8 @@ max widths
     background: none ;
 
   }
+
+  .collapse-clearfix{
+    clear: both;
+  }
 }
