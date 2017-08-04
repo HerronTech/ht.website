@@ -45,7 +45,6 @@
 
 @media (min-width: 768px) {
 
-
 }
 
 @media (min-width: 992px) {
@@ -58,132 +57,138 @@ max widths
 
 @media (max-width: 1500px) {
 
-  .carousel-inner .item h3
-  {
-    font-size:40px;
-  }
-  .carousel-inner h6{
-    max-width:90%;
-  }
-  .navbar-right{
-    margin-right: 30px;
-  }
+    .carousel-inner .item h3 {
+        font-size: 40px;
+    }
+
+    .carousel-inner h6 {
+        max-width: 90%;
+    }
+
+    .navbar-right {
+        margin-right: 30px;
+    }
 }
 
 @media (max-width: 1024px) {
 
-  .navbar-right{
-    margin-right: 10px;
-  }
-  .carousel-inner .item h3
-  {
-    font-size: 33px;
-  }
-  .carousel-inner h6{
-    max-width:90%;
-  }
+    .navbar-right {
+        margin-right: 10px;
+    }
+
+    .carousel-inner .item h3 {
+        font-size: 33px;
+    }
+
+    .carousel-inner h6 {
+        max-width: 90%;
+    }
 }
-
-
 
 @media (max-width: 800px) {
 
-  .carousel-inner .item h3
-  {
-    font-size:45px;
-  }
-  .navbar-right{
-    margin-right: 12px;
-  }
+    .carousel-inner .item h3 {
+        font-size: 45px;
+    }
 
-  .carousel-caption
-  {
-    top : 45px;
+    .navbar-right {
+        margin-right: 12px;
+    }
 
-  }
+    .carousel-caption {
+        top: 45px;
 
-  .carousel-inner .item h3
-  {
-    font-size:33px;
-  }
-  .carousel-inner h6{
-    max-width:90%;
-  }
+    }
 
-  .main h1{
-    font-size:36px;
-    padding-top:12px;
+    .carousel-inner .item h3 {
+        font-size: 33px;
+    }
 
-  }
+    .carousel-inner h6 {
+        max-width: 90%;
+    }
+
+    .main h1 {
+        font-size: 36px;
+        padding-top: 12px;
+
+    }
+
+    .navbar-collapse.collapse {
+        height: 1100px !important;
+    }
 }
 
 @media (max-width: 767px) {
-  .carousel-caption
-  {
-    top : 30px;
+    .carousel-caption {
+        top: 30px;
 
-  }
+    }
 
-  .carousel-inner .item h3
-  {
-    font-size:27px;
-  }
+    .carousel-inner .item h3 {
+        font-size: 27px;
+    }
 
+    .main h1 {
+        font-size: 32px;
+        padding-top: 12px;
 
-  .main h1{
-    font-size:32px;
-    padding-top:12px;
+    }
 
-  }
+    .navbar-collapse.collapse {
+        height: 1100px !important;
+    }
 
 }
 
 @media (max-width: 480px) {
 
-  .g-recaptcha {
-    transform:scale(0.7);
-    transform-origin:0;
-    -webkit-transform:scale(0.7);
-    transform:scale(0.7);
-    -webkit-transform-origin:0 0;
-    transform-origin:0 0;
+    .g-recaptcha {
+        transform: scale(0.7);
+        transform-origin: 0;
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
 
-  }
+    }
 
-  .carousel-inner .item h3  , .iTopMenu h3
-  {
-    font-size:16px;
-  }
+    .carousel-inner .item h3, .iTopMenu h3 {
+        font-size: 16px;
+    }
 
-  .main h1   , .iTopMenu h1{
-    font-size: 32px;
-  }
+    .main h1, .iTopMenu h1 {
+        font-size: 32px;
+    }
 
+    .carousel-caption {
+        top: 5px;
+        left: 5px;
+        right: 5px;
 
-  .carousel-caption
-  {
-    top : 5px;
-    left:5px;
-    right:5px;
+    }
 
-  }
+    .contact img {
+        width: 200px;
+    }
 
-  .contact img
-  {
-    width:200px;
-  }
-  .form-group {
-    overflow: hidden;
-  }
-  .contact form {
-    padding-top: 30px;
-  }
-  .contact div{
-    padding-right:0;
-    padding-left:0;
-  }
+    .form-group {
+        overflow: hidden;
+    }
+
+    .contact form {
+        padding-top: 30px;
+    }
+
+    .contact div {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .navbar-collapse.collapse {
+        height: 550px !important;
+    }
 }
-
 
 /**
 
@@ -192,114 +197,118 @@ max widths
 
 @media (max-width: 1010px) {
 
+    .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+        padding-top: 17px;
+    }
 
-  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
-  {
-    padding-top:17px;
-  }
-  .navbar-header {
-    float: right;
-    position: absolute;
-    right: 5px;
-  }
+    .navbar-header {
+        float: right;
+        position: absolute;
+        right: 5px;
+    }
 
+    .navbar-default .navbar-toggle {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border: medium none;
+        color: white;
+    }
 
-  .navbar-default .navbar-toggle {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: medium none;
-    color: white;
-  }
+    /** Navigation Bar */
+    .navbar-collapse a.navbar-brand {
+        margin-bottom: 30px;
+    }
 
-  /** Navigation Bar */
-  .navbar-collapse a.navbar-brand
-  {
-    margin-bottom: 30px;
-  }
+    .logo {
+        width: 120px;
+        margin-right: 23px;
+    }
 
-  .logo{
-    width: 120px;
-    margin-right: 23px;
-  }
-  .navbar{
-    text-align: right;
-    float: right;
-  }
+    .navbar {
+        text-align: right;
+        float: right;
+    }
 
-  .navbar-collapse {
-    background-color: #19303f;
-    width: 250px;
-    float: right;
-    padding: 0;
-    text-align: right;
-    height:450px;
+    .navbar-collapse {
+        background-color: #19303f;
+        width: 250px;
+        float: right;
+        padding: 0;
+        text-align: right;
+        height: 550px !important;
 
-    border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-collapse.collapse{
-    height:550px !important;
-  }
-  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a,
-  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover
-  {
-    padding-top:5px;
-    padding-bottom:12px;
-    border: 0;
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
 
-    border-bottom: 1px solid gray;
-    border-radius: 0;
-  }
-  .navbar-default .navbar-nav > li > a
-  {   margin-left:33px;
-  }
+    /*.navbar-collapse.collapse {*/
+        /*height: 550px !important;*/
+    /*}*/
 
-  .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
-     margin-left: -15px;
-     margin-right: -15px;
-   }
+    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a,
+    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+        padding-top: 5px;
+        padding-bottom: 12px;
+        border: 0;
 
+        border-bottom: 1px solid gray;
+        border-radius: 0;
+    }
 
-  .collapse {
-    display: none !important;
-  }
+    .navbar-default .navbar-nav > li > a {
+        margin-left: 33px;
+    }
 
+    .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
 
-  .navbar-header {
-    float: none;
-  }
-  .navbar-left,.navbar-right {
-    float: none !important;
-  }
-  .navbar-toggle {
-    display: block;
-  }
-  .navbar-fixed-top {
-    top: 0;
-    border-width: 0 0 1px;
-  }
-  .navbar-collapse.collapse {
-    display: none!important;
-  }
-  .navbar-nav {
-    float: none!important;
-    margin-top: 7.5px;
-  }
-  .navbar-nav>li {
-    float: none;
-  }
-  .navbar-nav>li>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .collapse.in{
-    display:block !important;
-  }
+    .collapse {
+        display: none !important;
+    }
 
-  .navbar{
-    text-align: right;
-    float: right;
-  }
+    .navbar-header {
+        float: none;
+    }
 
+    .navbar-left, .navbar-right {
+        float: none !important;
+    }
 
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+
+    .navbar-nav {
+        float: none !important;
+        margin-top: 7.5px;
+    }
+
+    .navbar-nav > li {
+        float: none;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .collapse.in {
+        display: block !important;
+    }
+
+    .navbar {
+        text-align: right;
+        float: right;
+    }
 
 }
