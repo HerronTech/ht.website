@@ -224,9 +224,12 @@ max widths
 }
 
 
+/**
 
+@media (min-width: 768px) and (max-width: 1010px)
+ */
 
-@media (min-width: 768px) and (max-width: 1010px) {
+@media (max-width: 1010px) {
   .collapse {
     display: none !important;
   }
@@ -278,16 +281,23 @@ max widths
     float: right;
     padding: 0;
     text-align: right;
+    height:450px;
   }
 
   .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a,
   .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover
   {
     padding-top:5px;
+    padding-bottom:12px;
     border: 0;
+
+    border-bottom: 1px solid gray;
+    border-radius: 0;
   }
   .navbar-default .navbar-nav > li > a
   {   margin-left:33px;
   }
+
+
 
 }
