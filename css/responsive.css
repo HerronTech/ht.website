@@ -315,11 +315,16 @@ max widths
 
   .navbar-default .navbar-toggle:hover
   {
-    background: none;
+    background: none ;
     color:white;
   }
 
   .navbar-default .navbar-toggle:hover .icon-bar{
-  background-color:white ;
+    background-color:white ;
+  }
+
+  .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    background: none ;
+
   }
 }
