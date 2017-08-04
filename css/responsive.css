@@ -195,7 +195,7 @@ max widths
 @media (min-width: 768px) and (max-width: 1010px)
  */
 
-@media (max-width: 1010px) {
+@media (max-width: 1040px) {
 
     .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
         padding-top: 17px;
