@@ -221,7 +221,6 @@ max widths
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
   }
   .navbar-collapse.collapse{
-
     height:450px !important;
   }
   .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a,
@@ -237,6 +236,11 @@ max widths
   .navbar-default .navbar-nav > li > a
   {   margin-left:33px;
   }
+
+  .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+     margin-left: -15px;
+     margin-right: -15px;
+   }
 
 
   .collapse {
