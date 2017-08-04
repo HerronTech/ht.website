@@ -275,10 +275,6 @@ max widths
         float: none !important;
     }
 
-    .navbar-toggle {
-        display: block;
-    }
-
     .navbar-fixed-top {
         top: 0;
         border-width: 0 0 1px;
@@ -311,4 +307,19 @@ max widths
         float: right;
     }
 
+
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-default .navbar-toggle:hover
+  {
+    background: none;
+    color:white;
+  }
+
+  .navbar-default .navbar-toggle:hover .icon-bar{
+  background-color:white ;
+  }
 }
