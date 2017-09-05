@@ -28,6 +28,15 @@ var navigation = [
   }
   ,
   {
+    'id': 'executive',
+    'label': 'Executive Summary',
+    'title': 'Herron Tech | Executive Summary',
+    'url': '/executive',
+    'tplPath': 'sections/executive/page.html',
+    'scripts': ['sections/executive/controller.js']
+  }
+  ,
+  {
     'id': 'platform',
     'label': 'Our Platform',
     'title': 'Herron Tech | Our Platform',
