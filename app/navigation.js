@@ -28,12 +28,12 @@ var navigation = [
   }
   ,
   {
-    'id': 'executive',
-    'label': 'Executive Summary',
-    'title': 'Herron Tech | Executive Summary',
-    'url': '/executive',
-    'tplPath': 'sections/executive/page.html',
-    'scripts': ['sections/executive/controller.js']
+    'id': 'modernize',
+    'label': 'Modernize Your IT Ecosystem',
+    'title': 'Herron Tech | Modernize Your IT Ecosystem',
+    'url': '/modernize',
+    'tplPath': 'sections/modernize/page.html',
+    'scripts': ['sections/modernize/controller.js']
   }
   ,
   {
