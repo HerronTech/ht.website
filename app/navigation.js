@@ -19,6 +19,15 @@ var navigation = [
     'scripts': ['sections/digital/controller.js']
   },
   {
+    'id': 'digitization',
+    'label': 'With Us',
+    'title': 'Herron Tech | No Barrier to Digitization',
+    'url': '/digitization',
+    'tplPath': 'sections/digitization/page.html',
+    'scripts': ['sections/digitization/controller.js']
+  },
+
+  {
     'id': 'disruption',
     'label': 'The Disruption',
     'title': 'Herron Tech | Why digital agility',
