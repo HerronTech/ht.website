@@ -316,26 +316,35 @@
       </div>
       <div class="col-md-12">
         <p class="bold">We offer a Complete and Fully Adaptable Cloud-Native Enterprise Platform for building, deploying, and optimizing your applications dramatically faster. Our Product is the most complete Enterprise Application Development and Lifecycle Management Platform-as-a-Service with many rich harmonized features:</p>
+	
+	      <div class="clearfix"></div>
+		  <div ng-repeat="oneEntry in ourProductList" class="productList col-md-6 col-lg-4 col-sm-12 text-center">
+			<div>
+				<span class="im im-{{oneEntry.icon}}"></span><br />
+			</div>
+			<label>{{oneEntry.title}}</label>
+		  </div>
+	      <div class="clearfix"></div>
+	      <br />
+        <!--<ul class="check anzac-bullet">-->
+          <!--<li>Cloud orchestration & distributed architecture</li>-->
+          <!--<li>Continuous integration and continuous delivery (dockerswarm, kubernetes, travis-ci, drone-io, jenkins, …)</li>-->
+          <!--<li>Smart multi environment deploy with ledger, rollback and multi version support</li>-->
+          <!--<li>Deploy, share & secure resources with a click of a button on any cloud</li>-->
+          <!--<li>API management & lifecycle</li>-->
+          <!--<li>API catalog with swagger UI</li>-->
+          <!--<li>API gateway & traffic control</li>-->
+          <!--<li>API productization and ACL</li>-->
+          <!--<li>API simulation and testing</li>-->
+          <!--<li>Multi-tenancy and Multi-security for your API (nodejs, Java, php …)</li>-->
+	      <!--<li>On-board Analytics and/or 3rd party(ies) integration (Galileo, Datadog, Runscope, ...)</li>-->
+          <!--<li>Full monitoring, high availability, analytic and control</li>-->
+          <!--<li>Auto scaling & healing on multiple cloud (AWS, Rackspace, Google, Azure, ...)</li>-->
+          <!--<li>Catalog deployment empowering you to deploy any system </li>-->
+          <!--<li>Rapid application development (Endpoint, restful API and Daemon)</li>-->
+        <!--</ul>-->
 
-        <ul class="check anzac-bullet">
-          <li>Cloud orchestration & distributed architecture</li>
-          <li>Continuous integration and continuous delivery (dockerswarm, kubernetes, travis-ci, drone-io, jenkins, …)</li>
-          <li>Smart multi environment deploy with ledger, rollback and multi version support</li>
-          <li>Deploy, share & secure resources with a click of a button on any cloud</li>
-          <li>API management & lifecycle</li>
-          <li>API catalog with swagger UI</li>
-          <li>API gateway & traffic control</li>
-          <li>API productization and ACL</li>
-          <li>API simulation and testing</li>
-          <li>Multi-tenancy and Multi-security for your API (nodejs, Java, php …)</li>
-	      <li>On-board Analytics and/or 3rd party(ies) integration (Galileo, Datadog, Runscope, ...)</li>
-          <li>Full monitoring, high availability, analytic and control</li>
-          <li>Auto scaling & healing on multiple cloud (AWS, Rackspace, Google, Azure, ...)</li>
-          <li>Catalog deployment empowering you to deploy any system </li>
-          <li>Rapid application development (Endpoint, restful API and Daemon)</li>
-        </ul>
-
-        <p>We guarantee that what we build significantly increases stability/quality, standardization and ROI, while reducing time-to-market.</p>
+        <div class="text-center">We guarantee that what we build significantly increases stability/quality, standardization and ROI, while reducing time-to-market.</div>
 
       </div>
     </div>

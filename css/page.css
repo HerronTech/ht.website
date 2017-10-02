@@ -794,8 +794,19 @@ ul.anzac-bullet li:before {
     color: #daab3d;
 }
 
+/*****************
+ * Product List
+ ****************/
+.productList{
+    padding:50px;
+    height:300px;
+    box-shadow:none;
+}
 
-
+.productList .im{
+    font-size: 50px;
+    margin-bottom: 50px;
+}
 
 /**********************
 *

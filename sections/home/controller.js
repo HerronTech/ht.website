@@ -18,6 +18,10 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 		captcha: ''
 	};
 	
+	$http.get("sections/home/our-product.json").success(function(data) {
+		$scope.ourProductList = data;
+	});
+	
 	$scope.closeAlert = function (index) {
 		$scope.alerts.splice(index, 1);
 	};
