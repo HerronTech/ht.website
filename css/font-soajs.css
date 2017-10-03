@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'soajs';
-  src: url('../fonts/soajs.eot?2868495');
-  src: url('../fonts/soajs.eot?2868495#iefix') format('embedded-opentype'),
-  url('../fonts/soajs.woff2?2868495') format('woff2'),
-  url('../fonts/soajs.woff?2868495') format('woff'),
-  url('../fonts/soajs.ttf?2868495') format('truetype'),
-  url('../fonts/soajs.svg?2868495#soajs') format('svg');
+  src: url('../fonts/soajs.eot?64902899');
+  src: url('../fonts/soajs.eot?64902899#iefix') format('embedded-opentype'),
+  url('../fonts/soajs.woff2?64902899') format('woff2'),
+  url('../fonts/soajs.woff?64902899') format('woff'),
+  url('../fonts/soajs.ttf?64902899') format('truetype'),
+  url('../fonts/soajs.svg?64902899#soajs') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -61,6 +61,7 @@
 .icon-cogs:before { content: '\e808'; } /* '' */
 .icon-gitter:before { content: '\e809'; } /* '' */
 .icon-gauge:before { content: '\e80a'; } /* '' */
+.icon-traffic-light:before { content: '\e80d'; } /* '' */
 .icon-crown:before { content: '\e813'; } /* '' */
 .icon-quality:before { content: '\e814'; } /* '' */
 .icon-roi:before { content: '\e815'; } /* '' */
