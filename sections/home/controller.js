@@ -22,6 +22,11 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 		$scope.ourProductList = data;
 	});
 	
+	$http.get("sections/home/advantages.json").success(function(data) {
+		$scope.ourAdvantagesList = data;
+	});
+	
+	
 	$scope.closeAlert = function (index) {
 		$scope.alerts.splice(index, 1);
 	};
