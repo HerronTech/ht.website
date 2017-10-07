@@ -797,15 +797,26 @@ ul.anzac-bullet li:before {
 /*****************
  * Product List
  ****************/
+.advantagesList{
+    padding:50px;
+    height:370px;
+    box-shadow:none;
+}
+
+.advantagesList .im{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
 .productList{
     padding:50px;
-    height:300px;
+    height:270px;
     box-shadow:none;
 }
 
 .productList .im{
     font-size: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 /**********************

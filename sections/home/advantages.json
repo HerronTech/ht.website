@@ -1,38 +1,47 @@
 [
   {
     "title": "Smart multi environment Continuous delivery & deployment supporting multi container technologies (Kubernetes, Docker swarm, ...)",
-    "icon": ""
+    "icon1": "im icon-delivery",
+    "icon2": "im im-rocket"
   },
   {
     "title": "Build restful API, microservices, and daemons tenfold faster by taking advantage of our rapid development framework.",
-    "icon": ""
+    "icon1": "im im-flash",
+    "icon2": "im icon-puzzle"
   },
   {
     "title": "Automatically generate your API and Daemon catalogue by adding your GIT and visualize, test and simulate in multi environment and tenant fashion ",
-    "icon": ""
+    "icon1": "im icon-book",
+    "icon2": "im im-flask"
   },
   {
     "title": "Tired of re-inventing the wheel. Plug our middleware and swagger file and convert your API to multi tenant with superior quality using a multi environment registry.",
-    "icon": ""
+    "icon1": "im icon-refresh",
+    "icon2": "im icon-brick"
   },
   {
     "title": "Full monitoring with on-board analytics and 3rd parties integration (Galileo, Datalog, Runscope, ...) as well as Correlation between resources and traffic analytic vs errors in logs",
-    "icon": ""
+    "icon1": "im im-dashboard",
+    "icon2": "im icon-handshake"
   },
   {
     "title": "Achieve and orchestrate high available and distributed cloud architecture with auto healing and scaling on multiple providers (AWS, google, azure, rackspace, private, ...)",
-    "icon": ""
+    "icon1": "im im-fullscreen",
+    "icon2": "im im-cubes"
   },
   {
     "title": "Turn on continuous integration and take advantage of our ready template for Travis-ci, Drone-io, Jenkins, and others.",
-    "icon": ""
+    "icon1": "im im-timer",
+    "icon2": "im icon-script"
   },
   {
     "title": "Take advantage of our resource deployment templates and deploy your resources on any cloud with a click of a button.",
-    "icon": ""
+    "icon1": "im im-database",
+    "icon2": "im im-sitemap"
   },
   {
     "title": "Complete and adaptable API Gateway, Traffic Control, Multi tenancy, Multi security and Productization",
-    "icon": ""
+    "icon1": "im icon-traffic-light",
+    "icon2": "im im-control-panel"
   }
 ]

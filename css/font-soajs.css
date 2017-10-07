@@ -68,4 +68,11 @@
 .icon-velocity:before { content: '\e816'; } /* '' */
 .icon-globalization:before { content: '\e817'; } /* '' */
 .icon-down-open:before { content: '\f004'; } /* '' */
-.icon-up-open:before { content: '\f005'; } /* '' */
+.icon-home-manage:before { content: '\e800'; } /* '' */
+.icon-delivery:before { content: '\e801'; } /* '' */
+.icon-puzzle:before { content: '\e802'; } /* '' */
+.icon-book:before { content: '\e803'; } /* '' */
+.icon-refresh:before { content: '\e804'; } /* '' */
+.icon-script:before { content: '\e806'; } /* '' */
+.icon-brick:before { content: '\e80b'; } /* '' */
+.icon-handshake:before { content: '\e80c'; } /* '' */
