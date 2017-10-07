@@ -638,6 +638,13 @@ top-menu{
     font-family:"OpenSans-Light";
     font-size: 25px;
 }
+
+.main h3{
+    font-family:  "GeorginaDemo";
+    font-size: 33px;
+    text-transform: uppercase;
+}
+
 .main p.bold{
     font-family:  "OpenSans-Bold";
     font-size: 18px;
