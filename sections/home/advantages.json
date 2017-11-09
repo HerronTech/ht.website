@@ -1,6 +1,6 @@
 [
   {
-    "title": "Smart multi environment Continuous delivery & deployment supporting multi container technologies (Kubernetes, Docker swarm, ...)",
+    "title": "Smart multi-environment, continuous delivery & deployment supporting multi-container technologies (Kubernetes, Docker swarm, ...)",
     "icon1": "im icon-delivery",
     "icon2": "im im-rocket"
   },
@@ -10,7 +10,7 @@
     "icon2": "im icon-puzzle"
   },
   {
-    "title": "Automatically generate your API and Daemon catalogue by adding your GIT and visualize, test and simulate in multi environment and tenant fashion ",
+    "title": "Automatically generate your API and Daemon catalog by adding your GIT and visualize, test and simulate in multi environment and tenant fashion ",
     "icon1": "im icon-book",
     "icon2": "im im-flask"
   },
