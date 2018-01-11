@@ -48,7 +48,9 @@
     $sector = $postedData->sector;
     $position = $postedData->position;
     $aboutUs = $postedData->aboutUs;
+    $usingSoajs = nl2br ( $postedData->usingSoajs );
     $lookingFor = nl2br ( $postedData->lookingFor );
+
     $captcha = $postedData->captcha;
 
     if (! preg_match ( "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email )) {
@@ -188,11 +190,17 @@
             <tr>
               <td class="container-padding content" align="left">
 			    <div class="body-text">
-			      <div><b>From</b>:  $name</div>
+			      <div><b>Name</b>:  $name</div>
 			      <div><b>Email</b>:  $email</div>
 			      <div><b>Phone</b>:  $phone</div>
 			      <b>Address</b>:<br />
 			      $address
+			      <div><b>Company</b>:  $company</div>
+			      <div><b>Sector</b>:  $sector</div>
+			      <div><b>Position</b>:  $position</div>
+			      <div><b>What are you looking for</b>:  $lookingFor</div>
+
+			      <div><b>Already using SOAJS</b>:  $usingSoajs</div>
 			    </div>
               </td>
             </tr>
