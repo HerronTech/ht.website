@@ -1,0 +1,80 @@
+<div class="container inner">
+	<div ng-controller="registerPageCtrl">
+
+		<div class="col-lg-8 col-md-12">
+			<div>
+				Fill the form below in order to submit a request for registration to start using Herrontech.
+			</div>
+			<br>
+
+			<div ng-show="alerts && alerts.length > 0">
+				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+					{{alert.msg}}
+				</alert>
+				<br/>
+			</div>
+
+			<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
+
+				<div class="form-group">
+					<input ng-model="contact.name" type="text" placeholder="Your Name *" class="form-control" tooltip="Enter your full name..." required/>
+				</div>
+				<div class="form-group">
+					<input ng-model="contact.email" type="email" class="form-control" placeholder="Your Email *" tooltip="Enter your email address..." required/>
+				</div>
+				<div class="form-group">
+					<input ng-model="contact.phone" type="phone" class="form-control" placeholder="Phone Number *" tooltip="Enter your phone number..." required/>
+				</div>
+
+				<div class="form-group">
+					<textarea ng-model="contact.address" required class="form-control" placeholder="Your Address *" tooltip="Enter your address..." rows="3"></textarea>
+				</div>
+
+				<div class="form-group">
+					<input ng-model="contact.company" type="text" class="form-control" placeholder="Company Name (Optional)" tooltip="Enter your Company Name..."/>
+				</div>
+
+				<div class="clearfix">
+					<div class="form-group">
+						<input ng-model="contact.sector" type="text" class="form-control" placeholder="Company Sector (Optional)" tooltip="Enter the company sector..."/>
+					</div>
+
+					<div class="form-group" style="">
+						<input ng-model="contact.position" type="text" class="form-control" placeholder="Position (Optional)" tooltip="Enter your position in the company..."/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<select ng-model="contact.aboutUs" class="form-control" tootltip="How did you hear about us?">
+						<option value="">How did you hear about us? </option>
+						<option value="Twitter">Twitter</option>
+						<option value="Facebook">Facebook</option>
+						<option value="LinkedIn">LinkedIn</option>
+						<option value="soajs">soajs</option>
+						<option value="friend">From a friend</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<textarea ng-model="contact.lookingFor" class="form-control" placeholder="What are you looking for (Optional)" tooltip="Provide as much information as possible in your message..." rows="7"></textarea>
+				</div>
+
+				<div class="form-group" style="">
+					<label class="label">Are you using SOAJS?</label> &nbsp;
+					<input ng-model="contact.usingSoajs" type="radio" value="yes" class=""/> <span style="font-size: 13px">Yes</span>
+					&nbsp; &nbsp;
+					<input ng-model="contact.usingSoajs" type="radio" value="no" class=""/> <span style="font-size: 13px">No</span>
+				</div>
+
+				<div class="col-md-12 col-sm-12 form-group">
+					<div id="captcha1" class="pull-left g-recaptcha"></div>
+					<input type="submit" class="btn anzac gray-txt white-txt-hover pull-right" value="Submit" disabled/>
+				</div>
+				<br class="clearfix">
+			</form>
+
+
+		</div>
+	</div>
+</div>
