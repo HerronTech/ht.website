@@ -61,10 +61,10 @@ var navigation = [
 		'scripts': ['sections/platform/controller.js']
 	},
 	{
-		'id': 'register',
+		'id': 'memberarea',
 		'label': 'Register',
-		'title': 'Herron Tech | Register',
-		'url': '/register',
+		'title': 'Join Herron Tech',
+		'url': '/memberarea',
 		'tplPath': 'sections/account/register/page.html',
 		'scripts': ['sections/account/register/controller.js']
 	}
