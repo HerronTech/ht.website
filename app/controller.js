@@ -106,6 +106,13 @@ app.directive('topMenu', function () {
   }
 });
 
+app.directive('topMenuagility', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'app/templates/topMenuagility.html'
+    }
+});
+
 app.directive('innerMenu', function () {
   return {
     restrict: 'E',

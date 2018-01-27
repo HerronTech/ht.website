@@ -10,6 +10,16 @@ var navigation = [
 		'tplPath': 'sections/home/page.html',
 		'scripts': ['sections/home/controller.js']
 	},
+    {
+        'id': 'homeagility',
+        'label': 'homeagility',
+        'title': 'Durable Digital Agility',
+        'description': '',
+        'keywords': '',
+        'url': '/homeagility',
+        'tplPath': 'sections/homeagility/page.html',
+        'scripts': ['sections/homeagility/controller.js']
+    },
 	{
 		'id': 'digital',
 		'label': 'A change is happening',

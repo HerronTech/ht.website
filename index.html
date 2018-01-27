@@ -51,7 +51,8 @@
 <div class="top" id="top" style="position: absolute; top: 0;"></div>
 <body ng-controller="mainCtrl" >
 <top-menu ng-show="currentLocation === '/'"></top-menu>
-<inner-menu ng-show="currentLocation != '/'"></inner-menu>
+<top-menuagility ng-show="currentLocation === '/homeagility'"></top-menuagility>
+<inner-menu ng-show="currentLocation != '/' && currentLocation != '/homeagility'"></inner-menu>
 
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
