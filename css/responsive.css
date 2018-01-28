@@ -61,6 +61,10 @@ max widths
         font-size: 40px;
     }
 
+    .carousel-inner .item h4 {
+        font-size: 35px;
+    }
+
     .carousel-inner h6 {
         max-width: 90%;
     }
@@ -72,12 +76,26 @@ max widths
 
 @media (max-width: 1024px) {
 
+    .main h1 {
+        font-size: 42px;
+        padding-top: 12px;
+
+    }
+
+    .main h2 {
+        font-size: 36px;
+    }
+
     .navbar-right {
         margin-right: 10px;
     }
 
     .carousel-inner .item h3 {
         font-size: 33px;
+    }
+
+    .carousel-inner .item h4 {
+        font-size: 27px;
     }
 
     .carousel-inner h6 {
@@ -88,7 +106,11 @@ max widths
 @media (max-width: 800px) {
 
     .carousel-inner .item h3 {
-        font-size: 45px;
+        font-size: 33px;
+    }
+
+    .carousel-inner .item h4 {
+        font-size: 28px;
     }
 
     .navbar-right {
@@ -100,10 +122,6 @@ max widths
 
     }
 
-    .carousel-inner .item h3 {
-        font-size: 33px;
-    }
-
     .carousel-inner h6 {
         max-width: 90%;
     }
@@ -112,6 +130,10 @@ max widths
         font-size: 36px;
         padding-top: 12px;
 
+    }
+
+    .main h2 {
+        font-size: 30px;
     }
 
     .navbar-collapse.collapse {
@@ -129,10 +151,18 @@ max widths
         font-size: 27px;
     }
 
+    .carousel-inner .item h4 {
+        font-size: 24px;
+    }
+
     .main h1 {
         font-size: 32px;
         padding-top: 12px;
 
+    }
+
+    .main h2 {
+        font-size: 24px;
     }
 
     .navbar-collapse.collapse {
@@ -157,8 +187,16 @@ max widths
         font-size: 16px;
     }
 
+    .carousel-inner .item h4 {
+        font-size: 20px;
+    }
+
     .main h1, .iTopMenu h1 {
-        font-size: 32px;
+        font-size: 28px;
+    }
+
+    .main h2 {
+        font-size: 20px;
     }
 
     .carousel-caption {
@@ -195,7 +233,7 @@ max widths
 @media (min-width: 768px) and (max-width: 1010px)
  */
 
-@media (max-width: 1040px) {
+@media (max-width: 1200px) {
 
     .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
         padding-top: 17px;
