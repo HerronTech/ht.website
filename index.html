@@ -1,139 +1,143 @@
 <!DOCTYPE html>
 <html ng-app="mainWebsite">
 <head>
-  <title>Herron Tech</title>
-  <!-- Viewport mobile tag for sensible mobile support -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Herron Tech</title>
+	<!-- Viewport mobile tag for sensible mobile support -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="keywords" content="API Gateway, multi-tenant, oAuth2.0, Kubernetes, Docker Swarm, Multi cloud support, Distributed Architecture, API Traffic Control,API management & lifecycle, API catalog with swagger UI, API productization and ACL, Continuous integration and continuous delivery">
-  <meta name="description" content="The enterprise platform you need to build, deploy, and operate applications dramatically faster. We offer a Complete and Fully Adaptable Cloud-Native Enterprise Platform for building, deploying, and optimizing your applications dramatically faster. Our platform is the richest integrated and harmonized platform on the market covering all of your development pipeline needs from Framework, API Management & Lifecycle, and Continuous Integration & Delivery to Metrics. It also adapts to the enterprise legacy solutions.">
-  <meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="API Gateway, multi-tenant, oAuth2.0, Kubernetes, Docker Swarm, Multi cloud support, Distributed Architecture, API Traffic Control,API management & lifecycle, API catalog with swagger UI, API productization and ACL, Continuous integration and continuous delivery">
+	<meta name="description" content="The enterprise platform you need to build, deploy, and operate applications dramatically faster. We offer a Complete and Fully Adaptable Cloud-Native Enterprise Platform for building, deploying, and optimizing your applications dramatically faster. Our platform is the richest integrated and harmonized platform on the market covering all of your development pipeline needs from Framework, API Management & Lifecycle, and Continuous Integration & Delivery to Metrics. It also adapts to the enterprise legacy solutions.">
+	<meta name="robots" content="index, follow">
 
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <!--FONT-->
+	<link rel="icon" type="image/png" href="/images/favicon.png">
+	<!--FONT-->
 
-  <!--STYLES-->
-  <link rel="stylesheet" href="/css/iconmonstr-iconic-font.min.css">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/font-soajs.css">
+	<!--STYLES-->
+	<link rel="stylesheet" href="/css/iconmonstr-iconic-font.min.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="/css/fonts.css">
+	<link rel="stylesheet" href="/css/font-soajs.css">
 
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/page.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="stylesheet" href="/css/font-awesome.min.css">
-
-
-  <script src="/app/scripts/jquery.min.js"></script>
-
-  <!--SCRIPTS-->
-  <script src="/app/scripts/moment.min.js"></script>
-  <script src="/app/scripts/custom.js"></script>
-  <script src="/app/scripts/angular.min.js"></script>
-  <script src="/app/scripts/angular-route.min.js"></script>
-  <script src="/app/scripts/angular-sanitize.min.js"></script>
-  <script src="/app/scripts/ui-bootstrap-tpls.js"></script>
-  <script src="/app/scripts/require.js"></script>
-  <script src="/app/scripts/bootstrap.min.js"></script>
-
-  <script src="/app/navigation.js"></script>
-  <script src="/app/config.js"></script>
-  <script src="/app/controller.js"></script>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/page.css">
+	<link rel="stylesheet" href="/css/responsive.css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
 
 
-  <base href="/">
+	<script src="/app/scripts/jquery.min.js"></script>
+
+	<!--SCRIPTS-->
+	<script src="/app/scripts/moment.min.js"></script>
+	<script src="/app/scripts/custom.js"></script>
+	<script src="/app/scripts/angular.js"></script>
+	<script src="/app/scripts/ngStorage.js"></script>
+	<script src="/app/scripts/angular-cookies.min.js"></script>
+	<script src="/app/scripts/angular-route.min.js"></script>
+	<script src="/app/scripts/angular-sanitize.min.js"></script>
+	<script src="/app/scripts/ui-bootstrap-tpls.js"></script>
+	<script src="/app/scripts/require.js"></script>
+	<script src="/app/scripts/bootstrap.min.js"></script>
+
+	<script src="/config.js"></script>
+	<script src="/app/navigation.js"></script>
+	<script src="/app/config.js"></script>
+	<script src="/app/controller.js"></script>
+	<script src="/app/services.js"></script>
+	<script src="/app/common.js"></script>
+
+	<base href="/">
 </head>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3920240.js"></script>
 <!-- End of HubSpot Embed Code -->
 <div class="top" id="top" style="position: absolute; top: 0;"></div>
-<body ng-controller="mainCtrl" >
-<top-menu ng-show="currentLocation === '/'"></top-menu>
-<top-menuagility ng-show="currentLocation === '/homeagility'"></top-menuagility>
-<inner-menu ng-show="currentLocation != '/' && currentLocation != '/homeagility'"></inner-menu>
+<body ng-controller="mainCtrl">
+	<top-menu ng-show="currentLocation === '/'"></top-menu>
+	<top-menuagility ng-show="currentLocation === '/homeagility'"></top-menuagility>
+	<inner-menu ng-show="currentLocation != '/' && currentLocation != '/homeagility'"></inner-menu>
 
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
-  href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
-</p>
-<![endif]-->
+	<!--[if lt IE 8]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+			href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+	</p>
+	<![endif]-->
 
-<div ng-view class="main"></div>
+	<div ng-view class="main"></div>
 
-<footer id="section-footer">
-  <div ng-include="'app/templates/footer.html'"></div>
-</footer>
+	<footer id="section-footer">
+		<div ng-include="'app/templates/footer.html'"></div>
+	</footer>
 
-<script>
+	<script>
 
-  $(function () {
-    setTimeout(function () {
-      $('#myCarousel').carousel({
-        interval: 20 * 1000
-      });
-       /* $('.carousel-control.right').trigger('click'); */
+		$(function () {
+			setTimeout(function () {
+				$('#myCarousel').carousel({
+					interval: 20 * 1000
+				});
+				/* $('.carousel-control.right').trigger('click'); */
 
-      // navigation click actions
-      $('.scroll-link').on('click', function (event) {
-        event.preventDefault();
-        $(".navbar-collapse").collapse('hide');
-        var sectionID = $(this).attr("data-id");
-        scrollToID('#' + sectionID, 750);
-      });
-      // scroll to top action
-      $('.scroll-top').on('click', function (event) {
-        event.preventDefault();
-        $('html, body').animate({scrollTop: 0}, 'slow');
-      });
-      // mobile nav toggle
-      $('#nav-toggle').on('click', function (event) {
-        event.preventDefault();
-        $('#main-nav').toggleClass("open");
-      });
-      $.getScript("https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function (data, textStatus, jqxhr) {
-        $("input[type=submit]").removeAttr("disabled");
-      });
-    }, 3000);
-  });
+				// navigation click actions
+				$('.scroll-link').on('click', function (event) {
+					event.preventDefault();
+					$(".navbar-collapse").collapse('hide');
+					var sectionID = $(this).attr("data-id");
+					scrollToID('#' + sectionID, 750);
+				});
+				// scroll to top action
+				$('.scroll-top').on('click', function (event) {
+					event.preventDefault();
+					$('html, body').animate({ scrollTop: 0 }, 'slow');
+				});
+				// mobile nav toggle
+				$('#nav-toggle').on('click', function (event) {
+					event.preventDefault();
+					$('#main-nav').toggleClass("open");
+				});
+				$.getScript("https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function (data, textStatus, jqxhr) {
+					$("input[type=submit]").removeAttr("disabled");
+				});
+			}, 3000);
+		});
 
 
-  // scroll function
-  function scrollToID(id, speed) {
-      var offSet = 50;
-      var targetOffset = $(id).offset().top - offSet;
-      var mainNav = $('#main-nav');
-      $('html,body').animate({scrollTop: targetOffset}, speed);
+		// scroll function
+		function scrollToID(id, speed) {
+			var offSet = 50;
+			var targetOffset = $(id).offset().top - offSet;
+			var mainNav = $('#main-nav');
+			$('html,body').animate({ scrollTop: targetOffset }, speed);
 
-    if (mainNav.hasClass("open")) {
-      mainNav.css("height", "1px").removeClass("in").addClass("collapse");
-      mainNav.removeClass("open");
-    }
-  }
-  if (typeof console === "undefined") {
-    console = {
-      log: function () {
-      }
-    };
-  }
+			if (mainNav.hasClass("open")) {
+				mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+				mainNav.removeClass("open");
+			}
+		}
+		if (typeof console === "undefined") {
+			console = {
+				log: function () {
+				}
+			};
+		}
 
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+						(i[r].q = i[r].q || []).push(arguments)
+					}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-103630245-1', 'auto');
-  ga('send', 'pageview');
+		ga('create', 'UA-103630245-1', 'auto');
+		ga('send', 'pageview');
 
-</script>
+	</script>
 
 </body>
 </html>
