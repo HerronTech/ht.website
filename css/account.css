@@ -1,0 +1,99 @@
+.saasTopMenu {
+    height: 180px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-color: #5e5e8a;
+    z-index: -1;
+    padding-top: 90px;
+}
+
+.saasTopMenu .inner-binary {
+    height: 90px;
+    background-size: 100% 100%;
+    background: url('../images/binary-data.png');
+}
+
+.project-grid {
+    border-radius: 5px;
+    height: 450px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.project-name {
+    padding-bottom: 2px;
+    height: 33px;
+}
+
+.project-grid-wrapper {
+    height: 410px;
+    padding-top: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.project-grid-inner {
+    height: 373px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: normal;
+    overflow: scroll;
+}
+
+.project-grid .description {
+    line-height: normal;
+    height: 50px;
+    overflow: hidden;
+    font-style: italic;
+}
+
+.project-grid-buttons {
+    z-index: 10;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #5E5E73;
+    height: 40px;
+}
+
+.project-odd {
+    /*margin-right: 5%;*/
+}
+
+.project-grid .yellowbar {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    height: 2px;
+    width: 95%;
+}
+
+.project-buttons {
+    float: left;
+    margin-right: 20px;
+}
+
+.wrapper-box {
+    border: 1px solid;
+    padding: 5px;
+    margin-bottom: 3px;
+}
+
+.wrapper-box img {
+    height: 30px;
+    float: right;
+}
+
+.wrapper-box .infra-name {
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+.wrapper-box .one-deployment {
+    margin-bottom: 6px;
+    border-bottom: 1px solid #f3c047;
+}
+
+.leftColumn {
+    border-right: 2px solid #f3c047;
+}
