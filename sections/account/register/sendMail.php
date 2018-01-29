@@ -45,6 +45,7 @@
     $phone = $postedData->phone;
     $address = nl2br ( $postedData->address );
     $company = $postedData->company;
+    $companySize = $postedData->companySize;
     $sector = $postedData->sector;
     $position = $postedData->position;
     $aboutUs = $postedData->aboutUs;
@@ -196,6 +197,7 @@
 			      <b>Address</b>:<br />
 			      $address
 			      <div><b>Company</b>:  $company</div>
+			      <div><b>Size</b>:  $companySize</div>
 			      <div><b>Sector</b>:  $sector</div>
 			      <div><b>Position</b>:  $position</div>
 			      <div><b>What are you looking for</b>:  $lookingFor</div>

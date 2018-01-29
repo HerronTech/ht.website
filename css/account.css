@@ -97,3 +97,23 @@
 .leftColumn {
     border-right: 2px solid #f3c047;
 }
+
+
+.btn-primary, .modal-footer .btn-primary {
+    background-color: #4f819f !important;
+    border-color: #4f819f !important;
+}
+
+.btn-success, .modal-footer .btn-success {
+    background-color: #458673 !important;
+    border-color: #458673 !important;
+}
+
+.btn-danger, .modal-footer .btn-danger {
+    background-color: #a84041 !important;
+    border-color: #a84041 !important;
+}
+
+.modal-footer .btn, .footer .btn {
+    background-image: none;
+}

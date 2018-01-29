@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="/css/page.css">
 	<link rel="stylesheet" href="/css/responsive.css">
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/account.css">
 
 
 	<script src="/app/scripts/jquery.min.js"></script>
@@ -56,10 +57,12 @@
 <!-- End of HubSpot Embed Code -->
 <div class="top" id="top" style="position: absolute; top: 0;"></div>
 <body ng-controller="mainCtrl">
+	<overlay></overlay>
 	<top-menu ng-show="currentLocation === '/'"></top-menu>
 	<top-menuagility ng-show="currentLocation === '/homeagility'"></top-menuagility>
-	<inner-menu ng-show="currentLocation != '/' && currentLocation != '/homeagility'"></inner-menu>
+	<inner-menu ng-show="!saasMembers && currentLocation !== '/' && currentLocation !== '/homeagility'"></inner-menu>
 
+	<saas-menu ng-if="saasMembers && currentLocation !== '/'"></saas-menu>
 	<!--[if lt IE 8]>
 	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
 			href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.

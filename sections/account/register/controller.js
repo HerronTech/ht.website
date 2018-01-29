@@ -9,6 +9,7 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', functi
 		phone: '',
 		address: '',
 		company: '',
+		companySize: '',
 		sector: '',
 		position: '',
 		aboutUs: '',
@@ -31,7 +32,6 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', functi
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		$scope.contact.captcha = iCaptcha1Value;
 		if ($scope.contact.captcha) {
-			console.log($scope.contact);
 			$http({
 				method: 'POST',
 				url: '/sections/account/register/sendMail.php',
@@ -46,6 +46,7 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', functi
 						phone: '',
 						address: '',
 						company: '',
+						companySize: '',
 						sector: '',
 						position: '',
 						aboutUs: '',

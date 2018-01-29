@@ -1,0 +1,105 @@
+<div class="container inner">
+	<div ng-controller="memberProjectsCtrl">
+
+		<div class="col-lg-12 col-md-12">
+			<div ng-show="alerts && alerts.length > 0">
+				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+					{{alert.msg}}
+				</alert>
+				<br/>
+			</div>
+
+			<div>Your projects</div>
+			<br>
+			<div class="clearfix">
+				<div class="project-grid col-sm-6 col-xs-12" ng-class-odd="'project-odd'" ng-class-even="'project-even'" ng-repeat="project in projects">
+					<div class="project-grid-wrapper hintRed">
+						<div class="project-name">{{project.name}}</div>
+						<div class="project-grid-inner">
+							<div style="text-align: right">Created:</div>
+							<div class="description" title="{{project.description}}">{{project.description}}</div>
+							<br>
+							<div>
+								<div class="" style="float: left; width: 30%">Package:</div>
+								<div>
+									<div ng-repeat="(pack, data) in project.package"> {{pack}}</div>
+								</div>
+							</div>
+							<div class="clearfix">
+								<div class="" style="float: left; width: 30%">Add-Ons:</div>
+								<div style="float: left;">
+									<div ng-repeat="addon in project.addons">{{addon.code}}</div>
+								</div>
+							</div>
+							<hr class="yellowbar">
+							<div class="clearfix">
+								<div class="" style="float: left; width: 30%">OverAll:</div>
+								<div style="float: left;">
+									<div ng-repeat="(one,value) in project.agg.criteria">{{one}}: {{value}}</div>
+								</div>
+							</div>
+							<hr class="yellowbar">
+							<br>
+							<div class="clearfix">
+								<div class="col-sm-6 col-xs-12 leftColumn">
+									<div style="margin-bottom: 3px">Resources</div>
+									<img style="height: 60px;" src="/images/resources/{{project.mainResource.driver}}/logo.png">
+									<div>
+										<div>Provider: {{project.mainResource.providerSettings.backingProviderName}}
+										</div>
+										<div>Size: {{project.mainResource.providerSettings.instanceSizeName}}</div>
+										<div>Region: {{project.mainResource.providerSettings.regionName}}</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xs-12 rightColumn">
+									<div style="margin-bottom: 3px">Infra</div>
+									<div>
+										<div ng-repeat="(infra, infraData) in project.infra" class="wrapper-box">
+											<div class="infra-name" style="">{{infra}} &nbsp;
+												<img src="/images/infra/{{infra}}/logo.png"></div>
+											<div ng-repeat="deployment in infraData.deployment" class="one-deployment">
+												<div>Name: {{deployment.name}}</div>
+												<div>Zone: {{deployment.zone}}</div>
+												<div>Env: {{deployment.environments.join(', ')}}</div>
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+							<br>
+						</div>
+					</div>
+					<div class="project-grid-buttons" style="">
+						<div class="project-buttons">
+							<a ng-click="openProject(project)" class="saffron-txt" href="">
+								<span class="fa fa-folder-open"></span>
+								<b>Open</b>
+							</a>
+						</div>
+						<div class="project-buttons">
+							<a class="saffron-txt" ng-click="editProject(project)" href="">
+								<span class="fa fa-edit"></span>
+								<b class="saffron-txt">Edit
+								</b>
+							</a>
+						</div>
+						<div class="project-buttons">
+							<a class="saffron-txt" ng-click="deleteProject(project)" href="">
+								<span class="fa fa-remove"></span>
+								<b class="saffron-txt">Delete</b>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="col-lg-12 text-center">
+				<a type="button" class="btn Casablanca gray-txt comet-hover white-txt-hover" href="">Add Project</a>
+			</div>
+
+		</div>
+	</div>
+</div>

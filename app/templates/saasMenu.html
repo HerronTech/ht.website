@@ -1,0 +1,7 @@
+<div class="saasTopMenu" ng-class="{}">
+	<div class="inner-binary"></div>
+</div>
+<!-- Static navbar -->
+<div ng-if="!isLoggedInUser" ng-include="'app/templates/navBar.html'"></div>
+
+<div ng-if="isLoggedInUser" ng-include="'app/templates/profileMenu.html'"></div>

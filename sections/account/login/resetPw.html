@@ -1,0 +1,16 @@
+<div class="container inner">
+	<div class="col-lg-12 col-md-12">
+
+		<div class='form' ng-controller="resetPwCtrl as formCtrl">
+
+			<div ng-show="alerts && alerts.length > 0">
+				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+					{{alert.msg}}
+				</alert>
+				<br/>
+			</div>
+
+			<ngform></ngform>
+		</div>
+	</div>
+</div>

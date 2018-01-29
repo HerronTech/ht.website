@@ -34,19 +34,32 @@
 					<input ng-model="contact.company" type="text" class="form-control" placeholder="Company Name (Optional)" tooltip="Enter your Company Name..."/>
 				</div>
 
-				<div class="clearfix">
-					<div class="form-group">
-						<input ng-model="contact.sector" type="text" class="form-control" placeholder="Company Sector (Optional)" tooltip="Enter the company sector..."/>
-					</div>
+				<div class="form-group">
+					<input ng-model="contact.sector" type="text" class="form-control" placeholder="Company Sector (Optional)" tooltip="Enter the company sector..."/>
+				</div>
 
-					<div class="form-group" style="">
-						<input ng-model="contact.position" type="text" class="form-control" placeholder="Position (Optional)" tooltip="Enter your position in the company..."/>
-					</div>
+				<div class="form-group" style="">
+					<input ng-model="contact.position" type="text" class="form-control" placeholder="Position (Optional)" tooltip="Enter your position in the company..."/>
+				</div>
+
+				<div class="form-group" style="">
+					<select ng-model="contact.companySize" class="form-control" placeholder="Company Size (Optional)" tooltip="Enter your Company Size">
+						<option value="">Company Size (Optional)</option>
+						<option value="A">Self-employed</option>
+						<option value="B">1-10 employees</option>
+						<option value="C">11-50 employees</option>
+						<option value="D">51-200 employees</option>
+						<option value="E">201-500 employees</option>
+						<option value="F">501-1000 employees</option>
+						<option value="G">1001-5000 employees</option>
+						<option value="H">5001-10,000 employees</option>
+						<option value="I">10,001+ employees</option>
+					</select>
 				</div>
 
 				<div class="form-group">
 					<select ng-model="contact.aboutUs" class="form-control" tootltip="How did you hear about us?">
-						<option value="">How did you hear about us? </option>
+						<option value="">How did you hear about us?</option>
 						<option value="Twitter">Twitter</option>
 						<option value="Facebook">Facebook</option>
 						<option value="LinkedIn">LinkedIn</option>
@@ -61,10 +74,12 @@
 				</div>
 
 				<div class="form-group" style="">
-					<label class="label">Are you using SOAJS?</label> &nbsp;
-					<input ng-model="contact.usingSoajs" type="radio" value="yes" class=""/> <span style="font-size: 13px">Yes</span>
+					<label class="label">Are you currently using SOAJS?</label> &nbsp;
+					<input ng-model="contact.usingSoajs" type="radio" value="yes" class=""/>
+					<span style="font-size: 13px">Yes</span>
 					&nbsp; &nbsp;
-					<input ng-model="contact.usingSoajs" type="radio" value="no" class=""/> <span style="font-size: 13px">No</span>
+					<input ng-model="contact.usingSoajs" type="radio" value="no" class=""/>
+					<span style="font-size: 13px">No</span>
 				</div>
 
 				<div class="col-md-12 col-sm-12 form-group">
