@@ -61,12 +61,78 @@ var navigation = [
 		'scripts': ['sections/platform/controller.js']
 	},
 	{
+		'id': 'projects',
+		'title': 'Herron Tech | Projects',
+		'url': '/members/projects',
+		'tplPath': 'sections/account/members/projects.html',
+		'scripts': ['sections/account/members/controller.js']
+	},
+	{
+		'id': 'profile',
+		'label': 'Login',
+		'title': 'Herron Tech | My Account',
+		'url': '/members/profile',
+		'tplPath': 'sections/account/members/profile.html',
+		'scripts': ['sections/account/config.js', 'sections/account/members/controller.js']
+	},
+	{
+		'id': 'billing',
+		'label': 'Login',
+		'title': 'Herron Tech | Billing',
+		'url': '/members/billing',
+		'tplPath': 'sections/account/members/billing.html',
+		'scripts': ['sections/account/config.js', 'sections/account/members/controller.js']
+	},
+	{
+		'id': 'register',
+		'label': 'Register',
+		'title': 'Herron Tech | Join',
+		'url': '/members/register',
+		'tplPath': 'sections/account/register/page.html',
+		'scripts': ['sections/account/register/controller.js']
+	},
+	{
+		'id': 'forgetPw',
+		'title': 'Herron Tech | Forget Password',
+		'url': '/members/forgetPw',
+		'tplPath': 'sections/account/login/forgetPw.html',
+		'scripts': [
+			'sections/account/config.js',
+			'sections/account/login/controller.js'
+		]
+	},
+	{
+		'id': 'resetPw',
+		'title': 'Herron Tech | Reset Password',
+		'url': '/members/resetPw',
+		'tplPath': 'sections/account/login/resetPw.html',
+		'scripts': ['sections/account/config.js', 'sections/account/login/controller.js']
+	},
+	{
+		'id': 'validateEmail',
+		'title': 'Herron Tech | Validate Email',
+		'url': '/members/validateEmail',
+		'tplPath': 'sections/account/login/validate.html',
+		'scripts': ['sections/account/config.js', 'sections/account/login/controller.js']
+	},
+	{
 		'id': 'memberarea',
 		'label': 'Register',
 		'title': 'Join Herron Tech',
 		'url': '/memberarea',
 		'tplPath': 'sections/account/register/page.html',
 		'scripts': ['sections/account/register/controller.js']
+	},
+	{
+		'id': 'login',
+		'label': 'Login',
+		'title': 'Herron Tech | Login',
+		'url': '/members/login',
+		'tplPath': 'sections/account/login/login.html',
+		'scripts': [
+			'sections/account/config.js',
+			'sections/account/login/controller.js'
+		]
 	}
 
 

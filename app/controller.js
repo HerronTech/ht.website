@@ -78,9 +78,27 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 			$location.path("/" + section + "/" + anchor);
 		};
 
-		$scope.$on('$routeChangeSuccess', function (event, current, previous) {
-			$scope.currentLocation = $location.path();
+		$scope.$on("loadUserInterface", function (event, args) {
+			var user = $localStorage.soajs_user;
+			if (user) {
+				$scope.userFirstName = user.firstName;
+				$scope.userLastName = user.lastName;
+				$scope.enableInterface = true;
+				$scope.isLoggedInUser = true;
+			}
+			else {
+				console.log('Missing user object');
+				$scope.isLoggedInUser = false;
+				$scope.enableInterface = false;
+			}
+		});
 
+		$scope.$on('$routeChangeSuccess', function (event, current, previous) {
+			$scope.saasMembers = false;
+			$scope.currentLocation = $location.path();
+			if ($scope.currentLocation.indexOf('members') !== -1) {
+				$scope.saasMembers = true;
+			}
 			for (var entry = 0; entry < navigation.length; entry++) {
 				var urlOnly = navigation[entry].url.replace('/:anchor?', '');
 				if (urlOnly === $scope.currentLocation) {
@@ -110,7 +128,90 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 			}, 100);
 		});
 
+		$scope.checkUserCookie = function () {
+			function getUser(username, cb) {
+				var apiParams = {
+					"method": "get",
+					"routeName": "/urac/account/getUser",
+					"headers": {
+						"key": apiConfiguration.key
+					},
+					"params": {
+						"username": username
+					}
+				};
+				getSendDataFromServer($scope, ngDataApi, apiParams, function (error, response) {
+					if (error) {
+						return cb(false);
+					}
+					else {
+						return cb(true);
+					}
+				});
+			}
+
+			if ($cookies.get('access_token', { 'domain': interfaceDomain }) && $localStorage.soajs_user) {
+				var user = $localStorage.soajs_user;
+				getUser(user.username, function (result) {
+					if (!result) {
+						ngDataApi.logoutUser($scope);
+					}
+					$scope.isLoggedInUser = true;
+				});
+			}
+		};
+
+		$scope.checkUserCookie();
+		
+		$scope.logoutUser = function () {
+			var user = $localStorage.soajs_user;
+			
+			function clearData() {
+				ngDataApi.logoutUser($scope);
+				$scope.$emit("loadUserInterface", {});
+				$scope.go("/members/login");
+			}
+			
+			function logout() {
+				overlayLoading.show();
+				
+				getSendDataFromServer($scope, ngDataApi, {
+					"method": "delete",
+					"routeName": "/oauth/refreshToken/" + $cookies.get("refresh_token", { 'domain': interfaceDomain }),
+					"headers": {
+						"key": apiConfiguration.key
+					}
+				}, function (error, response) {
+					
+					getSendDataFromServer($scope, ngDataApi, {
+						"method": "delete",
+						"routeName": "/oauth/accessToken/" + $cookies.get("access_token", { 'domain': interfaceDomain }),
+						"headers": {
+							"key": apiConfiguration.key
+						}
+					}, function (error, response) {
+						overlayLoading.hide();
+						clearData();
+					});
+				});
+			}
+			
+			if (typeof(user) !== 'undefined') {
+				logout();
+			}
+			else {
+				clearData();
+			}
+		};
+
 	}]);
+
+app.directive('overlay', function () {
+	return {
+		restrict: 'E',
+		templateUrl: 'app/templates/overlay.html'
+	};
+});
 
 app.directive('topMenu', function () {
 	return {
@@ -133,6 +234,12 @@ app.directive('innerMenu', function () {
 	}
 });
 
+app.directive('saasMenu', function () {
+	return {
+		restrict: 'E',
+		templateUrl: 'app/templates/saasMenu.html'
+	}
+});
 
 app.filter('trustAsResourceUrl', ['$sce', function ($sce) {
 	return function (val) {
@@ -145,3 +252,26 @@ app.filter('toTrustedHtml', ['$sce', function ($sce) {
 		return $sce.trustAsHtml(text);
 	};
 }]);
+
+var overlayLoading = {
+	show: function (cb) {
+		var overlayHeight = jQuery(document).height();
+		jQuery("#overlayLoading").css('height', overlayHeight + 'px').show();
+		jQuery("#overlayLoading .bg").css('height', overlayHeight + 'px').show(100);
+		jQuery("#overlayLoading .content").show();
+		if (cb && typeof(cb) === 'function') {
+			cb();
+		}
+	},
+	hide: function (t, cb) {
+		var fT = 200;
+		if (t && typeof(t) === 'number') {
+			fT = t;
+		}
+		jQuery("#overlayLoading .content").hide();
+		jQuery("#overlayLoading").fadeOut(fT);
+		if (cb && typeof(cb) === 'function') {
+			cb();
+		}
+	}
+};
