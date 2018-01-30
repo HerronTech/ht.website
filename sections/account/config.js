@@ -118,16 +118,13 @@ var accTranslation = {
 		"ENG": "Enter your Username or E-mail to ask for a password change",
 		"FRA": "Enter your Username or E-mail to ask for a Mot de passe change"
 	},
-	"oldPassword": {
-		"ENG": "Old Password",
-		"FRA": "Ancien Mot de passe"
-	},
+
 	"EnterOldPassword": {
-		"ENG": "Enter your Old Password",
+		"ENG": "",
 		"FRA": "Entrer votre ancien Mot de passe"
 	},
 	"newEmail": {
-		"ENG": "New Email",
+		"ENG": "",
 		"FRA": "New Email"
 	},
 	"register": {
@@ -143,7 +140,7 @@ for (var attrname in accTranslation) {
 var loginConfig = {
 	formConf: {
 		'name': 'login',
-		'label': translation.login[LANG],
+		'label': "Login",
 		'msgs': {
 			'footer': ''
 		},
@@ -151,6 +148,7 @@ var loginConfig = {
 			{
 				'name': 'username',
 				'label': translation.username[LANG],
+				'hideLabel': true,
 				'type': 'text',
 				'placeholder': translation.enterUsername[LANG],
 				'value': '',
@@ -160,6 +158,7 @@ var loginConfig = {
 			{
 				'name': 'password',
 				'label': translation.password[LANG],
+				'hideLabel': true,
 				'type': 'password',
 				'placeholder': translation.enterPassword[LANG],
 				'value': '',
@@ -241,11 +240,12 @@ var forgetPwConfig = {
 		'entries': [
 			{
 				'name': 'username',
-				'label': translation.username[LANG] + ' /  ' + translation.email[LANG],
+				'hideLabel': true,
+				'label': 'Username or Email',
 				'type': 'text',
-				'placeholder': translation.enterUsernameEmail[LANG],
+				'placeholder': "Enter Username or E-mail",
 				'value': '',
-				'tooltip': translation.enterUserNameEmailPasswordChange[LANG],
+				'tooltip': 'Enter your Username or E-mail to ask for a password change',
 				'required': true
 			}
 		]
@@ -260,9 +260,9 @@ var changePwConfig = {
 		'entries': [
 			{
 				'name': 'oldPassword',
-				'label': translation.oldPassword[LANG],
+				'label': "Old Password",
 				'type': 'password',
-				'placeholder': translation.EnterOldPassword[LANG],
+				'placeholder': "Enter your Old Password",
 				'value': '',
 				'tooltip': translation.passwordsToolTip[LANG],
 				'required': true
@@ -296,7 +296,7 @@ var changeEmailConfig = {
 		'entries': [
 			{
 				'name': 'email',
-				'label': translation.newEmail[LANG],
+				'label': "New Email",
 				'type': 'email',
 				'placeholder': translation.enterEmail[LANG],
 				'value': '',

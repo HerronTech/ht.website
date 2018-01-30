@@ -1,4 +1,4 @@
-<label>{{entry.label}}</label>
+<label ng-hide="entry.hideLabel">{{entry.label}}</label>
 <div ng-if="entry.value">
 	<div text-angular ng-model="form.formData[entry.name]" ng-required="entry.required">{{entry.value}}</div>
 </div>

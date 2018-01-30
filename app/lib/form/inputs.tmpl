@@ -97,7 +97,7 @@
 		</td>
 		
 		<td ng-if="!entry.directive" ng-switch-default="">
-			<div id="{{entry.name}}-wrapper" ng-include="'app/lib/form/plugins/default.tmpl'"></div>
+			<div id="{{entry.name}}-wrapper" ng-class="{'form-group': entry.hideLabel}" ng-include="'app/lib/form/plugins/default.tmpl'"></div>
 		</td>
 	</tr>
 </table>

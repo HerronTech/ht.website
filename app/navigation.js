@@ -64,8 +64,15 @@ var navigation = [
 		'id': 'projects',
 		'title': 'Herron Tech | Projects',
 		'url': '/members/projects',
-		'tplPath': 'sections/account/members/projects.html',
-		'scripts': ['sections/account/members/controller.js']
+		'tplPath': 'sections/account/members/projects/list.html',
+		'scripts': ['sections/account/members/projects/controller.js']
+	},
+	{
+		'id': 'projectAdd',
+		'title': 'Herron Tech | Projects',
+		'url': '/members/project/add',
+		'tplPath': 'sections/account/members/projects/add.html',
+		'scripts': ['sections/account/members/projects/controller.js']
 	},
 	{
 		'id': 'profile',
