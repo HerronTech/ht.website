@@ -49,6 +49,7 @@ app.config([
 		$locationProvider.hashPrefix('!');
 
 		app.components = {
+			filter: $filterProvider.register,
 			controller: $controllerProvider.register,
 			service: $provide.service
 		};

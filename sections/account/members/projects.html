@@ -16,11 +16,11 @@
 					<div class="project-grid-wrapper hintRed">
 						<div class="project-name">{{project.name}}</div>
 						<div class="project-grid-inner">
-							<div style="text-align: right">Created:</div>
+							<div style="text-align: right">Created: {{project.ts|prettyLocalDate}}</div>
 							<div class="description" title="{{project.description}}">{{project.description}}</div>
 							<br>
 							<div>
-								<div class="" style="float: left; width: 30%">Package:</div>
+								<div ng-if="" class="" style="float: left; width: 30%">Package:</div>
 								<div>
 									<div ng-repeat="(pack, data) in project.package"> {{pack}}</div>
 								</div>
