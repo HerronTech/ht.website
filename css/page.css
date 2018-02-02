@@ -459,6 +459,10 @@ img.thumb {
     z-index: 0;
 }
 
+#myCarousela {
+    z-index: 0;
+}
+
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block;
 
@@ -473,8 +477,8 @@ img.thumb {
     max-width: 100%;
     line-height: 1;
 
-    opacity: 0.11;
-    filter: alpha(opacity=11); /* For IE8 and earlier */
+    opacity: 0.2;
+    filter: alpha(opacity=2); /* For IE8 and earlier */
 }
 
 /**
