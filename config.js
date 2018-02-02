@@ -36,3 +36,4 @@ var apiConfiguration = {
 };
 var translation = {};
 
+let cloudUri = 'https://cloud.herrontech.com/';

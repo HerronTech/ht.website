@@ -64,81 +64,81 @@ var navigation = [
 		'id': 'projects',
 		'title': 'Herron Tech | Projects',
 		'url': '/members/projects',
-		'tplPath': 'sections/account/members/projects/list.html',
-		'scripts': ['sections/account/members/projects/controller.js']
+		'tplPath': 'sections/saas/members/projects/list.html',
+		'scripts': ['sections/saas/members/projects/controller.js']
 	},
 	{
 		'id': 'projectAdd',
-		'title': 'Herron Tech | Projects',
+		'title': 'Herron Tech | Project',
 		'url': '/members/project/add',
-		'tplPath': 'sections/account/members/projects/add.html',
-		'scripts': ['sections/account/members/projects/controller.js']
+		'tplPath': 'sections/saas/members/projects/add.html',
+		'scripts': ['sections/saas/members/projects/controller.js']
 	},
 	{
 		'id': 'profile',
 		'label': 'Login',
 		'title': 'Herron Tech | My Account',
 		'url': '/members/profile',
-		'tplPath': 'sections/account/members/profile.html',
-		'scripts': ['sections/account/config.js', 'sections/account/members/controller.js']
+		'tplPath': 'sections/saas/members/account/profile.html',
+		'scripts': ['sections/saas/config.js', 'sections/saas/members/account/controller.js']
 	},
 	{
 		'id': 'billing',
 		'label': 'Login',
 		'title': 'Herron Tech | Billing',
 		'url': '/members/billing',
-		'tplPath': 'sections/account/members/billing.html',
-		'scripts': ['sections/account/config.js', 'sections/account/members/controller.js']
+		'tplPath': 'sections/saas/members/account/billing.html',
+		'scripts': ['sections/saas/config.js', 'sections/saas/members/account/controller.js']
 	},
 	{
 		'id': 'register',
 		'label': 'Register',
 		'title': 'Herron Tech | Join',
 		'url': '/members/register',
-		'tplPath': 'sections/account/register/page.html',
-		'scripts': ['sections/account/register/controller.js']
+		'tplPath': 'sections/saas/register/page.html',
+		'scripts': ['sections/saas/register/controller.js']
 	},
 	{
 		'id': 'forgetPw',
 		'title': 'Herron Tech | Forget Password',
 		'url': '/members/forgetPw',
-		'tplPath': 'sections/account/login/forgetPw.html',
+		'tplPath': 'sections/saas/login/forgetPw.html',
 		'scripts': [
-			'sections/account/config.js',
-			'sections/account/login/controller.js'
+			'sections/saas/config.js',
+			'sections/saas/login/controller.js'
 		]
 	},
 	{
 		'id': 'resetPw',
 		'title': 'Herron Tech | Reset Password',
 		'url': '/members/resetPw',
-		'tplPath': 'sections/account/login/resetPw.html',
-		'scripts': ['sections/account/config.js', 'sections/account/login/controller.js']
+		'tplPath': 'sections/saas/login/resetPw.html',
+		'scripts': ['sections/saas/config.js', 'sections/saas/login/controller.js']
 	},
 	{
 		'id': 'validateEmail',
 		'title': 'Herron Tech | Validate Email',
 		'url': '/members/validateEmail',
-		'tplPath': 'sections/account/login/validate.html',
-		'scripts': ['sections/account/config.js', 'sections/account/login/controller.js']
+		'tplPath': 'sections/saas/login/validate.html',
+		'scripts': ['sections/saas/config.js', 'sections/saas/login/controller.js']
 	},
 	{
 		'id': 'memberarea',
 		'label': 'Register',
 		'title': 'Join Herron Tech',
 		'url': '/memberarea',
-		'tplPath': 'sections/account/register/page.html',
-		'scripts': ['sections/account/register/controller.js']
+		'tplPath': 'sections/saas/register/page.html',
+		'scripts': ['sections/saas/register/controller.js']
 	},
 	{
 		'id': 'login',
 		'label': 'Login',
 		'title': 'Herron Tech | Login',
 		'url': '/members/login',
-		'tplPath': 'sections/account/login/login.html',
+		'tplPath': 'sections/saas/login/login.html',
 		'scripts': [
-			'sections/account/config.js',
-			'sections/account/login/controller.js'
+			'sections/saas/config.js',
+			'sections/saas/login/controller.js'
 		]
 	}
 
