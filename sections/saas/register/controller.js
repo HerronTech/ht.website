@@ -2,6 +2,11 @@
 var accountApp = app.components;
 accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
 
+    var pageData = {
+        title: "JOIN US - TO GET INVITED"
+    };
+    $scope.$parent.$emit('refreshPageTitle', pageData);
+
 	$scope.alerts = [];
 	$scope.contact = {
 		name: '',
