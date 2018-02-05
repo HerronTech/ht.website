@@ -287,3 +287,15 @@ app.service('isUserLoggedIn', ['$cookies', '$localStorage', 'ngDataApi', functio
 		}
 	}
 }]);
+
+app.service("injectFiles", function () {
+	
+	function injectCss(filePath) {
+		var csstag = "<link rel='stylesheet' type='text/css' href='" + filePath + "' />";
+		jQuery("head").append(csstag);
+	}
+	
+	return {
+		'injectCss': injectCss
+	}
+});

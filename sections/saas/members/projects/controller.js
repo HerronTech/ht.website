@@ -2,8 +2,8 @@
 
 var accountApp = app.components;
 
-accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi',
-	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi) {
+accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
+	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi, injectFiles) {
 		
 		$scope.projects = [];
 		if (!isUserLoggedIn($scope)) {
@@ -165,6 +165,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		
 		$scope.getList();
 		
+		injectFiles.injectCss("sections/saas/members/projects/projects.css")
 	}]);
 
 accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi',

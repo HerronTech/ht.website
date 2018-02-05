@@ -1,0 +1,37 @@
+.actionBtn {
+    font-size: 12px;
+    padding:5px 10px !important;
+}
+
+.t-right{
+    text-align:right;
+}
+
+.description {
+    font-style:italic;
+    font-size:13px;
+}
+
+.yellowbar {
+    background-color: #f3c047;
+    height: 3px;
+    width: 92px;
+    margin: 15px auto;
+}
+
+.margin-top-bottom-5{
+    margin:5px 0;
+}
+
+.projectLabel{
+    background-color: #F5F2F2;
+}
+
+.small-accordion-header{
+    font-size:14px;
+}
+
+.panelScroller {
+    height: 630px;
+    overflow: scroll;
+}
