@@ -12,7 +12,13 @@
 			<h2>My projects</h2>
 			<hr>
 			<br>
-			
+			<div>
+				<a type="button" class="actionBtn2 btn btn-lg Casablanca gray-txt comet-hover white-txt-hover" href="">
+					<span class="fa fa-plus"></span>
+					Create New Project
+				</a>
+			</div>
+			<br>
 			<accordion close-others="false">
 				<accordion-group is-open="!project.collpased" class="blueAccordion" ng-repeat="project in projects">
 					<accordion-heading>
@@ -26,15 +32,15 @@
 							<span class="description">{{project.description}}</span>
 						</div>
 						<div class="col-md-3 t-right">
-							<a ng-click="openProject(project)" class="btn btn-sm btn-primary actionBtn" href="">
+							<a ng-click="openProject(project)" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
 								<span class="fa fa-folder-open"></span>
 								<b>Open</b>
 							</a>&nbsp;
-							<a ng-click="editProject(project)" href="" class="btn btn-sm btn-warning actionBtn">
+							<a ng-click="editProject(project)" href="" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
 								<span class="fa fa-edit"></span>
 								<b>Edit</b>
 							</a>&nbsp;
-							<a ng-click="deleteProject(project)" href="" class="btn btn-sm btn-danger actionBtn">
+							<a ng-click="deleteProject(project)" href="" class="btn btn-sm red-danger actionBtn Casablanca gray-txt comet-hover white-txt-hover">
 								<span class="fa fa-remove"></span>
 								<b>Delete</b>
 							</a>
@@ -163,11 +169,6 @@
 					</div>
 				</accordion-group>
 			</accordion>
-			<br>
-			<div class="col-lg-12 text-center">
-				<a type="button" class="btn Casablanca gray-txt comet-hover white-txt-hover" href="">Add Project</a>
-			</div>
-		
 		</div>
 	</div>
 </div>
