@@ -27,10 +27,11 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 		var formConfig = loginConfig.formConf;
 		formConfig.actions = [
 			{
-				'type': 'submit',
+				'type': 'reset',
 				'label': 'Register',
 				'btn': 'warning',
 				'action': function (formData) {
+					$scope.$parent.go("/members/register");
 				}
 			},
 			{

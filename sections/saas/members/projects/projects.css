@@ -1,25 +1,25 @@
 .actionBtn {
     font-size: 12px;
-    padding:5px 10px !important;
+    padding: 5px 10px !important;
 }
 
 .actionBtn2 {
     padding: 10px 20px !important;
 }
 
-.red-danger{
+.red-danger {
     background-color: #a84041 !important;
     border-color: #a84041 !important;
     color: white;
 }
 
-.t-right{
-    text-align:right;
+.t-right {
+    text-align: right;
 }
 
 .description {
-    font-style:italic;
-    font-size:13px;
+    font-style: italic;
+    font-size: 13px;
 }
 
 .yellowbar {
@@ -29,19 +29,31 @@
     margin: 15px auto;
 }
 
-.margin-top-bottom-5{
-    margin:5px 0;
+.margin-top-bottom-5 {
+    margin: 5px 0;
 }
 
-.projectLabel{
+.projectLabel {
     background-color: #F5F2F2;
 }
 
-.small-accordion-header{
-    font-size:14px;
+.small-accordion-header {
+    font-size: 14px;
 }
 
 .panelScroller {
     min-height: 630px;
     /*overflow: scroll;*/
+}
+
+.fieldMsg {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.fieldMsg.hint {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: normal;
 }
