@@ -1,0 +1,127 @@
+<div class="container inner">
+	<div ng-controller="memberProjectAddCtrl">
+
+		<div class="col-lg-12 col-md-12">
+			<div ng-show="alerts && alerts.length > 0">
+				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+					{{alert.msg}}
+				</alert>
+				<br/>
+			</div>
+
+			<div>Add project</div>
+			<br>
+			<div id="step1" class="">
+				Project Details
+				<form>
+					<div class="form-group">
+						<input ng-model="project.name" type="text" placeholder="Name" class="form-control" tooltip="Enter your project name..." required/>
+					</div>
+					<div class="form-group">
+						<input ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Description ..." required/>
+					</div>
+					<div>
+						<a ng-click="" class="btn btn-sm btn-primary actionBtn" href="">
+							<b>Next</b>
+						</a>
+					</div>
+				</form>
+			</div>
+			<div id="step2" class="">
+				Choose your Infra
+
+				<form>
+					<accordion close-others="true">
+						<accordion-group ng-click="setInfra('aws')" is-open="data.infraAws">
+							<accordion-heading>
+								<input ng-checked="data.infraAws" name="chooseInfra" type="radio" value="aws" ng-model="data.infra"/>
+								AWS
+							</accordion-heading>
+							<div>
+								<form>
+
+								</form>
+							</div>
+						</accordion-group>
+						<accordion-group ng-click="setInfra('google')" is-open="data.infraGoogle">
+							<accordion-heading>
+								<input ng-checked="data.infraGoogle" name="chooseInfra" type="radio" value="google" ng-model="data.infra"/>
+								Google
+							</accordion-heading>
+							<div>
+								<form>
+
+									<div class="form-group">
+										<input ng-model="project.infra.google.api.project" type="text" placeholder="Project Id" class="form-control" tooltip="..." required/>
+									</div>
+									<div>
+										<label>Token</label>
+									</div>
+									<div class="form-group">
+										<input ng-model="project.infra.google.api.token.project_id" type="text" placeholder="" class="form-control" tooltip="Enter the token associated with this project..." required/>
+									</div>
+									<div class="form-group">
+										<input ng-model="project.infra.google.api.token.private_key" type="text" placeholder="Private Key" class="form-control" tooltip="Enter the token associated with this project..." required/>
+									</div>
+									<div class="form-group">
+										<input ng-model="project.infra.google.api.token.client_email" type="text" placeholder="" class="form-control" tooltip="Enter the token associated with this project..." required/>
+									</div>
+									<div class="form-group">
+										<input ng-model="project.infra.google.api.token.client_id" type="text" placeholder="" class="form-control" tooltip="Enter the token associated with this project..." required/>
+									</div>
+								</form>
+							</div>
+						</accordion-group>
+					</accordion>
+				</form>
+			</div>
+			<div id="step3" class="">
+				Choose your Resource
+
+
+				<accordion close-others="true">
+					<accordion-group ng-click="setCluster(true)" is-open="data.newCluster">
+						<accordion-heading>
+							<input ng-checked="data.newCluster" name="deployCluster" type="radio" value="true" ng-model="project.resource.deployCluster"/>
+							Deploy a new
+							Cluster
+						</accordion-heading>
+						<div>
+							<form>
+								<div class="form-group">
+									<input ng-model="project.resource.projectName" type="text" placeholder="Cluster Name" class="form-control" tooltip="Enter your cluster name..." required/>
+								</div>
+								<div class="form-group">
+									<input ng-model="project.resource.clusterName" type="text" placeholder="Cluster Name" class="form-control" tooltip="Enter your cluster name..." required/>
+								</div>
+							</form>
+						</div>
+					</accordion-group>
+					<accordion-group ng-click="setCluster(false)" is-open="data.existingCluster">
+						<accordion-heading>
+							<input ng-checked="data.existingCluster" name="deployCluster" type="radio" value="false" ng-model="project.resource.deployCluster"/>
+							Use existing
+							Cluster
+						</accordion-heading>
+						<div>
+							<form>
+								<div class="form-group">
+									<input ng-model="project.resource.projectName" type="text" placeholder="Cluster Name" class="form-control" tooltip="Enter your cluster name..." required/>
+								</div>
+								<div class="form-group">
+									<input ng-model="project.resource.clusterName" type="text" placeholder="Cluster Name" class="form-control" tooltip="Enter your cluster name..." required/>
+								</div>
+							</form>
+						</div>
+					</accordion-group>
+				</accordion>
+			</div>
+			<br>
+			<div class="col-lg-12 text-center">
+				<a ng-click="submitProject()" type="button" class="btn Casablanca gray-txt comet-hover white-txt-hover" href="">Add
+					Project</a>
+			</div>
+
+		</div>
+	</div>
+</div>

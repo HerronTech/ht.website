@@ -139,7 +139,8 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 		}
 		
 		var userCookie = $localStorage.soajs_user;
-		
+		var profileObj = $localStorage.soajs_user.profile;
+
 		var formConfig = {
 			form: profileConfig.formConf,
 			'timeout': $timeout,
@@ -157,7 +158,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 				},
 				{
 					'name': 'lastName',
-					'label': translation.lastName[LANG],
+					'label': "Last Name",
 					'type': 'text',
 					'placeholder': translation.enterLastName[LANG],
 					'value': '',
@@ -166,7 +167,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 				},
 				{
 					'name': 'email',
-					'label': translation.email[LANG],
+					'label': "Email",
 					'type': 'readonly',
 					'placeholder': translation.enterEmail[LANG],
 					'value': '',
@@ -175,7 +176,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 				},
 				{
 					'name': 'username',
-					'label': translation.username[LANG],
+					'label': "Username",
 					'type': 'text',
 					'placeholder': translation.enterUsername[LANG],
 					'value': '',
@@ -206,21 +207,21 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'label': 'Edit Profile',
 					'btn': 'primary',
 					'action': function (formData) {
-						var profileObj = (formData.profile) ? formData.profile : {};
-						
+						if (formData.profile) {
+							profileObj = formData.profile;
+						}
 						var postData = {
+							// 'profile': profileObj,
 							'username': formData.username,
 							'firstName': formData.firstName,
-							'lastName': formData.lastName,
-							'profile': profileObj
+							'lastName': formData.lastName
 						};
 						getSendDataFromServer($scope, ngDataApi, {
 							"method": "send",
 							"routeName": "/urac/account/editProfile",
-							"headers": {
-								"key": apiConfiguration.key
+							"params": {
+								"uId": $scope.uId
 							},
-							"params": { "uId": $scope.uId },
 							"data": postData
 						}, function (error) {
 							if (error) {

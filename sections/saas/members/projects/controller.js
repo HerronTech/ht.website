@@ -165,21 +165,36 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		
 		$scope.getList();
 		
-		injectFiles.injectCss("sections/saas/members/projects/projects.css")
+		injectFiles.injectCss("sections/saas/members/projects/projects.css");
 	}]);
 
-accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi',
-	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi) {
+accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
+	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi, injectFiles) {
+		injectFiles.injectCss("sections/saas/members/projects/projects.css");
 		
-		$scope.data = {};
-		$scope.data.newCluster = false;
-		$scope.data.existingCluster = false;
+		$scope.data = {
+			infraAws: false,
+			infraGoogle: false,
+			infra: "",
+			newCluster: false,
+			existingCluster: false
+		};
+		
 		$scope.project = {
+			name: "",
 			infra: {},
+			IPentries: [],
 			resource: {
 				driver: 'atlas',
-				api: {},
-				credentials: {}
+				api: {
+					orgId: '',
+					username: '',
+					token: ''
+				},
+				credentials: {
+					username: '',
+					password: ''
+				}
 			}
 		};
 		if (!isUserLoggedIn($scope)) {
@@ -198,6 +213,37 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		};
 		
 		
+		$scope.setInfra = function (infra) {
+			$scope.data.infra = infra;
+			if (infra === 'aws') {
+				$scope.data.infraAws = true;
+				$scope.data.infraGoogle = false;
+				delete $scope.project.infra.google;
+				$scope.project.infra.aws = {
+					api: {
+						"keyId": ""
+					}
+				};
+			}
+			if (infra === 'google') {
+				$scope.data.infraGoogle = true;
+				$scope.data.infraAws = false;
+				$scope.project.infra.google = {
+					api: {
+						"project": "",
+						"token": {
+							"project_id": "",
+							"private_key": "",
+							"client_email": "",
+							"client_id": ""
+						}
+					}
+				};
+				delete $scope.project.infra.aws;
+			}
+			console.log($scope.data);
+		};
+		
 		$scope.submitProject = function (project) {
 			console.log($scope.project);
 		};
@@ -205,9 +251,20 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			if (isNew) {
 				$scope.data.newCluster = true;
 				$scope.data.existingCluster = false;
+				$scope.project.resource.clusterConfig = {
+					numShards: 1,
+					autoScaling: {
+						"diskGBEnabled": true
+					},
+					backupEnabled: false,
+					mongoDBMajorVersion: "3.4",
+					providerSettings: {}
+				};
+				// $scope.project.resource.deployCluster = true;
 			} else {
 				$scope.data.newCluster = false;
 				$scope.data.existingCluster = true;
+				// $scope.project.resource.deployCluster = false;
 			}
 			console.log('isNew', isNew);
 		};

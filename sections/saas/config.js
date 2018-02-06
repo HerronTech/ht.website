@@ -91,7 +91,7 @@ var accTranslation = {
 		"FRA": "Reset Mot de passe"
 	},
 	"pleaseEnterNewPassword": {
-		"ENG": "Please enter a new password",
+		"ENG": "",
 		"FRA": "Please enter a nouveau mot de passe"
 	},
 	"newPassword": {
@@ -175,12 +175,13 @@ var resetPwConfig = {
 		'name': 'resetPw',
 		'label': translation.resetPassword[LANG],
 		'msgs': {
-			'header': translation.pleaseEnterNewPassword[LANG],
+			'header': "Please enter a new password",
 			'footer': ''
 		},
 		'entries': [
 			{
 				'name': 'password',
+				'hideLabel': true,
 				'label': translation.newPassword[LANG],
 				'type': 'password',
 				'placeholder': translation.newPasswordPlaceholder[LANG],
@@ -190,6 +191,7 @@ var resetPwConfig = {
 			},
 			{
 				'name': 'confirmPassword',
+				'hideLabel': true,
 				'label': translation.confirmPassword[LANG],
 				'type': 'password',
 				'placeholder': translation.confirmPasswordPlaceholder[LANG],
@@ -374,7 +376,7 @@ var profileConfig = {
 	formConf: {
 		'name': 'editProfile',
 		'label': '',
-		'instructions': ' instructions ',
+		'instructions': '',
 		'entries': []
 	}
 };
