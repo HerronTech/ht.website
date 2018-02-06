@@ -121,10 +121,10 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 				if ($routeParams.anchor) {
 					scrollToID('#' + $routeParams.anchor, 750);
 
-					$.getScript("https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function (data, textStatus, jqxhr) {
-						$("input[type=submit]").removeAttr("disabled");
-
-					});
+					// $.getScript("https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function (data, textStatus, jqxhr) {
+					// 	$("input[type=submit]").removeAttr("disabled");
+					//
+					// });
 				}
 			}, 100);
 		});

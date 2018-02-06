@@ -8,7 +8,7 @@ var navigation = [
 		'keywords': '',
 		'url': '/',
 		'tplPath': 'sections/home/page.html',
-		'scripts': ['sections/home/controller.js']
+		'scripts': ['app/captcha.js', 'sections/home/controller.js']
 	},
     {
         'id': 'homeagility',
@@ -82,21 +82,21 @@ var navigation = [
 		'tplPath': 'sections/saas/members/account/profile.html',
 		'scripts': ['sections/saas/config.js', 'sections/saas/members/account/controller.js']
 	},
-	{
-		'id': 'billing',
-		'label': 'Login',
-		'title': 'Herron Tech | Billing',
-		'url': '/members/billing',
-		'tplPath': 'sections/saas/members/account/billing.html',
-		'scripts': ['sections/saas/config.js', 'sections/saas/members/account/controller.js']
-	},
+	// {
+	// 	'id': 'billing',
+	// 	'label': 'Login',
+	// 	'title': 'Herron Tech | Billing',
+	// 	'url': '/members/billing',
+	// 	'tplPath': 'sections/saas/members/account/billing.html',
+	// 	'scripts': ['sections/saas/config.js', 'sections/saas/members/account/controller.js']
+	// },
 	{
 		'id': 'register',
 		'label': 'Register',
 		'title': 'Herron Tech | Join',
 		'url': '/members/register',
 		'tplPath': 'sections/saas/register/page.html',
-		'scripts': ['sections/saas/register/controller.js']
+		'scripts': ['app/captcha.js', 'sections/saas/register/controller.js']
 	},
 	{
 		'id': 'forgetPw',

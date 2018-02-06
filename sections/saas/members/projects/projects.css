@@ -3,6 +3,16 @@
     padding:5px 10px !important;
 }
 
+.actionBtn2 {
+    padding: 10px 20px !important;
+}
+
+.red-danger{
+    background-color: #a84041 !important;
+    border-color: #a84041 !important;
+    color: white;
+}
+
 .t-right{
     text-align:right;
 }
@@ -32,6 +42,6 @@
 }
 
 .panelScroller {
-    height: 630px;
-    overflow: scroll;
+    min-height: 630px;
+    /*overflow: scroll;*/
 }
