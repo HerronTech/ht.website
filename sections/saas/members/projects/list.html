@@ -14,7 +14,7 @@
 			<br>
 			
 			<accordion close-others="false">
-				<accordion-group is-open="true" class="blueAccordion" ng-repeat="project in projects">
+				<accordion-group is-open="!project.collpased" class="blueAccordion" ng-repeat="project in projects">
 					<accordion-heading>
 						<span class="icon icon-barcode"></span>{{project.name}}
 					</accordion-heading>
@@ -52,11 +52,11 @@
 								<div class="col-md-3">
 									<span ng-repeat="(pack, data) in project.package"> {{pack}}</span>
 								</div>
-								<div class="col-md-3">
-									<a href="">
-										<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Packages
-									</a>
-								</div>
+								<!--<div class="col-md-3">-->
+									<!--<a href="">-->
+										<!--<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Packages-->
+									<!--</a>-->
+								<!--</div>-->
 							</div>
 							<div class="row margin-top-bottom-5">
 								<div class="col-md-6 projectLabel">
@@ -65,73 +65,77 @@
 								<div class="col-md-3">
 									<div ng-repeat="addon in project.addons">{{addon.code}}</div>
 								</div>
-								<div class="col-md-3">
-									<a href="">
-										<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Add-Ons
-									</a>
-								</div>
+								<!--<div class="col-md-3">-->
+									<!--<a href="">-->
+										<!--<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Add-Ons-->
+									<!--</a>-->
+								<!--</div>-->
 							</div>
 							<hr class="yellowbar">
 							<div class="row margin-top-bottom-5">
 								<div class="col-md-6 projectLabel">
-									<label >OverAll</label>
+									<label >Package & Add-Ons Limit</label>
 								</div>
 								<div class="col-md-6">
-									<div ng-repeat="(one,value) in project.agg.criteria">{{one}}: {{value}}</div>
+									<div ng-repeat="(one,value) in project.agg.criteria">
+										<b class="text-capitalize">{{value.label}}:</b> {{value.quantity}}
+									</div>
 								</div>
 							</div>
 							<hr>
 							<div class="row">
-								<div class="col-md-5">
-									<h4>Resources</h4>
-									<br />
-									<div class="row margin-top-bottom-5">
-										<div class="col-md-5 projectLabel">
-											<label>Driver</label>
-										</div>
-										<div class="col-md-5">
-											<img height="37" src="/images/resources/{{project.mainResource.driver}}/logo.png">
-										</div>
-									</div>
-									<div class="row margin-top-bottom-5">
-										<div class="col-md-5 projectLabel">
-											<label>Provider</label>
-										</div>
-										<div class="col-md-5">
-											{{project.mainResource.providerSettings.backingProviderName}}
-										</div>
-									</div>
-									<div class="row margin-top-bottom-5">
-										<div class="col-md-5 projectLabel">
-											<label>Size</label>
-										</div>
-										<div class="col-md-5">
-											{{project.mainResource.providerSettings.instanceSizeName}}
-										</div>
-									</div>
-									<div class="row margin-top-bottom-5">
-										<div class="col-md-5 projectLabel">
-											<label>Region</label>
-										</div>
-										<div class="col-md-5">
-											{{project.mainResource.providerSettings.regionName}}
-										</div>
-									</div>
-								</div>
-								<div class="col-md-2"></div>
-								<div class="col-md-5">
-									<h4>Infra</h4>
+								<div class="col-md-6">
+									<h4>Resource</h4>
 									<br />
 									<accordion close-others="false">
-										<accordion-group ng-repeat="(infra, infraData) in project.infra">
+										<accordion-group is-open="true">
 											<accordion-heading >
-												<img height="24" src="/images/infra/{{infra}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{infra}}</span>
+												<img height="24" src="/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{project.mainResource.driver}}</span>
+											</accordion-heading>
+											
+											<div class="one-deployment">
+												<div class="row margin-top-bottom-5">
+													<div class="col-md-6 projectLabel">
+														<label>Provider</label>
+													</div>
+													<div class="col-md-6">
+														{{project.mainResource.providerSettings.backingProviderName}}
+													</div>
+												</div>
+												<div class="row margin-top-bottom-5">
+													<div class="col-md-6 projectLabel">
+														<label>Region</label>
+													</div>
+													<div class="col-md-6">
+														{{project.mainResource.providerSettings.regionName}}
+													</div>
+												</div>
+												<div class="row margin-top-bottom-5">
+													<div class="col-md-6 projectLabel">
+														<label>Size</label>
+													</div>
+													<div class="col-md-6">
+														{{project.mainResource.providerSettings.instanceSizeName}}
+													</div>
+												</div>
+												<hr class="yellowbar">
+											</div>
+										</accordion-group>
+									</accordion>
+								</div>
+								<div class="col-md-6">
+									<h4>Infrastructure</h4>
+									<br />
+									<accordion close-others="false">
+										<accordion-group ng-repeat="(infra, infraData) in project.infra" is-open="!project.infra[infra].hide">
+											<accordion-heading >
+												<img height="24" src="/images/infra/{{infra}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{infra}}</span>&nbsp;
 											</accordion-heading>
 											
 											<div ng-repeat="deployment in infraData.deployment" class="one-deployment">
 												<div class="row margin-top-bottom-5">
 													<div class="col-md-6 projectLabel">
-														<label>Deployment</label>
+														<label>Deployment Name</label>
 													</div>
 													<div class="col-md-6">{{deployment.name}}</div>
 												</div>
@@ -147,6 +151,7 @@
 													</div>
 													<div class="col-md-6">{{deployment.environments.join(' - ')}}</div>
 												</div>
+												<hr class="yellowbar">
 											</div>
 										</accordion-group>
 									</accordion>

@@ -32,6 +32,6 @@
 }
 
 .panelScroller {
-    height: 630px;
-    overflow: scroll;
+    min-height: 630px;
+    /*overflow: scroll;*/
 }

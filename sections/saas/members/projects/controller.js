@@ -130,7 +130,12 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				}
 				else {
 					$scope.projects = data;
+					
+					let projectCount = 0;
 					data.forEach(function (project) {
+						project.collpased = projectCount > 0;
+						projectCount++;
+						
 						project.mainResource = {};
 						project.resources.forEach(function (resource) {
 							if (resource.main) {
@@ -152,12 +157,22 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 									if (error) {
 										console.log(error);
 									} else {
-										console.log(response);
 										project.mainResource.providerSettings = response.providerSettings;
 									}
 								});
 							}
 						});
+						
+						let i = 0;
+						for(let oneInfra in project.infra){
+							if(Object.keys(project.infra[oneInfra].api).length === 0 || project.infra[oneInfra].deployment.length === 0){
+								delete project.infra[oneInfra];
+							}
+							else{
+								project.infra[oneInfra].hide = (i > 0);
+								i++;
+							}
+						}
 					});
 				}
 			});
