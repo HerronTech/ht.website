@@ -13,6 +13,365 @@
 			<br>
 			<div id="step1" ng-show="step['1']" class="">
 				Project Details
+
+				<table width="100%" class="packagesTable">
+					<thead>
+						<tr>
+							<th class="noBorder"></th>
+							<th class="noBorder"></th>
+							<th>
+								<input ng-model="project.ht_package" type="radio" name="package" id="SOA-l7">
+								<label for="SOA-l7">SOA-l7</label>
+							</th>
+							<th><input ng-model="project.ht_package" type="radio" name="package" id="MC-l7">
+								<label for="MC-l7">MC-l7</label></th>
+							<th><input ng-model="project.ht_package" type="radio" name="package" id="Enterprise">
+								<label for="Enterprise">Enterprise</label>
+							</th>
+							<th><input ng-model="project.ht_package" type="radio" name="package" id="Safehaven">
+								<label for="Safehaven">Safehaven</label>
+							</th>
+							<th><input ng-model="project.ht_package" type="radio" name="package" id="Unlimited">
+								<label for="Unlimited">Unlimited</label>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">Adaptive Framework</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell" width="2%"></td>
+							<td class="ruleLabel" width="35%">Daemon Catalog</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								SOAJS framework to build new API and Daemon
+							</td>
+							<td>
+								<span class="fa fa-check"> </span>
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								SOAJS middleware to modernize and transform existing API
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								SOAJS SDK to build portal modules
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Portal
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								oAuth 2.0 (multi grant type)
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								User Registration & Access Control (URAC)
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">Fast Delivery Platfrom</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Deployment Catalog
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Continuous Integration
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Continuous delivery
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Deploy manager
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">Multi Cloud</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Multi cloud environment
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">High availability and Auto Scaling</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Container orchestration
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Manual environment support</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Local development environment support</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Node deployment multi provider automation</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">Hybrid Integration</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Resource management & control
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">Analytics & Operating</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Heartbeat and Health check
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Resource metric
+							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">API Management</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Catalog
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Test Simulation
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Security (key, ACL, ..)
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">API multi-tenancy
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API productization
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">Per Unit</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Number of Repos</td>
+							<td>7</td>
+							<td>7</td>
+							<td>100</td>
+							<td>200</td>
+							<td>unlimited</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Number of Users</td>
+							<td>3</td>
+							<td>3</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Unlimited</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Number of cloud environment</td>
+							<td>6</td>
+							<td>6</td>
+							<td>100</td>
+							<td>200</td>
+							<td>Unlimited</td>
+						</tr>
+
+					</tbody>
+				</table>
+				<br>
+				<br>
 				<form name="submitDetails">
 					<div class="form-group">
 						<input ng-model="project.name" type="text" placeholder="Name" class="form-control" tooltip="Enter your project name..." required/>
