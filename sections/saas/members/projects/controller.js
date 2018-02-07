@@ -164,11 +164,11 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						});
 						
 						let i = 0;
-						for(let oneInfra in project.infra){
-							if(Object.keys(project.infra[oneInfra].api).length === 0 || project.infra[oneInfra].deployment.length === 0){
+						for (let oneInfra in project.infra) {
+							if (Object.keys(project.infra[oneInfra].api).length === 0 || project.infra[oneInfra].deployment.length === 0) {
 								delete project.infra[oneInfra];
 							}
-							else{
+							else {
 								project.infra[oneInfra].hide = (i > 0);
 								i++;
 							}
@@ -180,26 +180,56 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		
 		$scope.getList();
 		
-		injectFiles.injectCss("sections/saas/members/projects/projects.css")
+		injectFiles.injectCss("sections/saas/members/projects/projects.css");
 	}]);
 
-accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi',
-	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi) {
+accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
+	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi, injectFiles) {
+		injectFiles.injectCss("sections/saas/members/projects/projects.css");
 		
-		$scope.data = {};
-		$scope.data.newCluster = false;
-		$scope.data.existingCluster = false;
-		$scope.project = {
-			infra: {},
-			resource: {
-				driver: 'atlas',
-				api: {},
-				credentials: {}
-			}
-		};
 		if (!isUserLoggedIn($scope)) {
 			$scope.$parent.go("/members/login");
 		}
+		
+		$scope.step = {
+			"1": true,
+			"2": false,
+			"3": false
+		};
+		
+		$scope.data = {
+			infraAws: false,
+			infraGoogle: false,
+			newCluster: false,
+			existingCluster: true
+		};
+		
+		$scope.project = {
+			name: "",
+			description: "",
+			infra: {},
+			IPentries: [
+				{
+					"comment": "",
+					"ipAddress": ""
+				}
+			],
+			resource: {
+				deployCluster: false,
+				driver: 'atlas',
+				projectName: '',
+				clusterName: '',
+				api: {
+					orgId: '',
+					username: '',
+					token: ''
+				},
+				credentials: {
+					username: '',
+					password: ''
+				}
+			}
+		};
 		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
@@ -212,19 +242,100 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			}, 30000);
 		};
 		
+		$scope.goToStep = function (number) {
+			$scope.step = {
+				"1": false,
+				"2": false,
+				"3": false
+			};
+			$scope.step[number] = true;
+		};
+		
+		$scope.setInfra = function (infra) {
+			$scope.data.infra = infra;
+			if (infra === 'aws') {
+				$scope.data.infraAws = true;
+				$scope.data.infraGoogle = false;
+				delete $scope.project.infra.google;
+				$scope.project.infra.aws = {
+					api: {
+						"keyId": ""
+					}
+				};
+			}
+			if (infra === 'google') {
+				$scope.data.infraGoogle = true;
+				$scope.data.infraAws = false;
+				$scope.project.infra.google = {
+					api: {
+						"project": "",
+						"token": ""
+						// "project_id": "",
+						// "private_key": "",
+						// "client_email": "",
+						// "client_id": ""
+					}
+				};
+				delete $scope.project.infra.aws;
+			}
+		};
+		
+		$scope.validateInfra = function () {
+			$scope.alerts = [];
+			if ($scope.project.infra.google && $scope.project.infra.google.api) {
+				if ($scope.project.infra.google.api.token) {
+					try {
+						var myToken = JSON.parse($scope.project.infra.google.api.token);
+						$scope.goToStep('3');
+					}
+					catch (e) {
+						$scope.alerts.push({
+							'type': 'danger',
+							'msg': e.message
+						});
+					}
+				}
+			}
+			else {
+				$scope.goToStep('3');
+			}
+		};
 		
 		$scope.submitProject = function (project) {
-			console.log($scope.project);
+			overlayLoading.show();
+			getSendDataFromServer($scope, ngDataApi, {
+				"method": "post",
+				"routeName": "/projects/project",
+				"data": {
+					data: $scope.project
+				},
+				"params": {}
+			}, function (error, data) {
+				overlayLoading.hide();
+				if (error) {
+					
+				}
+				else {
+					
+					$scope.alerts.push({
+						'type': 'success',
+						'msg': "Project was created successfully."
+					});
+					
+				}
+			});
 		};
 		$scope.setCluster = function (isNew) {
 			if (isNew) {
 				$scope.data.newCluster = true;
 				$scope.data.existingCluster = false;
+				$scope.project.resource.clusterConfig = {};
+				// $scope.project.resource.deployCluster = true;
 			} else {
 				$scope.data.newCluster = false;
 				$scope.data.existingCluster = true;
+				// $scope.project.resource.deployCluster = false;
 			}
-			console.log('isNew', isNew);
 		};
 		
 		

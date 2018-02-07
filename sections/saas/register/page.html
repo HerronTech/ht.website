@@ -2,11 +2,6 @@
 	<div ng-controller="registerPageCtrl">
 
 		<div class="col-lg-8 col-md-12">
-			<div>
-				Fill the form below in order to submit a request for registration to start using Herrontech SaaS.
-			</div>
-			<br>
-
 			<div ng-show="alerts && alerts.length > 0">
 				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
 					{{alert.msg}}
@@ -14,6 +9,15 @@
 				<br/>
 			</div>
 
+			<div>
+				Fill the form below in order to submit a request for registration to start using Herrontech SaaS.
+			</div>
+			<br>
+
+			<div>
+				Choose which package you would like to use to create your project.
+				<br>
+			</div>
 			<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
 
 				<div class="form-group">
