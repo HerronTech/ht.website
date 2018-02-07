@@ -96,7 +96,7 @@
 									<accordion close-others="false">
 										<accordion-group is-open="true">
 											<accordion-heading >
-												<img height="24" src="/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{project.mainResource.driver}}</span>
+												<img height="24" ng-src="/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{project.mainResource.driver}}</span>
 											</accordion-heading>
 											
 											<div class="one-deployment">
@@ -135,7 +135,7 @@
 									<accordion close-others="false">
 										<accordion-group ng-repeat="(infra, infraData) in project.infra">
 											<accordion-heading >
-												<img height="24" src="/images/infra/{{infra}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{infra}}</span>&nbsp;
+												<img height="24" ng-src="/images/infra/{{infra}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{infra}}</span>&nbsp;
 											</accordion-heading>
 											
 											<div ng-repeat="deployment in infraData.deployment" class="one-deployment">
