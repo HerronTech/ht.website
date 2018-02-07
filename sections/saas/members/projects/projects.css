@@ -57,3 +57,43 @@
     font-style: italic;
     font-weight: normal;
 }
+
+.packagesTable tr th {
+    font-size: 15px;
+    border: 1px solid #efefef;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.packagesTable tr td {
+    font-size: 13px;
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid #efefef;
+}
+
+.packagesTable tr td.categoryTitle {
+    font-weight: bold;
+    text-align: left;
+}
+
+.packagesTable thead tr th.noBorder {
+    border: none;
+}
+
+.packagesTable tr td.ruleLabel {
+    text-align: left;
+    border-left: none;
+}
+
+.packagesTable tr td.emptyFirstCell {
+    border-right: none;
+}
+
+.packagesTable .fa-check {
+    color: green;
+}
+
+.packagesTable .fa-times {
+    color: red;
+}
