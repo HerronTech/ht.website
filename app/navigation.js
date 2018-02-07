@@ -69,7 +69,7 @@ var navigation = [
 	},
 	{
 		'id': 'projectAdd',
-		'title': 'Herron Tech | Project',
+		'title': 'Herron Tech | Add Project',
 		'url': '/members/project/add',
 		'tplPath': 'sections/saas/members/projects/add.html',
 		'scripts': ['sections/saas/members/projects/controller.js']
