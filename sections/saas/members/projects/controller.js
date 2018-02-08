@@ -165,7 +165,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						
 						let i = 0;
 						for (let oneInfra in project.infra) {
-							if (Object.keys(project.infra[oneInfra].api).length === 0 || project.infra[oneInfra].deployment.length === 0) {
+							if (!project.infra[oneInfra].deployment || project.infra[oneInfra].deployment.length === 0) {
 								delete project.infra[oneInfra];
 							}
 							else {
@@ -188,8 +188,23 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		injectFiles.injectCss("sections/saas/members/projects/projects.css");
 		
 		if (!isUserLoggedIn($scope)) {
-			$scope.$parent.go("/members/login");
+			// $scope.$parent.go("/members/login");
 		}
+		
+		$scope.clusterSettings = {
+			"SOA-l7": {
+				"storageCapacity": "80 GB",
+				"connectivity": "2000",
+				"ram": "8 GB",
+				"storageIOPs": "240"
+			},
+			"MC-l7": {
+				"storageCapacity": "80 GB",
+				"connectivity": "4000",
+				"ram": "16 GB",
+				"storageIOPs": "240"
+			}
+		};
 		
 		$scope.step = {
 			"1": true,
@@ -208,12 +223,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			name: "",
 			description: "",
 			infra: {},
-			IPentries: [
-				{
-					"comment": "",
-					"ipAddress": ""
-				}
-			],
+			IPentries: [],
 			resource: {
 				deployCluster: false,
 				driver: 'atlas',
@@ -249,6 +259,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 				"3": false
 			};
 			$scope.step[number] = true;
+			console.log($scope.project.infra);
 		};
 		
 		$scope.setInfra = function (infra) {
@@ -257,35 +268,36 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 				$scope.data.infraAws = true;
 				$scope.data.infraGoogle = false;
 				delete $scope.project.infra.google;
-				$scope.project.infra.aws = {
-					api: {
-						"keyId": ""
-					}
-				};
+				if (!$scope.project.infra.aws) {
+					$scope.project.infra.aws = {
+						api: {
+							"keyId": ""
+						}
+					};
+				}
 			}
 			if (infra === 'google') {
 				$scope.data.infraGoogle = true;
 				$scope.data.infraAws = false;
-				$scope.project.infra.google = {
-					api: {
-						"project": "",
-						"token": ""
-						// "project_id": "",
-						// "private_key": "",
-						// "client_email": "",
-						// "client_id": ""
-					}
-				};
+				if (!$scope.project.infra.google) {
+					$scope.project.infra.google = {
+						api: {
+							"project": "",
+							"token": ""
+						}
+					};
+				}
 				delete $scope.project.infra.aws;
 			}
 		};
 		
 		$scope.validateInfra = function () {
 			$scope.alerts = [];
+			var myToken;
 			if ($scope.project.infra.google && $scope.project.infra.google.api) {
 				if ($scope.project.infra.google.api.token) {
 					try {
-						var myToken = JSON.parse($scope.project.infra.google.api.token);
+						myToken = JSON.parse($scope.project.infra.google.api.token);
 						$scope.goToStep('3');
 					}
 					catch (e) {
@@ -303,6 +315,22 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		
 		$scope.submitProject = function (project) {
 			overlayLoading.show();
+			$scope.alerts = [];
+			if ($scope.project.infra.google && $scope.project.infra.google.api) {
+				if ($scope.project.infra.google.api.token) {
+					try {
+						$scope.project.infra.google.api.token = JSON.parse($scope.project.infra.google.api.token);
+					}
+					catch (e) {
+						$scope.alerts.push({
+							'type': 'danger',
+							'msg': e.message
+						});
+					}
+				}
+			}
+			console.log($scope.project.infra);
+			
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "post",
 				"routeName": "/projects/project",
@@ -313,18 +341,21 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			}, function (error, data) {
 				overlayLoading.hide();
 				if (error) {
-					
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
 				}
 				else {
-					
 					$scope.alerts.push({
 						'type': 'success',
 						'msg': "Project was created successfully."
 					});
-					
+					$scope.$parent.go("/members/projects");
 				}
 			});
 		};
+		
 		$scope.setCluster = function (isNew) {
 			if (isNew) {
 				$scope.data.newCluster = true;

@@ -20,7 +20,7 @@
 			</div>
 			<br>
 			<accordion close-others="false">
-				<accordion-group is-open="!project.collpased" class="blueAccordion" ng-repeat="project in projects">
+				<accordion-group class="blueAccordion" ng-repeat="project in projects">
 					<accordion-heading>
 						<span class="icon icon-barcode"></span>{{project.name}}
 					</accordion-heading>
@@ -129,7 +129,7 @@
 										</accordion-group>
 									</accordion>
 								</div>
-								<div class="col-md-6">
+								<div ng-if="Object.keys(project.infra)" class="col-md-6">
 									<h4>Infrastructure</h4>
 									<br />
 									<accordion close-others="false">

@@ -77,7 +77,8 @@
     text-align: left;
 }
 
-.packagesTable thead tr th.noBorder {
+.packagesTable tr th.noBorder,
+.packagesTable tr td.noBorder {
     border: none;
 }
 
@@ -96,4 +97,20 @@
 
 .packagesTable .fa-times {
     color: red;
+}
+
+.steps label {
+    font-size: 15px;
+}
+
+ul.package_cluster_settings li {
+    line-height: normal;
+}
+
+.main .panel-heading h4.panel-title {
+    font-family: inherit;
+}
+
+.steps .panel-heading h4.panel-title {
+    text-transform: none;
 }
