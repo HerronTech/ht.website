@@ -325,8 +325,11 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			}
 		};
 		
-		$scope.submitProject = function (project) {
-			overlayLoading.show();
+		$scope.submitProject = function (form) {
+			form.$submitted = true;
+			if (!form.$valid) {
+				return;
+			}
 			$scope.alerts = [];
 			if ($scope.project.infra.google && $scope.project.infra.google.api) {
 				if ($scope.project.infra.google.api.token) {
@@ -341,7 +344,8 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 					}
 				}
 			}
-
+			
+			overlayLoading.show();
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "post",
 				"routeName": "/projects/project",

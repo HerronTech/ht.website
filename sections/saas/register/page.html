@@ -29,7 +29,7 @@
 							<th colspan="2">
 								SOAJS Enterprise SaaS - Shared
 							</th>
-							<th colspan="3">
+							<th class="onPremise" colspan="3">
 								SOAJS Enterprise OnPremise - Dedicated
 							</th>
 						</tr>
@@ -42,13 +42,13 @@
 							</th>
 							<th>
 								<span for="MC-l7">MC-l7</span></th>
-							<th>
+							<th class="onPremise">
 								<span for="Enterprise">Enterprise</span>
 							</th>
-							<th>
+							<th class="onPremise">
 								<span for="Safehaven">Safehaven</span>
 							</th>
-							<th>
+							<th class="onPremise">
 								<span for="Unlimited">Unlimited</span>
 							</th>
 						</tr>
@@ -59,12 +59,12 @@
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell" width="2%"></td>
-							<td class="ruleLabel" width="35%">Daemon Catalog</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="ruleLabel">Daemon Catalog</td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
@@ -72,13 +72,13 @@
 							<td class="ruleLabel">
 								SOAJS framework to build new API and Daemon
 							</td>
-							<td>
+							<td class="sharedSaas">
 								<span class="fa fa-check"> </span>
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
@@ -86,11 +86,11 @@
 							<td class="ruleLabel">
 								SOAJS middleware to modernize and transform existing API
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
@@ -98,11 +98,11 @@
 							<td class="ruleLabel">
 								SOAJS SDK to build portal modules
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
@@ -110,33 +110,33 @@
 							<td class="ruleLabel">
 								Portal
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								oAuth 2.0 (multi grant type)
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								User Registration & Access Control (URAC)
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">Fast Delivery Platfrom</td>
@@ -147,11 +147,11 @@
 							<td class="ruleLabel">
 								Deployment Catalog
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
@@ -159,11 +159,11 @@
 							<td class="ruleLabel">
 								Continuous Integration
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
@@ -171,22 +171,22 @@
 							<td class="ruleLabel">
 								Continuous delivery
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Deploy manager
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span>
 							</td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -194,15 +194,15 @@
 							<td class="ruleLabel">
 								Advanced continuous integration
 							</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise">
 								<span class="fa fa-check"> </span>
 							</td>
-							<td>
+							<td class="onPremise">
 								<span class="fa fa-check"> </span>
 							</td>
-							<td>
+							<td class="onPremise">
 								<span class="fa fa-check"> </span>
 							</td>
 						</tr>
@@ -211,11 +211,11 @@
 							<td class="ruleLabel">
 								Workflow driven CI/CD
 							</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">Multi Cloud</td>
@@ -225,20 +225,20 @@
 							<td class="ruleLabel">
 								Multi cloud environment
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">High availability and Auto Scaling</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -246,69 +246,69 @@
 							<td class="ruleLabel">
 								Container orchestration
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Manual environment support</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Local development environment support</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Node deployment multi provider automation</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Cloud environment cloning</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Multi provider cloud environment</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Multi region cloud environment</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -319,11 +319,11 @@
 							<td class="ruleLabel">
 								Resource management & control
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -334,11 +334,11 @@
 							<td class="ruleLabel">
 								Heartbeat and Health check
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -346,11 +346,11 @@
 							<td class="ruleLabel">
 								Resource metric
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -361,11 +361,11 @@
 							<td class="ruleLabel">
 								API Catalog
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -373,43 +373,43 @@
 							<td class="ruleLabel">
 								API Test Simulation
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API Security (key, ACL, ..)
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">API multi-tenancy
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API productization
 							</td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 
@@ -418,11 +418,11 @@
 							<td class="ruleLabel">
 								API endpoint
 							</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -430,11 +430,11 @@
 							<td class="ruleLabel">
 								API Traffic Control
 							</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 
 						<tr class="table-row" ng-show="!hiddenTableBody">
@@ -442,11 +442,11 @@
 							<td class="ruleLabel">
 								API Gateway
 							</td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-times"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
-							<td><span class="fa fa-check"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
+							<td class="onPremise"><span class="fa fa-check"> </span></td>
 						</tr>
 					</tbody>
 					<tfoot>
@@ -455,51 +455,52 @@
 						</tr>
 						<tr class="table-row">
 							<td class="emptyFirstCell" width="2%"></td>
-							<td class="ruleLabel" width="35%">Number of Repos</td>
-							<td>7</td>
-							<td>7</td>
-							<td>100</td>
-							<td>200</td>
-							<td>unlimited</td>
+							<td class="ruleLabel">Number of Repos</td>
+							<td class="sharedSaas">7</td>
+							<td class="sharedSaas">7</td>
+							<td class="onPremise">100</td>
+							<td class="onPremise">200</td>
+							<td class="onPremise">Unlimited</td>
 						</tr>
 						<tr class="table-row">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Number of Users</td>
-							<td>3</td>
-							<td>3</td>
-							<td>50</td>
-							<td>200</td>
-							<td>Unlimited</td>
+							<td class="sharedSaas">3</td>
+							<td class="sharedSaas">3</td>
+							<td class="onPremise">50</td>
+							<td class="onPremise">200</td>
+							<td class="onPremise">Unlimited</td>
 						</tr>
 						<tr class="table-row">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Number of cloud environment</td>
-							<td>6</td>
-							<td>6</td>
-							<td>100</td>
-							<td>200</td>
-							<td>Unlimited</td>
+							<td class="sharedSaas">6</td>
+							<td class="sharedSaas">6</td>
+							<td class="onPremise">100</td>
+							<td class="onPremise">200</td>
+							<td class="onPremise">Unlimited</td>
 						</tr>
 						<tr class="table-row">
 							<td colspan="2" class="categoryTitle">Price / Month</td>
-							<td>$ 2,500</td>
-							<td>$ 1,250</td>
-							<td colspan="3">A sales representative will contact you after joining.</td>
+							<td class="sharedSaas">$ 2,500</td>
+							<td class="sharedSaas">$ 1,250</td>
+							<td class="onPremise" colspan="3">A sales representative will contact you after joining.
+							</td>
 						</tr>
 						<tr class="packageSelectButton">
 							<td colspan="2" class="noBorder"></td>
-							<td>
+							<td class="sharedSaas">
 								<input value="SOA-l7" ng-model="contact.ht_package" type="radio" name="ht_package" id="SOA-l7" ng-required="true"/>
 							</td>
-							<td>
+							<td class="sharedSaas">
 								<input value="MC-l7" ng-model="contact.ht_package" type="radio" name="ht_package" id="MC-l7" ng-required="true"/>
-							<td>
+							<td class="onPremise">
 								<input value="Enterprise" ng-model="contact.ht_package" type="radio" name="ht_package" id="Enterprise" ng-required="true"/>
 							</td>
-							<td>
+							<td class="onPremise">
 								<input value="Safehaven" ng-model="contact.ht_package" type="radio" name="ht_package" id="Safehaven" ng-required="true"/>
 							</td>
-							<td>
+							<td class="onPremise">
 								<input value="Unlimited" ng-model="contact.ht_package" type="radio" name="ht_package" id="Unlimited" ng-required="true"/>
 							</td>
 						</tr>

@@ -115,31 +115,71 @@ ul.package_cluster_settings li {
     text-transform: none;
 }
 
-.packageSelectButton:hover{
+.packageSelectButton:hover {
     cursor: pointer;
 }
 
-table.infoTable{
+table.infoTable {
     border-collapse: collapse;
 }
 
-table.infoTable td{
-    padding:2px 5px;
+table.infoTable td {
+    padding: 2px 5px;
     border: solid 1px transparent;
 }
 
-.stepMessageDetails{
-    font-size:17px !important;
+.stepMessageDetails {
+    font-size: 17px !important;
 }
 
-table.infoTableDetails td{
+table.infoTableDetails td {
     border: solid 1px #A6E1E4;
 }
 
-.hiddenTableBody{
-    display:none;
+.hiddenTableBody {
+    display: none;
 }
 
 accordion h4 a {
     outline: 0;
+}
+
+.onPremise {
+    background-color: #F7F7F7;
+}
+
+.ruleLabel {
+    width: 35%;
+}
+
+@media (max-width: 520px) {
+
+    .packagesTable tr th, .packagesTable tr td {
+        font-size: 11px;
+        word-break: break-all;
+    }
+
+    body .packagesTable tr td.emptyFirstCell {
+        padding-left: 0;
+        padding-right: 2px;
+    }
+
+    .packagesTable tr td {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .packagesTable tr th, .packagesTable tr td {
+        font-size: 9px;
+    }
+    .ruleLabel {
+        width: 25%;
+    }
+    .packagesTable tr td {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
 }
