@@ -210,24 +210,7 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 		if (access_token && config.token) {
 			config.params.access_token = access_token;
 		}
-		var project = $cookies.get('project', { 'domain': interfaceDomain });
-		if (project) {
-			config.params.project = project;
-		}
-		
-		if (opts.proxy) {
-			if (!config.params.__env) {
-				var env;
-				if ($cookies.getObject('myEnv', { 'domain': interfaceDomain })) {
-					env = $cookies.getObject('myEnv', { 'domain': interfaceDomain }).code;
-					config.params.__env = env.toUpperCase();
-				}
-				else {
-					console.log("Missing Env object");
-				}
-			}
-		}
-		
+
 		if (opts.jsonp === true) {
 			config.url += (config.url.indexOf('?') === -1) ? '?' : '&';
 			config.url += "callback=JSON_CALLBACK";
