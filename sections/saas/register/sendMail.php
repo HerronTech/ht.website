@@ -41,6 +41,7 @@
     $postedData = json_decode(file_get_contents("php://input"));
     $to = "team@soajs.org";// team
     $name = $postedData->name;
+    $ht_package = $postedData->ht_package;
     $email = $postedData->email;
     $phone = $postedData->phone;
     $address = nl2br ( $postedData->address );
@@ -201,8 +202,8 @@
 			      <div><b>Sector</b>:  $sector</div>
 			      <div><b>Position</b>:  $position</div>
 			      <div><b>What are you looking for</b>:  $lookingFor</div>
-
 			      <div><b>Already using SOAJS</b>:  $usingSoajs</div>
+			      <div><b>Interested Package</b>:  $ht_package</div>
 			    </div>
               </td>
             </tr>

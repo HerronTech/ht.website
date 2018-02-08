@@ -185,12 +185,12 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		
 		$scope.getList();
 		
-		injectFiles.injectCss("sections/saas/members/projects/projects.css");
+		injectFiles.injectCss("sections/saas/projects.css");
 	}]);
 
 accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
 	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi, injectFiles) {
-		injectFiles.injectCss("sections/saas/members/projects/projects.css");
+		injectFiles.injectCss("sections/saas/projects.css");
 		
 		if (!isUserLoggedIn($scope)) {
 			$scope.$parent.go("/members/login");

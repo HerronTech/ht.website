@@ -1,7 +1,7 @@
 <div class="container inner">
 	<div ng-controller="registerPageCtrl">
 
-		<div class="col-lg-8 col-md-12">
+		<div class="col-lg-12 col-md-12">
 			<div ng-show="alerts && alerts.length > 0">
 				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
 					{{alert.msg}}
@@ -15,11 +15,497 @@
 			<br>
 
 			<div>
-				Choose which package you would like to use to create your project.
+				Choose which package you are most interested in.
 				<br>
 			</div>
 			<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
 
+				<table width="100%" class="packagesTable">
+					<thead>
+						<tr>
+							<th colspan="2" class="noBorder" width="37%">
+
+							</th>
+							<th colspan="2">
+								SOAJS Enterprise SaaS - Shared
+							</th>
+							<th colspan="3">
+								SOAJS Enterprise OnPremise - Dedicated
+							</th>
+						</tr>
+						<tr>
+							<th colspan="2" class="noBorder" width="37%">
+
+							</th>
+							<th>
+								<span for="SOA-l7">SOA-l7</span>
+							</th>
+							<th>
+								<span for="MC-l7">MC-l7</span></th>
+							<th>
+								<span for="Enterprise">Enterprise</span>
+							</th>
+							<th>
+								<span for="Safehaven">Safehaven</span>
+							</th>
+							<th>
+								<span for="Unlimited">Unlimited</span>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td colspan="7" class="categoryTitle">Adaptive Framework</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell" width="2%"></td>
+							<td class="ruleLabel" width="35%">Daemon Catalog</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								SOAJS framework to build new API and Daemon
+							</td>
+							<td>
+								<span class="fa fa-check"> </span>
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								SOAJS middleware to modernize and transform existing API
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								SOAJS SDK to build portal modules
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Portal
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								oAuth 2.0 (multi grant type)
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								User Registration & Access Control (URAC)
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td colspan="7" class="categoryTitle">Fast Delivery Platfrom</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Deployment Catalog
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Continuous Integration
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell">
+							</td>
+							<td class="ruleLabel">
+								Continuous delivery
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Deploy manager
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span>
+							</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Advanced continuous integration
+							</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td>
+								<span class="fa fa-check"> </span>
+							</td>
+							<td>
+								<span class="fa fa-check"> </span>
+							</td>
+							<td>
+								<span class="fa fa-check"> </span>
+							</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Workflow driven CI/CD
+							</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td colspan="7" class="categoryTitle">Multi Cloud</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Multi cloud environment
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">High availability and Auto Scaling</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Container orchestration
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Manual environment support</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Local development environment support</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Node deployment multi provider automation</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Cloud environment cloning</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Multi provider cloud environment</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Multi region cloud environment</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td colspan="7" class="categoryTitle">Hybrid Integration</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Resource management & control
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td colspan="7" class="categoryTitle">Analytics & Operating</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Heartbeat and Health check
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								Resource metric
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td colspan="7" class="categoryTitle">API Management</td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Catalog
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Test Simulation
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Security (key, ACL, ..)
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">API multi-tenancy
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API productization
+							</td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API endpoint
+							</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Traffic Control
+							</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+
+						<tr class="table-row" ng-show="!hiddenTableBody">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">
+								API Gateway
+							</td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-times"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+							<td><span class="fa fa-check"> </span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="table-row">
+							<td colspan="7" class="categoryTitle">Per Unit</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell" width="2%"></td>
+							<td class="ruleLabel" width="35%">Number of Repos</td>
+							<td>7</td>
+							<td>7</td>
+							<td>100</td>
+							<td>200</td>
+							<td>unlimited</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Number of Users</td>
+							<td>3</td>
+							<td>3</td>
+							<td>50</td>
+							<td>200</td>
+							<td>Unlimited</td>
+						</tr>
+						<tr class="table-row">
+							<td class="emptyFirstCell"></td>
+							<td class="ruleLabel">Number of cloud environment</td>
+							<td>6</td>
+							<td>6</td>
+							<td>100</td>
+							<td>200</td>
+							<td>Unlimited</td>
+						</tr>
+						<tr class="table-row">
+							<td colspan="2" class="categoryTitle">Price / Month</td>
+							<td>$ 2,500</td>
+							<td>$ 1,250</td>
+							<td colspan="3">A sales representative will contact you after joining.</td>
+						</tr>
+						<tr class="packageSelectButton">
+							<td colspan="2" class="noBorder"></td>
+							<td>
+								<input value="SOA-l7" ng-model="contact.ht_package" type="radio" name="ht_package" id="SOA-l7" ng-required="true"/>
+							</td>
+							<td>
+								<input value="MC-l7" ng-model="contact.ht_package" type="radio" name="ht_package" id="MC-l7" ng-required="true"/>
+							<td>
+								<input value="Enterprise" ng-model="contact.ht_package" type="radio" name="ht_package" id="Enterprise" ng-required="true"/>
+							</td>
+							<td>
+								<input value="Safehaven" ng-model="contact.ht_package" type="radio" name="ht_package" id="Safehaven" ng-required="true"/>
+							</td>
+							<td>
+								<input value="Unlimited" ng-model="contact.ht_package" type="radio" name="ht_package" id="Unlimited" ng-required="true"/>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				<br>
 				<div class="form-group">
 					<input ng-model="contact.name" type="text" placeholder="Your Name *" class="form-control" tooltip="Enter your full name..." required/>
 				</div>

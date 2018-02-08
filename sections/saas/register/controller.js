@@ -1,11 +1,13 @@
 "use strict";
 var accountApp = app.components;
-accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
 
-    var pageData = {
-        title: "JOIN US - TO GET INVITED"
-    };
-    $scope.$parent.$emit('refreshPageTitle', pageData);
+accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injectFiles', function ($scope, $http, $timeout, injectFiles) {
+	injectFiles.injectCss("sections/saas/projects.css");
+
+	var pageData = {
+		title: "JOIN US - TO GET INVITED"
+	};
+	$scope.$parent.$emit('refreshPageTitle', pageData);
 
 	$scope.alerts = [];
 	$scope.contact = {
