@@ -520,6 +520,10 @@ this is the over layer that gives the image the bluesh vibe
     top: 12%;
     left: 12%;
     right: 12%;
+    vertical-align: middle;
+}
+
+.carousel-caption h4 {
 
 }
 
