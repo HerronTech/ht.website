@@ -41,7 +41,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			
 			var entry = {
 				'name': 'removeResource',
-				'label': 'We found this project is using resources. Do you wish to delete the resource also?',
+				'label': 'We found this project is using atlas resources. Do you wish to delete the resource also?',
 				'type': 'radio',
 				'placeholder': '',
 				'value': [
@@ -73,14 +73,16 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						'btn': 'primary',
 						'action': function (formData) {
 							overlayLoading.show();
-							getSendDataFromServer($scope, ngDataApi, {
+
+							let options={
 								"method": "delete",
 								"routeName": "/projects/project",
 								"params": {
 									"project": project.name,
 									"removeResource": formData.removeResource
 								}
-							}, function (error, data) {
+							};
+							getSendDataFromServer($scope, ngDataApi, options, function (error, data) {
 								overlayLoading.hide();
 								if (error) {
 									$scope.form.displayAlert('danger', error.message);
