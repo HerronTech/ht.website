@@ -139,3 +139,7 @@ table.infoTableDetails td{
 .hiddenTableBody{
     display:none;
 }
+
+accordion h4 a {
+    outline: 0;
+}
