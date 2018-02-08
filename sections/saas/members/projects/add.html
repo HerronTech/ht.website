@@ -9,22 +9,30 @@
 				<br/>
 			</div>
 
-			<div style="display: none">
-				<a ng-click="" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
-					<b>Back</b>
+			<div>
+				<a class="pull-right btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="/members/projects">
+					<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<b>Back to My Projects</b>
 				</a>
+				<br />
 			</div>
-			<br>
+			<br />
 			
 			<div id="step1" ng-show="step['1']" class="steps">
-				You are about to create a project with Herrontech.
-
-				Please select the appropriate package from the list below and click next.
-				
+				<p class="stepMessageDetails">
+					You are about to create a project with Herrontech. Please select the appropriate package from the list below and click next.
+				</p>
 				<table width="100%" class="packagesTable">
 					<thead>
 						<tr>
-							<th colspan="2" class="noBorder"></th>
+							<th colspan="2" class="noBorder" width="37%">
+								<a ng-show="hiddenTableBody" ng-click="hiddenTableBody=false;" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+									<span class="glyphicon glyphicon-plus"></span>&nbsp;Show Packages Details
+								</a>
+								
+								<a ng-show="!hiddenTableBody"ng-click="hiddenTableBody=true;" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+									<span class="glyphicon glyphicon-minus"></span>&nbsp;Hide Packages Details
+								</a>
+							</th>
 							<th>
 								<label for="SOA-l7">SOA-l7</label>
 							</th>
@@ -41,11 +49,11 @@
 							</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr class="table-row">
+					<tbody >
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">Adaptive Framework</td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell" width="2%"></td>
 							<td class="ruleLabel" width="35%">Daemon Catalog</td>
 							<td><span class="fa fa-check"> </span></td>
@@ -54,7 +62,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
 							</td>
 							<td class="ruleLabel">
@@ -68,7 +76,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
 							</td>
 							<td class="ruleLabel">
@@ -80,7 +88,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
 							</td>
 							<td class="ruleLabel">
@@ -92,8 +100,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
 							</td>
 							<td class="ruleLabel">
@@ -105,7 +112,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								oAuth 2.0 (multi grant type)
@@ -116,7 +123,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								User Registration & Access Control (URAC)
@@ -127,10 +134,10 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">Fast Delivery Platfrom</td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
 							</td>
 							<td class="ruleLabel">
@@ -142,7 +149,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
 							</td>
 							<td class="ruleLabel">
@@ -154,7 +161,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell">
 							</td>
 							<td class="ruleLabel">
@@ -166,7 +173,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Deploy manager
@@ -178,8 +185,7 @@
 							<td><span class="fa fa-check"> </span>
 							</td>
 						</tr>
-						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Advanced continuous integration
@@ -196,8 +202,7 @@
 								<span class="fa fa-check"> </span>
 							</td>
 						</tr>
-						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Workflow driven CI/CD
@@ -208,11 +213,10 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">Multi Cloud</td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Multi cloud environment
@@ -223,7 +227,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">High availability and Auto Scaling</td>
 							<td><span class="fa fa-check"> </span></td>
@@ -233,7 +237,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Container orchestration
@@ -245,7 +249,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Manual environment support</td>
 							<td><span class="fa fa-check"> </span></td>
@@ -255,7 +259,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Local development environment support</td>
 							<td><span class="fa fa-check"> </span></td>
@@ -264,7 +268,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Node deployment multi provider automation</td>
 							<td><span class="fa fa-check"> </span></td>
@@ -274,7 +278,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Cloud environment cloning</td>
 							<td><span class="fa fa-times"> </span></td>
@@ -284,7 +288,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Multi provider cloud environment</td>
 							<td><span class="fa fa-times"> </span></td>
@@ -293,7 +297,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">Multi region cloud environment</td>
 							<td><span class="fa fa-times"> </span></td>
@@ -303,10 +307,10 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">Hybrid Integration</td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Resource management & control
@@ -318,10 +322,10 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">Analytics & Operating</td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Heartbeat and Health check
@@ -333,7 +337,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								Resource metric
@@ -345,10 +349,10 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td colspan="7" class="categoryTitle">API Management</td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API Catalog
@@ -360,7 +364,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API Test Simulation
@@ -371,7 +375,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API Security (key, ACL, ..)
@@ -382,7 +386,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">API multi-tenancy
 							</td>
@@ -392,7 +396,7 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API productization
@@ -405,7 +409,7 @@
 						</tr>
 						
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API endpoint
@@ -417,7 +421,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API Traffic Control
@@ -429,7 +433,7 @@
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
 						
-						<tr class="table-row">
+						<tr class="table-row" ng-show="!hiddenTableBody">
 							<td class="emptyFirstCell"></td>
 							<td class="ruleLabel">
 								API Gateway
@@ -440,13 +444,14 @@
 							<td><span class="fa fa-check"> </span></td>
 							<td><span class="fa fa-check"> </span></td>
 						</tr>
-						
+					</tbody>
+					<tfoot>
 						<tr class="table-row">
 							<td colspan="7" class="categoryTitle">Per Unit</td>
 						</tr>
 						<tr class="table-row">
-							<td class="emptyFirstCell"></td>
-							<td class="ruleLabel">Number of Repos</td>
+							<td class="emptyFirstCell" width="2%"></td>
+							<td class="ruleLabel" width="35%">Number of Repos</td>
 							<td>7</td>
 							<td>7</td>
 							<td>100</td>
@@ -471,17 +476,15 @@
 							<td>200</td>
 							<td>Unlimited</td>
 						</tr>
-					</tbody>
-					<tfoot>
 						<tr class="table-row">
-							<td colspan="2" class="categoryTitle">Cost Per month</td>
+							<td colspan="2" class="categoryTitle">Price / Month</td>
 							<td>0</td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td>100</td>
+							<td>Contact Sales</td>
+							<td>Contact Sales</td>
+							<td>Contact Sales</td>
 						</tr>
-						<tr>
+						<tr class="packageSelectButton">
 							<td colspan="2" class="noBorder"></td>
 							<td>
 								<input value="SOA-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="SOA-l7" required/>
@@ -501,7 +504,6 @@
 					</tfoot>
 				</table>
 				<br>
-				<br>
 				<form name="submitDetails">
 					<div class="form-group">
 						<label>
@@ -516,46 +518,52 @@
 						<input ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Enter your project Description ..." required/>
 					</div>
 					<br>
-					<div style="float: right">
-						<a ng-click="submitDetails.$valid && goToStep('2')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
-							<b>Next</b>
+					<div class="pull-right">
+						<a ng-click="submitDetails.$valid && goToStep('2')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+							<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Next
 						</a>
 					</div>
 				</form>
-
 			</div>
+			
 			<div id="step2" ng-show="step['2']" class="steps">
-				// 3 styles
 
-				// info area
-				<div class="">
-					You have selected the following package:
-					for project: {{project.name}}
-				</div>
-				// message
-				<div class="">
-					You need to add at least one cloud provider to provision your Infrastructure from the supported
-					providers.
-					However you can always add more providers and take advantage of multicloud orchestration, once your
-					project is created.
-				</div>
+				<alert type="info">
+					<h4>Project Details:</h4>
+					<hr>
+					<table width="100%" class="infoTable">
+						<tr>
+							<td><b>Name</b></td>
+							<td width="70%">{{project.name}}</td>
+						</tr>
+						<tr>
+							<td><b>Package</b></td>
+							<td width="85%">{{project.ht_package}}</td>
+						</tr>
+					</table>
+				</alert>
+				
+				<p class="stepMessageDetails">
+					Select a Cloud Provider from the list below to provision your Infrastructure. You can always add more providers after your deploy your project.
+				</p>
 
 				<!--Choose your Infrastructure providers to deploy the environments of your project.-->
-				// form
 				<form>
 					<accordion close-others="true">
 						<accordion-group ng-click="setInfra('aws')" is-open="data.infraAws">
 							<accordion-heading>
 								<input ng-checked="data.infraAws" name="chooseInfra" type="radio" value="aws" ng-model="data.infra"/>
-								AWS
+								Amazon Web Services ( AWS )
 							</accordion-heading>
 							<div>
-								<div class="fieldMsg">
+								<alert type="warning" class="fieldMsg">
 									Enter your <b>Key ID</b> and <b>Secret Access Key</b> to connect <b>Amazon Web
 									Services</b> and deploy machines on it,
 									<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html?icmpid=docs_iam_console" target="_blank">Learn
 										More</a>.
-								</div>
+									
+									<a href="https://aws.amazon.com" class="btn btn-warning pull-right actionBtn" target="_blank">Create AWS Account</a>
+								</alert>
 								
 								<div class="form-group">
 									<label>Key Id</label>
@@ -578,15 +586,16 @@
 						<accordion-group ng-click="setInfra('google')" is-open="data.infraGoogle">
 							<accordion-heading>
 								<input ng-checked="data.infraGoogle" name="chooseInfra" type="radio" value="google" ng-model="data.infra"/>
-								Google
+								Google Cloud ( GC )
 							</accordion-heading>
 							<div>
-								<div class="fieldMsg">
+								<alert type="warning" class="fieldMsg">
 									Enter your <b>Project Id</b> and <b>Project Token</b> to connect to <b>Google
 									Cloud</b> and deploy machines on it,
 									<a href="https://cloud.google.com/iam/docs/service-accounts?hl=en_US&_ga=2.168863714.-2125465392.1514424027" target="_blank">Learn
 										More</a>.
-								</div>
+									<a href="https://cloud.google.com" class="btn btn-warning pull-right actionBtn" target="_blank">Create GC Account</a>
+								</alert>
 								<div class="form-group">
 									<label>Project ID </label>
 									<input ng-model="project.infra.google.api.project" type="text" placeholder="Project Id" class="form-control" tooltip="Enter your Google project Id..." required/>
@@ -619,52 +628,63 @@
 							</div>
 						</accordion-group>
 					</accordion>
-
 					<div>
-						<a ng-click="goToStep('1')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
-							<b>Back</b>
+						<a ng-click="goToStep('1')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+							<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
 						</a>
-						<a style="float: right" ng-click="validateInfra()" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
-							<b>Next</b>
+						<a ng-click="validateInfra()" class="pull-right btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+							<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Next
 						</a>
-
 					</div>
-
 				</form>
 			</div>
 			<div id="step3" ng-show="step['3']" class="steps">
-				// info
-				<div class="">
-					You have chosen package: <b>{{project.ht_package}}</b>
-				</div>
+				
+				<alert type="info">
+					<h4>Project Details:</h4>
+					<hr>
+					<table width="100%" class="infoTable">
+						<tr>
+							<td><b>Name</b></td>
+							<td width="70%">{{project.name}}</td>
+						</tr>
+						<tr>
+							<td><b>Package</b></td>
+							<td width="85%">{{project.ht_package}}</td>
+						</tr>
+						<tr>
+							<td><b>Cloud Provider</b></td>
+							<td width="85%" ng-show="project.infra.aws">Amazon Web Services ( AWS )</td>
+							<td width="85%" ng-show="project.infra.google">Google Cloud ( GC )</td>
+						</tr>
+						<tr ng-if="clusterSettings[project.ht_package]">
+							<td colspan="2">
+								<hr>
+								<p>
+									You have chose package: <b style="color:#31708f;">{{project.ht_package}}</b> we recommend that your resource flavor offers a minimum of:
+								</p>
+								<table width="100%" class="infoTableDetails">
+									<tr>
+										<td>Storage</td>
+										<td>{{clusterSettings[project.ht_package].storageCapacity}}</td>
+										<td>Network</td>
+										<td>{{clusterSettings[project.ht_package].connectivity}}</td>
+									</tr>
+									<tr>
+										<td>RAM</td>
+										<td>{{clusterSettings[project.ht_package].ram}}</td>
+										<td>IOPs</td>
+										<td>{{clusterSettings[project.ht_package].storageIOPs}}</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</alert>
 
-				// message
-				<div>
-					You need to provide a mongodb account with Atlas in order to persist the information of your project
-					(multicloud orchestration, analytics, etc)
-				</div>
-
-				// recommendation - new style
-				<div ng-if="clusterSettings[project.ht_package]">
-					<div class="">
-						We recommend that you provide an atlas cluster with the following minimum settings:
-						<ul class="package_cluster_settings">
-							<li>
-								Storage Capacity: {{clusterSettings[project.ht_package].storageCapacity}}
-							</li>
-							<li>
-								Connectivity: {{clusterSettings[project.ht_package].connectivity}}
-							</li>
-							<li>
-								Ram: {{clusterSettings[project.ht_package].ram}}
-							</li>
-							<li>
-								Storage IOPs: {{clusterSettings[project.ht_package].storageIOPs}}
-							</li>
-						</ul>
-					</div>
-				</div>
-
+				<p class="stepMessageDetails">
+					<b>Herron tech </b> requires a <b>MongoDB Atlas</b> resource to persist your project's information (Cloud Orchestration, API Management, Analytics ... etc).<br />
+				</p>
 
 				<form name="submitResource">
 					<accordion close-others="true">
@@ -689,9 +709,14 @@
 							<accordion-heading>
 								<!--<input ng-checked="data.existingCluster" name="deployCluster" type="radio" value="false"/>-->
 								<!--Use existing Cluster-->
-								Enter your Atlas Resource details
+								MongoDB Atlas
 							</accordion-heading>
 							<div>
+								<alert type="warning" class="fieldMsg">
+									Enter your Project, Cluster and API Key to connect MongoDB Atlas and provision your Database, <a target="_blank" href="https://docs.atlas.mongodb.com/configure-api-access/#generate-api-keys">Learn More</a>
+									<a href="https://cloud.mongodb.com" class="btn btn-warning pull-right actionBtn" target="_blank">Create Atlas Account</a>
+								</alert>
+								
 								<div class="form-group">
 									<label>Atlas Project Name</label>
 									<input ng-model="project.resource.projectName" type="text" placeholder="Project Name" class="form-control" tooltip="Enter your Atlas project name..." required/>
@@ -707,29 +732,29 @@
 								</div>
 								<div class="form-group">
 									<label>Atlas Username</label>
-									<input ng-model="project.resource.api.username" type="text" placeholder="Username" class="form-control" tooltip="Enter your atlas username..." required/>
+									<input ng-model="project.resource.api.username" type="text" placeholder="API Username" class="form-control" tooltip="Enter your atlas username..." required/>
 									<div class="fieldMsg hint">
 										Atlas requires your username to communicate with its API.
 									</div>
 								</div>
 								<div class="form-group">
 									<label>Atlas API Token</label>
-									<input ng-model="project.resource.api.token" type="text" placeholder="Token/ Password" class="form-control" tooltip="Enter your atlas token..." required/>
+									<input ng-model="project.resource.api.token" type="text" placeholder="API Token / Password" class="form-control" tooltip="Enter your atlas token..." required/>
 									<div class="fieldMsg hint">
 										Generate an API Key and paste it here to enable communication with Atlas API.
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label>Resource Database Username</label>
-									<input ng-model="project.resource.credentials.username" type="text" placeholder="Database Username" class="form-control" tooltip="Enter your atlas token..." required/>
+									<label>Database Username</label>
+									<input ng-model="project.resource.credentials.username" type="text" placeholder="Username" class="form-control" tooltip="Enter your atlas token..." required/>
 									<div class="fieldMsg hint">
 
 									</div>
 								</div>
 								<div class="form-group">
-									<label>Resource Database Password</label>
-									<input ng-model="project.resource.credentials.password" type="text" placeholder="Database Password" class="form-control" tooltip="Enter your atlas token..." required/>
+									<label>Database Password</label>
+									<input ng-model="project.resource.credentials.password" type="text" placeholder="Password" class="form-control" tooltip="Enter your atlas token..." required/>
 									<div class="fieldMsg hint">
 
 									</div>
@@ -759,14 +784,12 @@
 							</div>
 						</accordion-group>
 					</accordion>
-
 					<div>
-						<a ng-click="goToStep('2')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
-							<b>Back</b>
+						<a ng-click="goToStep('2')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+							<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
 						</a>
-
-						<a style="float: right;" ng-click="submitResource.$valid && submitProject()" type="button" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
-							Create
+						<a ng-click="submitResource.$valid && submitProject()" class="pull-right btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+							<span class="glyphicon glyphicon-play"></span>&nbsp;Create Project
 						</a>
 					</div>
 				</form>

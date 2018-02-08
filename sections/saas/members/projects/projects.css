@@ -114,3 +114,32 @@ ul.package_cluster_settings li {
 .steps .panel-heading h4.panel-title {
     text-transform: none;
 }
+
+.packageSelectButton:hover{
+    cursor: pointer;
+}
+
+table.infoTable{
+    border-collapse: collapse;
+}
+
+table.infoTable td{
+    padding:2px 5px;
+    border: solid 1px transparent;
+}
+
+.stepMessageDetails{
+    font-size:17px !important;
+}
+
+table.infoTableDetails td{
+    border: solid 1px #A6E1E4;
+}
+
+.hiddenTableBody{
+    display:none;
+}
+
+accordion h4 a {
+    outline: 0;
+}

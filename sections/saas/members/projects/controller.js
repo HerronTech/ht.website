@@ -193,6 +193,8 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			// $scope.$parent.go("/members/login");
 		}
 		
+		$scope.hiddenTableBody = true;
+		
 		$scope.clusterSettings = {
 			"SOA-l7": {
 				"storageCapacity": "80 GB",
