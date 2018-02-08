@@ -8,19 +8,18 @@
 				</alert>
 				<br/>
 			</div>
-
+			
+			<h2>Create New Project</h2>
+			<hr>
 			<div>
 				<a class="pull-right btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="/members/projects">
 					<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<b>Back to My Projects</b>
 				</a>
-				<br/>
 			</div>
-			<br/>
 			
 			<div id="step1" ng-show="step['1']" class="steps">
 				<p class="stepMessageDetails">
-					You are about to create a project with Herrontech. Please select the appropriate package from the
-					list below and click next.
+					Select a package from the list below, and follow the wizard steps
 				</p>
 				<form name="submitDetails">
 					<table width="100%" class="packagesTable">
@@ -511,13 +510,13 @@
 						<label>
 							Project Name
 						</label>
-						<input ng-model="project.name" type="text" placeholder="Name" class="form-control" tooltip="Enter your project name..." required/>
+						<input ng-model="project.name" type="text" placeholder="Name" class="form-control" tooltip="Enter your project name..." ng-required="true"/>
 					</div>
 					<div class="form-group">
 						<label>
 							Project Description
 						</label>
-						<input ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Enter your project Description ..." required/>
+						<input ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Enter your project Description ..." ng-required="true"/>
 					</div>
 					<br>
 					<div ng-if="submitDetails.$submitted && !submitDetails.$valid">
@@ -535,7 +534,8 @@
 			</div>
 			
 			<div id="step2" ng-show="step['2']" class="steps">
-
+				<br />
+				<br />
 				<alert type="info">
 					<h4>Project Details:</h4>
 					<hr>
@@ -650,7 +650,8 @@
 				</form>
 			</div>
 			<div id="step3" ng-show="step['3']" class="steps">
-				
+				<br />
+				<br />
 				<alert type="info">
 					<h4>Project Details:</h4>
 					<hr>

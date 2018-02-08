@@ -41,7 +41,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			
 			var entry = {
 				'name': 'removeResource',
-				'label': 'We found this project is using atlas resources. Do you wish to delete the resource also?',
+				'label': 'This project uses a MongoDB Atlas resource. Do you wish to delete the resource as well?',
 				'type': 'radio',
 				'placeholder': '',
 				'value': [
@@ -64,7 +64,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				'name': 'confirm',
 				'label': "Confirm Project Delete",
 				'msgs': {
-					"footer": "This move is irreversible! Are you sure you want to delete this project and all its Deployments?"
+					"footer": "This move is irreversible! Are you sure you want to proceed?"
 				},
 				'actions': [
 					{
