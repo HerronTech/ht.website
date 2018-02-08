@@ -188,21 +188,21 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		injectFiles.injectCss("sections/saas/members/projects/projects.css");
 		
 		if (!isUserLoggedIn($scope)) {
-			$scope.$parent.go("/members/login");
+			// $scope.$parent.go("/members/login");
 		}
 		
 		$scope.clusterSettings = {
 			"SOA-l7": {
-				"storageCapacity": "512 MB",
-				"connectivity": "500",
-				"ram": "shared",
-				"storageIOPs": "100"
+				"storageCapacity": "80 GB",
+				"connectivity": "2000",
+				"ram": "8 GB",
+				"storageIOPs": "240"
 			},
 			"MC-l7": {
-				"storageCapacity": "512 MB",
-				"connectivity": "500",
-				"ram": "shared",
-				"storageIOPs": "100"
+				"storageCapacity": "80 GB",
+				"connectivity": "4000",
+				"ram": "16 GB",
+				"storageIOPs": "240"
 			}
 		};
 		

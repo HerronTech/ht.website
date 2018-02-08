@@ -8,35 +8,35 @@
 				</alert>
 				<br/>
 			</div>
-			
-			<div>Follow the steps below to create a new project</div>
+
+			<div style="display: none">
+				<a ng-click="" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
+					<b>Back</b>
+				</a>
+			</div>
 			<br>
 			
 			<div id="step1" ng-show="step['1']" class="steps">
-				Choose the appropriate package
+				You are about to create a project with Herrontech.
+
+				Please select the appropriate package from the list below and click next.
 				
 				<table width="100%" class="packagesTable">
 					<thead>
 						<tr>
-							<th class="noBorder"></th>
-							<th class="noBorder"></th>
+							<th colspan="2" class="noBorder"></th>
 							<th>
-								<input value="SOA-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="SOA-l7" required/>
 								<label for="SOA-l7">SOA-l7</label>
 							</th>
 							<th>
-								<input value="MC-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="MC-l7" required/>
 								<label for="MC-l7">MC-l7</label></th>
 							<th>
-								<input value="Enterprise" ng-model="project.ht_package" type="radio" name="ht_package" id="Enterprise" required/>
 								<label for="Enterprise">Enterprise</label>
 							</th>
 							<th>
-								<input value="Safehaven" ng-model="project.ht_package" type="radio" name="ht_package" id="Safehaven" required/>
 								<label for="Safehaven">Safehaven</label>
 							</th>
 							<th>
-								<input value="Unlimited" ng-model="project.ht_package" type="radio" name="ht_package" id="Unlimited" required/>
 								<label for="Unlimited">Unlimited</label>
 							</th>
 						</tr>
@@ -481,6 +481,23 @@
 							<td></td>
 							<td></td>
 						</tr>
+						<tr>
+							<td colspan="2" class="noBorder"></td>
+							<td>
+								<input value="SOA-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="SOA-l7" required/>
+							</td>
+							<td>
+								<input value="MC-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="MC-l7" required/>
+							<td>
+								<input value="Enterprise" ng-model="project.ht_package" type="radio" name="ht_package" id="Enterprise" required/>
+							</td>
+							<td>
+								<input value="Safehaven" ng-model="project.ht_package" type="radio" name="ht_package" id="Safehaven" required/>
+							</td>
+							<td>
+								<input value="Unlimited" ng-model="project.ht_package" type="radio" name="ht_package" id="Unlimited" required/>
+							</td>
+						</tr>
 					</tfoot>
 				</table>
 				<br>
@@ -499,7 +516,7 @@
 						<input ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Enter your project Description ..." required/>
 					</div>
 					<br>
-					<div>
+					<div style="float: right">
 						<a ng-click="submitDetails.$valid && goToStep('2')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
 							<b>Next</b>
 						</a>
@@ -508,8 +525,23 @@
 
 			</div>
 			<div id="step2" ng-show="step['2']" class="steps">
-				Choose your Infrastructure providers to deploy the environments of your project.
-				
+				// 3 styles
+
+				// info area
+				<div class="">
+					You have selected the following package:
+					for project: {{project.name}}
+				</div>
+				// message
+				<div class="">
+					You need to add at least one cloud provider to provision your Infrastructure from the supported
+					providers.
+					However you can always add more providers and take advantage of multicloud orchestration, once your
+					project is created.
+				</div>
+
+				<!--Choose your Infrastructure providers to deploy the environments of your project.-->
+				// form
 				<form>
 					<accordion close-others="true">
 						<accordion-group ng-click="setInfra('aws')" is-open="data.infraAws">
@@ -592,7 +624,7 @@
 						<a ng-click="goToStep('1')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
 							<b>Back</b>
 						</a>
-						<a ng-click="validateInfra()" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
+						<a style="float: right" ng-click="validateInfra()" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
 							<b>Next</b>
 						</a>
 
@@ -601,11 +633,19 @@
 				</form>
 			</div>
 			<div id="step3" ng-show="step['3']" class="steps">
+				// info
+				<div class="">
+					You have chosen package: <b>{{project.ht_package}}</b>
+				</div>
 
+				// message
+				<div>
+					You need to provide a mongodb account with Atlas in order to persist the information of your project
+					(multicloud orchestration, analytics, etc)
+				</div>
+
+				// recommendation - new style
 				<div ng-if="clusterSettings[project.ht_package]">
-					<div class="">
-						You have chosen package: <b>{{project.ht_package}}</b>
-					</div>
 					<div class="">
 						We recommend that you provide an atlas cluster with the following minimum settings:
 						<ul class="package_cluster_settings">
@@ -624,6 +664,7 @@
 						</ul>
 					</div>
 				</div>
+
 
 				<form name="submitResource">
 					<accordion close-others="true">
@@ -695,24 +736,24 @@
 								</div>
 
 								<!--<div style="display: none">-->
-									<!--<div class="fieldMsg">-->
-										<!--Whitelist your IP so that it can connect to your chosen server.-->
-									<!--</div>-->
-									<!--<div class="form-group">-->
-										<!--<label>IP Description </label>-->
-										<!--<input ng-model="project.IPentries[0].comment" type="text" placeholder="Comment" class="form-control" tooltip="Enter a description of your IP..." required/>-->
-										<!--<div class="fieldMsg hint">-->
-										<!---->
-										<!--</div>-->
-									<!--</div>-->
-									<!---->
-									<!--<div class="form-group">-->
-										<!--<label>IP Address </label>-->
-										<!--<input ng-model="project.IPentries[0].ipAddress" type="text" placeholder="IP Address" class="form-control" tooltip="Enter your IP..."/>-->
-										<!--<div class="fieldMsg hint">-->
-										<!---->
-										<!--</div>-->
-									<!--</div>-->
+								<!--<div class="fieldMsg">-->
+								<!--Whitelist your IP so that it can connect to your chosen server.-->
+								<!--</div>-->
+								<!--<div class="form-group">-->
+								<!--<label>IP Description </label>-->
+								<!--<input ng-model="project.IPentries[0].comment" type="text" placeholder="Comment" class="form-control" tooltip="Enter a description of your IP..." required/>-->
+								<!--<div class="fieldMsg hint">-->
+								<!---->
+								<!--</div>-->
+								<!--</div>-->
+								<!---->
+								<!--<div class="form-group">-->
+								<!--<label>IP Address </label>-->
+								<!--<input ng-model="project.IPentries[0].ipAddress" type="text" placeholder="IP Address" class="form-control" tooltip="Enter your IP..."/>-->
+								<!--<div class="fieldMsg hint">-->
+								<!---->
+								<!--</div>-->
+								<!--</div>-->
 								<!--</div>-->
 
 							</div>
@@ -725,7 +766,7 @@
 						</a>
 
 						<a style="float: right;" ng-click="submitResource.$valid && submitProject()" type="button" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
-							Submit Project
+							Create
 						</a>
 					</div>
 				</form>
