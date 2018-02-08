@@ -28,7 +28,7 @@
 					<div class="row">
 						<div class="col-md-1"></div>
 						<div class="col-md-7">
-							<b>Created</b>:&nbsp;{{project.ts|date}}<br />
+							<b>Created</b>:&nbsp;{{project.ts|date}}<br/>
 							<span class="description">{{project.description}}</span>
 						</div>
 						<div class="col-md-3 t-right">
@@ -48,7 +48,7 @@
 						<div class="col-md-1"></div>
 					</div>
 					<hr>
-					<div class="row panelScroller ">
+					<div class="row panelScroller">
 						<div class="col-md-1"></div>
 						<div class="col-md-10">
 							<div class="row margin-top-bottom-5">
@@ -59,28 +59,28 @@
 									<span ng-repeat="(pack, data) in project.package"> {{pack}}</span>
 								</div>
 								<!--<div class="col-md-3">-->
-									<!--<a href="">-->
-										<!--<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Packages-->
-									<!--</a>-->
+								<!--<a href="">-->
+								<!--<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Packages-->
+								<!--</a>-->
 								<!--</div>-->
 							</div>
-							<div class="row margin-top-bottom-5">
+							<div class="row margin-top-bottom-5" ng-if="project.addons">
 								<div class="col-md-6 projectLabel">
-									<label >Add-Ons</label>
+									<label>Add-Ons</label>
 								</div>
 								<div class="col-md-3">
 									<div ng-repeat="addon in project.addons">{{addon.code}}</div>
 								</div>
 								<!--<div class="col-md-3">-->
-									<!--<a href="">-->
-										<!--<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Add-Ons-->
-									<!--</a>-->
+								<!--<a href="">-->
+								<!--<span class="glyphicon glyphicon-eye-open"></span>&nbsp;List All Add-Ons-->
+								<!--</a>-->
 								<!--</div>-->
 							</div>
 							<hr class="yellowbar">
-							<div class="row margin-top-bottom-5">
+							<div class="row margin-top-bottom-5" ng-if="project.agg">
 								<div class="col-md-6 projectLabel">
-									<label >Package & Add-Ons Limit</label>
+									<label>Package & Add-Ons Limit</label>
 								</div>
 								<div class="col-md-6">
 									<div ng-repeat="(one,value) in project.agg.criteria">
@@ -92,10 +92,10 @@
 							<div class="row">
 								<div class="col-md-6">
 									<h4>Resource</h4>
-									<br />
+									<br/>
 									<accordion close-others="false">
 										<accordion-group is-open="true">
-											<accordion-heading >
+											<accordion-heading>
 												<img height="24" ng-src="/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{project.mainResource.driver}}</span>
 											</accordion-heading>
 											
@@ -129,12 +129,12 @@
 										</accordion-group>
 									</accordion>
 								</div>
-								<div ng-if="Object.keys(project.infra)" class="col-md-6">
+								<div ng-if="project.infras.length" class="col-md-6">
 									<h4>Infrastructure</h4>
-									<br />
+									<br/>
 									<accordion close-others="false">
 										<accordion-group ng-repeat="(infra, infraData) in project.infra">
-											<accordion-heading >
+											<accordion-heading>
 												<img height="24" ng-src="/images/infra/{{infra}}/logo.png">&nbsp;<span class="small-accordion-header text-uppercase">{{infra}}</span>&nbsp;
 											</accordion-heading>
 											

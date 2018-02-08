@@ -36,18 +36,18 @@
 									</a>
 								</th>
 								<th>
-									<label for="SOA-l7">SOA-l7</label>
+									<span for="SOA-l7">SOA-l7</span>
 								</th>
 								<th>
-									<label for="MC-l7">MC-l7</label></th>
+									<span for="MC-l7">MC-l7</span></th>
 								<th>
-									<label for="Enterprise">Enterprise</label>
+									<span for="Enterprise">Enterprise</span>
 								</th>
 								<th>
-									<label for="Safehaven">Safehaven</label>
+									<span for="Safehaven">Safehaven</span>
 								</th>
 								<th>
-									<label for="Unlimited">Unlimited</label>
+									<span for="Unlimited">Unlimited</span>
 								</th>
 							</tr>
 						</thead>
@@ -520,8 +520,14 @@
 						<input ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Enter your project Description ..." required/>
 					</div>
 					<br>
+					<div ng-if="submitDetails.$submitted && !submitDetails.$valid">
+						<alert type="danger">
+							Missing fields. Make sure you choose a package, and enter your project name and description.
+						</alert>
+					</div>
+
 					<div class="pull-right">
-						<a ng-click="submitDetails.$valid && goToStep('2')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+						<a ng-click="goToStep('2', submitDetails)" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
 							<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Next
 						</a>
 					</div>

@@ -74,7 +74,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						'action': function (formData) {
 							overlayLoading.show();
 
-							let options={
+							let options = {
 								"method": "delete",
 								"routeName": "/projects/project",
 								"params": {
@@ -166,14 +166,17 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						});
 						
 						let i = 0;
-						for (let oneInfra in project.infra) {
-							if (!project.infra[oneInfra].deployment || project.infra[oneInfra].deployment.length === 0) {
-								delete project.infra[oneInfra];
+						if (project.infra) {
+							for (let oneInfra in project.infra) {
+								if (!project.infra[oneInfra].deployment || project.infra[oneInfra].deployment.length === 0) {
+									delete project.infra[oneInfra];
+								}
+								else {
+									project.infra[oneInfra].hide = (i > 0);
+									i++;
+								}
 							}
-							else {
-								project.infra[oneInfra].hide = (i > 0);
-								i++;
-							}
+							project.infras = Object.keys(project.infra);
 						}
 					});
 				}
@@ -190,7 +193,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		injectFiles.injectCss("sections/saas/members/projects/projects.css");
 		
 		if (!isUserLoggedIn($scope)) {
-			// $scope.$parent.go("/members/login");
+			$scope.$parent.go("/members/login");
 		}
 		
 		$scope.hiddenTableBody = true;
@@ -256,14 +259,19 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			}, 30000);
 		};
 		
-		$scope.goToStep = function (number) {
+		$scope.goToStep = function (number, form) {
+			if (form) {
+				if (!form.$valid) {
+					form.$submitted = true;
+					return;
+				}
+			}
 			$scope.step = {
 				"1": false,
 				"2": false,
 				"3": false
 			};
 			$scope.step[number] = true;
-			console.log($scope.project.infra);
 		};
 		
 		$scope.setInfra = function (infra) {
@@ -333,8 +341,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 					}
 				}
 			}
-			console.log($scope.project.infra);
-			
+
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "post",
 				"routeName": "/projects/project",
