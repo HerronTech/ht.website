@@ -517,10 +517,19 @@ this is the over layer that gives the image the bluesh vibe
 }
 
 .carousel-caption {
-    top: 12%;
-    left: 12%;
-    right: 12%;
-    vertical-align: middle;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-bottom: 0px;
+    padding-top: 0px;
+    bottom: 0px;
+    right: 15%;
+    left: 15%;
+/*
+top: 12%;
+left: 12%;
+right: 12%;
+vertical-align: middle;
+*/
 }
 
 .carousel-caption h4 {
@@ -528,13 +537,13 @@ this is the over layer that gives the image the bluesh vibe
 }
 
 .carousel-inner h6 {
-    font-size: 18px;
-    max-width: 65%;
-    margin: 0 auto;
+font-size: 18px;
+max-width: 65%;
+margin: 0 auto;
 }
 
 .no-georgina {
-    font-family: Audiowide;
+font-family: Audiowide;
 }
 
 /**********************
