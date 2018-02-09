@@ -56,9 +56,9 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 		if($scope.contact.captcha){
 			$http({
 				method: 'POST',
-				url: '/sections/home/sendMail.php',
+				url: protocol + '//cloud-api.' + mydomain + '/projects/contact',
 				data: $scope.contact,
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+				headers: { 'Content-Type': 'application/json', key: myKey }
 			}).success(function (data, status, headers, config) {
 				if (data.result === true) {
 					$scope.contact = {

@@ -54,9 +54,11 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 			
 			$http({
 				method: 'POST',
-				url: '/sections/saas/register/sendMail.php',
-				data: $scope.contact,
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+				url: protocol + '//cloud-api.' + mydomain + '/projects/register',
+				data: {
+					data: $scope.contact
+				},
+				headers: { 'Content-Type': 'application/json', key: myKey }
 			}).success(function (data, status, headers, config) {
 				if (data.result === true) {
 					$scope.contact = {
