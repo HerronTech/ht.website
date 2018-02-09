@@ -37,7 +37,7 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 	
 	$scope.sendContact = function () {
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
-		$scope.contact.captcha = iCaptcha1Value;
+		console.log($scope.contact.captcha);
 		if ($scope.contact.captcha) {
 			$http({
 				method: 'POST',
@@ -45,7 +45,6 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 				data: $scope.contact,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).success(function (data, status, headers, config) {
-				grecaptcha.reset();
 				if (data.result === true) {
 					$scope.contact = {
 						name: '',

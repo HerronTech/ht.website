@@ -8,7 +8,7 @@ var navigation = [
 		'keywords': '',
 		'url': '/',
 		'tplPath': 'sections/home/page.html',
-		'scripts': ['app/captcha.js', 'sections/home/controller.js']
+		'scripts': ['sections/home/controller.js']
 	},
     {
         'id': 'homeagility',
@@ -96,7 +96,7 @@ var navigation = [
 		'title': 'Herron Tech | Join',
 		'url': '/members/register',
 		'tplPath': 'sections/saas/register/page.html',
-		'scripts': ['app/captcha.js', 'sections/saas/register/controller.js']
+		'scripts': ['sections/saas/register/controller.js']
 	},
 	{
 		'id': 'forgetPw',

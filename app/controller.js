@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('mainWebsite', ['ui.bootstrap', 'ngRoute', 'ngCookies', 'ngStorage']);
+var app = angular.module('mainWebsite', ['ui.bootstrap', 'ngRoute', 'ngCookies', 'ngStorage', 'vcRecaptcha']);
 
 var interfaceDomain = location.host;
 interfaceDomain = mydomain.split(":")[0];
