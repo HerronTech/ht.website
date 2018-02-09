@@ -54,7 +54,7 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 			
 			$http({
 				method: 'POST',
-				url: '/sections/account/register/sendMail.php',
+				url: '/sections/saas/register/sendMail.php',
 				data: $scope.contact,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).success(function (data, status, headers, config) {
