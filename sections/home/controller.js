@@ -15,7 +15,19 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 		name: '',
 		email: '',
 		message: '',
-		captcha: ''
+		captcha: null
+	};
+	
+	
+	$scope.setResponse = function (response) {
+		$scope.contact.captcha = response;
+	};
+	$scope.setWidgetId = function (widgetId) {
+		$scope.widgetId = widgetId;
+	};
+	$scope.cbExpiration = function() {
+		vcRecaptchaService.reload($scope.widgetId);
+		$scope.contact.captcha = null;
 	};
 	
 	$http.get("sections/home/our-product.json").success(function(data) {
@@ -39,7 +51,6 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 	
 	$scope.sendContact = function(){
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
-		$scope.contact.captcha = iCaptcha1Value;
 		if($scope.contact.captcha){
 			$http({
 				method: 'POST',
@@ -47,12 +58,12 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 				data: $scope.contact,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			}).success(function (data, status, headers, config) {
-				grecaptcha.reset();
 				if (data.result === true) {
 					$scope.contact = {
 						name: '',
 						email: '',
-						message: ''
+						message: '',
+						captcha: null
 					};
 					
 					$scope.alerts.push({

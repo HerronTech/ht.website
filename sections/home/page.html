@@ -483,7 +483,7 @@
 						</div>
 
 						<div class="col-md-12 col-sm-12 form-group">
-							<div id="captcha1" class="pull-left g-recaptcha"></div>
+							<div vc-recaptcha theme="'light'" key="captchaKey" class="pull-left"  on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()"></div>
 							<input type="submit" class="btn anzac gray-txt white-txt-hover pull-right" value="Submit" disabled/>
 						</div>
 						<br class="clearfix">
