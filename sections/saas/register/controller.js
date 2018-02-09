@@ -9,6 +9,8 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 	};
 	$scope.$parent.$emit('refreshPageTitle', pageData);
 
+	$scope.captchaKey = "6LfA6ykUAAAAAJlJ9MDpdGKL2HuKK9JvC5UUWzq5";
+	
 	$scope.alerts = [];
 	$scope.contact = {
 		name: '',
@@ -22,7 +24,7 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 		aboutUs: '',
 		lookingFor: '',
 		usingSoajs: '',
-		captcha: ''
+		captcha: null
 	};
 	
 	$scope.closeAlert = function (index) {
@@ -35,10 +37,21 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 		}, 10000);
 	};
 	
+	$scope.setResponse = function (response) {
+		$scope.contact.captcha = response;
+	};
+	$scope.setWidgetId = function (widgetId) {
+		$scope.widgetId = widgetId;
+	};
+	$scope.cbExpiration = function() {
+		vcRecaptchaService.reload($scope.widgetId);
+		$scope.contact.captcha = null;
+	};
+	
 	$scope.sendContact = function () {
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
-		console.log($scope.contact.captcha);
 		if ($scope.contact.captcha) {
+			
 			$http({
 				method: 'POST',
 				url: '/sections/account/register/sendMail.php',
@@ -57,9 +70,10 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 						position: '',
 						aboutUs: '',
 						usingSoajs: '',
-						lookingFor: ''
+						lookingFor: '',
+						captcha: null
 					};
-					
+
 					$scope.alerts.push({
 						'type': 'success',
 						'msg': "Thank you for contacting us. We will get back to you shortly."
