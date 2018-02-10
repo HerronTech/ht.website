@@ -111,6 +111,17 @@ max widths
     .carousel-inner h6 {
         max-width: 90%;
     }
+
+    .full-width .row {
+        margin: auto;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .inner {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -172,7 +183,7 @@ max widths
         font-size: 12px;
     }
     .main h1 {
-        font-size: 32px;
+        font-size: 30px;
         padding-top: 12px;
 
     }
@@ -183,6 +194,16 @@ max widths
 
     .navbar-collapse.collapse {
         height: 1100px !important;
+    }
+    .full-width .row {
+        margin: auto;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .inner {
+        padding-bottom: 10px;
+        padding-top: 10px;
     }
 
 }
@@ -211,7 +232,7 @@ max widths
         font-size: 28px;
     }
     .carousel-inner .item h6 {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .main h2 {
