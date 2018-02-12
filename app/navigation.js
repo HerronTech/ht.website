@@ -116,6 +116,13 @@ var navigation = [
 		'scripts': ['sections/saas/config.js', 'sections/saas/login/controller.js']
 	},
 	{
+		'id': 'setPw',
+		'title': 'Herron Tech | Set Password',
+		'url': '/members/newPw',
+		'tplPath': 'sections/saas/login/setNewPw.html',
+		'scripts': ['sections/saas/config.js', 'sections/saas/login/controller.js']
+	},
+	{
 		'id': 'validateEmail',
 		'title': 'Herron Tech | Validate Email',
 		'url': '/members/validateEmail',

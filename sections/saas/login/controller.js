@@ -9,7 +9,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 		}
 		
 		$scope.alerts = [];
-
+		
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
 		};
@@ -21,9 +21,9 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 		};
 		
 		$scope.loginUserSubmit = function () {
-
+			
 		};
-
+		
 		var formConfig = loginConfig.formConf;
 		formConfig.actions = [
 			{
@@ -39,7 +39,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 				'label': 'Login',
 				'btn': 'primary',
 				'action': function (formData) {
-
+					
 					$scope.alerts = [];
 					var postData = {
 						'username': formData.username,
@@ -47,7 +47,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 						'grant_type': "password"
 					};
 					var authValue;
-
+					
 					function loginOauth() {
 						var options1 = {
 							"token": false,
@@ -64,7 +64,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 							}
 							else {
 								authValue = response.data;
-
+								
 								var options2 = {
 									"method": "post",
 									"routeName": "/oauth/token",
@@ -91,15 +91,15 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 										uracLogin();
 									}
 								});
-
+								
 							}
 						});
 					}
-
+					
 					overlayLoading.show();
 					loginOauth();
 					var myUser;
-
+					
 					function uracLogin() {
 						var options = {
 							"method": "get",
@@ -125,7 +125,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 							}
 						});
 					}
-
+					
 					function getKeys() {
 						getSendDataFromServer($scope, ngDataApi, {
 							"method": "get",
@@ -150,7 +150,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 							}
 						});
 					}
-
+					
 					function getPermissions() {
 						getSendDataFromServer($scope, ngDataApi, {
 							"method": "get",
@@ -173,11 +173,11 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 							}
 						});
 					}
-
+					
 				}
 			}
 		];
-
+		
 		buildForm($scope, null, formConfig);
 		
 	}]);
@@ -202,13 +202,13 @@ accountApp.controller('forgotPwPageCtrl', ['$scope', 'ngDataApi', 'isUserLoggedI
 			'label': 'Submit',
 			'btn': 'primary',
 			'action': function (formData) {
-
+				
 				$scope.alerts = [];
 				var postData = {
 					'username': formData.username
 				};
 				overlayLoading.show();
-
+				
 				var options1 = {
 					"method": "get",
 					"routeName": "/urac/forgotPassword",
@@ -233,7 +233,7 @@ accountApp.controller('forgotPwPageCtrl', ['$scope', 'ngDataApi', 'isUserLoggedI
 			}
 		}
 	];
-
+	
 	buildForm($scope, null, formConfig);
 	
 }]);
@@ -244,13 +244,13 @@ accountApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', 'is
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
 		};
-
+		
 		$scope.closeAllAlerts = function () {
 			$timeout(function () {
 				$scope.alerts = [];
 			}, 30000);
 		};
-
+		
 		var formConfig = resetPwConfig.formConf;
 		formConfig.actions = [{
 			'type': 'submit',
@@ -294,7 +294,7 @@ accountApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', 'is
 		}];
 		
 		buildForm($scope, null, formConfig);
-
+		
 	}]);
 
 accountApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLoggedIn', '$timeout',
@@ -303,13 +303,13 @@ accountApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserL
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
 		};
-
+		
 		$scope.closeAllAlerts = function () {
 			$timeout(function () {
 				$scope.alerts = [];
 			}, 30000);
 		};
-
+		
 		$scope.validateChangeEmail = function () {
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "get",
@@ -338,5 +338,95 @@ accountApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserL
 			});
 		};
 
-		$scope.validateChangeEmail();
+		$scope.validateJoin = function () {
+			getSendDataFromServer($scope, ngDataApi, {
+				"method": "get",
+				"routeName": "/urac/join/validate",
+				"params": { "token": $route.current.params.token }
+			}, function (error, response) {
+				if (error) {
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
+					$scope.closeAllAlerts();
+				}
+				else {
+					$scope.alerts.push({
+						'type': 'success',
+						'msg': "Your Email was Validated Successfully. You can login now"
+					});
+					$scope.closeAllAlerts();
+					$scope.form.displayAlert('success', 'Your Email was Validated Successfully. You can login now');
+					setTimeout(function () {
+						$scope.$parent.go("/members/login");
+					}, 3000);
+				}
+			});
+		};
+
+		if ($route.current.originalPath === '/members/joinValidate') {
+			$scope.validateJoin();
+		}
+		else if ($route.current.originalPath === '/members/validateEmail') {
+			$scope.validateChangeEmail();
+		}
+
+	}]);
+
+accountApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', 'isUserLoggedIn',
+	function ($scope, ngDataApi, $routeParams, isUserLoggedIn) {
+		
+		$scope.alerts = [];
+		$scope.closeAlert = function (index) {
+			$scope.alerts.splice(index, 1);
+		};
+		
+		$scope.closeAllAlerts = function () {
+			$timeout(function () {
+				$scope.alerts = [];
+			}, 30000);
+		};
+
+		var formConfig = setPasswordConfig.formConf;
+		formConfig.actions = [{
+			'type': 'submit',
+			'label': translation.submit[LANG],
+			'btn': 'primary',
+			'action': function (formData) {
+				var postData = {
+					'password': formData.password,
+					'confirmation': formData.confirmPassword
+				};
+				if (formData.password !== formData.confirmPassword) {
+					$scope.form.displayAlert('danger', translation.errorMessageChangePassword[LANG]);
+					return;
+				}
+				getSendDataFromServer($scope, ngDataApi, {
+					"method": "send",
+					"routeName": "/urac/resetPassword",
+					"params": { "token": $routeParams.token },
+					"data": postData
+				}, function (error) {
+					if (error) {
+						$scope.form.displayAlert('danger', error.message);
+					}
+					else {
+						$scope.form.displayAlert('success', translation.passwordSetSuccessfully[LANG]);
+						$scope.$parent.go('members/login');
+					}
+				});
+			}
+		}];
+		
+		buildForm($scope, null, formConfig);
+		
+		// if (!isUserLoggedIn($scope)) {
+		// 	buildForm($scope, null, formConfig);
+		// }
+		// else {
+		// 	$scope.$parent.displayAlert('danger', translation.youAlreadyLoggedInLogOutFirst[LANG]);
+		// 	var url = $scope.$parent.mainMenu.links[0].entries[0].url;
+		// 	$scope.$parent.go(url.replace("#", ""));
+		// }
 	}]);

@@ -211,7 +211,7 @@ var setPasswordConfig = {
 		'entries': [
 			{
 				'name': 'password',
-				'label': translation.password[LANG],
+				'label': "Password",
 				'type': 'password',
 				'placeholder': translation.enterPassword[LANG],
 				'value': '',
