@@ -223,7 +223,7 @@
 
 							<tr class="table-row" ng-show="!hiddenTableBody">
 								<td class="emptyFirstCell"></td>
-								<td class="ruleLabel">Hybrid deployment options  </td>
+								<td class="ruleLabel">Hybrid deployment options</td>
 								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
 								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
 
@@ -320,8 +320,6 @@
 								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
 								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
 							</tr>
-
-
 
 
 							<tr class="table-row" ng-show="!hiddenTableBody">
@@ -806,12 +804,15 @@
 						<a ng-click="goToStep('2')" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
 							<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
 						</a>
+
 						<a ng-click="submitProject(submitResource)" class="pull-right btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
 							<span class="glyphicon glyphicon-play"></span>&nbsp;Create Project
 						</a>
+
 					</div>
 				</form>
 			</div>
+			<div id="step4" ng-show="step['4']" class="steps"></div>
 			<br>
 
 			<div ng-show="alerts && alerts.length > 0">

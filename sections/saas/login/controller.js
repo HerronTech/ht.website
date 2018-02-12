@@ -374,8 +374,8 @@ accountApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserL
 
 	}]);
 
-accountApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', 'isUserLoggedIn',
-	function ($scope, ngDataApi, $routeParams, isUserLoggedIn) {
+accountApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', 'isUserLoggedIn', '$timeout',
+	function ($scope, ngDataApi, $routeParams, isUserLoggedIn, $timeout) {
 		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
@@ -389,35 +389,43 @@ accountApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams',
 		};
 
 		var formConfig = setPasswordConfig.formConf;
-		formConfig.actions = [{
-			'type': 'submit',
-			'label': translation.submit[LANG],
-			'btn': 'primary',
-			'action': function (formData) {
-				var postData = {
-					'password': formData.password,
-					'confirmation': formData.confirmPassword
-				};
-				if (formData.password !== formData.confirmPassword) {
-					$scope.form.displayAlert('danger', translation.errorMessageChangePassword[LANG]);
-					return;
+		formConfig.actions = [
+			{
+				'type': 'submit',
+				'label': translation.submit[LANG],
+				'btn': 'primary',
+				'action': function (formData) {
+					var postData = {
+						'password': formData.password,
+						'confirmation': formData.confirmPassword
+					};
+					if (formData.password !== formData.confirmPassword) {
+						$scope.form.displayAlert('danger', translation.errorMessageChangePassword[LANG]);
+						return;
+					}
+					getSendDataFromServer($scope, ngDataApi, {
+						"method": "send",
+						"routeName": "/urac/resetPassword",
+						"params": { "token": $routeParams.token },
+						"data": postData
+					}, function (error) {
+						if (error) {
+							$scope.form.displayAlert('danger', error.message);
+						}
+						else {
+							$scope.alerts.push({
+								'type': 'success',
+								'msg': translation.passwordSetSuccessfully[LANG]
+							});
+							$scope.closeAllAlerts();
+							$timeout(function () {
+								$scope.$parent.go('/members/login');
+							}, 3000);
+						}
+					});
 				}
-				getSendDataFromServer($scope, ngDataApi, {
-					"method": "send",
-					"routeName": "/urac/resetPassword",
-					"params": { "token": $routeParams.token },
-					"data": postData
-				}, function (error) {
-					if (error) {
-						$scope.form.displayAlert('danger', error.message);
-					}
-					else {
-						$scope.form.displayAlert('success', translation.passwordSetSuccessfully[LANG]);
-						$scope.$parent.go('members/login');
-					}
-				});
 			}
-		}];
+		];
 		
 		buildForm($scope, null, formConfig);
 		

@@ -5,7 +5,9 @@ var accountApp = app.components;
 accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
 	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi, injectFiles) {
 		
-		$scope.projects = [];
+		$scope.projects = {};
+		$scope.projects.active = [];
+		$scope.projects.pending = [];
 		if (!isUserLoggedIn($scope)) {
 			$scope.$parent.go("/members/login");
 		}
@@ -32,13 +34,12 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			window.open(path, '_blank');
 		};
 		
-		$scope.deleteProject = function (project) {
+		$scope.deleteProject = function (project, pending) {
 			var formConf = {
 				'name': '',
 				'label': '',
 				'entries': []
 			};
-			
 			var entry = {
 				'name': 'removeResource',
 				'label': 'This project uses a MongoDB Atlas resource. Do you wish to delete the resource as well?',
@@ -58,7 +59,8 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			if (project.resources && project.resources.length !== 0) {
 				formConf.entries.push(entry);
 			}
-			var options = {
+
+			var modalOptions = {
 				form: formConf,
 				'timeout': $timeout,
 				'name': 'confirm',
@@ -74,15 +76,16 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						'action': function (formData) {
 							overlayLoading.show();
 
-							let options = {
+							let reqOptions = {
 								"method": "delete",
 								"routeName": "/projects/project",
 								"params": {
+									"pending": (project.status === 'pending'),
 									"project": project.name,
 									"removeResource": formData.removeResource
 								}
 							};
-							getSendDataFromServer($scope, ngDataApi, options, function (error, data) {
+							getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
 								overlayLoading.hide();
 								if (error) {
 									$scope.form.displayAlert('danger', error.message);
@@ -111,11 +114,46 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 					}
 				]
 			};
-			buildFormWithModal($scope, $modal, options);
-			
+
+			if (pending) {
+				overlayLoading.show();
+
+				let reqOptions = {
+					"method": "delete",
+					"routeName": "/projects/project",
+					"params": {
+						"pending": (project.status === 'pending'),
+						"project": project.name
+					}
+				};
+				getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
+					overlayLoading.hide();
+					if (error) {
+						$scope.alerts.push({
+							'type': 'danger',
+							'msg': error.message
+						});
+						$scope.closeAllAlerts();
+					}
+					else {
+						$scope.alerts.push({
+							'type': 'success',
+							'msg': "Project was deleted successfully."
+						});
+						$scope.closeAllAlerts();
+						$scope.getList();
+					}
+				});
+			}
+			else {
+				buildFormWithModal($scope, $modal, modalOptions);
+			}
+
 		};
 		
 		$scope.getList = function () {
+			$scope.projects.active = [];
+			$scope.projects.pending = [];
 			overlayLoading.show();
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "get",
@@ -131,12 +169,16 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 					$scope.closeAllAlerts();
 				}
 				else {
-					$scope.projects = data;
-					
 					let projectCount = 0;
 					data.forEach(function (project) {
 						project.collpased = projectCount > 0;
 						projectCount++;
+						
+						if (project.status === 'pending') {
+							$scope.projects.pending.push(project);
+							return;
+						}
+						$scope.projects.active.push(project);
 						
 						project.mainResource = {};
 						project.resources.forEach(function (resource) {
@@ -216,7 +258,8 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		$scope.step = {
 			"1": true,
 			"2": false,
-			"3": false
+			"3": false,
+			"4": false
 		};
 		
 		$scope.data = {
@@ -323,6 +366,37 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			else {
 				$scope.goToStep('3');
 			}
+		};
+		
+		$scope.whiteListIps = function (form) {
+			form.$submitted = true;
+			if (!form.$valid) {
+				return;
+			}
+			$scope.alerts = [];
+			overlayLoading.show();
+			getSendDataFromServer($scope, ngDataApi, {
+				"method": "post",
+				"routeName": "/projects/project/whitelist",
+				"data": {
+					data: $scope.project
+				},
+				"params": {}
+			}, function (error, data) {
+				overlayLoading.hide();
+				if (error) {
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
+				}
+				else {
+					$scope.alerts.push({
+						'type': 'success',
+						'msg': "Ips added"
+					});
+				}
+			});
 		};
 		
 		$scope.submitProject = function (form) {

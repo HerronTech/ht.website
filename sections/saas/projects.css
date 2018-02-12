@@ -46,6 +46,10 @@
     /*overflow: scroll;*/
 }
 
+.pending-project .panelScroller {
+    min-height: 130px;
+}
+
 .fieldMsg {
     font-style: italic;
     font-weight: bold;
@@ -175,9 +179,11 @@ accordion h4 a {
     .packagesTable tr th, .packagesTable tr td {
         font-size: 9px;
     }
+
     .ruleLabel {
         width: 25%;
     }
+
     .packagesTable tr td {
         padding-left: 1px;
         padding-right: 1px;
