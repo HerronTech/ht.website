@@ -92,7 +92,7 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 							'oldPassword': formData.oldPassword,
 							'confirmation': formData.confirmPassword
 						};
-						if (formData.password != formData.confirmPassword) {
+						if (formData.password !== formData.confirmPassword) {
 							$scope.form.displayAlert('danger', translation.errorMessageChangePassword[LANG]);
 							return;
 						}
@@ -111,6 +111,11 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 								$scope.form.displayAlert('danger', error.message);
 							}
 							else {
+								$scope.alerts.push({
+									'type': 'success',
+									'msg': "Password changed successfully."
+								});
+								$scope.closeAllAlerts();
 								$scope.modalInstance.close();
 								$scope.form.formData = {};
 							}
@@ -137,7 +142,18 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 		if (!isUserLoggedIn($scope)) {
 			$scope.$parent.go("/members/login");
 		}
-		
+
+		$scope.alerts = [];
+		$scope.closeAlert = function (index) {
+			$scope.alerts.splice(index, 1);
+		};
+
+		$scope.closeAllAlerts = function () {
+			$timeout(function () {
+				$scope.alerts = [];
+			}, 30000);
+		};
+
 		var userCookie = $localStorage.soajs_user;
 		var profileObj = $localStorage.soajs_user.profile;
 
@@ -182,23 +198,27 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'value': '',
 					'tooltip': translation.usernamesToolTip[LANG],
 					'required': true
+				},
+				{
+					'name': 'profile',
+					'label': translation.profile[LANG],
+					'type': 'jsoneditor',
+					'options': {
+						'mode': 'code',
+						'availableModes': [
+							{ 'v': 'code', 'l': 'Code View' },
+							{
+								'v': 'tree',
+								'l': 'Tree View'
+							},
+							{ 'v': 'form', 'l': 'Form View' }
+						]
+					},
+					'height': '300px',
+					"value": {},
+					'required': false,
+					'tooltip': translation.fillYourAdditionalProfileInformation[LANG]
 				}
-				// {
-				// 	'name': 'profile',
-				// 	'label': translation.profile[LANG],
-				// 	'type': 'jsoneditor',
-				// 	'options': {
-				// 		'mode': 'code',
-				// 		'availableModes': [{ 'v': 'code', 'l': 'Code View' }, {
-				// 			'v': 'tree',
-				// 			'l': 'Tree View'
-				// 		}, { 'v': 'form', 'l': 'Form View' }]
-				// 	},
-				// 	'height': '300px',
-				// 	"value": {},
-				// 	'required': false,
-				// 	'tooltip': translation.fillYourAdditionalProfileInformation[LANG]
-				// }
 			],
 			'data': {},
 			'actions': [
@@ -211,7 +231,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 							profileObj = formData.profile;
 						}
 						var postData = {
-							// 'profile': profileObj,
+							'profile': profileObj,
 							'username': formData.username,
 							'firstName': formData.firstName,
 							'lastName': formData.lastName
@@ -219,6 +239,9 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 						getSendDataFromServer($scope, ngDataApi, {
 							"method": "send",
 							"routeName": "/urac/account/editProfile",
+							"headers": {
+								"key": apiConfiguration.key
+							},
 							"params": {
 								"uId": $scope.uId
 							},
@@ -254,7 +277,11 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 				"params": { "username": username }
 			}, function (error, response) {
 				if (error) {
-					$scope.$parent.displayAlert("danger", error.code, true, 'urac', error.message);
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
+					$scope.closeAllAlerts();
 				}
 				else {
 					$scope.uId = response._id;

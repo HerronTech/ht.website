@@ -252,46 +252,48 @@ accountApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', 'is
 		};
 		
 		var formConfig = resetPwConfig.formConf;
-		formConfig.actions = [{
-			'type': 'submit',
-			'label': 'Submit',
-			'btn': 'primary',
-			'action': function (formData) {
-				var postData = {
-					'password': formData.password,
-					'confirmation': formData.confirmPassword
-				};
-				if (formData.password != formData.confirmPassword) {
-					$scope.alerts.push({
-						'type': 'danger',
-						'msg': "Password And Confirm Fields Do Not Match!"
-					});
-					$scope.closeAllAlerts();
-					return;
-				}
-				getSendDataFromServer($scope, ngDataApi, {
-					"method": "send",
-					"routeName": "/urac/resetPassword",
-					"params": { "token": $routeParams.token },
-					"data": postData
-				}, function (error) {
-					if (error) {
+		formConfig.actions = [
+			{
+				'type': 'submit',
+				'label': 'Submit',
+				'btn': 'primary',
+				'action': function (formData) {
+					var postData = {
+						'password': formData.password,
+						'confirmation': formData.confirmPassword
+					};
+					if (formData.password !== formData.confirmPassword) {
 						$scope.alerts.push({
 							'type': 'danger',
-							'msg': error.message
+							'msg': "Password And Confirm Fields Do Not Match!"
 						});
 						$scope.closeAllAlerts();
+						return;
 					}
-					else {
-						$scope.alerts.push({
-							'type': 'success',
-							'msg': "Your password was reset."
-						});
-						$scope.closeAllAlerts();
-					}
-				});
+					getSendDataFromServer($scope, ngDataApi, {
+						"method": "send",
+						"routeName": "/urac/resetPassword",
+						"params": { "token": $routeParams.token },
+						"data": postData
+					}, function (error) {
+						if (error) {
+							$scope.alerts.push({
+								'type': 'danger',
+								'msg': error.message
+							});
+							$scope.closeAllAlerts();
+						}
+						else {
+							$scope.alerts.push({
+								'type': 'success',
+								'msg': "Your password was reset."
+							});
+							$scope.closeAllAlerts();
+						}
+					});
+				}
 			}
-		}];
+		];
 		
 		buildForm($scope, null, formConfig);
 		
@@ -376,7 +378,8 @@ accountApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserL
 
 accountApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', 'isUserLoggedIn', '$timeout',
 	function ($scope, ngDataApi, $routeParams, isUserLoggedIn, $timeout) {
-		
+
+		$scope.hideForm = false;
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
@@ -406,6 +409,9 @@ accountApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams',
 					getSendDataFromServer($scope, ngDataApi, {
 						"method": "send",
 						"routeName": "/urac/resetPassword",
+						"headers": {
+							"key": apiConfiguration.key
+						},
 						"params": { "token": $routeParams.token },
 						"data": postData
 					}, function (error) {
@@ -417,6 +423,7 @@ accountApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams',
 								'type': 'success',
 								'msg': translation.passwordSetSuccessfully[LANG]
 							});
+							$scope.hideForm = true;
 							$scope.closeAllAlerts();
 							$timeout(function () {
 								$scope.$parent.go('/members/login');

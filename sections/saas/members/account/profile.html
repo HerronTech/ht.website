@@ -6,7 +6,6 @@
 			</alert>
 			<br/>
 		</div>
-
 		<div class="t-right">
 			<a ng-click="changeEmail();" href="">Change Email</a> |
 			<a ng-click="changePassword();" href="">Change Password</a>
@@ -14,6 +13,12 @@
 	</div>
 	<br>
 	<div class='form' ng-controller="myAccountCtrl as formCtrl">
+		<div ng-show="alerts && alerts.length > 0">
+			<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+				{{alert.msg}}
+			</alert>
+			<br/>
+		</div>
 		<ngform></ngform>
 	</div>
 

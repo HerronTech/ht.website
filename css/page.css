@@ -524,12 +524,12 @@ this is the over layer that gives the image the bluesh vibe
     bottom: 0px;
     right: 15%;
     left: 15%;
-/*
-top: 12%;
-left: 12%;
-right: 12%;
-vertical-align: middle;
-*/
+    /*
+    top: 12%;
+    left: 12%;
+    right: 12%;
+    vertical-align: middle;
+    */
 }
 
 .carousel-caption h4 {
@@ -537,13 +537,13 @@ vertical-align: middle;
 }
 
 .carousel-inner h6 {
-font-size: 18px;
-max-width: 65%;
-margin: 0 auto;
+    font-size: 18px;
+    max-width: 65%;
+    margin: 0 auto;
 }
 
 .no-georgina {
-font-family: Audiowide;
+    font-family: Audiowide;
 }
 
 /**********************
@@ -1068,4 +1068,8 @@ footer .full-width .row {
     padding-top: 30px;
     height: 90px;
     font-size: 12px;
+}
+
+.t-right {
+    text-align: right;
 }
