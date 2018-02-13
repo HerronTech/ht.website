@@ -289,6 +289,9 @@ accountApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', 'is
 								'msg': "Your password was reset."
 							});
 							$scope.closeAllAlerts();
+							$timeout(function () {
+								$scope.$parent.go('/members/login');
+							}, 4000);
 						}
 					});
 				}

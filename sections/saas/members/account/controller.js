@@ -20,6 +20,7 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 	};
 	
 	$scope.changeEmail = function () {
+		$scope.alerts = [];
 		var config = changeEmailConfig.formConf;
 		var options = {
 			form: config,
@@ -75,6 +76,7 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 	};
 	
 	$scope.changePassword = function () {
+		$scope.alerts = [];
 		var config = changePwConfig.formConf;
 		var options = {
 			form: config,

@@ -312,7 +312,8 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			$scope.step = {
 				"1": false,
 				"2": false,
-				"3": false
+				"3": false,
+				"4": false
 			};
 			$scope.step[number] = true;
 		};
@@ -400,6 +401,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		};
 		
 		$scope.submitProject = function (form) {
+			let successMsg = "Your project was created successfully. It might take upto 10 minutes to be available in your active projects";
 			form.$submitted = true;
 			if (!form.$valid) {
 				return;
@@ -438,9 +440,12 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 				else {
 					$scope.alerts.push({
 						'type': 'success',
-						'msg': "Project was created successfully."
+						'msg': successMsg
 					});
-					$scope.$parent.go("/members/projects");
+					$scope.goToStep('4');
+					$timeout(function () {
+						$scope.$parent.go("/members/projects");
+					}, 6000);
 				}
 			});
 		};

@@ -812,7 +812,38 @@
 					</div>
 				</form>
 			</div>
-			<div id="step4" ng-show="step['4']" class="steps"></div>
+			<div id="step4" ng-show="step['4']" class="steps">
+				<br/>
+				<br/>
+				<alert type="info">
+					<h4>Project Details:</h4>
+					<hr>
+					<table width="100%" class="infoTable">
+						<tr>
+							<td><b>Name</b></td>
+							<td width="70%">{{project.name}}</td>
+						</tr>
+						<tr>
+							<td><b>Package</b></td>
+							<td>{{project.ht_package}}</td>
+						</tr>
+						<tr>
+							<td><b>Cloud Provider</b></td>
+							<td ng-show="project.infra.aws">Amazon Web Services ( AWS )</td>
+							<td ng-show="project.infra.google">Google Cloud ( GC )</td>
+						</tr>
+						<tr>
+							<td><b>Atlas Project Name</b></td>
+							<td>{{project.resource.projectName}}</td>
+						</tr>
+						<tr>
+							<td><b>Atlas Cluster Name</b></td>
+							<td>{{project.resource.clusterName}}</td>
+						</tr>
+					</table>
+				</alert>
+
+			</div>
 			<br>
 
 			<div ng-show="alerts && alerts.length > 0">
