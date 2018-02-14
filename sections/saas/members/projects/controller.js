@@ -24,12 +24,12 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		};
 		
 		$scope.openProject = function (project) {
-			$cookies.put('project', project.name, { 'domain': interfaceDomain });
+			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
 			var path = cloudUri + '#/dashboard';
 			window.open(path, '_blank');
 		};
 		$scope.editProject = function (project) {
-			$cookies.put('project', project.name, { 'domain': interfaceDomain });
+			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
 			var path = cloudUri + '#/project/settings';
 			window.open(path, '_blank');
 		};
@@ -188,9 +188,9 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 									"method": "send",
 									"routeName": "/bridge/executeDriver",
 									"data": {
-										"type": "resources",
-										"driver": 'atlas',
-										'command': "getCluster",
+										type: "resources",
+										driver: 'atlas',
+										command: "getCluster",
 										project: project.name,
 										options: {
 											clusterName: project.resources[0].api.clusterName
