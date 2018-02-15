@@ -173,6 +173,11 @@
 					</accordion>
 				</tab>
 				<tab heading="Pending Projects" ng-if="projects.pending.length">
+					<div class="t-right">
+						<a ng-click="checkPending()" type="button" class="actionBtn btn btn-lg Casablanca gray-txt comet-hover white-txt-hover" href="">
+							Check Progress
+						</a>
+					</div>
 					<br>
 					<accordion close-others="false">
 						<accordion-group class="blueAccordion pending-project" ng-repeat="project in projects.pending">
