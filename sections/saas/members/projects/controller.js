@@ -9,6 +9,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		$scope.projects.active = [];
 		$scope.projects.pending = [];
 		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
 		
@@ -249,6 +250,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		injectFiles.injectCss("sections/saas/projects.css");
 		
 		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
 		
