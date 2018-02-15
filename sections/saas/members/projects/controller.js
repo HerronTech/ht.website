@@ -417,6 +417,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		};
 		
 		$scope.submitProject = function (form) {
+			$scope.alerts = [];
 			let successMsg = "Your project was created. It might take up to 10 minutes to be available in your active projects";
 			form.$submitted = true;
 			if (!form.$valid) {

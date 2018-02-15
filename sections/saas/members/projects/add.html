@@ -577,7 +577,7 @@
 								</div>
 								<div class="form-group">
 									<label>Secret Access Key</label>
-									<input ng-model="project.infra.aws.api.secretAccessKey" type="text" placeholder="Secret Access Key" class="form-control" tooltip="Enter your AWS secretAccessKey..." ng-required="true"/>
+									<input ng-model="project.infra.aws.api.secretAccessKey" type="password" placeholder="Secret Access Key" class="form-control" tooltip="Enter your AWS secretAccessKey..." ng-required="true"/>
 									<div class="fieldMsg hint">
 										Secret Access Keys work in conjunction with Key ID to authorize calls made
 										to AWS APIs.
@@ -750,7 +750,7 @@
 								</div>
 								<div class="form-group">
 									<label>Atlas API Token</label>
-									<input ng-model="project.resource.api.token" type="text" placeholder="API Token / Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+									<input ng-model="project.resource.api.token" type="password" placeholder="API Token / Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
 									<div class="fieldMsg hint">
 										Generate an API Key and paste it here to enable communication with Atlas API.
 									</div>
@@ -765,7 +765,7 @@
 								</div>
 								<div class="form-group">
 									<label>Database Password</label>
-									<input ng-model="project.resource.credentials.password" type="text" placeholder="Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+									<input ng-model="project.resource.credentials.password" type="password" placeholder="Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
 									<div class="fieldMsg hint">
 
 									</div>
