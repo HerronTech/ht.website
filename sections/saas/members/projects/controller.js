@@ -22,7 +22,21 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				$scope.alerts = [];
 			}, 30000);
 		};
-		
+
+		$scope.checkPending = function () {
+			let reqOptions = {
+				"method": "get",
+				"routeName": "/bridge/checkPendingProjects",
+				"params": {}
+			};
+			getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
+				overlayLoading.hide();
+				$timeout(function () {
+					$scope.getList();
+				}, 2000);
+			});
+		};
+
 		$scope.openProject = function (project) {
 			$cookies.put('project', project.name, { 'domain': interfaceDomain });
 			var path = cloudUri + '#/dashboard';
