@@ -8,6 +8,8 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 		$cookies.remove('access_token', { 'domain': interfaceDomain });
 		$cookies.remove('refresh_token', { 'domain': interfaceDomain });
 		$cookies.remove('ht_dashboard_key', { 'domain': interfaceDomain });
+		$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
+		$cookies.remove('soajs_dashboard_login', { 'domain': interfaceDomain });
 		$cookies.remove('myEnv', { 'domain': interfaceDomain });
 		$cookies.remove('soajs_auth', { 'domain': interfaceDomain });
 		$cookies.remove('soajs_current_route', { 'domain': interfaceDomain });
