@@ -40,11 +40,15 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 
 		$scope.openProject = function (project) {
 			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
+			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
+			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
 			var path = cloudUri + '#/dashboard';
 			window.open(path, '_blank');
 		};
 		$scope.editProject = function (project) {
 			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
+			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
+			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
 			var path = cloudUri + '#/project/settings';
 			window.open(path, '_blank');
 		};
