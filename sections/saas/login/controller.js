@@ -145,7 +145,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 								myUser.locked = response.locked || false;
 								$localStorage.soajs_user = myUser;
 								$cookies.put("soajs_username", myUser.username, { 'domain': interfaceDomain });
-								$cookies.put("soajs_dashboard_key", response.extKey, { 'domain': interfaceDomain });
+								$cookies.put("ht_dashboard_key", response.extKey, { 'domain': interfaceDomain });
 								getPermissions();
 							}
 						});

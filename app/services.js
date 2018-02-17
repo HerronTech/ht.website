@@ -6,7 +6,7 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 		$cookies.remove('soajs_username', {'domain': interfaceDomain});
 		$cookies.remove('access_token', { 'domain': interfaceDomain });
 		$cookies.remove('refresh_token', { 'domain': interfaceDomain });
-		$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
+		$cookies.remove('ht_dashboard_key', { 'domain': interfaceDomain });
 		$cookies.remove('myEnv', { 'domain': interfaceDomain });
 		$cookies.remove('soajsID', { 'domain': interfaceDomain });
 		$cookies.remove('soajs_auth', { 'domain': interfaceDomain });
@@ -199,8 +199,8 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 		if (opts.headers.key) {
 			config.headers.key = opts.headers.key;
 		}
-		else if ($cookies.get("soajs_dashboard_key", { 'domain': interfaceDomain })) {
-			config.headers.key = $cookies.get("soajs_dashboard_key", { 'domain': interfaceDomain }).replace(/\"/g, '');
+		else if ($cookies.get("ht_dashboard_key", { 'domain': interfaceDomain })) {
+			config.headers.key = $cookies.get("ht_dashboard_key", { 'domain': interfaceDomain }).replace(/\"/g, '');
 		}
 		else {
 			config.headers.key = apiConfiguration.key;
