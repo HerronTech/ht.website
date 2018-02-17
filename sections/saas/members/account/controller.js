@@ -142,6 +142,7 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataApi', '$cookies', '$localStorage', 'isUserLoggedIn',
 	function ($scope, $timeout, $modal, ngDataApi, $cookies, $localStorage, isUserLoggedIn) {
 		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
 
@@ -157,7 +158,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 		};
 
 		var userCookie = $localStorage.soajs_user;
-		var profileObj = $localStorage.soajs_user.profile;
+		var profileObj;
 
 		var formConfig = {
 			form: profileConfig.formConf,
@@ -296,13 +297,13 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 				}
 			});
 		};
-		
-		if ((typeof(userCookie) !== "undefined") && (typeof(userCookie) === "object")) {
-			var uname = userCookie.username;
-			$scope.getProfile(uname);
+
+		if (userCookie) {
+			if ((typeof(userCookie) !== "undefined") && (typeof(userCookie) === "object")) {
+				var uname = userCookie.username;
+				profileObj = $localStorage.soajs_user.profile;
+				$scope.getProfile(uname);
+			}
 		}
-		else {
-			$scope.$parent.go("/members/login");
-		}
-		
+
 	}]);

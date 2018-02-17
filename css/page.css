@@ -500,13 +500,13 @@ this is the over layer that gives the image the bluesh vibe
 
 .carousel-inner .item h3 {
     font-family: GeorginaDemo;
-    font-size: 60px;
+    font-size: 42px;
     color: white;
 }
 
 .carousel-inner .item h4 {
     font-family: GeorginaDemo;
-    font-size: 50px;
+    font-size: 42px;
     color: white;
 }
 
@@ -689,18 +689,18 @@ top-menu {
 
 .main h1 {
     font-family: "GeorginaDemo";
-    font-size: 53px;
+    font-size: 42px;
     text-transform: uppercase;
 }
 
 .main h2 {
     font-family: "OpenSans-Light";
-    font-size: 43px;
+    font-size: 33px;
 }
 
 .main h3 {
     font-family: "GeorginaDemo";
-    font-size: 33px;
+    font-size: 28px;
     text-transform: uppercase;
 }
 

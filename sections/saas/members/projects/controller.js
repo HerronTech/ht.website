@@ -9,6 +9,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		$scope.projects.active = [];
 		$scope.projects.pending = [];
 		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
 		
@@ -22,7 +23,21 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				$scope.alerts = [];
 			}, 30000);
 		};
-		
+
+		$scope.checkPending = function () {
+			let reqOptions = {
+				"method": "get",
+				"routeName": "/bridge/checkPendingProjects",
+				"params": {}
+			};
+			getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
+				overlayLoading.hide();
+				$timeout(function () {
+					$scope.getList();
+				}, 2000);
+			});
+		};
+
 		$scope.openProject = function (project) {
 			$cookies.put('project', project.name, { 'domain': interfaceDomain });
 			var path = cloudUri + '#/dashboard';
@@ -235,6 +250,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		injectFiles.injectCss("sections/saas/projects.css");
 		
 		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
 		
@@ -401,7 +417,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		};
 		
 		$scope.submitProject = function (form) {
-			let successMsg = "Your project was created successfully. It might take upto 10 minutes to be available in your active projects";
+			let successMsg = "Your project was created. It might take up to 10 minutes to be available in your active projects";
 			form.$submitted = true;
 			if (!form.$valid) {
 				return;
