@@ -39,14 +39,18 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		};
 
 		$scope.openProject = function (project) {
-			$cookies.put('project', project.name, { 'domain': interfaceDomain });
+			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
+			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
+			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
 			var path = cloudUri + '#/dashboard';
-			window.open(path, '_blank');
+			window.open(path, 'newTab');
 		};
 		$scope.editProject = function (project) {
-			$cookies.put('project', project.name, { 'domain': interfaceDomain });
+			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
+			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
+			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
 			var path = cloudUri + '#/project/settings';
-			window.open(path, '_blank');
+			window.open(path, 'newTab');
 		};
 		
 		$scope.deleteProject = function (project, pending) {
@@ -203,9 +207,9 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 									"method": "send",
 									"routeName": "/bridge/executeDriver",
 									"data": {
-										"type": "resources",
-										"driver": 'atlas',
-										'command': "getCluster",
+										type: "resources",
+										driver: 'atlas',
+										command: "getCluster",
 										project: project.name,
 										options: {
 											clusterName: project.resources[0].api.clusterName
@@ -417,6 +421,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		};
 		
 		$scope.submitProject = function (form) {
+			$scope.alerts = [];
 			let successMsg = "Your project was created. It might take up to 10 minutes to be available in your active projects";
 			form.$submitted = true;
 			if (!form.$valid) {
