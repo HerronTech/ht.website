@@ -39,18 +39,27 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		};
 
 		$scope.openProject = function (project) {
+			overlayLoading.show();
 			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
 			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
 			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
 			var path = cloudUri + '#/dashboard';
-			window.open(path, 'newTab');
+			$timeout(function () {
+				overlayLoading.hide();
+				window.open(path, '_blank');
+			}, 500);
 		};
+
 		$scope.editProject = function (project) {
+			overlayLoading.show();
 			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
 			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
 			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
 			var path = cloudUri + '#/project/settings';
-			window.open(path, 'newTab');
+			$timeout(function () {
+				overlayLoading.hide();
+				window.open(path, '_blank');
+			}, 500);
 		};
 		
 		$scope.deleteProject = function (project, pending) {
