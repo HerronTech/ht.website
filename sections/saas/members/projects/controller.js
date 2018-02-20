@@ -23,7 +23,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				$scope.alerts = [];
 			}, 30000);
 		};
-
+		
 		$scope.checkPending = function () {
 			let reqOptions = {
 				"method": "get",
@@ -37,7 +37,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				}, 2000);
 			});
 		};
-
+		
 		$scope.openProject = function (project) {
 			overlayLoading.show();
 			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
@@ -49,7 +49,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				window.open(path, '_blank');
 			}, 500);
 		};
-
+		
 		$scope.editProject = function (project) {
 			overlayLoading.show();
 			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
@@ -87,7 +87,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			if (project.resources && project.resources.length !== 0) {
 				formConf.entries.push(entry);
 			}
-
+			
 			var modalOptions = {
 				form: formConf,
 				'timeout': $timeout,
@@ -103,13 +103,14 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						'btn': 'primary',
 						'action': function (formData) {
 							overlayLoading.show();
-
+							
 							let reqOptions = {
 								"method": "delete",
 								"routeName": "/projects/project",
 								"params": {
 									"pending": (project.status === 'pending'),
-									"project": project.name,
+									"soajs_project": project.name,
+									"project": project.name, //todo
 									"removeResource": formData.removeResource
 								}
 							};
@@ -142,16 +143,17 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 					}
 				]
 			};
-
+			
 			if (pending) {
 				overlayLoading.show();
-
+				
 				let reqOptions = {
 					"method": "delete",
 					"routeName": "/projects/project",
 					"params": {
 						"pending": (project.status === 'pending'),
-						"project": project.name
+						"soajs_project": project.name,
+						"project": project.name // todo
 					}
 				};
 				getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
@@ -176,7 +178,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			else {
 				buildFormWithModal($scope, $modal, modalOptions);
 			}
-
+			
 		};
 		
 		$scope.getList = function () {
@@ -215,6 +217,9 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 								let options = {
 									"method": "send",
 									"routeName": "/bridge/executeDriver",
+									"params": {
+										soajs_project: project.name
+									},
 									"data": {
 										type: "resources",
 										driver: 'atlas',
