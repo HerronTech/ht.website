@@ -442,16 +442,19 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 				return;
 			}
 			$scope.alerts = [];
+			var postedProject = angular.copy($scope.project);
 			if ($scope.project.infra.google && $scope.project.infra.google.api) {
 				if ($scope.project.infra.google.api.token) {
-					try {
-						$scope.project.infra.google.api.token = JSON.parse($scope.project.infra.google.api.token);
-					}
-					catch (e) {
-						$scope.alerts.push({
-							'type': 'danger',
-							'msg': e.message
-						});
+					if (typeof ($scope.project.infra.google.api.token) === 'string') {
+						try {
+							postedProject.infra.google.api.token = JSON.parse($scope.project.infra.google.api.token);
+						}
+						catch (e) {
+							$scope.alerts.push({
+								'type': 'danger',
+								'msg': e.message
+							});
+						}
 					}
 				}
 			}
@@ -461,7 +464,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 				"method": "post",
 				"routeName": "/projects/project",
 				"data": {
-					data: $scope.project
+					data: postedProject
 				},
 				"params": {}
 			}, function (error, data) {
