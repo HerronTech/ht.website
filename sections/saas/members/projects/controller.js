@@ -187,7 +187,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			overlayLoading.show();
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "get",
-				"routeName": "/projects/project/list",
+				"routeName": "/projects/projects/list",
 				"params": {}
 			}, function (error, data) {
 				overlayLoading.hide();
