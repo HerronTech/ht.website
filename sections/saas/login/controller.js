@@ -227,6 +227,9 @@ accountApp.controller('forgotPwPageCtrl', ['$scope', 'ngDataApi', 'isUserLoggedI
 							'type': 'success',
 							'msg': "A reset link has been sent to your email address."
 						});
+						$timeout(function () {
+							$scope.$parent.go("/members/login");
+						}, 5000);
 					}
 					$scope.closeAllAlerts();
 				});
@@ -238,8 +241,8 @@ accountApp.controller('forgotPwPageCtrl', ['$scope', 'ngDataApi', 'isUserLoggedI
 	
 }]);
 
-accountApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', 'isUserLoggedIn', '$route',
-	function ($scope, ngDataApi, $routeParams, isUserLoggedIn, $route) {
+accountApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', '$timeout', '$route',
+	function ($scope, ngDataApi, $routeParams, $timeout, $route) {
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
@@ -273,7 +276,12 @@ accountApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', 'is
 					getSendDataFromServer($scope, ngDataApi, {
 						"method": "send",
 						"routeName": "/urac/resetPassword",
-						"params": { "token": $routeParams.token },
+						"headers": {
+							"key": apiConfiguration.key
+						},
+						"params": {
+							"token": $routeParams.token
+						},
 						"data": postData
 					}, function (error) {
 						if (error) {
@@ -319,6 +327,9 @@ accountApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserL
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "get",
 				"routeName": "/urac/changeEmail/validate",
+				"headers": {
+					"key": apiConfiguration.key
+				},
 				"params": {
 					"token": $route.current.params.token
 				}
