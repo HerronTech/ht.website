@@ -88,7 +88,6 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 				$scope.isLoggedInUser = true;
 			}
 			else {
-				console.log('Missing user object');
 				$scope.isLoggedInUser = false;
 				$scope.enableInterface = false;
 			}
