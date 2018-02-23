@@ -21,6 +21,11 @@
 			<tabset>
 				<tab heading="Active Projects">
 					<br>
+					<div class="alert alert-warning" ng-if="projects.active.length === 0">
+						There are no active projects yet. Please click on <strong>"Create New Project"</strong> to create a project. </br>
+						<span ng-if="projects.pending.length === 1"><strong>Note:</strong> There is currently <strong>{{projects.pending.length}} pending</strong> project. It should be activated in a few moments and will appear under this tab.</span>
+						<span ng-if="projects.pending.length > 1"><strong>Note:</strong> There are currently <strong>{{projects.pending.length}} pending</strong> projects. They should be activated in a few moments and will appear under this tab.</span>
+					</div>
 					<accordion close-others="false">
 						<accordion-group class="blueAccordion" ng-repeat="project in projects.active" ng-class="{'pending-project': project.status==='pending' }">
 							<accordion-heading>
