@@ -61,33 +61,19 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 				window.open(path, '_blank');
 			}, 500);
 		};
-		
+
 		$scope.deleteProject = function (project, pending) {
 			var formConf = {
 				'name': '',
 				'label': '',
-				'entries': []
-			};
-			var entry = {
-				'name': 'removeResource',
-				'label': 'This project uses a MongoDB Atlas resource. Do you wish to delete the resource as well?',
-				'type': 'radio',
-				'placeholder': '',
-				'value': [
+				'entries': [
 					{
-						l: 'Delete the resource', v: true
-					},
-					{
-						l: 'Keep the resource', v: false
+						type: 'html',
+						value: 'By clicking <b>"Confirm Delete"</b> you will be permanently deleting this project.</br>',
 					}
-				],
-				'tooltip': '',
-				'required': true
+				]
 			};
-			if (project.resources && project.resources.length !== 0) {
-				formConf.entries.push(entry);
-			}
-			
+
 			var modalOptions = {
 				form: formConf,
 				'timeout': $timeout,
@@ -111,7 +97,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 									"pending": (project.status === 'pending'),
 									"soajs_project": project.name,
 									"project": project.name, //todo
-									"removeResource": formData.removeResource
+									"removeResource": false
 								}
 							};
 							getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
