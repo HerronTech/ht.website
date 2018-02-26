@@ -220,7 +220,8 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'height': '300px',
 					"value": {},
 					'required': false,
-					'tooltip': translation.fillYourAdditionalProfileInformation[LANG]
+					'tooltip': translation.fillYourAdditionalProfileInformation[LANG],
+					'fieldMsg': 'This JSON Object can hold additional profile configuration i.e.: age, gender, nationality etc...'
 				}
 			],
 			'data': {},
