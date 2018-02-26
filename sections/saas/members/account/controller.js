@@ -158,7 +158,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 		};
 
 		var userCookie = $localStorage.soajs_user;
-		var profileObj;
+		// var profileObj;
 
 		var formConfig = {
 			form: profileConfig.formConf,
@@ -202,27 +202,27 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'tooltip': translation.usernamesToolTip[LANG],
 					'required': true
 				},
-				{
-					'name': 'profile',
-					'label': translation.profile[LANG],
-					'type': 'jsoneditor',
-					'options': {
-						'mode': 'code',
-						'availableModes': [
-							{ 'v': 'code', 'l': 'Code View' },
-							{
-								'v': 'tree',
-								'l': 'Tree View'
-							},
-							{ 'v': 'form', 'l': 'Form View' }
-						]
-					},
-					'height': '300px',
-					"value": {},
-					'required': false,
-					'tooltip': translation.fillYourAdditionalProfileInformation[LANG],
-					'fieldMsg': 'This JSON Object can hold additional profile configuration i.e.: age, gender, nationality etc...'
-				}
+				// {
+				// 	'name': 'profile',
+				// 	'label': translation.profile[LANG],
+				// 	'type': 'jsoneditor',
+				// 	'options': {
+				// 		'mode': 'code',
+				// 		'availableModes': [
+				// 			{ 'v': 'code', 'l': 'Code View' },
+				// 			{
+				// 				'v': 'tree',
+				// 				'l': 'Tree View'
+				// 			},
+				// 			{ 'v': 'form', 'l': 'Form View' }
+				// 		]
+				// 	},
+				// 	'height': '300px',
+				// 	"value": {},
+				// 	'required': false,
+				// 	'tooltip': translation.fillYourAdditionalProfileInformation[LANG],
+				// 	'fieldMsg': 'This JSON Object can hold additional profile configuration i.e.: age, gender, nationality etc...'
+				// }
 			],
 			'data': {},
 			'actions': [
@@ -231,11 +231,11 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'label': 'Edit Profile',
 					'btn': 'primary',
 					'action': function (formData) {
-						if (formData.profile) {
-							profileObj = formData.profile;
-						}
+						// if (formData.profile) {
+						// 	profileObj = formData.profile;
+						// }
 						var postData = {
-							'profile': profileObj,
+							// 'profile': profileObj,
 							'username': formData.username,
 							'firstName': formData.firstName,
 							'lastName': formData.lastName
@@ -256,12 +256,12 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 							}
 							else {
 								$scope.form.displayAlert('success', 'Profile Updated Successfully');
-								
+
 								userCookie.firstName = formData.firstName;
 								userCookie.username = formData.username;
 								userCookie.lastName = formData.lastName;
-								userCookie.profile = profileObj;
-								
+								// userCookie.profile = profileObj;
+
 								$localStorage.soajs_user = userCookie;
 								$scope.$parent.$emit('refreshWelcome', {});
 							}
@@ -289,11 +289,11 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 				}
 				else {
 					$scope.uId = response._id;
-					var p = response.profile;
+					// var p = response.profile;
 					formConfig.data = response;
-					formConfig.data.profile = p;
+					// formConfig.data.profile = p;
 					buildForm($scope, null, formConfig);
-					
+
 					$scope.$parent.$emit('xferData', { 'memberData': response });
 				}
 			});
@@ -302,7 +302,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 		if (userCookie) {
 			if ((typeof(userCookie) !== "undefined") && (typeof(userCookie) === "object")) {
 				var uname = userCookie.username;
-				profileObj = $localStorage.soajs_user.profile;
+				// profileObj = $localStorage.soajs_user.profile;
 				$scope.getProfile(uname);
 			}
 		}
