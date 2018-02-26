@@ -57,8 +57,8 @@ form .header h3 {
 
 form .btn-sm {
     margin-left: 5px;
-    padding:5px 10px;
-    font-size:14px;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
 .grouped .form-control {
@@ -188,4 +188,8 @@ form.css-form .footer-msg {
     text-align: left;
     padding-bottom: 5px;
     font-weight: bold;
+}
+
+.fieldMsg {
+    font-style: italic;
 }
