@@ -162,7 +162,15 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 		};
 
 		$scope.checkUserCookie();
-		
+
+		$scope.goToLogin = function () {
+			if ($scope.isLoggedInUser) {
+				$scope.go("/members/projects");
+			} else {
+				$scope.go("/members/login");
+			}
+		};
+
 		$scope.logoutUser = function () {
 			var user = $localStorage.soajs_user;
 			

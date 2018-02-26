@@ -3,11 +3,7 @@ var accountApp = app.components;
 
 accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeout', '$cookies', '$localStorage', 'isUserLoggedIn',
 	function ($scope, $http, ngDataApi, $timeout, $cookies, $localStorage, isUserLoggedIn) {
-		
-		if (isUserLoggedIn($scope)) {
-			$scope.$parent.go("/members/projects");
-		}
-		
+
 		$scope.alerts = [];
 		
 		$scope.closeAlert = function (index) {
@@ -19,11 +15,7 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 				$scope.alerts = [];
 			}, 10000);
 		};
-		
-		$scope.loginUserSubmit = function () {
-			
-		};
-		
+
 		var formConfig = loginConfig.formConf;
 		formConfig.actions = [
 			{
@@ -177,9 +169,13 @@ accountApp.controller('loginPageCtrl', ['$scope', '$http', 'ngDataApi', '$timeou
 				}
 			}
 		];
-		
-		buildForm($scope, null, formConfig);
-		
+
+		if (isUserLoggedIn($scope)) {
+			$scope.$parent.go("/members/projects");
+		}
+		else {
+			buildForm($scope, null, formConfig);
+		}
 	}]);
 
 accountApp.controller('forgotPwPageCtrl', ['$scope', 'ngDataApi', 'isUserLoggedIn', '$timeout', function ($scope, ngDataApi, isUserLoggedIn, $timeout) {
