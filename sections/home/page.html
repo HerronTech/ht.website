@@ -478,7 +478,7 @@
 
 						<div class="col-md-12 col-sm-12 form-group">
 							<div vc-recaptcha theme="'light'" key="captchaKey" class="pull-left"  on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()"></div>
-							<input type="submit" class="btn anzac gray-txt white-txt-hover pull-right" value="Submit" disabled/>
+							<input type="submit" class="btn anzac gray-txt white-txt-hover pull-right" value="Submit" ng-disabled="!contact.captcha && !contactForm.$valid"/>
 						</div>
 						<br class="clearfix">
 					</form>
