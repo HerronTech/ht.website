@@ -1073,3 +1073,6 @@ footer .full-width .row {
 .t-right {
     text-align: right;
 }
+input.contactUsColor, textarea.contactUsColor, select.contactUsColor{
+    color: #f3c047!important;
+}

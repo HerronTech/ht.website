@@ -485,19 +485,23 @@
 								<td>$ 2,500</td>
 								<td>$ 1,250</td>
 							</tr>
-							<tr class="packageSelectButton">
+							<tr>
 								<td colspan="2" class="noBorder"></td>
-								<td>
-									<input value="SOA-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="SOA-l7" ng-required="true"/>
+								<td style="padding: 0px">
+									<label class="packageSelectButton clickableRadioButton" >
+										<input value="SOA-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="SOA-l7" ng-required="true"/>
+									</label>
 								</td>
-								<td>
-									<input value="MC-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="MC-l7" ng-required="true"/>
+								<td style="padding: 0px">
+									<label class="packageSelectButton clickableRadioButton">
+										<input value="MC-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="MC-l7" ng-required="true"/>
+									</label>
 								</td>
 							</tr>
 						</tfoot>
 					</table>
 					<br>
-
+					
 					<div class="form-group">
 						<label>
 							Project Name

@@ -117,7 +117,14 @@ ul.package_cluster_settings li {
 .packageSelectButton:hover {
     cursor: pointer;
 }
-
+.clickableRadioButton {
+    display: block;
+    min-height: 100%;
+    height: auto !important;
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 5px
+}
 table.infoTable {
     border-collapse: collapse;
 }
