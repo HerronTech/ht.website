@@ -63,6 +63,10 @@ max widths
 
 }
 
+.youtubevideoPlayer{
+    height: 400px;
+}
+
 @media (max-width: 1500px) {
 
     .carousel-inner .item h3 {
@@ -83,6 +87,10 @@ max widths
 }
 
 @media (max-width: 1200px) {
+
+    .youtubevideoPlayer{
+        height: 400px;
+    }
 
     .main h1 {
         font-size: 42px;
@@ -125,6 +133,10 @@ max widths
 }
 
 @media (max-width: 900px) {
+
+    .youtubevideoPlayer{
+        height: 400px;
+    }
 
     .carousel-inner .item h3 {
         font-size: 32px;
@@ -171,6 +183,10 @@ max widths
 
     }
 */
+    .youtubevideoPlayer{
+        height: 300px;
+    }
+
     .carousel-inner .item h3 {
         font-size: 27px;
     }
@@ -209,6 +225,10 @@ max widths
 }
 
 @media (max-width: 550px) {
+
+    .youtubevideoPlayer{
+        height: 220px;
+    }
 
     .g-recaptcha {
         transform: scale(0.7);
@@ -268,6 +288,11 @@ max widths
     }
 }
 
+@media (max-width: 350px){
+    .youtubevideoPlayer{
+        height: 130px;
+    }
+}
 /**
 
 @media (min-width: 768px) and (max-width: 1010px)
