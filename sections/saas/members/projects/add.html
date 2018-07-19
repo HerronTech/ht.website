@@ -13,7 +13,10 @@
 			
 			<div id="step1" ng-show="step['1']" class="steps">
 				<p class="stepMessageDetails">
-					Select a package from the list below, and follow the wizard steps
+					Select a package from the list below, and follow the wizard steps.
+					( <a href="" target="blank" title="Download Help Manual">
+						<span class="glyphicon glyphicon-file"></span>&nbsp;Download Manual
+					  </a> )
 				</p>
 				<form name="submitDetails">
 					<table width="100%" class="packagesTable">
@@ -486,7 +489,11 @@
 								<td>$ 1,250</td>
 							</tr>
 							<tr>
-								<td colspan="2" class="noBorder"></td>
+								<td colspan="2" class="noBorder">
+									<a href="" target="blank">
+										<span class="icon icon-file-pdf"></span>
+									</a>
+								</td>
 								<td style="padding: 0px">
 									<label class="packageSelectButton clickableRadioButton" >
 										<input value="SOA-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="SOA-l7" ng-required="true"/>
