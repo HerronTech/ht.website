@@ -288,8 +288,9 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 			newCluster: false,
 			existingCluster: true
 		};
-		
+		// v id="SOA-l7"
 		$scope.project = {
+			ht_package:"SOA-l7",
 			name: "",
 			description: "",
 			infra: {},
