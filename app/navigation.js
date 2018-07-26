@@ -75,6 +75,13 @@ var navigation = [
 		'scripts': ['sections/saas/members/projects/controller.js']
 	},
 	{
+		'id': 'membersChart',
+		'title': 'Herron Tech | Org Chart',
+		'url': '/members/project/org',
+		'tplPath': 'sections/saas/members/projects/orgChart.html',
+		'scripts': ['sections/saas/members/projects/controller.js']
+	},
+	{
 		'id': 'profile',
 		'label': 'Login',
 		'title': 'Herron Tech | My Account',
