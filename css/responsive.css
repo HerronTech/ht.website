@@ -56,10 +56,6 @@ max widths
 */
 @media (max-width: 1800px) {
 
-    .carousel-inner .item h4 {
-        font-size: 42px;
-    }
-
 
 }
 
@@ -74,7 +70,11 @@ max widths
     }
 
     .carousel-inner .item h4 {
-        font-size: 35px;
+        font-size: 30px;
+    }
+
+    .carousel-inner .item h5 {
+        font-size: 20px;
     }
 
     .carousel-inner h6 {
@@ -93,13 +93,19 @@ max widths
     }
 
     .main h1 {
-        font-size: 42px;
-        padding-top: 12px;
-
+        font-size: 32px;
     }
 
     .main h2 {
-        font-size: 36px;
+        font-size: 28px;
+    }
+
+    .main h3 {
+         font-size: 26px;
+     }
+
+    .main h4 {
+        font-size: 22px;
     }
 
     .navbar-right {
@@ -107,11 +113,14 @@ max widths
     }
 
     .carousel-inner .item h3 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .carousel-inner .item h4 {
         font-size: 28px;
+    }
+    .carousel-inner .item h5 {
+        font-size: 18px;
     }
     .carousel-inner .item h6 {
         font-size: 16px;
@@ -139,11 +148,14 @@ max widths
     }
 
     .carousel-inner .item h3 {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .carousel-inner .item h4 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+    .carousel-inner .item h5 {
+        font-size: 16px;
     }
     .carousel-inner .item h6 {
         font-size: 14px;
@@ -163,13 +175,19 @@ max widths
     }
 
     .main h1 {
-        font-size: 36px;
-        padding-top: 12px;
-
+        font-size: 28px;
     }
 
     .main h2 {
-        font-size: 30px;
+        font-size: 26px;
+    }
+
+    .main h3 {
+        font-size: 24px;
+    }
+
+    .main h4 {
+        font-size: 20px;
     }
 
     .navbar-collapse.collapse {
@@ -188,24 +206,33 @@ max widths
     }
 
     .carousel-inner .item h3 {
-        font-size: 27px;
+        font-size: 24px;
     }
 
     .carousel-inner .item h4 {
         font-size: 22px;
     }
 
+    .carousel-inner .item h5 {
+        font-size: 14px;
+    }
     .carousel-inner .item h6 {
         font-size: 12px;
     }
     .main h1 {
-        font-size: 30px;
-        padding-top: 12px;
-
+        font-size: 26px;
     }
 
     .main h2 {
         font-size: 24px;
+    }
+
+    .main h3 {
+        font-size: 22px;
+    }
+
+    .main h4 {
+        font-size: 18px;
     }
 
     .navbar-collapse.collapse {
@@ -245,9 +272,12 @@ max widths
     }
 
     .carousel-inner .item h4 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
+    .carousel-inner .item h5 {
+        font-size: 12px;
+    }
     .main h1, .iTopMenu h1 {
         font-size: 28px;
     }
@@ -255,9 +285,18 @@ max widths
         font-size: 12px;
     }
 
+    .main h1 {
+        font-size: 22px;
+    }
+
     .main h2 {
         font-size: 20px;
     }
+
+    .main h3 {
+        font-size: 18px;
+    }
+
 /*
     .carousel-caption {
         top: 5px;
