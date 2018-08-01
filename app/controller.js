@@ -13,8 +13,12 @@ app.config([
 	'$provide',
 	'$sceDelegateProvider',
 	function ($routeProvider, $controllerProvider, $compileProvider, $locationProvider, $filterProvider, $provide, $sceDelegateProvider) {
-
+		
 		app.compileProvider = $compileProvider;
+		var whitelisted = ['self'];
+		whitelisted = whitelisted.concat(whitelistedDomain);
+		$sceDelegateProvider.resourceUrlWhitelist(whitelisted);
+		
 		navigation.forEach(function (navigationEntry) {
 			if (navigationEntry.scripts && navigationEntry.scripts.length > 0) {
 				$routeProvider.when(navigationEntry.url.replace('#', ''), {
@@ -40,14 +44,14 @@ app.config([
 				}
 			}
 		});
-
+		
 		$routeProvider.otherwise({
 			redirectTo: '/'
 		});
-
+		
 		$locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix('!');
-
+		
 		app.components = {
 			filter: $filterProvider.register,
 			controller: $controllerProvider.register,
@@ -56,29 +60,29 @@ app.config([
 	}
 ]);
 
-app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '$cookies', '$localStorage', 'ngDataApi',
-	function ($scope, $location, $routeParams, $timeout, $cookies, $localStorage, ngDataApi) {
+app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '$cookies', '$localStorage', 'ngDataApi', 'checkApiHasAccess',
+	function ($scope, $location, $routeParams, $timeout, $cookies, $localStorage, ngDataApi, checkApiHasAccess) {
 		$scope.translation = translation;
 		$scope.pageTitle = "";
 		$scope.isLoggedInUser = false;
-
+		
 		$scope.go = function (path) {
 			if (path) {
 				$cookies.put("soajs_current_route", path.replace("#", ""), { 'domain': interfaceDomain });
 				$location.path(path.replace("#", ""));
 			}
 		};
-
+		
 		$scope.$on('refreshPageTitle', function (event, args) {
 			$scope.pageTitle = args.title;
 		});
-
+		
 		$scope.today = new Date().getTime();
-
+		
 		$scope.goToAnchor = function (section, anchor) {
 			$location.path("/" + section + "/" + anchor);
 		};
-
+		
 		$scope.$on("loadUserInterface", function (event, args) {
 			var user = $localStorage.soajs_user;
 			if (user) {
@@ -92,7 +96,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 				$scope.enableInterface = false;
 			}
 		});
-
+		
 		$scope.$on('$routeChangeSuccess', function (event, current, previous) {
 			$scope.saasMembers = false;
 			$scope.currentLocation = $location.path();
@@ -105,21 +109,21 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 					if (navigation[entry].title && navigation[entry].title !== '') {
 						jQuery('head title').html(navigation[entry].title);
 					}
-
+					
 					if (navigation[entry].keywords && navigation[entry].keywords !== '') {
 						jQuery('head meta[name=keywords]').attr('content', navigation[entry].keywords);
 					}
-
+					
 					if (navigation[entry].description && navigation[entry].description !== '') {
 						jQuery('head meta[name=description]').attr('content', navigation[entry].description);
 					}
 				}
 			}
-
+			
 			$timeout(function () {
 				if ($routeParams.anchor) {
 					scrollToID('#' + $routeParams.anchor, 750);
-
+					
 					// $.getScript("https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit", function (data, textStatus, jqxhr) {
 					// 	$("input[type=submit]").removeAttr("disabled");
 					//
@@ -127,7 +131,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 				}
 			}, 100);
 		});
-
+		
 		$scope.checkUserCookie = function () {
 			function getUser(username, cb) {
 				var apiParams = {
@@ -149,7 +153,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 					}
 				});
 			}
-
+			
 			if ($cookies.get('access_token', { 'domain': interfaceDomain }) && $localStorage.soajs_user) {
 				var user = $localStorage.soajs_user;
 				getUser(user.username, function (result) {
@@ -160,9 +164,9 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 				});
 			}
 		};
-
+		
 		$scope.checkUserCookie();
-
+		
 		$scope.goToLogin = function () {
 			if ($scope.isLoggedInUser) {
 				$scope.go("/members/projects");
@@ -170,7 +174,7 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 				$scope.go("/members/login");
 			}
 		};
-
+		
 		$scope.logoutUser = function () {
 			var user = $localStorage.soajs_user;
 			
@@ -211,7 +215,31 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 				clearData();
 			}
 		};
-
+		
+		$scope.buildPermittedEnvOperation = function (serviceName, routePath, method, env, cb) {
+			var user = $localStorage.soajs_user;
+			if (user) {
+				var userGroups = user.groups;
+				var acl = {};
+				if ($localStorage.acl_access) {
+					acl[env.toLowerCase()] = $localStorage.acl_access[env.toLowerCase()];
+					var firstEnv = Object.keys(acl)[0];
+					//check if old system
+					if (acl[firstEnv] && (acl[firstEnv].access || acl[firstEnv].apis || acl[firstEnv].apisRegExp || acl[firstEnv].apisPermission)) {
+						acl['dashboard'] = acl;
+					}
+					checkApiHasAccess(acl, serviceName, routePath, method, userGroups, function (access) {
+						return cb(access);
+					});
+				} else {
+					return cb(false);
+				}
+			}
+			else {
+				return cb(false);
+			}
+		};
+		
 	}]);
 
 app.directive('overlay', function () {

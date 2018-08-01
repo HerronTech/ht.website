@@ -116,11 +116,19 @@ function multiRecordUpdate(ngDataApi, $scope, opts, callback) {
 	}
 	
 	performUpdate(referenceKeys, 0, function () {
-		if (err > 0) {
-			$scope.$parent.displayAlert('danger', opts.msg.error);
-		}
-		if (err < referenceKeys.length) {
-			$scope.$parent.displayAlert('success', opts.msg.success);
+		if ($scope.alerts) {
+			if (err > 0) {
+				$scope.alerts.push({
+					'type': 'danger',
+					'msg': opts.msg.error
+				});
+			}
+			if (err < referenceKeys.length) {
+				$scope.alerts.push({
+					'type': 'success',
+					'msg': opts.msg.success
+				});
+			}
 		}
 		if (callback) {
 			callback(valid);

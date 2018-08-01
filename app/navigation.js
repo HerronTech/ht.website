@@ -10,16 +10,16 @@ var navigation = [
 		'tplPath': 'sections/home/page.html',
 		'scripts': ['sections/home/controller.js']
 	},
-    {
-        'id': 'homeagility',
-        'label': 'homeagility',
-        'title': 'Durable Digital Agility',
-        'description': '',
-        'keywords': '',
-        'url': '/homeagility',
-        'tplPath': 'sections/homeagility/page.html',
-        'scripts': ['sections/homeagility/controller.js']
-    },
+	{
+		'id': 'homeagility',
+		'label': 'homeagility',
+		'title': 'Durable Digital Agility',
+		'description': '',
+		'keywords': '',
+		'url': '/homeagility',
+		'tplPath': 'sections/homeagility/page.html',
+		'scripts': ['sections/homeagility/controller.js']
+	},
 	{
 		'id': 'digital',
 		'label': 'A change is happening',
@@ -64,30 +64,37 @@ var navigation = [
 		'id': 'projects',
 		'title': 'Herron Tech | Projects',
 		'url': '/members/projects',
-		'tplPath': 'sections/saas/members/projects/list.html',
+		'tplPath': 'sections/saas/members/projects/directives/list.html',
 		'scripts': ['sections/saas/members/projects/controller.js']
 	},
 	{
 		'id': 'projectAdd',
 		'title': 'Herron Tech | Add Project',
 		'url': '/members/project/add',
-		'tplPath': 'sections/saas/members/projects/add.html',
+		'tplPath': 'sections/saas/members/projects/directives/add.html',
 		'scripts': ['sections/saas/members/projects/controller.js']
 	},
 	{
 		'id': 'membersChart',
 		'title': 'Herron Tech | Org Chart',
-		'url': '/members/project/org',
-		'tplPath': 'sections/saas/members/projects/orgChart.html',
-		'scripts': ['sections/saas/members/projects/controller.js']
+		'url': '/members/orgChart',
+		'tplPath': 'sections/saas/members/account/directives/orgChart.html',
+		'scripts': [
+			'sections/saas/config.js',
+			'sections/saas/members/account/services/members.js',
+			'sections/saas/members/account/orgChart.js'
+		]
 	},
 	{
 		'id': 'profile',
 		'label': 'Login',
 		'title': 'Herron Tech | My Account',
 		'url': '/members/profile',
-		'tplPath': 'sections/saas/members/account/profile.html',
-		'scripts': ['sections/saas/config.js', 'sections/saas/members/account/controller.js']
+		'tplPath': 'sections/saas/members/account/directives/profile.html',
+		'scripts': [
+			'sections/saas/config.js', 
+			'sections/saas/members/account/controller.js'
+		]
 	},
 	// {
 	// 	'id': 'billing',

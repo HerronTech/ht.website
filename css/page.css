@@ -652,7 +652,6 @@ top-menu {
 *
 **********************/
 .btn {
-
     font-family: OpenSans-Bold;
     font-size: 18px;
     padding-left: 79px;
@@ -1075,4 +1074,10 @@ footer .full-width .row {
 }
 input.contactUsColor, textarea.contactUsColor, select.contactUsColor{
     color: #f3c047!important;
+}
+
+.btn-sm {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
 }

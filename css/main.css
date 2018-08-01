@@ -104,3 +104,11 @@
     padding-bottom: 50px;
     padding-top: 50px;
 }
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
