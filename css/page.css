@@ -693,7 +693,7 @@ top-menu {
 
 .main h1 {
     font-family: "OpenSans-Bold";
-    font-size: 38px;
+    font-size: 34px;
 }
 
 .main h2 {
@@ -711,6 +711,7 @@ top-menu {
 
 .main p.bold {
     font-size: 18px;
+    font-weight: bold;
 }
 
 .main p {
