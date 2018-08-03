@@ -1055,6 +1055,23 @@ th.bordered {
     opacity: 1;
     text-shadow:none;
 }
+
+#agilelab .modules .fa{
+    font-size:95px;
+}
+
+#agilelab .modules h2{
+    height: 80px;
+}
+
+#agilelab .modules p{
+    display:block;
+    height: 360px;
+}
+
+.noheightinsmall{
+    height: 20px;
+}
 /**********************
 *
 * footer
