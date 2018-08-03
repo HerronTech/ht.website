@@ -1045,6 +1045,16 @@ th.bordered {
     text-shadow: none;
 }
 
+.modal-transparent .modal-content{
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.modal-transparent .modal-content .modal-footer .close{
+    opacity: 1;
+    text-shadow:none;
+}
 /**********************
 *
 * footer

@@ -1,6 +1,6 @@
 "use strict";
 var homeApp = app.components;
-homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', '$modal', function ($scope, $http, $timeout, $modal) {
     // $scope.pageTitle = "";
     // $scope.subTitle ="";
     // var pageData = {
@@ -13,6 +13,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 	$scope.captchaKey = "6LfA6ykUAAAAAJlJ9MDpdGKL2HuKK9JvC5UUWzq5";
 	
 	$scope.alerts = [];
+	
 	$scope.contact = {
 		name: '',
 		email: '',
@@ -20,26 +21,18 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 		captcha: null
 	};
 	
-	
 	$scope.setResponse = function (response) {
 		$scope.contact.captcha = response;
 	};
+	
 	$scope.setWidgetId = function (widgetId) {
 		$scope.widgetId = widgetId;
 	};
+	
 	$scope.cbExpiration = function() {
 		vcRecaptchaService.reload($scope.widgetId);
 		$scope.contact.captcha = null;
 	};
-	
-	$http.get("sections/home/our-product.json").success(function(data) {
-		$scope.ourProductList = data;
-	});
-	
-	$http.get("sections/home/advantages.json").success(function(data) {
-		$scope.ourAdvantagesList = data;
-	});
-	
 	
 	$scope.closeAlert = function (index) {
 		$scope.alerts.splice(index, 1);
@@ -89,5 +82,23 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', function ($sc
 				$scope.closeAllAlerts();
 			});
 		}
-	}
+	};
+	
+	$scope.showVideo = function(number) {
+		
+		$modal.open({
+			templateUrl: "videoModal.tmpl",
+			size: 'lg',
+			backdropClass: "backdrop-soajs",
+			windowClass : "modal-transparent",
+			backdrop: 'static',
+			keyboard: false,
+			controller: function ($scope, $modalInstance) {
+				$scope.video = number;
+				$scope.close = function(){
+					$modalInstance.close();
+				}
+			}
+		});
+	};
 }]);
