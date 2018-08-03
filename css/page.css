@@ -1066,7 +1066,7 @@ th.bordered {
 
 #agilelab .modules p{
     display:block;
-    height: 360px;
+    min-height: 250px;
 }
 
 .noheightinsmall{
