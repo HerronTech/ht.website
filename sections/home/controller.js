@@ -88,7 +88,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', '$modal', fun
 		
 		$modal.open({
 			templateUrl: "videoModal.tmpl",
-			size: 'lg',
+			// size: 'lg',
 			backdropClass: "backdrop-soajs",
 			windowClass : "modal-transparent",
 			backdrop: 'static',

@@ -47,12 +47,47 @@
 
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
     .videoBtn1,
     .videoBtn2{
         white-space: normal;
         position:relative;
         border-radius: 60px;
+        padding-top:10px;
+        padding-bottom:10px;
+        height:90px;
+    }
+
+    .videoBtn1{
+        padding-top:18px;
+    }
+
+    .videoBtn1 .fa,
+    .videoBtn2 .fa{
+        position: absolute;
+        font-size: 105px;
+        top: -8px;
+        left: -3px;
+    }
+
+    .videoBtn2 .videoBtnTxt,
+    .videoBtn1 .videoBtnTxt{
+        padding-left:60px;
+        display:block;
+        text-align:justify;
+        font-size:12px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .videoBtn1,
+    .videoBtn2{
+        white-space: normal;
+        position:relative;
+        border-radius: 60px;
+        padding-top:20px;
+        padding-bottom:21px;
+        height:auto;
     }
 
     .videoBtn1 .fa,
@@ -351,6 +386,32 @@ max widths
 
 }
 
+@media (max-width: 600px) {
+    .videoBtn1,
+    .videoBtn2{
+        white-space: normal;
+        position:relative;
+        border-radius: 60px;
+        height: 80px;
+    }
+
+    .videoBtn1 .fa,
+    .videoBtn2 .fa{
+        position: absolute;
+        font-size: 96px;
+        top: -9px;
+        left: -2px;
+    }
+
+    .videoBtn2 .videoBtnTxt,
+    .videoBtn1 .videoBtnTxt{
+        padding-left:60px;
+        display:inline-block;
+        text-align:justify;
+        font-size:13px;
+    }
+}
+
 @media (max-width: 550px) {
 
     .youtubevideoPlayer{
@@ -449,11 +510,81 @@ max widths
     .noheightinsmall{
         height:80px;
     }
+
+    .videoBtn1,
+    .videoBtn2{
+        white-space: normal;
+        position:relative;
+        border-radius: 60px;
+        height: 80px;
+        padding-top:10px;
+    }
+
+    .videoBtn1 .fa,
+    .videoBtn2 .fa{
+        position: absolute;
+        font-size: 96px;
+        top: -9px;
+        left: -2px;
+    }
+
+    .videoBtn2 .videoBtnTxt,
+    .videoBtn1 .videoBtnTxt{
+        padding-left:60px;
+        display:inline-block;
+        text-align:justify;
+        font-size:13px;
+    }
 }
+
+@media (max-width: 480px) {
+
+    .videoBtn1 {
+        padding-top:15px;
+    }
+
+    .videoBtn2 .videoBtnTxt,
+    .videoBtn1 .videoBtnTxt{
+        padding-left:60px;
+        display:inline-block;
+        text-align:justify;
+        font-size:11px;
+    }
+}
+
 
 @media (max-width: 350px){
     .youtubevideoPlayer{
         height: 130px;
+    }
+
+    .videoBtn1,
+    .videoBtn2{
+        white-space: normal;
+        position:relative;
+        border-radius: 60px;
+        height: 56px;
+        padding-top: 5px;
+    }
+
+    .videoBtn1{
+        padding-top:10px;
+    }
+
+    .videoBtn1 .fa,
+    .videoBtn2 .fa{
+        position: absolute;
+        font-size: 65px;
+        top: -6px;
+        left: -2px;
+    }
+
+    .videoBtn2 .videoBtnTxt,
+    .videoBtn1 .videoBtnTxt{
+        padding-left:23px;
+        display:inline-block;
+        text-align:justify;
+        font-size:9px;
     }
 }
 /**
