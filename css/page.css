@@ -747,6 +747,23 @@ top-menu {
 
 /**********************
 *
+* Creators of
+*
+**********************/
+.projectBtn{
+    opacity:0.7;
+}
+
+.projectBtn:hover{
+    opacity: 1;
+}
+
+.projectBtn img{
+    width:100%;
+}
+
+/**********************
+*
 * digital Vortex
 *
 **********************/
