@@ -722,27 +722,16 @@ top-menu {
 * videos
 *
 **********************/
-.videoBtn1,
-.videoBtn2{
-    white-space: normal;
-    position:relative;
-    border-radius: 60px;
+.videoBtn1 img,
+.videoBtn2 img{
+    width:100%;
+    opacity:.8;
 }
 
-.videoBtn1 .fa,
-.videoBtn2 .fa{
-    position: absolute;
-    font-size: 128px;
-    top: -11px;
-    left: -2px;
-}
-
-.videoBtn2 .videoBtnTxt,
-.videoBtn1 .videoBtnTxt{
-    padding-left:86px;
-    display:block;
-    text-align:justify;
-    font-size:16px;
+.videoBtn1:hover img,
+.videoBtn2:hover img{
+    width:100%;
+    opacity:1;
 }
 
 /**********************
