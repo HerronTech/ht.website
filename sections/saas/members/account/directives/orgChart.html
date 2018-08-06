@@ -1,0 +1,32 @@
+<div class="container inner">
+	<div class='form' ng-controller="allUsersCtrl as formCtrl">
+		<div ng-show="alerts && alerts.length > 0">
+			<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+				{{alert.msg}}
+			</alert>
+			<br/>
+		</div>
+		<div class="" style="display: none">
+			<select style="" class="form-control">
+				<option>Choose Project</option>
+				<option ng-repeat="project in projects.active"> {{project.name}}</option>
+			</select>
+			<br>
+		</div>
+		<div>
+			<div ng-if="access.adminUser.list" class="f-right" style="">
+				<a class="btn btn-sm btn-primary" ng-click="listMembers()" href="">
+					Refresh
+				</a>
+			</div>
+				<span ng-if="access.adminUser.addUser">
+                    <a href="" ng-click="addMember()" class="btn btn-sm btn-primary">Add New Member</a>
+	                <br/><br/>
+                </span>
+		</div>
+
+		<nglist></nglist>
+
+	</div>
+
+</div>

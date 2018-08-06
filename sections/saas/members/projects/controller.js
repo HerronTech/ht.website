@@ -2,8 +2,8 @@
 
 var accountApp = app.components;
 
-accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
-	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi, injectFiles) {
+accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$timeout', '$modal', 'isUserLoggedIn', 'ngDataApi', '$localStorage', 'injectFiles',
+	function ($scope, $cookies, $http, $timeout, $modal, isUserLoggedIn, ngDataApi, $localStorage, injectFiles) {
 		
 		$scope.projects = {};
 		$scope.projects.active = [];
@@ -12,6 +12,11 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
+
+		$scope.access = {
+			members: {}
+		};
+		constructModulePermissions($scope, $scope.access.members, membersConfig.permissions);
 		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
@@ -166,7 +171,132 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			}
 			
 		};
-		
+
+		$scope.manageUsers = function (project) {
+			$scope.userCookie = $localStorage.soajs_user;
+			var groupsConfig = {
+				grid: {},
+				form: {},
+				users: {
+					'name': '',
+					'label': '',
+					'msgs': {},
+					'actions': {},
+					'entries': [
+						{
+							'name': 'users',
+							'label': 'Users',
+							'type': 'checkbox',
+							'placeholder': '',
+							'value': [],
+							'tooltip': 'Assign Users',
+							'required': true
+						}
+					]
+				}
+			};
+
+			var userCookie = $scope.userCookie;
+			var tenantId = userCookie.tenant.id;
+			var opts = {
+				"method": "get",
+				"headers":{
+					"key": apiConfiguration.key
+				},
+				"routeName": "/urac/admin/listUsers",
+				"params": { 
+					'tId': tenantId 
+				}
+			};
+			
+			getSendDataFromServer($scope, ngDataApi, opts, function (error, response) {
+				if (error) {
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
+					$scope.closeAllAlerts();
+				}
+				else {
+					var value = [];
+					var sel = false;
+					for (var x = 0; x < response.length; x++) {
+						sel = ((response[x].groups) && response[x].groups.indexOf(project.name) > -1);
+						value.push({
+							'v': response[x].username,
+							'l': response[x].username + '(' + response[x].firstName + ' ' + response[x].lastName + ')',
+							'selected': sel
+						});
+					}
+
+					var config = angular.copy(groupsConfig.users);
+					config.entries[0].value = value;
+
+					var options = {
+						timeout: $timeout,
+						form: config,
+						name: 'addGroup',
+						label: 'Add Users to project' + ': ' + project.name,
+						'msgs': {},
+						actions: [
+							{
+								'type': 'submit',
+								'label': 'Assign Users',
+								'btn': 'primary',
+								'action': function (formData) {
+									var postData = {
+										'groupCode': project.name,
+										'users': formData.users
+									};
+									var opts = {
+										"method": "post",
+										"routeName": "/urac/admin/group/addUsers",
+										"params": {
+											'tId': tenantId
+										},
+										"headers":{
+											"key": apiConfiguration.key
+										},
+										"data": postData
+									};
+									
+									getSendDataFromServer($scope, ngDataApi, opts, function (error) {
+										if (error) {
+											$scope.alerts.push({
+												'type': 'danger',
+												'msg': error.message
+											});
+											$scope.closeAllAlerts();
+										}
+										else {
+											$scope.alerts.push({
+												'type': 'success',
+												'msg': "Users added to project."
+											});
+											$scope.closeAllAlerts();
+											// currentScope.$parent.displayAlert('success', translation.UserAddedSuccessfully[LANG]);
+											$scope.modalInstance.close();
+											$scope.form.formData = {};
+										}
+									});
+								}
+							},
+							{
+								'type': 'reset',
+								'label': translation.cancel[LANG],
+								'btn': 'danger',
+								'action': function () {
+									$scope.modalInstance.dismiss('cancel');
+									$scope.form.formData = {};
+								}
+							}
+						]
+					};
+					buildFormWithModal($scope, $modal, options);
+				}
+			});
+		};
+
 		$scope.getList = function () {
 			$scope.projects.active = [];
 			$scope.projects.pending = [];
@@ -290,7 +420,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		};
 		// v id="SOA-l7"
 		$scope.project = {
-			ht_package:"SOA-l7",
+			ht_package: "SOA-l7",
 			name: "",
 			description: "",
 			infra: {},

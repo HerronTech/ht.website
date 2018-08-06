@@ -145,21 +145,21 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
-
+		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
 		};
-
+		
 		$scope.closeAllAlerts = function () {
 			$timeout(function () {
 				$scope.alerts = [];
-			}, 30000);
+			}, 15000);
 		};
-
+		
 		var userCookie = $localStorage.soajs_user;
 		// var profileObj;
-
+		
 		var formConfig = {
 			form: profileConfig.formConf,
 			'timeout': $timeout,
@@ -256,12 +256,12 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 							}
 							else {
 								$scope.form.displayAlert('success', 'Profile Updated Successfully');
-
+								
 								userCookie.firstName = formData.firstName;
 								userCookie.username = formData.username;
 								userCookie.lastName = formData.lastName;
 								// userCookie.profile = profileObj;
-
+								
 								$localStorage.soajs_user = userCookie;
 								$scope.$parent.$emit('refreshWelcome', {});
 							}
@@ -293,12 +293,12 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					formConfig.data = response;
 					// formConfig.data.profile = p;
 					buildForm($scope, null, formConfig);
-
+					
 					$scope.$parent.$emit('xferData', { 'memberData': response });
 				}
 			});
 		};
-
+		
 		if (userCookie) {
 			if ((typeof(userCookie) !== "undefined") && (typeof(userCookie) === "object")) {
 				var uname = userCookie.username;
@@ -306,5 +306,5 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 				$scope.getProfile(uname);
 			}
 		}
-
+		
 	}]);

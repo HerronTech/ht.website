@@ -1,6 +1,6 @@
 <div class="container inner">
 	<div ng-controller="memberProjectsCtrl">
-		
+
 		<div class="col-lg-12 col-md-12">
 			<div ng-show="alerts && alerts.length > 0">
 				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
@@ -33,12 +33,11 @@
 							</accordion-heading>
 
 							<div class="row">
-								<div class="col-md-1"></div>
 								<div class="col-md-7">
 									<div ng-if="project.ts"><b>Created</b>:&nbsp;{{project.ts|date}}</div>
 									<span class="description">{{project.description}}</span>
 								</div>
-								<div class="col-md-3 t-right">
+								<div class="col-md-5 t-right">
 									<a ng-if="project.status!=='pending'" ng-click="openProject(project)" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="">
 										<span class="fa fa-folder-open"></span>
 										<b>Open</b>
@@ -47,12 +46,15 @@
 										<span class="fa fa-edit"></span>
 										<b>Edit</b>
 									</a>&nbsp;
+									<a ng-show="access.members.adminGroup.addUsers" ng-if="project.status!=='pending'" ng-click="manageUsers(project)" href="" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover">
+										<span class="fa fa-edit"></span>
+										<b>Assign Users</b>
+									</a>&nbsp;
 									<a ng-click="deleteProject(project)" href="" class="btn btn-sm red-danger actionBtn Casablanca gray-txt comet-hover white-txt-hover">
 										<span class="fa fa-remove"></span>
 										<b>Delete</b>
 									</a>
 								</div>
-								<div class="col-md-1"></div>
 							</div>
 							<hr>
 							<div class="row panelScroller">

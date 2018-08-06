@@ -65,7 +65,10 @@ var navigation = [
 		'title': 'Herron Tech | Projects',
 		'url': '/members/projects',
 		'tplPath': 'sections/saas/members/projects/directives/list.html',
-		'scripts': ['sections/saas/members/projects/controller.js']
+		'scripts': [
+			'sections/saas/config.js',
+			'sections/saas/members/projects/controller.js'
+		]
 	},
 	{
 		'id': 'projectAdd',
@@ -92,7 +95,7 @@ var navigation = [
 		'url': '/members/profile',
 		'tplPath': 'sections/saas/members/account/directives/profile.html',
 		'scripts': [
-			'sections/saas/config.js', 
+			'sections/saas/config.js',
 			'sections/saas/members/account/controller.js'
 		]
 	},
