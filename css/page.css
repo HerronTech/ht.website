@@ -372,7 +372,6 @@ li {
 }
 
 /*************************************************************************************
-
 *
 * text hover-effects
 *
@@ -716,6 +715,34 @@ top-menu {
 
 .main p {
     font-size: 18px;
+}
+
+/**********************
+*
+* videos
+*
+**********************/
+.videoBtn1,
+.videoBtn2{
+    white-space: normal;
+    position:relative;
+    border-radius: 60px;
+}
+
+.videoBtn1 .fa,
+.videoBtn2 .fa{
+    position: absolute;
+    font-size: 128px;
+    top: -11px;
+    left: -2px;
+}
+
+.videoBtn2 .videoBtnTxt,
+.videoBtn1 .videoBtnTxt{
+    padding-left:86px;
+    display:block;
+    text-align:justify;
+    font-size:16px;
 }
 
 /**********************
