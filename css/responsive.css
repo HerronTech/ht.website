@@ -153,8 +153,6 @@ max widths
     }
 
     #agilelab .modules p{
-        display:block;
-        height: 200px;
     }
 
     .noheightinsmall{
@@ -224,8 +222,6 @@ max widths
     }
 
     #agilelab .modules p{
-        display:block;
-        height: 400px;
     }
 }
 
@@ -373,15 +369,9 @@ max widths
     }
 
     #agilelab .modules p{
-        display:block;
-        height: 300px;
-        margin-bottom: 120px;
     }
 
     #agilelab .modules .microservices-architecture p{
-        display:block;
-        height: 380px;
-        margin-bottom: 120px;
     }
 
     .noheightinsmall{
