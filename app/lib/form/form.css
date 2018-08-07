@@ -15,6 +15,10 @@ form tr label {
     margin-top: 15px;
 }
 
+form .modal-body tr label {
+    margin-top: 10px;
+}
+
 form .header, form .modal-header {
     background-color: #5e5e8a;
     color: white;

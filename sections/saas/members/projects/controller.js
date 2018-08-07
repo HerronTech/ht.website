@@ -26,7 +26,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		$scope.closeAllAlerts = function () {
 			$timeout(function () {
 				$scope.alerts = [];
-			}, 30000);
+			}, 20000);
 		};
 		
 		$scope.checkPending = function () {
@@ -101,7 +101,6 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 								"params": {
 									"pending": (project.status === 'pending'),
 									"soajs_project": project.name,
-									"project": project.name, //todo
 									"removeResource": false
 								}
 							};
@@ -143,8 +142,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 					"routeName": "/projects/project",
 					"params": {
 						"pending": (project.status === 'pending'),
-						"soajs_project": project.name,
-						"project": project.name // todo
+						"soajs_project": project.name
 					}
 				};
 				getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
@@ -175,8 +173,6 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		$scope.manageUsers = function (project) {
 			$scope.userCookie = $localStorage.soajs_user;
 			var groupsConfig = {
-				grid: {},
-				form: {},
 				users: {
 					'name': '',
 					'label': '',
@@ -274,7 +270,6 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 												'msg': "Users added to project."
 											});
 											$scope.closeAllAlerts();
-											// currentScope.$parent.displayAlert('success', translation.UserAddedSuccessfully[LANG]);
 											$scope.modalInstance.close();
 											$scope.form.formData = {};
 										}
@@ -450,7 +445,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 		$scope.closeAllAlerts = function () {
 			$timeout(function () {
 				$scope.alerts = [];
-			}, 30000);
+			}, 20000);
 		};
 		
 		$scope.goToStep = function (number, form) {
@@ -591,6 +586,7 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 						'type': 'danger',
 						'msg': error.message
 					});
+					$scope.closeAllAlerts();
 				}
 				else {
 					$scope.alerts.push({

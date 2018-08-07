@@ -39,8 +39,9 @@
     }
 
     $postedData = json_decode(file_get_contents("php://input"));
-    $to = "team@soajs.org";// team
-    $name = $postedData->name;
+    $to = "team@soajs.org"; // team
+    $firstName = $postedData->firstName;
+    $lastName = $postedData->lastName;
     $ht_package = $postedData->ht_package;
     $email = $postedData->email;
     $phone = $postedData->phone;
@@ -192,7 +193,7 @@
             <tr>
               <td class="container-padding content" align="left">
 			    <div class="body-text">
-			      <div><b>Name</b>:  $name</div>
+			      <div><b>Name</b>:  $firstName  $lastName</div>
 			      <div><b>Email</b>:  $email</div>
 			      <div><b>Phone</b>:  $phone</div>
 			      <b>Address</b>:<br />
@@ -231,7 +232,7 @@ HTML;
     $headers .= "Content-type: text/html; charset=utf-8\r\n";
     $headers .= "X-Priority: 3\r\n";
     $headers .= "X-MSMail-Priority: Normal\r\n";
-    $headers .= "From: $name <$email>\r\n";
+    $headers .= "From: $firstName <$email>\r\n";
     $headers .= "Organization: Herron Tech\r\n";
     $headers .= "To: Herron Tech Team <$to>\r\n";
     $headers .= "Date: " . date ( "D, d M Y H:m:s O", time () ) . "\r\n";

@@ -112,3 +112,7 @@
 .f-right {
     float: right;
 }
+
+.btn-primary:hover {
+    background-position: 0;
+}

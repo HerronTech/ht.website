@@ -17,7 +17,8 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 		
 		$scope.alerts = [];
 		$scope.contact = {
-			name: '',
+			firstName: '',
+			lastName: '',
 			email: '',
 			phone: '',
 			address: '',
@@ -54,7 +55,10 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 		
 		$scope.sendContact = function () {
 			$scope.confirm = angular.copy($scope.contact);
-			$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
+			$scope.alerts.push({
+				'type': 'warning',
+				'msg': "Your message is being sent, please wait ..."
+			});
 			if ($scope.contact.captcha) {
 				let options = {
 					"method": "send",
@@ -65,17 +69,20 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 				};
 				getSendDataFromServer($scope, ngDataApi, options, function (error, response) {
 					if (error) {
-						
+						let msg = "Sorry, wasn't able to send your message to the team. Try again later.";
+						if (error.code === 406) {
+							msg = "You have already registered with this email";
+						}
 						$scope.alerts.push({
 							'type': 'danger',
-							'msg': "Sorry, wasn't able to send your message to the team. Try again later."
+							'msg': msg
 						});
 						$scope.closeAllAlerts();
-						
 					}
 					else {
 						$scope.contact = {
-							name: '',
+							firstName: '',
+							lastName: '',
 							email: '',
 							phone: '',
 							address: '',
@@ -88,11 +95,7 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 							lookingFor: '',
 							captcha: null
 						};
-						
-						$scope.alerts.push({
-							'type': 'success',
-							'msg': "Thank you for contacting us. We will get back to you shortly."
-						});
+
 						$scope.openForm = false;
 						$scope.closeAllAlerts();
 					}

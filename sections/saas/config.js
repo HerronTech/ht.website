@@ -325,7 +325,7 @@ var registerConfig = {
 			},
 			{
 				'name': 'lastName',
-				'label': translation.lastName[LANG],
+				'label': "Last Name",
 				'type': 'text',
 				'placeholder': translation.enterLastName[LANG],
 				'value': '',
@@ -385,12 +385,13 @@ var membersConfig = {
 	grid: {
 		recordsPerPageArray: [5, 10, 50, 100],
 		'columns': [
-			{ 'label': translation.username[LANG], 'field': 'username' },
-			{ 'label': translation.firstName[LANG], 'field': 'firstName' },
-			{ 'label': translation.lastName[LANG], 'field': 'lastName' },
-			{ 'label': translation.email[LANG], 'field': 'email' },
-			{ 'label': translation.status[LANG], 'field': 'status' },
-			{ 'label': translation.groups[LANG], 'field': 'grpsArr' }
+			{ 'label': 'Username', 'field': 'username' },
+			{ 'label': 'First Name', 'field': 'firstName' },
+			{ 'label': 'Last Name', 'field': 'lastName' },
+			{ 'label': 'Email', 'field': 'email' },
+			{ 'label': 'Status', 'field': 'status' }
+			// { 'label': 'Groups', 'field': 'grpsArr' },
+			// { 'label': 'Projects', 'field': 'projectsArr' }
 		],
 		'leftActions': [],
 		'topActions': [],
@@ -405,7 +406,7 @@ var membersConfig = {
 		'entries': [
 			{
 				'name': 'username',
-				'label': translation.username[LANG],
+				'label': 'Username',
 				'type': 'text',
 				'placeholder': translation.enterUsername[LANG],
 				'value': '',
@@ -414,7 +415,7 @@ var membersConfig = {
 			},
 			{
 				'name': 'email',
-				'label': translation.email[LANG],
+				'label': 'Email',
 				'type': 'email',
 				'placeholder': translation.enterEmail[LANG],
 				'value': '',
@@ -423,7 +424,7 @@ var membersConfig = {
 			},
 			{
 				'name': 'firstName',
-				'label': translation.firstName[LANG],
+				'label': 'First Name',
 				'type': 'text',
 				'placeholder': translation.enterFirstName[LANG],
 				'value': '',
@@ -432,7 +433,7 @@ var membersConfig = {
 			},
 			{
 				'name': 'lastName',
-				'label': translation.lastName[LANG],
+				'label': "Last Name",
 				'type': 'text',
 				'placeholder': translation.enterLastName[LANG],
 				'value': '',
@@ -448,14 +449,10 @@ var membersConfig = {
 			'list': ['urac', '/admin/listUsers', 'get'],
 			'changeStatusAccess': ['urac', '/admin/changeUserStatus', 'get'],
 			'editUser': ['urac', '/admin/editUser', 'post'],
-			'editUserConfig': ['urac', '/admin/editUserConfig', 'post'],
+			// 'editUserConfig': ['urac', '/admin/editUserConfig', 'post'],
 			'addUser': ['urac', '/admin/addUser', 'post']
 		},
 		'adminGroup': {
-			'list': ['urac', '/admin/group/list', 'get'],
-			'add': ['urac', '/admin/group/add', 'post'],
-			'edit': ['urac', '/admin/group/edit', 'post'],
-			'delete': ['urac', '/admin/group/delete', 'delete'],
 			'addUsers': ['urac', '/admin/group/addUsers', 'post']
 		}
 	}

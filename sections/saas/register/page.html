@@ -694,7 +694,10 @@
 					</table>
 					<br>
 					<div class="form-group">
-						<input ng-model="contact.name" type="text" placeholder="Your Name *" class="form-control" tooltip="Enter your full name..." required/>
+						<input ng-model="contact.firstName" type="text" placeholder="First Name *" class="form-control" tooltip="Enter your first name..." required/>
+					</div>
+					<div class="form-group">
+						<input ng-model="contact.lastName" type="text" placeholder="Last Name *" class="form-control" tooltip="Enter your last name..." required/>
 					</div>
 					<div class="form-group">
 						<input ng-model="contact.email" type="email" class="form-control" placeholder="Your Email *" tooltip="Enter your email address..." required/>
@@ -776,12 +779,13 @@
 
 			<div ng-if="!openForm" id="step2">
 				<alert type="info">
-					We have received your request to join. Someone from herrontech team will contact you shortly.
+					We have received your request to join. You will receive an email with your username shortly.
+					<!--Someone from herrontech team will contact you shortly.-->
 					<hr>
 					<table width="100%" class="infoTable">
 						<tr>
 							<td><b>Your Name:</b></td>
-							<td width="70%">{{confirm.name}}</td>
+							<td width="70%">{{confirm.firstName}} {{confirm.lastName}}</td>
 						</tr>
 
 						<tr>
