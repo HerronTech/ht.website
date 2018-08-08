@@ -1089,15 +1089,15 @@ th.bordered {
     text-shadow:none;
 }
 
-#agilelab .modules .fa{
+#products .modules .fa{
     font-size:95px;
 }
 
-#agilelab .modules h2{
+#products .modules h2{
     height: 80px;
 }
 
-#agilelab .modules p{
+#products .modules p{
     display:block;
     min-height: 300px;
 }

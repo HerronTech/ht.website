@@ -144,15 +144,15 @@ max widths
         padding-top: 20px;
     }
 
-    #agilelab .modules .fa{
+    #products .modules .fa{
         font-size:95px;
     }
 
-    #agilelab .modules h2{
+    #products .modules h2{
         height: 40px;
     }
 
-    #agilelab .modules p{
+    #products .modules p{
     }
 
     .noheightinsmall{
@@ -213,15 +213,15 @@ max widths
         height: 1100px !important;
     }
 
-    #agilelab .modules .fa{
+    #products .modules .fa{
         font-size:95px;
     }
 
-    #agilelab .modules h2{
+    #products .modules h2{
         height: 40px;
     }
 
-    #agilelab .modules p{
+    #products .modules p{
     }
 }
 
@@ -360,18 +360,18 @@ max widths
         height: 1100px !important;
     }
 
-    #agilelab .modules .fa{
+    #products .modules .fa{
         font-size:64px;
     }
 
-    #agilelab .modules h2{
+    #products .modules h2{
         height: 30px;
     }
 
-    #agilelab .modules p{
+    #products .modules p{
     }
 
-    #agilelab .modules .microservices-architecture p{
+    #products .modules .microservices-architecture p{
     }
 
     .noheightinsmall{
