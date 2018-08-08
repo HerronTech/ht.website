@@ -24,9 +24,7 @@ if (location && location.port && parseInt(location.port) !== 80) {
 mydomain += ":" + mydomainport;
 
 //set the api domain
-// var mydomainAPI = "cloud-api";
-var mydomainAPI = "dashboard-api";
-
+var mydomainAPI = "cloud-api";
 if(customSettings && customSettings.api && customSettings.api !== ''){
     mydomainAPI = customSettings.api;
 }
@@ -45,4 +43,4 @@ var apiConfiguration = {
 };
 var translation = {};
 
-let cloudUri = "http://dashLocal.herrontech.com";
+let cloudUri = protocol + '//cloud.' + mydomain + "/";
