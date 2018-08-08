@@ -117,6 +117,7 @@ ul.package_cluster_settings li {
 .packageSelectButton:hover {
     cursor: pointer;
 }
+
 .clickableRadioButton {
     display: block;
     min-height: 100%;
@@ -125,6 +126,7 @@ ul.package_cluster_settings li {
     padding-top: 10px;
     padding-bottom: 5px
 }
+
 table.infoTable {
     border-collapse: collapse;
 }
@@ -190,4 +192,84 @@ accordion h4 a {
         padding-left: 1px;
         padding-right: 1px;
     }
+}
+
+div.entryBoxes {
+    width: 100%;
+    display: table;
+
+}
+
+#page div.entryBoxes div.entryBox label {
+    text-decoration: underline;
+}
+
+.greyBox {
+    background: #cccccc;
+}
+
+div .tabsetCust {
+    width: 100%;
+}
+
+div .tabsetCust .tabcust {
+    width: 25%;
+}
+
+
+div.entryBox .header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: solid 1px #cccccc;
+    padding: 5px;
+    font-weight: bold;
+    background-color: #eeeeee;
+}
+
+div.entryBox .body {
+    border: 1px solid #333333;
+    width: 45%;
+    height: 10%;
+    border-radius: 8px;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+div.leftMenu {
+    /*background-color: #cccccc;*/
+    float: left;
+    width: 20%;
+}
+
+div.leftMenu .links {
+    float: left;
+}
+
+.sidenav {
+    width: 30%;
+    position: fixed;
+    top: 180px;
+    left: 10px;
+    /*background: #eee;*/
+    overflow-x: hidden;
+    margin-bottom: 10%;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #C0BEDD;
+    display: block;
+}
+.sidenav h2 {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #C0BEDD;
+    display: block;
+}
+.sidenav .checkbox {
+    color: #C0BEDD;
 }

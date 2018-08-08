@@ -1,0 +1,98 @@
+<div class="container inner">
+    <div ng-controller="storeCtrl">
+        <div class="sidenav">
+            <h2>Provider</h2>
+            <hr>
+            <input type="checkbox" style="padding: 2px; margin-left: 5px; color: #39b3d7">&nbsp; Travis
+            <br>
+            <input type="checkbox" style="padding: 2px; margin-left: 5px">&nbsp; Drone
+            <br>
+            <input type="checkbox" style="padding: 2px; margin-left: 5px">&nbsp; Test
+            <br>
+        </div>
+        <div style="width : 80%; float: right">
+            <tabset style="margin-top: -70px; ">
+                <tab heading="Catalog Recipes">
+                    <br />
+                    <div ng-if="catalogs.cd.length > 0" class="entryBoxes">
+                        <div ng-repeat="onectlg in catalogs.cd" class="entryBox body">
+                            <div class="body">
+                                <div style="float: left; width:100%; margin-right: 30px;">
+                                    <div class="header" ><a href="" ng-click="" class="glyphicon glyphicon-cloud-download" style="float: right; margin-top: 5px; margin-right: 5px;"></a>
+                                        {{onectlg.name}}
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px;">{{onectlg.description}}</p>
+                                    </div>
+                                    <div ng-repeat="oneLink in onectlg.icons">
+                                        <img src="{{oneLink.url}}" height="30" width="30" style="float: left; margin-right: 15px; border-radius: 50%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="CI Recipes">
+                    <br />
+                    <div ng-if="catalogs.ci.length > 0" class="entryBoxes">
+                        <div ng-repeat="onectlg in catalogs.ci" class="entryBox body">
+                            <div class="body">
+                                <div style="float: left; width:100%; margin-right: 30px;">
+                                    <div class="header" ><a href="" ng-click="" class="glyphicon glyphicon-cloud-download" style="float: right; margin-top: 5px; margin-right: 5px;"></a>
+                                        {{onectlg.name}}
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px;">{{onectlg.description}}</p>
+                                    </div>
+                                    <div ng-repeat="oneLink in onectlg.icons">
+                                        <img src="{{oneLink.url}}" height="30" width="30" style="float: left; margin-right: 15px; border-radius: 50%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="Environment Templates">
+                    <br />
+                    <div ng-if="catalogs.envTemplate.length > 0" class="entryBoxes">
+                        <div ng-repeat="onectlg in catalogs.envTemplate" class="entryBox body">
+                            <div class="body">
+                                <div style="float: left; width:100%; margin-right: 30px;">
+                                    <div class="header" ><a href="" ng-click="" class="glyphicon glyphicon-cloud-download" style="float: right; margin-top: 5px; margin-right: 5px;"></a>
+                                        {{onectlg.name}}
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px;">{{onectlg.description}}</p>
+                                    </div>
+                                    <div ng-repeat="oneLink in onectlg.icons">
+                                        <img src="{{oneLink.url}}" height="30" width="30" style="float: left; margin-right: 15px; border-radius: 50%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="Infra As Code Templates">
+                    <br />
+                    <div ng-if="catalogs.infra.length > 0" class="entryBoxes">
+                        <div ng-repeat="onectlg in catalogs.infra" class="entryBox body">
+                            <div class="body">
+                                <div style="float: left; width:100%; margin-right: 30px;">
+                                    <div class="header" ><a href="" ng-click="" class="glyphicon glyphicon-cloud-download" style="float: right; margin-top: 5px; margin-right: 5px;"></a>
+                                        {{onectlg.name}}
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 13px;">{{onectlg.description}}</p>
+                                    </div>
+                                    <div ng-repeat="oneLink in onectlg.icons">
+                                        <img src="{{oneLink.url}}" height="30" width="30" style="float: left; margin-right: 15px; border-radius: 50%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>

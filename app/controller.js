@@ -99,6 +99,9 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 			if ($scope.currentLocation.indexOf('members') !== -1) {
 				$scope.saasMembers = true;
 			}
+            if ($scope.currentLocation.indexOf('store') !== -1) {
+                $scope.saasMembers = true;
+            }
 			for (var entry = 0; entry < navigation.length; entry++) {
 				var urlOnly = navigation[entry].url.replace('/:anchor?', '');
 				if (urlOnly === $scope.currentLocation) {
@@ -169,6 +172,10 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 			} else {
 				$scope.go("/members/login");
 			}
+		};
+
+		$scope.goToStore = function () {
+			$scope.go("/store");
 		};
 
 		$scope.logoutUser = function () {

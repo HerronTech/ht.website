@@ -154,7 +154,18 @@ var navigation = [
 			'sections/saas/config.js',
 			'sections/saas/login/controller.js'
 		]
-	}
+	},
+    {
+        'id': 'store',
+        'label': 'Store',
+        'title': 'Herron Tech | Store',
+        'url': '/store',
+        'tplPath': 'sections/saas/store/store.html',
+        'scripts': [
+            // 'sections/saas/store/config.js',
+            'sections/saas/store/controller.js'
+        ]
+    }
 
 
 ];
