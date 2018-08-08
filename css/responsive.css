@@ -47,7 +47,11 @@
 
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1441px) {
 
 }
 
@@ -55,10 +59,6 @@
 max widths
 */
 @media (max-width: 1800px) {
-
-    .carousel-inner .item h4 {
-        font-size: 42px;
-    }
 
 
 }
@@ -74,7 +74,11 @@ max widths
     }
 
     .carousel-inner .item h4 {
-        font-size: 35px;
+        font-size: 30px;
+    }
+
+    .carousel-inner .item h5 {
+        font-size: 20px;
     }
 
     .carousel-inner h6 {
@@ -93,13 +97,19 @@ max widths
     }
 
     .main h1 {
-        font-size: 42px;
-        padding-top: 12px;
-
+        font-size: 30px;
     }
 
     .main h2 {
-        font-size: 36px;
+        font-size: 28px;
+    }
+
+    .main h3 {
+         font-size: 26px;
+     }
+
+    .main h4 {
+        font-size: 22px;
     }
 
     .navbar-right {
@@ -107,11 +117,14 @@ max widths
     }
 
     .carousel-inner .item h3 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .carousel-inner .item h4 {
         font-size: 28px;
+    }
+    .carousel-inner .item h5 {
+        font-size: 18px;
     }
     .carousel-inner .item h6 {
         font-size: 16px;
@@ -130,6 +143,21 @@ max widths
         padding-bottom: 20px;
         padding-top: 20px;
     }
+
+    #products .modules .fa{
+        font-size:95px;
+    }
+
+    #products .modules h2{
+        height: 40px;
+    }
+
+    #products .modules p{
+    }
+
+    .noheightinsmall{
+        height:20px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -139,11 +167,14 @@ max widths
     }
 
     .carousel-inner .item h3 {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .carousel-inner .item h4 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+    .carousel-inner .item h5 {
+        font-size: 16px;
     }
     .carousel-inner .item h6 {
         font-size: 14px;
@@ -163,17 +194,34 @@ max widths
     }
 
     .main h1 {
-        font-size: 36px;
-        padding-top: 12px;
-
+        font-size: 28px;
     }
 
     .main h2 {
-        font-size: 30px;
+        font-size: 26px;
+    }
+
+    .main h3 {
+        font-size: 24px;
+    }
+
+    .main h4 {
+        font-size: 20px;
     }
 
     .navbar-collapse.collapse {
         height: 1100px !important;
+    }
+
+    #products .modules .fa{
+        font-size:95px;
+    }
+
+    #products .modules h2{
+        height: 40px;
+    }
+
+    #products .modules p{
     }
 }
 
@@ -188,24 +236,33 @@ max widths
     }
 
     .carousel-inner .item h3 {
-        font-size: 27px;
+        font-size: 24px;
     }
 
     .carousel-inner .item h4 {
         font-size: 22px;
     }
 
+    .carousel-inner .item h5 {
+        font-size: 14px;
+    }
     .carousel-inner .item h6 {
         font-size: 12px;
     }
     .main h1 {
-        font-size: 30px;
-        padding-top: 12px;
-
+        font-size: 26px;
     }
 
     .main h2 {
         font-size: 24px;
+    }
+
+    .main h3 {
+        font-size: 22px;
+    }
+
+    .main h4 {
+        font-size: 18px;
     }
 
     .navbar-collapse.collapse {
@@ -221,6 +278,10 @@ max widths
         padding-bottom: 10px;
         padding-top: 10px;
     }
+
+}
+
+@media (max-width: 600px) {
 
 }
 
@@ -245,9 +306,12 @@ max widths
     }
 
     .carousel-inner .item h4 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
+    .carousel-inner .item h5 {
+        font-size: 12px;
+    }
     .main h1, .iTopMenu h1 {
         font-size: 28px;
     }
@@ -255,17 +319,26 @@ max widths
         font-size: 12px;
     }
 
+    .main h1 {
+        font-size: 22px;
+    }
+
     .main h2 {
         font-size: 20px;
     }
-/*
-    .carousel-caption {
-        top: 5px;
-        left: 5px;
-        right: 5px;
 
+    .main h3 {
+        font-size: 18px;
     }
-*/
+
+    /*
+        .carousel-caption {
+            top: 5px;
+            left: 5px;
+            right: 5px;
+
+        }
+    */
     .contact img {
         width: 200px;
     }
@@ -286,7 +359,30 @@ max widths
     .navbar-collapse.collapse {
         height: 1100px !important;
     }
+
+    #products .modules .fa{
+        font-size:64px;
+    }
+
+    #products .modules h2{
+        height: 30px;
+    }
+
+    #products .modules p{
+    }
+
+    #products .modules .microservices-architecture p{
+    }
+
+    .noheightinsmall{
+        height:80px;
+    }
 }
+
+@media (max-width: 480px) {
+
+}
+
 
 @media (max-width: 350px){
     .youtubevideoPlayer{
