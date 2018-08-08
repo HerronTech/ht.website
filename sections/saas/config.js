@@ -130,6 +130,14 @@ var accTranslation = {
 	"register": {
 		"ENG": "Register",
 		"FRA": "Register"
+	},
+	"areYouSureWantDeleteSelectedGroup": {
+		"ENG": "Are you sure you want to delete the selected group(s)?",
+		"FRA": "Are you sure you want to delete the selected group(s)?"
+	},
+	"areYouSureWantDeleteGroup": {
+		"ENG": "Are you sure you want to delete this group?",
+		"FRA": "Are you sure you want to delete this group?"
 	}
 };
 
@@ -453,7 +461,81 @@ var membersConfig = {
 			'addUser': ['urac', '/admin/addUser', 'post']
 		},
 		'adminGroup': {
+			'list': ['urac', '/admin/group/list', 'get'],
+			'add': ['urac', '/admin/group/add', 'post'],
+			'edit': ['urac', '/admin/group/edit', 'post'],
+			'delete': ['urac', '/admin/group/delete', 'delete'],
 			'addUsers': ['urac', '/admin/group/addUsers', 'post']
 		}
 	}
 };
+
+var groupsConfig = {
+	grid: {
+		recordsPerPageArray: [5, 10, 50, 100],
+		'columns': [
+			{ 'label': "Code", 'field': 'code' },
+			{ 'label': "Name", 'field': 'name' },
+			{
+				'label': "Description", 'field': 'description'
+			}
+		],
+		'leftActions': [],
+		'topActions': [],
+		'defaultSortField': '',
+		'defaultLimit': 10
+	},
+	form: {
+		'name': '',
+		'label': '',
+		'actions': {},
+		'entries': [
+			{
+				'name': 'code',
+				'label': 'Code',
+				'type': 'text',
+				'placeholder': "Enter the Code of the group",
+				'value': '',
+				'tooltip': "Group codes are alphanumeric. Maximum length 20 characters",
+				'required': true
+			},
+			{
+				'name': 'name',
+				'label': "Name",
+				'type': 'text',
+				'placeholder': "Enter the Name of the group",
+				'value': '',
+				'tooltip': '',
+				'required': true
+			},
+			{
+				'name': 'description',
+				'label': "Description",
+				'type': 'textarea',
+				'rows': 2,
+				'placeholder': "Enter the Description of the Group",
+				'value': '',
+				'tooltip': '',
+				'required': true
+			}
+		]
+	},
+	users: {
+		'name': '',
+		'label': '',
+		'msgs': {},
+		'actions': {},
+		'entries': [
+			{
+				'name': 'users',
+				'label': "Users",
+				'type': 'checkbox',
+				'placeholder': '',
+				'value': [],
+				'tooltip': "Check to add user to group",
+				'required': true
+			}
+		]
+	}
+};
+console.log(groupsConfig);

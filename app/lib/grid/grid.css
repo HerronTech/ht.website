@@ -111,3 +111,11 @@ input.searchInput {
 .grid .header td {
     border: none;
 }
+
+.grid tr td {
+    line-height: normal;
+}
+
+td.column-code {
+    min-width: 70px;
+}

@@ -510,9 +510,9 @@ this is the over layer that gives the image the bluesh vibe
 }
 
 .carousel-inner .item h5 {
-     font-size: 26px;
-     color: white;
- }
+    font-size: 26px;
+    color: white;
+}
 
 .carousel-inner .item p {
     font-size: 24px;
@@ -546,7 +546,7 @@ this is the over layer that gives the image the bluesh vibe
 }
 
 .no-georgina {
-    //font-family: Audiowide;
+/ / font-family: Audiowide;
 }
 
 /**********************
@@ -722,15 +722,15 @@ top-menu {
 *
 **********************/
 .videoBtn1 img,
-.videoBtn2 img{
-    width:100%;
-    opacity:.8;
+.videoBtn2 img {
+    width: 100%;
+    opacity: .8;
 }
 
 .videoBtn1:hover img,
-.videoBtn2:hover img{
-    width:100%;
-    opacity:1;
+.videoBtn2:hover img {
+    width: 100%;
+    opacity: 1;
 }
 
 /**********************
@@ -738,16 +738,16 @@ top-menu {
 * Creators of
 *
 **********************/
-.projectBtn{
-    opacity:0.7;
+.projectBtn {
+    opacity: 0.7;
 }
 
-.projectBtn:hover{
+.projectBtn:hover {
     opacity: 1;
 }
 
-.projectBtn img{
-    width:100%;
+.projectBtn img {
+    width: 100%;
 }
 
 /**********************
@@ -1077,33 +1077,34 @@ th.bordered {
     text-shadow: none;
 }
 
-.modal-transparent .modal-content{
+.modal-transparent .modal-content {
     background: none;
     border: none;
     box-shadow: none;
 }
 
-.modal-transparent .modal-content .modal-footer .close{
+.modal-transparent .modal-content .modal-footer .close {
     opacity: 1;
-    text-shadow:none;
+    text-shadow: none;
 }
 
-#products .modules .fa{
-    font-size:95px;
+#products .modules .fa {
+    font-size: 95px;
 }
 
-#products .modules h2{
+#products .modules h2 {
     height: 80px;
 }
 
-#products .modules p{
-    display:block;
+#products .modules p {
+    display: block;
     min-height: 300px;
 }
 
-.noheightinsmall{
+.noheightinsmall {
     height: 20px;
 }
+
 /**********************
 *
 * footer
@@ -1125,12 +1126,21 @@ footer .full-width .row {
 .t-right {
     text-align: right;
 }
-input.contactUsColor, textarea.contactUsColor, select.contactUsColor{
-    color: #f3c047!important;
+
+input.contactUsColor, textarea.contactUsColor, select.contactUsColor {
+    color: #f3c047 !important;
 }
 
 .btn-sm {
     margin-left: 5px;
     padding: 5px 10px;
     font-size: 14px;
+}
+
+.tab-content section {
+    padding-top: 10px;
+}
+
+.nav > li > a, .nav > li > a:hover {
+    color: #43435F;
 }

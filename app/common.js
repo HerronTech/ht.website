@@ -129,6 +129,7 @@ function multiRecordUpdate(ngDataApi, $scope, opts, callback) {
 					'msg': opts.msg.success
 				});
 			}
+			$scope.closeAllAlerts();
 		}
 		if (callback) {
 			callback(valid);

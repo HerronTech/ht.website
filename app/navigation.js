@@ -85,6 +85,7 @@ var navigation = [
 		'scripts': [
 			'sections/saas/config.js',
 			'sections/saas/members/account/services/members.js',
+			'sections/saas/members/account/services/groups.js',
 			'sections/saas/members/account/orgChart.js'
 		]
 	},

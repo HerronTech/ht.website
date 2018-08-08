@@ -1,31 +1,68 @@
 <div class="container inner">
-	<div class='form' ng-controller="allUsersCtrl as formCtrl">
+	<div class='form' ng-controller="allUsersCtrl">
 		<div ng-show="alerts && alerts.length > 0">
 			<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
 				{{alert.msg}}
 			</alert>
 			<br/>
 		</div>
-		<div class="" style="display: none">
-			<select style="" class="form-control">
-				<option>Choose Project</option>
-				<option ng-repeat="project in projects.active"> {{project.name}}</option>
-			</select>
-			<br>
-		</div>
-		<div>
-			<div ng-if="access.adminUser.list" class="f-right" style="">
-				<a class="btn btn-sm btn-primary" ng-click="listMembers()" href="">
-					Refresh
-				</a>
-			</div>
-				<span ng-if="access.adminUser.addUser">
-                    <a href="" ng-click="addMember()" class="btn btn-sm btn-primary">Add New Member</a>
-	                <br/><br/>
-                </span>
-		</div>
 
-		<nglist></nglist>
+		<tabset id="membersSection">
+			<tab heading="Members">
+				<section ng-controller="membersCtrl as gridCtrl" class="membersCtrl">
+
+					<div ng-show="alerts && alerts.length > 0">
+						<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+							{{alert.msg}}
+						</alert>
+						<br/>
+					</div>
+
+					<div class="" style="display: none">
+						<select style="" class="form-control">
+							<option>Choose Project</option>
+							<option ng-repeat="project in projects.active"> {{project.name}}</option>
+						</select>
+						<br>
+					</div>
+					<div>
+						<div ng-if="members.access.adminUser.list" class="f-right" style="">
+							<a class="btn btn-sm btn-primary" ng-click="members.listMembers()" href="">
+								Refresh
+							</a>
+						</div>
+				<span ng-if="members.access.adminUser.addUser">
+                    <a href="" ng-click="addMember()" class="btn btn-sm btn-primary">Add New Member</a>
+                </span>
+					</div>
+					<br/>
+					<nglist></nglist>
+
+				</section>
+			</tab>
+			<tab ng-show="access.adminGroup.list" heading="Groups">
+				<section ng-controller="groupsCtrl as gridCtrl">
+					<div ng-show="alerts && alerts.length > 0">
+						<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+							{{alert.msg}}
+						</alert>
+						<br/>
+					</div>
+					<div>
+						<div class="f-right" style="">
+							<a class="btn btn-sm btn-primary" ng-click="groups.listGroups()" href="">
+								Refresh
+							</a>
+						</div>
+				<span ng-if="groups.access.adminGroup.add">
+                    <a href="" ng-click="groups.addGroup()" class="btn btn-sm btn-primary">Add New Group</a>
+                </span>
+					</div>
+
+					<br/>
+					<nglist></nglist>
+				</section>
+			</tab>
 
 	</div>
 

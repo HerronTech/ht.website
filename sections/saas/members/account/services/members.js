@@ -3,8 +3,8 @@ var membersService = app.components;
 
 membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', function (ngDataApi, $timeout, $modal) {
 	
-	function listMembers(currentScope, moduleConfig, callback) {
-		var userCookie = currentScope.userCookie;
+	function listMembers(currentScope, moduleConfig) {
+		var userCookie = currentScope.$parent.userCookie;
 		var tenantId = userCookie.tenant.id;
 		var opts = {
 			"method": "get",
@@ -12,20 +12,22 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 				"key": apiConfiguration.key
 			},
 			"routeName": "/urac/admin/listUsers",
-			"params": { 'tId': tenantId }
+			"params": {
+				'tId': tenantId
+			}
 		};
-
+		overlayLoading.show();
 		getSendDataFromServer(currentScope, ngDataApi, opts, function (error, response) {
+			overlayLoading.hide();
 			if (error) {
-				// currentScope.$parent.displayAlert("danger", error.code, true, 'urac', error.message);
+				currentScope.$parent.alerts.push({
+					'type': 'danger',
+					'msg': error.message
+				});
+				currentScope.$parent.closeAllAlerts();
 			}
 			else {
-				if (callback && typeof(callback) === 'function') {
-					return callback(response);
-				}
-				else {
-					printMembers(currentScope, moduleConfig, response);
-				}
+				printMembers(currentScope, moduleConfig, response);
 			}
 		});
 	}
@@ -83,8 +85,8 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 		buildGrid(currentScope, options);
 	}
 	
-	function addMember(currentScope, moduleConfig, useCookie) {
-		var userCookie = currentScope.userCookie;
+	function addMember(currentScope, moduleConfig) {
+		var userCookie = currentScope.$parent.userCookie;
 		var config = angular.copy(moduleConfig.form);
 		var tenantId = userCookie.tenant.id;
 		var tenantCode = userCookie.tenant.code;
@@ -102,10 +104,7 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 		
 		getSendDataFromServer(currentScope, ngDataApi, opts, function (error, response) {
 			overlayLoading.hide();
-			if (error) {
-				// currentScope.form.displayAlert('danger', error.code, true, 'urac', error.message);
-			}
-			else {
+			if (!error) {
 				var grps = [], projects = [];
 				for (var x = 0; x < response.length; x++) {
 					let obj = {
@@ -147,7 +146,9 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 						'btn': 'primary',
 						'action': function (formData) {
 							let groups = formData.groups;
-							groups = groups.concat(formData.projects);
+							if (formData.projects && formData.projects.length) {
+								groups = groups.concat(formData.projects);
+							}
 							var postData = {
 								'username': formData.username,
 								'firstName': formData.firstName,
@@ -166,15 +167,18 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 								"routeName": "/urac/admin/addUser",
 								"data": postData
 							};
-
+							
 							getSendDataFromServer(currentScope, ngDataApi, opts, function (error) {
 								overlayLoading.hide();
 								if (error) {
-									// currentScope.form.displayAlert('danger', error.code, true, 'urac', error.message);
+									currentScope.form.displayAlert('danger', error.message);
 								}
 								else {
-									//Member Added Successfully
-									// currentScope.$parent.displayAlert('success', translation.memberAddedSuccessfully[LANG]);
+									currentScope.$parent.alerts.push({
+										'type': 'success',
+										'msg': 'Member Added Successfully'
+									});
+									currentScope.$parent.closeAllAlerts();
 									currentScope.modalInstance.close();
 									currentScope.form.formData = {};
 									currentScope.listMembers();
@@ -198,8 +202,8 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 		
 	}
 	
-	function editMember(currentScope, moduleConfig, data, useCookie) {
-		var userCookie = currentScope.userCookie;
+	function editMember(currentScope, moduleConfig, data) {
+		var userCookie = currentScope.$parent.userCookie;
 		var config = angular.copy(moduleConfig.form);
 		var tenantId = userCookie.tenant.id;
 		var opts = {
@@ -212,7 +216,6 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 				'tId': tenantId
 			}
 		};
-		
 		getSendDataFromServer(currentScope, ngDataApi, opts, function (error, response) {
 			if (error) {
 				currentScope.alerts.push({
@@ -262,7 +265,9 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 					'name': 'status',
 					'label': 'Status',
 					'type': 'radio',
-					'value': [{ 'v': 'pendingNew' }, { 'v': 'active' }, { 'v': 'inactive' }]
+					'value': [
+						{ 'v': 'pendingNew' }, { 'v': 'active' }, { 'v': 'inactive' }
+					]
 				});
 				
 				var options = {
@@ -278,7 +283,9 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 							'btn': 'primary',
 							'action': function (formData) {
 								let groups = formData.groups;
-								groups = groups.concat(formData.projects);
+								if (formData.projects && formData.projects.length) {
+									groups = groups.concat(formData.projects);
+								}
 								var postData = {
 									'username': formData.username,
 									'firstName': formData.firstName,
@@ -297,21 +304,17 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 									"params": { "uId": data['_id'] },
 									"data": postData
 								};
-
+								
 								getSendDataFromServer(currentScope, ngDataApi, opts, function (error) {
 									if (error) {
-										currentScope.alerts.push({
-											'type': 'danger',
-											'msg': error.message
-										});
-										currentScope.closeAllAlerts();
+										currentScope.form.displayAlert('danger', error.message);
 									}
 									else {
-										currentScope.alerts.push({
+										currentScope.$parent.alerts.push({
 											'type': 'success',
 											'msg': 'Member Updated Successfully'
 										});
-										currentScope.closeAllAlerts();
+										currentScope.$parent.closeAllAlerts();
 										currentScope.modalInstance.close();
 										currentScope.form.formData = {};
 										currentScope.listMembers();
@@ -362,7 +365,7 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$modal', func
 		overlayLoading.show();
 		var config = {
 			"headers": {
-				"key": currentScope.key
+				"key": apiConfiguration.key
 			},
 			'method': 'get',
 			'routeName': "/urac/admin/changeUserStatus",
