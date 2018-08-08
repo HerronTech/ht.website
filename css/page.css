@@ -1,18 +1,20 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*
 body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+*/
 
 body, html {
-    font-size: 17px;
+    font-size: 18px;
     text-align: left;
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: "OpenSans-Light";
+    font-family: 'Lato', sans-serif;
     line-height: 1.9em;
     color: #5E5E73;
 }
@@ -370,7 +372,6 @@ li {
 }
 
 /*************************************************************************************
-
 *
 * text hover-effects
 *
@@ -499,20 +500,22 @@ this is the over layer that gives the image the bluesh vibe
 }
 
 .carousel-inner .item h3 {
-    font-family: GeorginaDemo;
     font-size: 42px;
     color: white;
 }
 
 .carousel-inner .item h4 {
-    font-family: GeorginaDemo;
-    font-size: 42px;
+    font-size: 34px;
     color: white;
 }
 
+.carousel-inner .item h5 {
+     font-size: 26px;
+     color: white;
+ }
+
 .carousel-inner .item p {
-    font-family: OpenSans-Light;
-    font-size: 25px;
+    font-size: 24px;
     color: white;
 }
 
@@ -543,7 +546,7 @@ this is the over layer that gives the image the bluesh vibe
 }
 
 .no-georgina {
-    font-family: Audiowide;
+    //font-family: Audiowide;
 }
 
 /**********************
@@ -654,8 +657,8 @@ top-menu {
 .btn {
     font-family: OpenSans-Bold;
     font-size: 18px;
-    padding-left: 79px;
-    padding-right: 79px;
+    padding-left: 40px;
+    padding-right: 40px;
     padding-bottom: 20px;
     padding-top: 20px;
 }
@@ -676,8 +679,8 @@ top-menu {
 .full-width .row {
     margin: auto;
     width: 80%;
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 45px;
+    padding-bottom: 45px;
 }
 
 .underline {
@@ -687,36 +690,64 @@ top-menu {
 }
 
 .main h1 {
-    font-family: "GeorginaDemo";
-    font-size: 42px;
-    text-transform: uppercase;
+    font-family: "OpenSans-Bold";
+    font-size: 34px;
 }
 
 .main h2 {
     font-family: "OpenSans-Light";
-    font-size: 33px;
+    font-size: 32px;
 }
 
 .main h3 {
-    font-family: "GeorginaDemo";
     font-size: 28px;
-    text-transform: uppercase;
 }
 
 .main h4 {
-    font-family: "GeorginaDemo";
-    font-size: 23px;
-    text-transform: uppercase;
+    font-size: 24px;
 }
 
 .main p.bold {
-    font-family: "OpenSans-Bold";
     font-size: 18px;
+    font-weight: bold;
 }
 
 .main p {
-    font-family: "OpenSans-Light";
-    font-size: 17px;
+    font-size: 18px;
+}
+
+/**********************
+*
+* videos
+*
+**********************/
+.videoBtn1 img,
+.videoBtn2 img{
+    width:100%;
+    opacity:.8;
+}
+
+.videoBtn1:hover img,
+.videoBtn2:hover img{
+    width:100%;
+    opacity:1;
+}
+
+/**********************
+*
+* Creators of
+*
+**********************/
+.projectBtn{
+    opacity:0.7;
+}
+
+.projectBtn:hover{
+    opacity: 1;
+}
+
+.projectBtn img{
+    width:100%;
 }
 
 /**********************
@@ -943,7 +974,7 @@ ul.anzac-bullet li:before {
 .iTopMenu h1 {
     margin-top: 150px;
     font-size: 65px;
-    font-family: GeorginaDemo;
+    font-family: OpenSans;
 }
 
 .inner {
@@ -954,18 +985,14 @@ ul.anzac-bullet li:before {
 .inner h1 {
     margin-bottom: 50px;
     text-align: center;
-    text-transform: uppercase;
     font-size: 38px;
-    font-family: GeorginaDemo;
     color: #676775;
 }
 
 .inner h2 {
     margin-top: 50px;
-    font-family: GeorginaDemo;
     color: #676775;
     font-size: 25px;
-    font-family: OpenSans-Light;
 }
 
 .inner p {
@@ -976,7 +1003,6 @@ ul.anzac-bullet li:before {
 
     color: #5e5e73;
     font-size: 18px;
-    font-family: OpenSans-Light;
 }
 
 .inner i {
@@ -1051,6 +1077,33 @@ th.bordered {
     text-shadow: none;
 }
 
+.modal-transparent .modal-content{
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.modal-transparent .modal-content .modal-footer .close{
+    opacity: 1;
+    text-shadow:none;
+}
+
+#products .modules .fa{
+    font-size:95px;
+}
+
+#products .modules h2{
+    height: 80px;
+}
+
+#products .modules p{
+    display:block;
+    min-height: 300px;
+}
+
+.noheightinsmall{
+    height: 20px;
+}
 /**********************
 *
 * footer
