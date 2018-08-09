@@ -277,17 +277,23 @@ app.directive('saasMenu', function () {
 	}
 });
 
-app.filter('trustAsResourceUrl', ['$sce', function ($sce) {
-	return function (val) {
-		return $sce.trustAsResourceUrl(val);
-	};
-}]);
-
-app.filter('toTrustedHtml', ['$sce', function ($sce) {
-	return function (text) {
-		return $sce.trustAsHtml(text);
-	};
-}]);
+app.directive('ngConfirmClick', [
+	function () {
+		return {
+			priority: -1,
+			restrict: 'A',
+			link: function (scope, element, attrs) {
+				element.bind('click', function (e) {
+					var message = attrs.ngConfirmClick;
+					if (message && !confirm(message)) {
+						e.stopImmediatePropagation();
+						e.preventDefault();
+					}
+				});
+			}
+		}
+	}
+]);
 
 var overlayLoading = {
 	show: function (cb) {

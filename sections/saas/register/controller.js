@@ -71,7 +71,7 @@ accountApp.controller('registerPageCtrl', ['$scope', '$http', '$timeout', 'injec
 					if (error) {
 						let msg = "Sorry, wasn't able to send your message to the team. Try again later.";
 						if (error.code === 406) {
-							msg = "You have already registered with this email";
+							msg = "You have already registered with this info";
 						}
 						$scope.alerts.push({
 							'type': 'danger',

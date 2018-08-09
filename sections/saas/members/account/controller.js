@@ -26,11 +26,11 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 			form: config,
 			'timeout': $timeout,
 			'name': 'changeEmail',
-			'label': translation.changeEmail[LANG],
+			'label': 'Change Email',
 			'actions': [
 				{
 					'type': 'submit',
-					'label': translation.changeEmail[LANG],
+					'label': 'Change Email',
 					'btn': 'primary',
 					'action': function (formData) {
 						var postData = {
@@ -63,7 +63,7 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 				},
 				{
 					'type': 'reset',
-					'label': translation.cancel[LANG],
+					'label': 'Cancel',
 					'btn': 'danger',
 					'action': function () {
 						$scope.modalInstance.dismiss('cancel');
@@ -82,11 +82,11 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 			form: config,
 			'timeout': $timeout,
 			'name': 'changePassword',
-			'label': translation.changePassword[LANG],
+			'label': 'Change Password',
 			'actions': [
 				{
 					'type': 'submit',
-					'label': translation.changePassword[LANG],
+					'label': 'Change Password',
 					'btn': 'primary',
 					'action': function (formData) {
 						var postData = {
@@ -95,7 +95,7 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 							'confirmation': formData.confirmPassword
 						};
 						if (formData.password !== formData.confirmPassword) {
-							$scope.form.displayAlert('danger', translation.errorMessageChangePassword[LANG]);
+							$scope.form.displayAlert('danger', "Your password and confirm password fields do not match!");
 							return;
 						}
 						overlayLoading.show();
@@ -126,7 +126,7 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$modal', 'ng
 				},
 				{
 					'type': 'reset',
-					'label': translation.cancel[LANG],
+					'label': "Cancel",
 					'btn': 'danger',
 					'action': function () {
 						$scope.modalInstance.dismiss('cancel');
@@ -172,7 +172,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'type': 'text',
 					'placeholder': translation.enterFirstName[LANG],
 					'value': '',
-					'tooltip': translation.enterFirstNameUser[LANG],
+					'tooltip': "Enter your first name",
 					'required': true
 				},
 				{
@@ -181,7 +181,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'type': 'text',
 					'placeholder': translation.enterLastName[LANG],
 					'value': '',
-					'tooltip': translation.enterLastNameUser[LANG],
+					'tooltip': 'Enter your last name',
 					'required': true
 				},
 				{
@@ -190,7 +190,7 @@ accountApp.controller('myAccountCtrl', ['$scope', '$timeout', '$modal', 'ngDataA
 					'type': 'readonly',
 					'placeholder': translation.enterEmail[LANG],
 					'value': '',
-					'tooltip': translation.emailToolTip[LANG],
+					'tooltip': "Enter your email",
 					'required': true
 				},
 				{

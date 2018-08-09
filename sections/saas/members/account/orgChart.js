@@ -7,17 +7,17 @@ accountApp.controller('allUsersCtrl', ['$scope', '$timeout', '$cookies', '$local
 			$scope.$parent.$emit("loadUserInterface", {});
 			$scope.$parent.go("/members/login");
 		}
-
+		
 		$scope.access = {};
 		constructModulePermissions($scope, $scope.access, membersConfig.permissions);
-
+		
 		$scope.userCookie = $localStorage.soajs_user;
-
+		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
 		};
-
+		
 		$scope.closeAllAlerts = function () {
 			$timeout(function () {
 				$scope.alerts = [];
@@ -47,7 +47,7 @@ accountApp.controller('allUsersCtrl', ['$scope', '$timeout', '$cookies', '$local
 				}
 			});
 		};
-
+		
 		$scope.getProjects();
 	}]);
 
@@ -68,11 +68,11 @@ accountApp.controller('membersCtrl', ['$scope', '$timeout', '$modal', 'ngDataApi
 				$scope.alerts = [];
 			}, 15000);
 		};
-
+		
 		$scope.$parent.$on('reloadMembers', function (event) {
 			$scope.members.listMembers($scope.members);
 		});
-
+		
 		$scope.members.listMembers = function () {
 			membersHelper.listMembers($scope.members, membersConfig);
 		};
@@ -101,7 +101,7 @@ accountApp.controller('membersCtrl', ['$scope', '$timeout', '$modal', 'ngDataApi
 		}, 50);
 	}]);
 
-accountApp.controller('groupsCtrl', ['$scope', 'groupsHelper', function ($scope, groupsHelper) {
+accountApp.controller('groupsCtrl', ['$scope', '$timeout', 'groupsHelper', function ($scope, $timeout, groupsHelper) {
 	$scope.key = apiConfiguration.key;
 	$scope.groups = angular.extend($scope);
 	$scope.groups.access = $scope.$parent.access;

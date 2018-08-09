@@ -114,7 +114,10 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$modal', functi
 								currentScope.form.displayAlert('danger', error.message);
 							}
 							else {
-								currentScope.$parent.displayAlert('success', translation.groupAddedSuccessfully[LANG]);
+								currentScope.$parent.alerts.push({
+									'type': 'success',
+									'msg': "Group Added Successfully"
+								});
 								currentScope.modalInstance.close();
 								currentScope.form.formData = {};
 								currentScope.listGroups();
@@ -176,6 +179,7 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$modal', functi
 									'type': 'success',
 									'msg': "Group Updated Successfully"
 								});
+								currentScope.$parent.closeAllAlerts();
 								currentScope.modalInstance.close();
 								currentScope.form.formData = {};
 								currentScope.listGroups();
@@ -239,7 +243,6 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$modal', functi
 					'type': 'danger',
 					'msg': error.message
 				});
-				currentScope.closeAllAlerts();
 			}
 			else {
 				currentScope.$parent.alerts.push({
@@ -248,6 +251,7 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$modal', functi
 				});
 				currentScope.listGroups();
 			}
+			currentScope.$parent.closeAllAlerts();
 		});
 	}
 	
@@ -337,7 +341,7 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$modal', functi
 						},
 						{
 							'type': 'reset',
-							'label': translation.cancel[LANG],
+							'label': 'Cancel',
 							'btn': 'danger',
 							'action': function () {
 								currentScope.modalInstance.dismiss('cancel');
