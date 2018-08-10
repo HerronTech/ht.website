@@ -197,3 +197,12 @@ form.css-form .footer-msg {
 .fieldMsg {
     font-style: italic;
 }
+
+form .modal-body {
+    line-height: 1.5em;
+}
+
+#projects-wrapper ul li, #groups-wrapper ul li {
+    float: left;
+    width: 49%;
+}

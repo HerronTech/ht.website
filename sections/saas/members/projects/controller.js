@@ -492,7 +492,12 @@ accountApp.controller('memberProjectAddCtrl', ['$scope', '$cookies', '$http', '$
 				delete $scope.project.infra.aws;
 			}
 		};
-		
+
+		$scope.skipInfra = function () {
+			$scope.alerts = [];
+			$scope.goToStep('3');
+		};
+
 		$scope.validateInfra = function () {
 			$scope.alerts = [];
 			var myToken;

@@ -38,6 +38,12 @@ app.filter('toTrustedHtml', ['$sce', function ($sce) {
 	};
 }]);
 
+app.filter('trustAsResourceUrl', ['$sce', function ($sce) {
+	return function (val) {
+		return $sce.trustAsResourceUrl(val);
+	};
+}]);
+
 app.filter('trimmed', ['$sce', function ($sce) {
 	function hed(text) {
 		return text.replace(/(<([^>]+)>)/ig, "").toString();
