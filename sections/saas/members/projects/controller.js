@@ -196,12 +196,12 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 			var tenantId = userCookie.tenant.id;
 			var opts = {
 				"method": "get",
-				"headers":{
+				"headers": {
 					"key": apiConfiguration.key
 				},
 				"routeName": "/urac/admin/listUsers",
-				"params": { 
-					'tId': tenantId 
+				"params": {
+					'tId': tenantId
 				}
 			};
 			
@@ -220,7 +220,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 						sel = ((response[x].groups) && response[x].groups.indexOf(project.name) > -1);
 						value.push({
 							'v': response[x].username,
-							'l': response[x].username + '(' + response[x].firstName + ' ' + response[x].lastName + ')',
+							'l': response[x].firstName + ' ' + response[x].lastName + ' (' + response[x].username + ')',
 							'selected': sel
 						});
 					}
@@ -250,7 +250,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 										"params": {
 											'tId': tenantId
 										},
-										"headers":{
+										"headers": {
 											"key": apiConfiguration.key
 										},
 										"data": postData

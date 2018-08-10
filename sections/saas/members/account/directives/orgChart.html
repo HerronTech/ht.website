@@ -28,11 +28,12 @@
 					<div>
 						<div ng-if="members.access.adminUser.list" class="f-right" style="">
 							<a class="btn btn-sm btn-primary" ng-click="members.listMembers()" href="">
-								Refresh
+								<span class="glyphicon glyphicon-refresh"></span> Refresh
 							</a>
 						</div>
 				<span ng-if="members.access.adminUser.addUser">
-                    <a href="" ng-click="addMember()" class="btn btn-sm btn-primary">Add New Member</a>
+                    <a href="" ng-click="addMember()" class="btn btn-sm btn-primary">
+	                    <span class="fa fa-plus"></span> Add New Member</a>
                 </span>
 					</div>
 					<br/>
@@ -51,11 +52,12 @@
 					<div>
 						<div class="f-right" style="">
 							<a class="btn btn-sm btn-primary" ng-click="groups.listGroups()" href="">
-								Refresh
+								<span class="glyphicon glyphicon-refresh"></span> Refresh
 							</a>
 						</div>
 				<span ng-if="groups.access.adminGroup.add">
-                    <a href="" ng-click="groups.addGroup()" class="btn btn-sm btn-primary">Add New Group</a>
+                    <a href="" ng-click="groups.addGroup()" class="btn btn-sm btn-primary">
+	                    <span class="fa fa-plus"></span> Add New Group</a>
                 </span>
 					</div>
 
