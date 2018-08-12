@@ -1,13 +1,5 @@
+"use strict";
+
 module.exports = {
-  "setup": {
-
-    "dashboard": {
-      "nginx": {
-        "sites-enabled": {
-          "path": "FILES/nginx/sites-enabled"
-        }
-      }
-    }
-
-  }
+	type: "static"
 };
