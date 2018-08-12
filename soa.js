@@ -1,4 +1,4 @@
-{
+module.exports = {
   "setup": {
 
     "dashboard": {
@@ -10,4 +10,4 @@
     }
 
   }
-}
+};
