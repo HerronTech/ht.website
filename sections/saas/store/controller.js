@@ -12,9 +12,9 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
         $scope.allCatalogs = [];
         // for ng-model
         $scope.data = {
-            selected:{}
+            selected: {}
         };
-        
+
         $scope.closeAlert = function (index) {
             $scope.alerts.splice(index, 1);
         };
@@ -170,24 +170,46 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
                 }
             }
             let condition = [];
+            let menu = {};
+            let test = [];
             let types = ['cd', 'ci', '_infra', '_template'];
             types.splice(types.indexOf(type), 1);
             let conditions = {};
             for (let i = 0; i < options.length; i++) {
-                condition.push({"filters.category": options[i].split('__')[0]}, {"filters.option": options[i].split('__')[1]});
+                condition.push({
+                    "filters.category": options[i].split('__')[0],
+                    "filters.option": options[i].split('__')[1]
+                });
             }
-            conditions = {$or: [{$and: condition}, {$and: [{'type': {$in: types}}]}]};
+            condition.forEach((catalog) => {
+                if (!menu[catalog['filters.category']]) {
+                    menu[catalog['filters.category']] = [];
+                }
+                menu[catalog['filters.category']].push(catalog['filters.option']);
+            });
+
+            for (let i = 0; i < Object.keys(menu).length; i++) {
+                test.push({
+                    $and: [{
+                        'filters.category': Object.keys(menu)[i]},
+                        {'filters.option': {$in: menu[Object.keys(menu)[i]]}
+                    }],
+                })
+            }
+
+            conditions = {$or: [{$and: test}, {$and: [{'type': {$in: types}}]}]};
+
             if (condition && condition.length > 0) {
                 $scope.listAllCatalogs(conditions)
             } else {
-                $scope.listAllCatalogs({})
+                $scope.listAllCatalogs()
             }
         };
 
         $scope.cleanFilter = function () {
             options = [];
             $scope.data = {
-                selected : {}
+                selected: {}
             };
             $scope.listAllCatalogs();
         };
@@ -196,13 +218,13 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 
         $scope.go = function (path) {
             if (path) {
-                $cookies.put("store_path", "/store", { 'domain': interfaceDomain });
+                $cookies.put("store_path", "/store", {'domain': interfaceDomain});
                 $location.path(path);
             }
         };
 
         function openSaveAsDialog(filename, content, mediaType) {
-            var blob = new Blob([content], { type: mediaType });
+            var blob = new Blob([content], {type: mediaType});
             var URL = window.URL || window.webkitURL;
             var objectUrl = URL.createObjectURL(blob);
 
