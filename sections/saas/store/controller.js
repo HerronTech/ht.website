@@ -3,8 +3,8 @@ var accountApp = app.components;
 var interfaceDomain = location.host;
 interfaceDomain = mydomain.split(":")[0];
 
-accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi', '$timeout', '$cookies', '$location',
-    function ($scope, $http, injectFiles, ngDataApi, $timeout, $cookies, $location) {
+accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi', '$timeout', '$cookies', '$location', '$modal',
+    function ($scope, $http, injectFiles, ngDataApi, $timeout, $cookies, $location, $modal) {
         injectFiles.injectCss("sections/saas/projects.css");
         let options = [];
         let count = -1;
@@ -146,13 +146,32 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
             getSendDataFromServer($scope, ngDataApi, options, function (error, response) {
                 overlayLoading.hide();
                 if (error) {
-                    $scope.alerts.push({
-                        'type': 'danger',
-                        'msg': error.message
-                    });
                     if (error.code && error.code === 601) {
-                        $scope.go('/members/login');
 
+                        $modal.open({
+                            templateUrl: "loginPage.tmpl",
+                            size: 'lg',
+                            backdrop: true,
+                            keyboard: true,
+                            controller: function ($scope, $modalInstance) {
+                                console.log( $scope ); // ToDelete #2del
+                                $scope.go = function (path) {
+                                    if (path) {
+                                        $cookies.put("store_path", "/store", {'domain': interfaceDomain});
+                                        $location.path(path);
+                                        $modalInstance.close();
+                                    }
+                                };
+                                $scope.cancel = function () {
+                                    $modalInstance.close();
+                                }
+                            }
+                        });
+                    } else {
+                        $scope.alerts.push({
+                            'type': 'danger',
+                            'msg': error.message
+                        });
                     }
                     $scope.closeAllAlerts();
                 } else {
@@ -196,13 +215,13 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
                     }],
                 })
             }
-
-            conditions = {$or: [{$and: test}, {$and: [{'type': {$in: types}}]}]};
+            //mongo query
+            conditions = {$and : [{$or: [{$and: test}, {$and: [{'type': {$in: types}}]}]}, {'published' : true}]};
 
             if (condition && condition.length > 0) {
                 $scope.listAllCatalogs(conditions)
             } else {
-                $scope.listAllCatalogs()
+                $scope.listAllCatalogs({published : true})
             }
         };
 
@@ -211,17 +230,11 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
             $scope.data = {
                 selected: {}
             };
-            $scope.listAllCatalogs();
+            $scope.listAllCatalogs({published : true});
         };
 
-        $scope.listAllCatalogs();
-
-        $scope.go = function (path) {
-            if (path) {
-                $cookies.put("store_path", "/store", {'domain': interfaceDomain});
-                $location.path(path);
-            }
-        };
+        $scope.listAllCatalogs({published : true});
+        
 
         function openSaveAsDialog(filename, content, mediaType) {
             var blob = new Blob([content], {type: mediaType});

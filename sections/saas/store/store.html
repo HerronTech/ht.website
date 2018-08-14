@@ -214,3 +214,17 @@
     </div>
 </div>
 
+
+<script type="text/ng-template" id="loginPage.tmpl">
+    <div class="modal-body">
+        <alert type="danger">
+            <h2>Unable to dowload this template!</h2>
+            <hr>
+            You have to login to download this template.
+            </alert>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary btn-sm" ng-click="go('/members/login')">Login</button>
+        <button class="btn btn-danger btn-sm " ng-click="cancel()">Cancel</button>
+    </div>
+</script>
