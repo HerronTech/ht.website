@@ -174,10 +174,6 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '
 			}
 		};
 
-		$scope.goToStore = function () {
-			$scope.go("/store");
-		};
-
 		$scope.logoutUser = function () {
 			var user = $localStorage.soajs_user;
 			

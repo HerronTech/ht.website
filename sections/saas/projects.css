@@ -228,12 +228,12 @@ div.entryBox .header {
 
 div.entryBox .body {
     border: 1px solid #333333;
-    width: 45%;
+    width: 75%;
     height: 10%;
     border-radius: 8px;
     float: left;
     margin-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 7%;
 }
 
 div.leftMenu {
@@ -245,31 +245,17 @@ div.leftMenu {
 div.leftMenu .links {
     float: left;
 }
-
-.sidenav {
-    width: 30%;
-    position: fixed;
-    top: 180px;
-    left: 10px;
-    /*background: #eee;*/
-    overflow-x: hidden;
-    margin-bottom: 10%;
+v
+div.test{
+    float : left
 }
 
-.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #C0BEDD;
-    display: block;
-}
-.sidenav h2 {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #C0BEDD;
-    display: block;
-}
-.sidenav .checkbox {
-    color: #C0BEDD;
+.vl {
+    border-left: 1px solid;
+    border-color: #d5d5d5;
+    height: 100%;
+    position: absolute;
+    left: 93%;
+    margin-left: -3px;
+    top: 0;
 }

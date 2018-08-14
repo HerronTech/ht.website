@@ -162,7 +162,6 @@ var navigation = [
         'url': '/store',
         'tplPath': 'sections/saas/store/store.html',
         'scripts': [
-            // 'sections/saas/store/config.js',
             'sections/saas/store/controller.js'
         ]
     }
