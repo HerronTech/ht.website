@@ -1,211 +1,183 @@
 <div class="container inner">
     <div ng-controller="storeCtrl">
         <div ng-show="alerts && alerts.length > 0">
-            <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+            <alert ng-repeat="alert in alerts" type="{{alert.type}}">
                 {{alert.msg}}
             </alert>
             <br/>
             <br/>
         </div>
-        <div>
-            <tabset style="margin-top: -70px; ">
+        <div id="catalogs">
+            <tabset>
                 <tab heading="Catalog Recipes" ng-click="cleanFilter()">
                     <br/>
-                    <div  class="entryBoxes">
-                    <div class="col-sm-3 col-md-6 col-lg-2">
-                        <div ng-repeat="(key, value) in leftMenu">
-                            <div ng-if="key === 'cd'">
-                                <div ng-repeat="(key2, value2) in value">
-                                    <div class="vl"></div>
-                                    <h4>{{key2}}</h4>
-                                    <hr>
-                                    <div ng-repeat="option in value[key2]">
-                                        <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], 'cd')">&nbsp;<h10>{{option}}</h10>
-                                        <br>
-                                    </div>
-                                    <hr>
-                                    <br>
+	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noCdCatalogs">
+		                <alert type="warning"><p>No Catalog Recipes available at the moment, come back soon</p></alert>
+	                </div>
+	                
+                    <div class="entryBoxes" ng-show="!noCdCatalogs">
+	                    <div class="col-sm-2 col-md-2 col-lg-2">
+	                        <div ng-repeat="(key, value) in leftMenu">
+	                            <div ng-if="key === 'cd'">
+	                                <div ng-repeat="(key2, value2) in value">
+	                                    <label>{{key2}}</label>
+	                                    <ul>
+		                                    <li ng-repeat="option in value[key2]">
+		                                        <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], 'cd')" />&nbsp;{{option}}
+		                                    </li>
+	                                    </ul>
+	                                    <br>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-sm-10 col-md-10 col-lg-10 vl">
+	                        <div ng-repeat="onectlg in catalogs.cd" class="entryBox">
+                                <div class="header">
+                                    <a href="" ng-click="download(onectlg._id)" tooltip="Download">
+                                        <span class="glyphicon glyphicon-cloud-download"></span>
+                                    </a>
+                                    {{onectlg.name}}
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-6 col-lg-10">
-                        <div ng-repeat="onectlg in catalogs.cd" class="entryBox body">
-                            <div class="w-75 p-3">
-                                <div class="body">
-                                    <div style="float: left; width:100%; margin-right: 30px;">
-                                        <div class="header"><a href="" ng-click="download(onectlg._id)"
-                                                               class="glyphicon glyphicon-cloud-download"
-                                                               style="float: right; margin-top: 5px; margin-right: 5px;"></a>
-                                            {{onectlg.name}}
-                                        </div>
-                                        <div>
-                                            <p style="font-size: 13px;">{{onectlg.description}}</p>
-                                        </div>
-                                        <div ng-repeat="oneLink in onectlg.icons">
-                                            <img src="{{oneLink.url}}" height="55" width="55"
-                                                 style="float: left; margin-right: 15px; margin-left: 15px">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-show="noCdCatalogs" style="margin-left: 20%; margin-top: 5%">
-                        <alert>
-                            No Catalog Found
-                        </alert>
-                        <br/>
-                        <br/>
-                    </div>
-                </div>
+		                        <div class="body">
+			                        <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
+		                        </div>
+		                        <div class="footer">
+			                        <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
+				                        <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+			                        </div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                </div>
                 </tab>
                 <tab heading="CI Recipes" ng-click="cleanFilter()">
                     <br/>
-                    <div class="entryBoxes">
-                        <div class="col-sm-3 col-md-6 col-lg-2">
+	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noCiCatalogs">
+		                <alert type="warning"><p>No Continuous Integration Recipes available at the moment, come back soon</p></alert>
+	                </div>
+	                
+                    <div class="entryBoxes" ng-show="!noCiCatalogs">
+	                    <div class="col-sm-2 col-md-2 col-lg-2">
                             <div ng-repeat="(key, value) in leftMenu">
                                 <div ng-if="key === 'ci'">
                                     <div ng-repeat="(key2, value2) in value">
-                                        <div class="vl"></div>
-                                        <h4>{{key2}}</h4>
+                                        <label>{{key2}}</label>
+                                        <ul>
+	                                        <li ng-repeat="option in value[key2]">
+		                                        <input name="{{key2}}" ng-model="data.selected[option]"  type="checkbox" ng-click="filter(key2, option, data.selected[option], 'ci')">&nbsp;{{option}}
+	                                        </li>
+                                        </ul>
                                         <hr>
-                                        <div ng-repeat="option in value[key2]">
-                                            <input name="{{key2}}" ng-model="data.selected[option]"  type="checkbox" ng-click="filter(key2, option, data.selected[option], 'ci')">&nbsp;<h10>{{option}}</h10>
-                                            <br>
-                                        </div>
-                                        <hr>
-                                        <br>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-md-6 col-lg-10" ng-if="!noCatalogs">
-                            <div ng-repeat="onectlg in catalogs.ci" class="entryBox body">
+	                    <div class="col-sm-10 col-md-10 col-lg-10 vl">
+                            <div ng-repeat="onectlg in catalogs.ci" class="entryBox">
+                                <div class="header">
+	                                <a href="" ng-click="download(onectlg._id)" tooltip="Download">
+		                                <span class="glyphicon glyphicon-cloud-download"></span>
+	                                </a>
+                                    {{onectlg.name}}
+                                </div>
                                 <div class="body">
-                                    <div style="float: left; width:100%; margin-right: 30px;">
-                                        <div class="header"><a href="" ng-click="download(onectlg._id)"
-                                                               class="glyphicon glyphicon-cloud-download"
-                                                               style="float: right; margin-top: 5px; margin-right: 5px;"></a>
-                                            {{onectlg.name}}
-                                        </div>
-                                        <div>
-                                            <p style="font-size: 13px;">{{onectlg.description}}</p>
-                                        </div>
-                                        <div ng-repeat="oneLink in onectlg.icons">
-                                            <img src="{{oneLink.url}}" height="30" width="30"
-                                                 style="float: left; margin-right: 15px; border-radius: 50%">
-                                        </div>
-                                    </div>
+	                                <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
                                 </div>
+	                            <div class="footer">
+		                            <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
+			                            <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+		                            </div>
+	                            </div>
                             </div>
-                        </div>
-                        <div ng-show="noCiCatalogs" style="margin-left: 20%; margin-top: 5%">
-                            <alert>
-                                No Catalog Found
-                            </alert>
-                            <br/>
-                            <br/>
                         </div>
                     </div>
                 </tab>
                 <tab heading="Environment Templates" ng-click="cleanFilter()">
                     <br/>
-                    <div class="col-sm-3 col-md-6 col-lg-2" >
-                        <div ng-repeat="(key, value) in leftMenu">
-                            <div ng-if="key === '_template'">
-                                <div ng-repeat="(key2, value2) in value">
-                                    <div class="vl"></div>
-                                    <h4>{{key2}}</h4>
-                                    <hr>
-                                    <div ng-repeat="option in value[key2]">
-                                        <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_template')">&nbsp;<h10>{{option}}</h10>
-                                        <br>
-                                    </div>
-                                    <hr>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-6 col-lg-10">
-                        <div ng-if="catalogs.envTemplate.length > 0" class="entryBoxes">
-                            <div ng-repeat="onectlg in catalogs.envTemplate" class="entryBox body">
-                                <div class="body">
-                                    <div style="float: left; width:100%; margin-right: 30px;">
-                                        <div class="header"><a href="" ng-click="download(onectlg._id)"
-                                                               class="glyphicon glyphicon-cloud-download"
-                                                               style="float: right; margin-top: 5px; margin-right: 5px;"></a>
-                                            {{onectlg.name}}
-                                        </div>
-                                        <div>
-                                            <p style="font-size: 13px;">{{onectlg.description}}</p>
-                                        </div>
-                                        <div ng-repeat="oneLink in onectlg.icons">
-                                            <img src="{{oneLink.url}}" height="30" width="30"
-                                                 style="float: left; margin-right: 15px; border-radius: 50%">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-show="noTempCatalogs" style="margin-left: 20%; margin-top: 5%">
-                        <alert>
-                            No Catalog Found
-                        </alert>
-                        <br/>
-                        <br/>
-                    </div>
+	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noTempCatalogs">
+		                <alert type="warning"><p>No Environment Templates available at the moment, come back soon</p></alert>
+	                </div>
+	                
+	                <div class="entryBoxes" ng-show="!noTempCatalogs">
+		                <div class="col-sm-2 col-md-2 col-lg-2">
+			                <div ng-repeat="(key, value) in leftMenu">
+				                <div ng-if="key === '_template'">
+					                <div ng-repeat="(key2, value2) in value">
+						                <label>{{key2}}</label>
+						                <ul>
+							                <li ng-repeat="option in value[key2]">
+								                <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_template')">&nbsp;{{option}}
+							                </li>
+						                </ul>
+						                <br>
+					                </div>
+				                </div>
+			                </div>
+		                </div>
+		                <div class="col-sm-10 col-md-10 col-lg-10 vl">
+			                <div ng-if="catalogs.envTemplate.length > 0">
+				                <div ng-repeat="onectlg in catalogs.envTemplate" class="entryBox">
+					                
+						                <div class="header">
+							                <a href="" ng-click="download(onectlg._id)" tooltip="Download">
+								                <span class="glyphicon glyphicon-cloud-download"></span>
+							                </a>
+							                {{onectlg.name}}
+						                </div>
+						                <div class="body">
+							                <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
+						                </div>
+					                    <div class="footer">
+						                    <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
+							                    <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+						                    </div>
+					                    </div>
+				                </div>
+			                </div>
+		                </div>
+	                </div>
                 </tab>
                 <tab heading="Infra As Code Templates" ng-click="cleanFilter()">
                     <br/>
-                    <div  class="entryBoxes">
-                        <div class="col-sm-3 col-md-6 col-lg-2">
+	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noInfraCatalogs">
+		                <alert type="warning"><p>No Infra As Code Templates available at the moment, come back soon</p></alert>
+	                </div>
+	                
+                    <div class="entryBoxes" ng-show="!noInfraCatalogs">
+                        <div class="col-sm-2 col-md-2 col-lg-2">
                             <div ng-repeat="(key, value) in leftMenu">
                                 <div ng-if="key === '_infra'">
                                     <div ng-repeat="(key2, value2) in value">
-                                        <div class="vl"></div>
-                                        <h4>{{key2}}</h4>
-                                        <hr>
-                                        <div ng-repeat="option in value[key2]">
-                                            <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_infra')">&nbsp;<h10>{{option}}</h10>
-                                            <br>
-                                        </div>
-                                        <hr>
+                                        <label>{{key2}}</label>
+	                                    <ul>
+	                                        <li ng-repeat="option in value[key2]">
+	                                            <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_infra')">&nbsp;{{option}}
+	                                        </li>
+	                                    </ul>
                                         <br>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-md-6 col-lg-10">
-                            <div ng-repeat="onectlg in catalogs.infra" class="entryBox body">
-                                <div class="w-75 p-3">
-                                    <div class="body">
-                                        <div style="float: left; width:100%; margin-right: 30px;">
-                                            <div class="header"><a href="" ng-click="download(onectlg._id)"
-                                                                   class="glyphicon glyphicon-cloud-download"
-                                                                   style="float: right; margin-top: 5px; margin-right: 5px;"></a>
-                                                {{onectlg.name}}
-                                            </div>
-                                            <div>
-                                                <p style="font-size: 13px;">{{onectlg.description}}</p>
-                                            </div>
-                                            <div ng-repeat="oneLink in onectlg.icons">
-                                                <img src="{{oneLink.url}}" height="30" width="30"
-                                                     style="float: left; margin-right: 15px; border-radius: 50%">
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-sm-10 col-md-10 col-lg-10 vl">
+                            <div ng-repeat="onectlg in catalogs.infra" class="entryBox">
+                                
+                                <div class="header">
+                                    <a href="" ng-click="download(onectlg._id)" tooltip="Download">
+                                        <span class="glyphicon glyphicon-cloud-download"></span>
+                                    </a>
+                                    {{onectlg.name}}
                                 </div>
+                                <div class="body">
+                                    <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
+                                </div>
+	                            <div class="footer">
+		                            <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
+			                            <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+		                            </div>
+	                            </div>
                             </div>
-                        </div>
-                        <div ng-show="noInfraCatalogs" style="margin-left: 20%; margin-top: 5%">
-                            <alert>
-                                No Catalog Found
-                            </alert>
-                            <br/>
-                            <br/>
                         </div>
                     </div>
                 </tab>
@@ -216,15 +188,23 @@
 
 
 <script type="text/ng-template" id="loginPage.tmpl">
-    <div class="modal-body">
-        <alert type="danger">
-            <h2>Unable to dowload this template!</h2>
-            <hr>
-            You have to login to download this template.
-            </alert>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary btn-sm" ng-click="go('/members/login')">Login</button>
-        <button class="btn btn-danger btn-sm " ng-click="cancel()">Cancel</button>
-    </div>
+	<div id="catalogsModal">
+		<div class="modal-body">
+			<alert type="info">
+				<h3>Login or Register</h3>
+				<hr>
+				<p style="color:black;">
+					In order to download <b>recipes</b> and <b>templates</b> from the Store, you need to be logged in.
+				</p>
+				<p style="color:black;">
+					If you do not have an account, you can register for free then come back to the store and download what you need.
+				</p>
+			</alert>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary btn-sm" ng-click="go('/members/login')">Login</button>
+			<button class="btn btn-success btn-sm" ng-click="go('/members/register')">Register</button>
+			<button class="btn btn-danger btn-sm " ng-click="cancel()">Cancel</button>
+		</div>
+	</div>
 </script>
