@@ -11,7 +11,6 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 	let count = -1;
 	$scope.alerts = [];
 	$scope.allCatalogs = [];
-	// for ng-model
 	$scope.data = {
 		selected: {}
 	};
@@ -23,22 +22,23 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 		$scope.alerts.splice(index, 1);
 	};
 	
-	$scope.listAllCatalogs = function (conditions) {
+	$scope.listAllCatalogs = function (conditions, types) {
 		count++;
 		let options = {
 			"method": "get",
 			"routeName": "/store/list",
 			"params": {}
 		};
+		
 		if (conditions) {
 			options.params = {
-				condition: conditions
+				'conditions[]': conditions,
+				'types': types
 			}
 		}
+		
 		$scope.alerts = [];
-		// overlayLoading.show();
 		getSendDataFromServer($scope, ngDataApi, options, function (error, response) {
-			// overlayLoading.hide();
 			if (error) {
 				$scope.alerts.push({
 					'type': 'danger',
@@ -136,9 +136,8 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 				templateUrl: "loginPage.tmpl",
 				size: 'lg',
 				backdrop: true,
-				keyboard: false,
+				keyboard: true,
 				controller: function ($scope, $modalInstance) {
-					console.log($scope); // ToDelete #2del
 					$scope.go = function (path) {
 						if (path) {
 							$cookies.put("store_path", "/store", {'domain': interfaceDomain});
@@ -186,41 +185,19 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 			}
 		}
 		let condition = [];
-		let menu = {};
-		let test = [];
 		let types = ['cd', 'ci', '_infra', '_template'];
 		types.splice(types.indexOf(type), 1);
-		let conditions = {};
 		for (let i = 0; i < options.length; i++) {
 			condition.push({
 				"filters.category": options[i].split('__')[0],
 				"filters.option": options[i].split('__')[1]
 			});
 		}
-		condition.forEach((catalog) => {
-			if (!menu[catalog['filters.category']]) {
-				menu[catalog['filters.category']] = [];
-			}
-			menu[catalog['filters.category']].push(catalog['filters.option']);
-		});
-		
-		for (let i = 0; i < Object.keys(menu).length; i++) {
-			test.push({
-				$and: [{
-					'filters.category': Object.keys(menu)[i]
-				},
-					{
-						'filters.option': {$in: menu[Object.keys(menu)[i]]}
-					}],
-			})
-		}
-		//mongo query
-		conditions = {$and: [{$or: [{$and: test}, {$and: [{'type': {$in: types}}]}]}, {'published': true}]};
 		
 		if (condition && condition.length > 0) {
-			$scope.listAllCatalogs(conditions)
+			$scope.listAllCatalogs(condition, types)
 		} else {
-			$scope.listAllCatalogs({published: true})
+			$scope.listAllCatalogs()
 		}
 	};
 	
@@ -229,10 +206,10 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 		$scope.data = {
 			selected: {}
 		};
-		$scope.listAllCatalogs({published: true});
+		$scope.listAllCatalogs();
 	};
 	
-	$scope.listAllCatalogs({published: true});
+	$scope.listAllCatalogs();
 	
 	
 	function openSaveAsDialog(filename, content, mediaType) {
