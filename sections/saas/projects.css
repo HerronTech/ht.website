@@ -219,19 +219,22 @@ accordion h4 a {
     float:right;
 }
 
-#catalogs div.entryBoxes div.entryBox .body {
-    padding: 5px 15px;
-    max-height: 120px;
-    display:block;
+#catalogs div.entryBoxes div.entryBox .body,
+#catalogs div.entryBoxes div.entryBox .body2{
     cursor:pointer;
+}
+
+#catalogs div.entryBoxes div.entryBox .body .content{
+    padding: 5px 15px;
+    max-height: 0px;
+    display:block;
     overflow: hidden;
 }
 
-#catalogs div.entryBoxes div.entryBox .body2 {
+#catalogs div.entryBoxes div.entryBox .body2 .content{
     padding: 5px 15px;
     max-height: auto;
     display:table;
-    cursor:pointer;
 }
 
 #catalogs div.entryBoxes div.entryBox .footer{
