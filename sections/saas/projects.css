@@ -221,6 +221,17 @@ accordion h4 a {
 
 #catalogs div.entryBoxes div.entryBox .body {
     padding: 5px 15px;
+    max-height: 120px;
+    display:block;
+    cursor:pointer;
+    overflow: hidden;
+}
+
+#catalogs div.entryBoxes div.entryBox .body2 {
+    padding: 5px 15px;
+    max-height: auto;
+    display:table;
+    cursor:pointer;
 }
 
 #catalogs div.entryBoxes div.entryBox .footer{
@@ -229,6 +240,16 @@ accordion h4 a {
     width:98%;
     margin: 0 auto;
     display: table;
+}
+
+#catalogs div.entryBoxes div.entryBox .body2 .smallText,
+#catalogs div.entryBoxes div.entryBox .body .smallText{
+    font-size: 11px;
+}
+
+#catalogs div.entryBoxes div.entryBox .body2 .smallText label,
+#catalogs div.entryBoxes div.entryBox .body .smallText label{
+    color: rgb(65, 100, 126);
 }
 
 #catalogs div.entryBoxes div.entryBox .footer img {

@@ -1,191 +1,265 @@
 <div class="container inner">
-    <div ng-controller="storeCtrl">
-        <div ng-show="alerts && alerts.length > 0">
-            <alert ng-repeat="alert in alerts" type="{{alert.type}}">
-                {{alert.msg}}
-            </alert>
-            <br/>
-            <br/>
-        </div>
-        <div id="catalogs">
-            <tabset>
-                <tab heading="Catalog Recipes" ng-click="cleanFilter()">
-                    <br/>
-	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noCdCatalogs">
-		                <alert type="warning"><p>No Catalog Recipes available at the moment, come back soon</p></alert>
-	                </div>
-	                
-                    <div class="entryBoxes" ng-show="!noCdCatalogs">
-	                    <div class="col-sm-2 col-md-2 col-lg-2">
-	                        <div ng-repeat="(key, value) in leftMenu">
-	                            <div ng-if="key === 'cd'">
-	                                <div ng-repeat="(key2, value2) in value">
-	                                    <label>{{key2}}</label>
-	                                    <ul>
-		                                    <li ng-repeat="option in value[key2]">
-		                                        <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], 'cd')" />&nbsp;{{option}}
-		                                    </li>
-	                                    </ul>
-	                                    <br>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-sm-10 col-md-10 col-lg-10 vl">
-	                        <div ng-repeat="onectlg in catalogs.cd" class="entryBox">
-                                <div class="header">
-                                    <a href="" ng-click="download(onectlg._id)" tooltip="Download">
-                                        <span class="glyphicon glyphicon-cloud-download"></span>
-                                    </a>
-                                    {{onectlg.name}}
-                                </div>
-		                        <div class="body">
-			                        <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
-		                        </div>
-		                        <div class="footer">
-			                        <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
-				                        <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
-			                        </div>
-		                        </div>
-	                        </div>
-	                    </div>
-	                </div>
-                </tab>
-                <tab heading="CI Recipes" ng-click="cleanFilter()">
-                    <br/>
-	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noCiCatalogs">
-		                <alert type="warning"><p>No Continuous Integration Recipes available at the moment, come back soon</p></alert>
-	                </div>
-	                
-                    <div class="entryBoxes" ng-show="!noCiCatalogs">
-	                    <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div ng-repeat="(key, value) in leftMenu">
-                                <div ng-if="key === 'ci'">
-                                    <div ng-repeat="(key2, value2) in value">
-                                        <label>{{key2}}</label>
-                                        <ul>
-	                                        <li ng-repeat="option in value[key2]">
-		                                        <input name="{{key2}}" ng-model="data.selected[option]"  type="checkbox" ng-click="filter(key2, option, data.selected[option], 'ci')">&nbsp;{{option}}
-	                                        </li>
-                                        </ul>
-                                        <hr>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-	                    <div class="col-sm-10 col-md-10 col-lg-10 vl">
-                            <div ng-repeat="onectlg in catalogs.ci" class="entryBox">
-                                <div class="header">
-	                                <a href="" ng-click="download(onectlg._id)" tooltip="Download">
-		                                <span class="glyphicon glyphicon-cloud-download"></span>
-	                                </a>
-                                    {{onectlg.name}}
-                                </div>
-                                <div class="body">
-	                                <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
-                                </div>
-	                            <div class="footer">
-		                            <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
-			                            <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
-		                            </div>
-	                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </tab>
-                <tab heading="Environment Templates" ng-click="cleanFilter()">
-                    <br/>
-	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noTempCatalogs">
-		                <alert type="warning"><p>No Environment Templates available at the moment, come back soon</p></alert>
-	                </div>
-	                
-	                <div class="entryBoxes" ng-show="!noTempCatalogs">
-		                <div class="col-sm-2 col-md-2 col-lg-2">
-			                <div ng-repeat="(key, value) in leftMenu">
-				                <div ng-if="key === '_template'">
-					                <div ng-repeat="(key2, value2) in value">
-						                <label>{{key2}}</label>
-						                <ul>
-							                <li ng-repeat="option in value[key2]">
-								                <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_template')">&nbsp;{{option}}
-							                </li>
-						                </ul>
-						                <br>
-					                </div>
-				                </div>
-			                </div>
-		                </div>
-		                <div class="col-sm-10 col-md-10 col-lg-10 vl">
-			                <div ng-if="catalogs.envTemplate.length > 0">
-				                <div ng-repeat="onectlg in catalogs.envTemplate" class="entryBox">
-					                
-						                <div class="header">
-							                <a href="" ng-click="download(onectlg._id)" tooltip="Download">
-								                <span class="glyphicon glyphicon-cloud-download"></span>
-							                </a>
-							                {{onectlg.name}}
-						                </div>
-						                <div class="body">
-							                <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
-						                </div>
-					                    <div class="footer">
-						                    <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
-							                    <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
-						                    </div>
-					                    </div>
-				                </div>
-			                </div>
-		                </div>
-	                </div>
-                </tab>
-                <tab heading="Infra As Code Templates" ng-click="cleanFilter()">
-                    <br/>
-	                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="noInfraCatalogs">
-		                <alert type="warning"><p>No Infra As Code Templates available at the moment, come back soon</p></alert>
-	                </div>
-	                
-                    <div class="entryBoxes" ng-show="!noInfraCatalogs">
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div ng-repeat="(key, value) in leftMenu">
-                                <div ng-if="key === '_infra'">
-                                    <div ng-repeat="(key2, value2) in value">
-                                        <label>{{key2}}</label>
-	                                    <ul>
-	                                        <li ng-repeat="option in value[key2]">
-	                                            <input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_infra')">&nbsp;{{option}}
-	                                        </li>
-	                                    </ul>
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-10 col-md-10 col-lg-10 vl">
-                            <div ng-repeat="onectlg in catalogs.infra" class="entryBox">
-                                
-                                <div class="header">
-                                    <a href="" ng-click="download(onectlg._id)" tooltip="Download">
-                                        <span class="glyphicon glyphicon-cloud-download"></span>
-                                    </a>
-                                    {{onectlg.name}}
-                                </div>
-                                <div class="body">
-                                    <div ng-bind-html="onectlg.description | toTrustedHtml"></div>
-                                </div>
-	                            <div class="footer">
-		                            <div class="col-sm-2 col-md-3 col-lg-3" ng-repeat="oneLink in onectlg.icons">
-			                            <img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
-		                            </div>
-	                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </tab>
-            </tabset>
-        </div>
-    </div>
+	<div ng-controller="storeCtrl">
+		<div ng-show="alerts && alerts.length > 0">
+			<alert ng-repeat="alert in alerts" type="{{alert.type}}">
+				{{alert.msg}}
+			</alert>
+			<br/>
+			<br/>
+		</div>
+		<div id="catalogs">
+			<tabset>
+				<tab heading="Catalog Recipes" ng-click="cleanFilter()">
+					<br/>
+					<div class="col-sm-12 col-md-12 col-lg-12" ng-show="noCdCatalogs">
+						<alert type="warning">
+							<p>No Catalog Recipes available at the moment, come back soon</p>
+						</alert>
+					</div>
+					
+					<div class="entryBoxes" ng-show="!noCdCatalogs">
+						<div class="col-sm-3 col-md-3 col-lg-3">
+							<div ng-repeat="(key, value) in leftMenu">
+								<div ng-if="key === 'cd'">
+									<div ng-repeat="(key2, value2) in value">
+										<label>{{key2}}</label>
+										<ul>
+											<li ng-repeat="option in value[key2]">
+												<input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], 'cd')"/>&nbsp;{{option}}
+											</li>
+										</ul>
+										<br>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9 col-md-9 col-lg-9 vl">
+							<div class="col-sm-12 col-md-12 col-lg-12 text-right">
+								<div class="col-sm-8 col-md-8 col-lg-8">
+									<label>Filter</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<input type="text" ng-model="catSearch" placeholder="Type to filter recipes" class="form-control" ng-change="filterData(catSearch, 'cd');"/>
+								</div>
+								<br /><br />
+							</div>
+							<div ng-repeat="onectlg in catalogs.cd" class="entryBox">
+								<div class="header">
+									<a href="" ng-click="download(onectlg._id)" tooltip="Download">
+										<span class="glyphicon glyphicon-cloud-download"></span>
+									</a>
+									{{onectlg.name}}
+								</div>
+								<div ng-class="{'body': !onectlg.expanded, 'body2': onectlg.expanded}" ng-click="expandCollapse(onectlg);">
+									<div class="col-sm-12 col-md-12 col-lg-12 smallText">
+										<div class="col-sm-6 col-md-6 col-lg-6">
+											<label>Version:</label>&nbsp;{{onectlg.v}}
+										</div>
+										<div class="col-sm-6 col-md-6 col-lg-6 text-right">
+											<label>Last Modified:</label>&nbsp;{{onectlg.ts|date}}
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-12 col-lg-12" ng-bind-html="onectlg.description | toTrustedHtml"></div>
+								</div>
+								<div class="footer">
+									<div class="col-sm-2 col-md-2 col-lg-2" ng-repeat="oneLink in onectlg.icons">
+										<img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tab>
+				<tab heading="CI Recipes" ng-click="cleanFilter()">
+					<br/>
+					<div class="col-sm-12 col-md-12 col-lg-12" ng-show="noCiCatalogs">
+						<alert type="warning">
+							<p>No Continuous Integration Recipes available at the moment, come back soon</p>
+						</alert>
+					</div>
+					
+					<div class="entryBoxes" ng-show="!noCiCatalogs">
+						<div class="col-sm-3 col-md-3 col-lg-3">
+							<div ng-repeat="(key, value) in leftMenu">
+								<div ng-if="key === 'ci'">
+									<div ng-repeat="(key2, value2) in value">
+										<label>{{key2}}</label>
+										<ul>
+											<li ng-repeat="option in value[key2]">
+												<input name="{{key2}}" ng-model="data.selected[option]" type="checkbox" ng-click="filter(key2, option, data.selected[option], 'ci')">&nbsp;{{option}}
+											</li>
+										</ul>
+										<hr>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9 col-md-9 col-lg-9 vl">
+							<div class="col-sm-12 col-md-12 col-lg-12 text-right">
+								<div class="col-sm-8 col-md-8 col-lg-8">
+									<label>Filter</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<input type="text" ng-model="ciSearch" placeholder="Type to filter recipes" class="form-control" ng-keyup="filterData('ciSearch', 'ci');"/>
+								</div>
+								<br /><br />
+							</div>
+							<div ng-repeat="onectlg in catalogs.ci" class="entryBox">
+								<div class="header">
+									<a href="" ng-click="download(onectlg._id)" tooltip="Download">
+										<span class="glyphicon glyphicon-cloud-download"></span>
+									</a>
+									{{onectlg.name}}
+								</div>
+								<div ng-class="{'body': !onectlg.expanded, 'body2': onectlg.expanded}" ng-click="expandCollapse(onectlg);">
+									<div class="col-sm-12 col-md-12 col-lg-12 smallText">
+										<div class="col-sm-6 col-md-6 col-lg-6">
+											<label>Version:</label>&nbsp;{{onectlg.v}}
+										</div>
+										<div class="col-sm-6 col-md-6 col-lg-6 text-right">
+											<label>Last Modified:</label>&nbsp;{{onectlg.ts|date}}
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-12 col-lg-12" ng-bind-html="onectlg.description | toTrustedHtml"></div>
+								</div>
+								<div class="footer">
+									<div class="col-sm-2 col-md-2 col-lg-2" ng-repeat="oneLink in onectlg.icons">
+										<img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tab>
+				<tab heading="Environment Templates" ng-click="cleanFilter()">
+					<br/>
+					<div class="col-sm-12 col-md-12 col-lg-12" ng-show="noTempCatalogs">
+						<alert type="warning">
+							<p>No Environment Templates available at the moment, come back soon</p>
+						</alert>
+					</div>
+					
+					<div class="entryBoxes" ng-show="!noTempCatalogs">
+						<div class="col-sm-3 col-md-3 col-lg-3">
+							<div ng-repeat="(key, value) in leftMenu">
+								<div ng-if="key === '_template'">
+									<div ng-repeat="(key2, value2) in value">
+										<label>{{key2}}</label>
+										<ul>
+											<li ng-repeat="option in value[key2]">
+												<input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_template')">&nbsp;{{option}}
+											</li>
+										</ul>
+										<br>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9 col-md-9 col-lg-9 vl">
+							<div class="col-sm-12 col-md-12 col-lg-12 text-right">
+								<div class="col-sm-8 col-md-8 col-lg-8">
+									<label>Filter</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<input type="text" ng-model="envSearch" placeholder="Type to filter recipes" class="form-control" ng-keyup="filterData('envSearch', 'envTemplate');"/>
+								</div>
+								<br /><br />
+							</div>
+							<div ng-if="catalogs.envTemplate.length > 0">
+								<div ng-repeat="onectlg in catalogs.envTemplate" class="entryBox">
+									
+									<div class="header">
+										<a href="" ng-click="download(onectlg._id)" tooltip="Download">
+											<span class="glyphicon glyphicon-cloud-download"></span>
+										</a>
+										{{onectlg.name}}
+									</div>
+									<div ng-class="{'body': !onectlg.expanded, 'body2': onectlg.expanded}" ng-click="expandCollapse(onectlg);">
+										<div class="col-sm-12 col-md-12 col-lg-12 smallText">
+											<div class="col-sm-6 col-md-6 col-lg-6">
+												<label>Version:</label>&nbsp;{{onectlg.v}}
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 text-right">
+												<label>Last Modified:</label>&nbsp;{{onectlg.ts|date}}
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12" ng-bind-html="onectlg.description | toTrustedHtml"></div>
+									</div>
+									<div class="footer">
+										<div class="col-sm-2 col-md-2 col-lg-2" ng-repeat="oneLink in onectlg.icons">
+											<img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tab>
+				<tab heading="Infra As Code Templates" ng-click="cleanFilter()">
+					<br/>
+					<div class="col-sm-12 col-md-12 col-lg-12" ng-show="noInfraCatalogs">
+						<alert type="warning">
+							<p>No Infra As Code Templates available at the moment, come back soon</p>
+						</alert>
+					</div>
+					
+					<div class="entryBoxes" ng-show="!noInfraCatalogs">
+						<div class="col-sm-3 col-md-3 col-lg-3">
+							<div ng-repeat="(key, value) in leftMenu">
+								<div ng-if="key === '_infra'">
+									<div ng-repeat="(key2, value2) in value">
+										<label>{{key2}}</label>
+										<ul>
+											<li ng-repeat="option in value[key2]">
+												<input type="checkbox" ng-model="data.selected[option]" ng-click="filter(key2, option, data.selected[option], '_infra')">&nbsp;{{option}}
+											</li>
+										</ul>
+										<br>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9 col-md-9 col-lg-9 vl">
+							<div class="col-sm-12 col-md-12 col-lg-12 text-right">
+								<div class="col-sm-8 col-md-8 col-lg-8">
+									<label>Filter</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4">
+									<input type="text" ng-model="infraSearch" placeholder="Type to filter recipes" class="form-control" ng-keyup="filterData('infraSearch', 'infra');"/>
+								</div>
+								<br /><br />
+							</div>
+							<div ng-repeat="onectlg in catalogs.infra" class="entryBox">
+								<div class="header">
+									<a href="" ng-click="download(onectlg._id)" tooltip="Download">
+										<span class="glyphicon glyphicon-cloud-download"></span>
+									</a>
+									{{onectlg.name}}
+								</div>
+								<div ng-class="{'body': !onectlg.expanded, 'body2': onectlg.expanded}" ng-click="expandCollapse(onectlg);">
+									<div class="col-sm-12 col-md-12 col-lg-12 smallText">
+										<div class="col-sm-6 col-md-6 col-lg-6">
+											<label>Version:</label>&nbsp;{{onectlg.v}}
+										</div>
+										<div class="col-sm-6 col-md-6 col-lg-6 text-right">
+											<label>Last Modified:</label>&nbsp;{{onectlg.ts|date}}
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-12 col-lg-12" ng-bind-html="onectlg.description | toTrustedHtml"></div>
+								</div>
+								<div class="footer">
+									<div class="col-sm-2 col-md-2 col-lg-2" ng-repeat="oneLink in onectlg.icons">
+										<img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tab>
+			</tabset>
+		</div>
+	</div>
 </div>
-
 
 <script type="text/ng-template" id="loginPage.tmpl">
 	<div id="catalogsModal">
@@ -197,7 +271,8 @@
 					In order to download <b>recipes</b> and <b>templates</b> from the Store, you need to be logged in.
 				</p>
 				<p style="color:black;">
-					If you do not have an account, you can register for free then come back to the store and download what you need.
+					If you do not have an account, you can register for free then come back to the store and download
+					what you need.
 				</p>
 			</alert>
 		</div>

@@ -15,6 +15,11 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 		selected: {}
 	};
 	
+	$scope.catSearch = '';
+	$scope.ciSearch = '';
+	$scope.envSearch = '';
+	$scope.infraSearch = '';
+	
 	let username = $cookies.getObject('soajs_username', { 'domain': interfaceDomain });
 	$scope.isUserLoggedIn = (username && username !== '');
 	
@@ -69,6 +74,7 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 				};
 				let ci = [];
 				response.forEach((oneCtlg) => {
+					oneCtlg.expanded = false;
 					if (oneCtlg.type === 'ci') {
 						$scope.catalogs.ci.push(oneCtlg);
 					}
@@ -99,6 +105,10 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 				}
 			}
 		});
+	};
+	
+	$scope.expandCollapse = function(onectlg){
+		onectlg.expanded = !onectlg.expanded;
 	};
 	
 	$scope.manageLeftMenu = function () {
@@ -207,6 +217,37 @@ accountApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', 'ngDataApi
 			selected: {}
 		};
 		$scope.listAllCatalogs();
+	};
+	
+	$scope.filterData = function(searchKeywordName, catalogType){
+		
+		//rebuild the array based on matching entries
+		let keyword = searchKeywordName || '';
+		
+		if(keyword === '' && $scope.catalogsBackup && $scope.catalogsBackup[catalogType]){
+			$scope.catalogs[catalogType] = $scope.catalogsBackup[catalogType];
+			delete $scope.catalogsBackup[catalogType];
+		}
+		else if(keyword.length > 0){
+			if(!$scope.catalogsBackup){
+				$scope.catalogsBackup = {};
+			}
+			
+			if(!$scope.catalogsBackup[catalogType]){
+				$scope.catalogsBackup[catalogType] = angular.copy($scope.catalogs[catalogType]);
+			}
+			else{
+				$scope.catalogs[catalogType] = angular.copy($scope.catalogsBackup[catalogType]);
+			}
+			
+			for(let i = $scope.catalogs[catalogType].length -1; i >=0; i--){
+				if( $scope.catalogs[catalogType][i].name.toLowerCase().indexOf(keyword.toLowerCase()) === -1 &&
+					$scope.catalogs[catalogType][i].description.toLowerCase().indexOf(keyword.toLowerCase()) === -1
+				){
+					$scope.catalogs[catalogType].splice(i, 1);
+				}
+			}
+		}
 	};
 	
 	$scope.listAllCatalogs();
