@@ -16,7 +16,7 @@ accountApp.controller('memberProjectsCtrl', ['$scope', '$cookies', '$http', '$ti
 		$scope.access = {
 			members: {}
 		};
-		constructModulePermissions($scope, $scope.access.members, membersConfig.permissions);
+		constructModulePermissions($scope, $localStorage, $scope.access.members, membersConfig.permissions);
 		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {

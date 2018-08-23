@@ -538,4 +538,3 @@ var groupsConfig = {
 		]
 	}
 };
-console.log(groupsConfig);

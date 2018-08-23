@@ -60,8 +60,8 @@ app.config([
 	}
 ]);
 
-app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '$cookies', '$localStorage', 'ngDataApi', 'checkApiHasAccess',
-	function ($scope, $location, $routeParams, $timeout, $cookies, $localStorage, ngDataApi, checkApiHasAccess) {
+app.controller('mainCtrl', ['$scope', '$location', '$routeParams', '$timeout', '$cookies', '$localStorage', 'ngDataApi',
+	function ($scope, $location, $routeParams, $timeout, $cookies, $localStorage, ngDataApi) {
 		$scope.translation = translation;
 		$scope.pageTitle = "";
 		$scope.isLoggedInUser = false;

@@ -9,8 +9,7 @@ accountApp.controller('allUsersCtrl', ['$scope', '$timeout', '$cookies', '$local
 		}
 		
 		$scope.access = {};
-		constructModulePermissions($scope, $scope.access, membersConfig.permissions);
-		
+		constructModulePermissions($scope, $localStorage, $scope.access, membersConfig.permissions);
 		$scope.userCookie = $localStorage.soajs_user;
 		
 		$scope.alerts = [];
