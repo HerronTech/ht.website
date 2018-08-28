@@ -49,7 +49,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', '$modal', fun
 		if($scope.contact.captcha){
 			$http({
 				method: 'POST',
-				url: protocol + '//cloud-api.' + mydomain + '/projects/contact',
+				url: 'https://cloud-api.soajs.io/projects/contact',
 				data: $scope.contact,
 				headers: { 'Content-Type': 'application/json', key: myKey }
 			}).success(function (data, status, headers, config) {
