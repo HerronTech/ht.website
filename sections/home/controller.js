@@ -10,7 +10,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', '$modal', fun
     // };
     // $scope.$parent.$emit('refreshPageTitle', pageData);
 	
-	$scope.captchaKey = "6LfA6ykUAAAAAJlJ9MDpdGKL2HuKK9JvC5UUWzq5";
+	$scope.captchaKey = "6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj";
 	
 	$scope.alerts = [];
 	
