@@ -1,14 +1,16 @@
 "use strict";
 
-function buildPermittedOperationEnv(localStorage, serviceName, routePath, method, env, cb) {
-	
+/**
+ * build the access permissions of a module from permissionsObj
+ */
+function constructModulePermissions(scope, localStorage, access, permissionsObj, forceEnv) {
 	function checkApiHasAccess(aclObject, serviceName, routePath, method, userGroups, callback) {
 		var environments = Object.keys(aclObject);
 		return validateAccess(environments, 0, callback);
-		
+
 		function validateAccess(environments, i, cb) {
 			var envCode = environments[i].toLowerCase();
-			
+
 			if (!aclObject[envCode] || !aclObject[envCode][serviceName]) {
 				i++;
 				if (i === environments.length) {
@@ -29,7 +31,7 @@ function buildPermittedOperationEnv(localStorage, serviceName, routePath, method
 				}
 			}
 		}
-		
+
 		function checkSystem(system) {
 			function getAclObj(aclObj) {
 				if (aclObj && (aclObj.apis || aclObj.apisRegExp)) {
@@ -63,11 +65,11 @@ function buildPermittedOperationEnv(localStorage, serviceName, routePath, method
 					return aclObj;
 				}
 			}
-			
+
 			system = getAclObj(system);
-			
+
 			var api = (system && system.apis ? system.apis[routePath] : null);
-			
+
 			if (!api && system && system.apisRegExp && Object.keys(system.apisRegExp).length) {
 				for (var jj = 0; jj < system.apisRegExp.length; jj++) {
 					if (system.apisRegExp[jj].regExp && routePath.match(system.apisRegExp[jj].regExp)) {
@@ -93,7 +95,7 @@ function buildPermittedOperationEnv(localStorage, serviceName, routePath, method
 				}
 				return api_checkPermission(system, userGroups, api);
 			}
-			
+
 			if (api || (system && system.apisPermission === 'restricted')) {
 				return api_checkPermission(system, userGroups, api);
 			}
@@ -101,7 +103,7 @@ function buildPermittedOperationEnv(localStorage, serviceName, routePath, method
 				return true;
 			}
 		}
-		
+
 		function api_checkPermission(system, userGroups, api) {
 			if ('restricted' === system.apisPermission) {
 				if (!api) {
@@ -112,20 +114,20 @@ function buildPermittedOperationEnv(localStorage, serviceName, routePath, method
 			if (!api) {
 				return true;
 			}
-			
+
 			return api_checkAccess(api.access, userGroups);
 		}
-		
+
 		function api_checkAccess(apiAccess, userGroups) {
 			if (!apiAccess) {
 				return true;
 			}
-			
+
 			if (apiAccess instanceof Array) {
 				if (!userGroups) {
 					return false;
 				}
-				
+
 				var found = false;
 				for (var ii = 0; ii < userGroups.length; ii++) {
 					if (apiAccess.indexOf(userGroups[ii]) !== -1) {
@@ -141,29 +143,26 @@ function buildPermittedOperationEnv(localStorage, serviceName, routePath, method
 		}
 	}
 	
-	var user = localStorage.soajs_user;
-	if (user) {
-		var userGroups = user.groups;
-		var acl = {};
-		if (localStorage.acl_access) {
-			acl[env.toLowerCase()] = localStorage.acl_access[env.toLowerCase()];
-			
-			checkApiHasAccess(acl, serviceName, routePath, method, userGroups, function (access) {
-				return cb(access);
-			});
-		} else {
+	function buildPermittedOperationEnv(localStorage, serviceName, routePath, method, env, cb) {
+		var user = localStorage.soajs_user;
+		if (user) {
+			var userGroups = user.groups;
+			var acl = {};
+			if (localStorage.acl_access) {
+				acl[env.toLowerCase()] = localStorage.acl_access[env.toLowerCase()];
+
+				checkApiHasAccess(acl, serviceName, routePath, method, userGroups, function (access) {
+					return cb(access);
+				});
+			} else {
+				return cb(false);
+			}
+		}
+		else {
 			return cb(false);
 		}
 	}
-	else {
-		return cb(false);
-	}
-}
 
-/**
- * build the access permissions of a module from permissionsObj
- */
-function constructModulePermissions(scope, localStorage, access, permissionsObj, forceEnv) {
 	for (var permission in permissionsObj) {
 		if (Array.isArray(permissionsObj[permission])) {
 			var env = 'dashboard';

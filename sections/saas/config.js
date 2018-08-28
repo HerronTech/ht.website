@@ -457,7 +457,6 @@ var membersConfig = {
 			'list': ['urac', '/admin/listUsers', 'get'],
 			'changeStatusAccess': ['urac', '/admin/changeUserStatus', 'get'],
 			'editUser': ['urac', '/admin/editUser', 'post'],
-			// 'editUserConfig': ['urac', '/admin/editUserConfig', 'post'],
 			'addUser': ['urac', '/admin/addUser', 'post']
 		},
 		'adminGroup': {
