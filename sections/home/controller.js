@@ -52,7 +52,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', '$modal', fun
 				method: 'POST',
 				url: address + '/herrontech/contact',
 				data: $scope.contact,
-				headers: { 'Content-Type': 'application/json', key: myKey }
+				headers: { 'Content-Type': 'application/json' }
 			}).success(function (data, status, headers, config) {
 				if (data.result === true) {
 					$scope.contact = {
