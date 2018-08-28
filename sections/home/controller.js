@@ -47,7 +47,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$http', '$timeout', '$modal', fun
 	$scope.sendContact = function(){
 		$scope.alerts.push({ 'type': 'warning', 'msg': "Your message is being sent, please wait ..." });
 		if($scope.contact.captcha){
-			let address = window.location.protocol + "://" + window.location.port + "api.herrontech.com";
+			let address = window.location.protocol + "://api.herrontech.com:" + window.location.port;
 			$http({
 				method: 'POST',
 				url: address + '/herrontech/contact',
