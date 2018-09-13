@@ -53,14 +53,6 @@ var navigation = [
 		'scripts': ['sections/modernize/controller.js']
 	},
 	{
-		'id': 'platform',
-		'label': 'Our Platform',
-		'title': 'Herron Tech | Our Platform',
-		'url': '/platform',
-		'tplPath': 'sections/platform/page.html',
-		'scripts': ['sections/platform/controller.js']
-	},
-	{
 		'id': 'members',
 		'label': 'Member Area',
 		'title': 'Herron Tech | Member Area',
