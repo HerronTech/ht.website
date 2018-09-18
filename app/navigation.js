@@ -53,118 +53,12 @@ var navigation = [
 		'scripts': ['sections/modernize/controller.js']
 	},
 	{
-		'id': 'platform',
-		'label': 'Our Platform',
-		'title': 'Herron Tech | Our Platform',
-		'url': '/platform',
-		'tplPath': 'sections/platform/page.html',
-		'scripts': ['sections/platform/controller.js']
-	},
-	{
-		'id': 'projects',
-		'title': 'Herron Tech | Projects',
-		'url': '/members/projects',
-		'tplPath': 'sections/saas/members/projects/directives/list.html',
-		'scripts': [
-			'sections/saas/config.js',
-			'sections/saas/members/projects/controller.js'
-		]
-	},
-	{
-		'id': 'projectAdd',
-		'title': 'Herron Tech | Add Project',
-		'url': '/members/project/add',
-		'tplPath': 'sections/saas/members/projects/directives/add.html',
-		'scripts': ['sections/saas/members/projects/controller.js']
-	},
-	{
-		'id': 'membersChart',
-		'title': 'Herron Tech | Org Chart',
-		'url': '/members/orgChart',
-		'tplPath': 'sections/saas/members/account/directives/orgChart.html',
-		'scripts': [
-			'sections/saas/config.js',
-			'sections/saas/members/account/services/members.js',
-			'sections/saas/members/account/services/groups.js',
-			'sections/saas/members/account/orgChart.js'
-		]
-	},
-	{
-		'id': 'profile',
-		'label': 'Login',
-		'title': 'Herron Tech | My Account',
-		'url': '/members/profile',
-		'tplPath': 'sections/saas/members/account/directives/profile.html',
-		'scripts': [
-			'sections/saas/config.js',
-			'sections/saas/members/account/controller.js'
-		]
-	},
-	// {
-	// 	'id': 'billing',
-	// 	'label': 'Login',
-	// 	'title': 'Herron Tech | Billing',
-	// 	'url': '/members/billing',
-	// 	'tplPath': 'sections/saas/members/account/billing.html',
-	// 	'scripts': ['sections/saas/config.js', 'sections/saas/members/account/controller.js']
-	// },
-	{
-		'id': 'register',
-		'label': 'Register',
-		'title': 'Herron Tech | Join',
-		'url': '/members/register',
-		'tplPath': 'sections/saas/register/page.html',
-		'scripts': ['sections/saas/register/controller.js']
-	},
-	{
-		'id': 'forgetPw',
-		'title': 'Herron Tech | Forget Password',
-		'url': '/members/forgetPw',
-		'tplPath': 'sections/saas/login/forgetPw.html',
-		'scripts': [
-			'sections/saas/config.js',
-			'sections/saas/login/controller.js'
-		]
-	},
-	{
-		'id': 'resetPw',
-		'title': 'Herron Tech | Reset Password',
-		'url': '/members/resetPw',
-		'tplPath': 'sections/saas/login/resetPw.html',
-		'scripts': ['sections/saas/config.js', 'sections/saas/login/controller.js']
-	},
-	{
-		'id': 'setPw',
-		'title': 'Herron Tech | Set Password',
-		'url': '/members/newPw',
-		'tplPath': 'sections/saas/login/setNewPw.html',
-		'scripts': ['sections/saas/config.js', 'sections/saas/login/controller.js']
-	},
-	{
-		'id': 'validateEmail',
-		'title': 'Herron Tech | Validate Email',
-		'url': '/members/validateEmail',
-		'tplPath': 'sections/saas/login/validate.html',
-		'scripts': ['sections/saas/config.js', 'sections/saas/login/controller.js']
-	},
-	{
-		'id': 'memberarea',
-		'label': 'Register',
-		'title': 'Join Herron Tech',
-		'url': '/memberarea',
-		'tplPath': 'sections/saas/register/page.html',
-		'scripts': ['sections/saas/register/controller.js']
-	},
-	{
-		'id': 'login',
-		'label': 'Login',
-		'title': 'Herron Tech | Login',
-		'url': '/members/login',
-		'tplPath': 'sections/saas/login/login.html',
-		'scripts': [
-			'sections/saas/config.js',
-			'sections/saas/login/controller.js'
-		]
+		'id': 'members',
+		'label': 'Member Area',
+		'title': 'Herron Tech | Member Area',
+		'url': '/members',
+		'tplPath': 'sections/members/page.html',
+		'scripts': ['sections/members/controller.js']
 	}
 
 
