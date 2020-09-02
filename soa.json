@@ -1,0 +1,8 @@
+{
+  "name": "herrontech",
+  "type": "static",
+  "group": "Website",
+  "subType": "soajs",
+  "version": "1",
+  "description": "This is the herrontech.com website"
+}

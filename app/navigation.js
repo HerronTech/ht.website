@@ -52,14 +52,14 @@ var navigation = [
 		'tplPath': 'sections/modernize/page.html',
 		'scripts': ['sections/modernize/controller.js']
 	},
-	{
-		'id': 'members',
-		'label': 'Member Area',
-		'title': 'Herron Tech | Member Area',
-		'url': '/members',
-		'tplPath': 'sections/members/page.html',
-		'scripts': ['sections/members/controller.js']
-	}
+	// {
+	// 	'id': 'members',
+	// 	'label': 'Member Area',
+	// 	'title': 'Herron Tech | Member Area',
+	// 	'url': '/members',
+	// 	'tplPath': 'sections/members/page.html',
+	// 	'scripts': ['sections/members/controller.js']
+	// }
 
 
 ];
